@@ -81,62 +81,66 @@ const Contact = () => {
             {/* Contact Form */}
             <div className="bg-white p-8 rounded-lg shadow-md">
               <h2 className="text-2xl font-bold mb-6">发送消息</h2>
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form
+                action="https://formspree.io/f/xjkrwloz"
+                method="POST"
+                encType="multipart/form-data"
+                className="space-y-6"
+              >
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-                    姓名
-                  </label>
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">姓名</label>
                   <input
                     type="text"
-                    id="name"
                     name="name"
-                    value={formData.name}
-                    onChange={handleChange}
+                    id="name"
                     required
                     className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-[#086c7b] focus:border-[#086c7b]"
+                    placeholder="请输入您的姓名"
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                    电子邮箱
-                  </label>
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">电子邮箱</label>
                   <input
                     type="email"
-                    id="email"
                     name="email"
-                    value={formData.email}
-                    onChange={handleChange}
+                    id="email"
                     required
                     className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-[#086c7b] focus:border-[#086c7b]"
+                    placeholder="请输入您的邮箱"
                   />
                 </div>
                 <div>
-                  <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">
-                    主题
-                  </label>
+                  <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">主题</label>
                   <input
                     type="text"
-                    id="subject"
                     name="subject"
-                    value={formData.subject}
-                    onChange={handleChange}
+                    id="subject"
                     required
                     className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-[#086c7b] focus:border-[#086c7b]"
+                    placeholder="请输入主题"
                   />
                 </div>
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-                    留言内容
-                  </label>
+                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">留言内容</label>
                   <textarea
-                    id="message"
                     name="message"
-                    value={formData.message}
-                    onChange={handleChange}
+                    id="message"
                     required
                     rows="4"
                     className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-[#086c7b] focus:border-[#086c7b]"
+                    placeholder="请输入您的留言内容"
                   ></textarea>
+                </div>
+                <div>
+                  <label htmlFor="resume" className="block text-sm font-medium text-gray-700 mb-1">上传简历（PDF）</label>
+                  <input
+                    type="file"
+                    name="resume"
+                    id="resume"
+                    accept=".pdf"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-md"
+                  />
+                  <p className="text-xs text-gray-400 mt-1">仅支持PDF格式，最大5MB。</p>
                 </div>
                 <button
                   type="submit"

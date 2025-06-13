@@ -1,0 +1,108 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "products": "Products",
+    "products_sub": {
+      "containers": "Container Products",
+      "pipes": "Pipe Components",
+      "heat_exchangers": "Heat Exchanger Products",
+      "solutions": "Solutions",
+      "highlights": "Highlights"
+    },
+    "careers": "Careers",
+    "contact": "Contact Us"
+  },
+  "home": {
+    "hero": {
+      "title": "Qingdao Kaituo Longhai Refrigeration Parts Co., Ltd.",
+      "subtitle": "Professional manufacturer of air conditioning system components, providing high-quality products for world-renowned air conditioning companies",
+      "cta": {
+        "primary": "Explore Products",
+        "secondary": "Contact Us"
+      }
+    },
+    "features": {
+      "title": "Our Advantages",
+      "subtitle": "20 years of expertise in air conditioning system components, serving global customers with professional quality",
+      "items": [
+        {
+          "title": "Professional Manufacturing",
+          "description": "20 years of focus on air conditioning system components, equipped with advanced production equipment and technology",
+          "icon": "<svg class='w-12 h-12' fill='none' stroke='currentColor' viewBox='0 0 24 24'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M13 10V3L4 14h7v7l9-11h-7z'/></svg>"
+        },
+        {
+          "title": "Quality Assurance",
+          "description": "Certified by ISO9001 quality management system, stable and reliable product quality",
+          "icon": "<svg class='w-12 h-12' fill='none' stroke='currentColor' viewBox='0 0 24 24'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z'/></svg>"
+        },
+        {
+          "title": "Technological Innovation",
+          "description": "Municipal enterprise technology center, continuous innovation, providing high-quality solutions for customers",
+          "icon": "<svg class='w-12 h-12' fill='none' stroke='currentColor' viewBox='0 0 24 24'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z'/></svg>"
+        }
+      ]
+    },
+    "showcase": {
+      "title": "Corporate Strength",
+      "subtitle": "20 years of focus on air conditioning system components, building a modern enterprise leading the industry",
+      "items": [
+        {
+          "title": "Modern Factory",
+          "description": "51,000㎡ factory, 43,000㎡ building area, equipped with advanced production equipment",
+          "image": "/images/factory.jpg"
+        },
+        {
+          "title": "Professional Production Line",
+          "description": "Fully automated production line, annual capacity: 3.2 million containers, 5,000 tons of copper fittings, 2,000 tons of damping blocks",
+          "image": "/images/production.jpg"
+        },
+        {
+          "title": "R&D Center",
+          "description": "Municipal enterprise technology center, university-enterprise R&D platform, continuous innovation-driven development",
+          "image": "/images/rd.jpg"
+        }
+      ]
+    },
+    "products": {
+      "title": "Product Center",
+      "subtitle": "Professional production of various air conditioning system components, providing supporting services for world-renowned air conditioning companies",
+      "items": [
+        {
+          "title": "Container Products",
+          "description": "Professional production of various air conditioning system receivers, gas-liquid separators, and other container products",
+          "image": "/images/containers.jpg",
+          "link": "/products/containers"
+        },
+        {
+          "title": "Pipe Components",
+          "description": "Production of various copper fittings, damping blocks, and other pipe system accessories",
+          "image": "/images/pipes.jpg",
+          "link": "/products/pipes"
+        },
+        {
+          "title": "Heat Exchanger Products",
+          "description": "Providing various heat exchanger products to meet different application needs",
+          "image": "/images/heat_exchangers.jpg",
+          "link": "/products/heat-exchangers"
+        }
+      ],
+      "more": "View More Products"
+    },
+    "partners": {
+      "title": "Partners",
+      "subtitle": "Establishing long-term strategic partnerships with world-renowned air conditioning companies",
+      "items": [
+        { "name": "Gree", "logo": "/images/partner1.png" },
+        { "name": "Midea", "logo": "/images/partner2.png" },
+        { "name": "Haier", "logo": "/images/partner3.png" }
+      ]
+    },
+    "cta": {
+      "title": "Looking Forward to Cooperating with You",
+      "subtitle": "We are committed to providing customers with high-quality air conditioning system components and look forward to establishing long-term cooperation with you",
+      "contact": "Contact Us",
+      "solutions": "Learn About Solutions"
+    }
+  }
+} 

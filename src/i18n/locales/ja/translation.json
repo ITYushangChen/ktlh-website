@@ -1,0 +1,108 @@
+{
+  "nav": {
+    "home": "ホーム",
+    "about": "会社概要",
+    "products": "製品センター",
+    "products_sub": {
+      "containers": "容器製品",
+      "pipes": "配管部品",
+      "heat_exchangers": "熱交換器製品",
+      "solutions": "ソリューション",
+      "highlights": "製品の特長"
+    },
+    "careers": "採用情報",
+    "contact": "お問い合わせ"
+  },
+  "home": {
+    "hero": {
+      "title": "青島開拓隆海冷凍部品有限公司",
+      "subtitle": "空調システム部品の専門メーカーとして、世界的に有名な空調企業に高品質な製品を提供",
+      "cta": {
+        "primary": "製品を見る",
+        "secondary": "お問い合わせ"
+      }
+    },
+    "features": {
+      "title": "当社の強み",
+      "subtitle": "20年にわたり空調システム部品に注力し、プロフェッショナルな品質で世界中のお客様にサービスを提供",
+      "items": [
+        {
+          "title": "専門的な製造",
+          "description": "20年にわたり空調システム部品に注力し、先進的な生産設備と技術を保有",
+          "icon": "<svg class='w-12 h-12' fill='none' stroke='currentColor' viewBox='0 0 24 24'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M13 10V3L4 14h7v7l9-11h-7z'/></svg>"
+        },
+        {
+          "title": "品質保証",
+          "description": "ISO9001品質管理システム認証取得、安定した高品質な製品を提供",
+          "icon": "<svg class='w-12 h-12' fill='none' stroke='currentColor' viewBox='0 0 24 24'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z'/></svg>"
+        },
+        {
+          "title": "技術革新",
+          "description": "市級企業技術センター、継続的なイノベーションでお客様に高品質なソリューションを提供",
+          "icon": "<svg class='w-12 h-12' fill='none' stroke='currentColor' viewBox='0 0 24 24'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z'/></svg>"
+        }
+      ]
+    },
+    "showcase": {
+      "title": "企業の実力",
+      "subtitle": "20年にわたり空調システム部品に注力し、業界をリードする現代的な企業を構築",
+      "items": [
+        {
+          "title": "近代的な工場",
+          "description": "51,000㎡の工場、43,000㎡の建物面積、先進的な生産設備を完備",
+          "image": "/images/factory.jpg"
+        },
+        {
+          "title": "専門的な生産ライン",
+          "description": "全自動生産ライン、年間生産能力：容器320万台、銅管部品5,000トン、ダンピングブロック2,000トン",
+          "image": "/images/production.jpg"
+        },
+        {
+          "title": "研究開発センター",
+          "description": "市級企業技術センター、産学連携の研究開発プラットフォーム、継続的なイノベーション推進",
+          "image": "/images/rd.jpg"
+        }
+      ]
+    },
+    "products": {
+      "title": "製品センター",
+      "subtitle": "各種空調システム部品を専門的に生産し、世界的に有名な空調企業にサービスを提供",
+      "items": [
+        {
+          "title": "容器製品",
+          "description": "各種空調システム用レシーバー、ガス液分離器などの容器製品を専門的に生産",
+          "image": "/images/containers.jpg",
+          "link": "/products/containers"
+        },
+        {
+          "title": "配管部品",
+          "description": "各種銅管部品、ダンピングブロックなどの配管システム部品を生産",
+          "image": "/images/pipes.jpg",
+          "link": "/products/pipes"
+        },
+        {
+          "title": "熱交換器製品",
+          "description": "さまざまな用途に対応する熱交換器製品を提供",
+          "image": "/images/heat_exchangers.jpg",
+          "link": "/products/heat-exchangers"
+        }
+      ],
+      "more": "さらに製品を見る"
+    },
+    "partners": {
+      "title": "パートナー",
+      "subtitle": "世界的に有名な空調企業と長期的な戦略的パートナーシップを構築",
+      "items": [
+        { "name": "グリー", "logo": "/images/partner1.png" },
+        { "name": "美的", "logo": "/images/partner2.png" },
+        { "name": "ハイアール", "logo": "/images/partner3.png" }
+      ]
+    },
+    "cta": {
+      "title": "ご協力をお待ちしております",
+      "subtitle": "高品質な空調システム部品をお客様に提供し、長期的な協力関係を築くことを目指しています",
+      "contact": "お問い合わせ",
+      "solutions": "ソリューションを見る"
+    }
+  }
+} 

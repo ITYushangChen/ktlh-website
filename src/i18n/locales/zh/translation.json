@@ -1,0 +1,108 @@
+{
+  "nav": {
+    "home": "首页",
+    "about": "关于我们",
+    "products": "产品中心",
+    "products_sub": {
+      "containers": "容器类产品",
+      "pipes": "管路件类产品",
+      "heat_exchangers": "换热器类产品",
+      "solutions": "解决方案",
+      "highlights": "产品亮点"
+    },
+    "careers": "招贤纳士",
+    "contact": "联系我们"
+  },
+  "home": {
+    "hero": {
+      "title": "青岛开拓隆海制冷配件有限公司",
+      "subtitle": "专业空调系统元件制造商，为全球知名空调企业提供优质产品",
+      "cta": {
+        "primary": "了解产品",
+        "secondary": "联系我们"
+      }
+    },
+    "features": {
+      "title": "我们的优势",
+      "subtitle": "20年专注空调系统元件制造，以专业品质服务全球客户",
+      "items": [
+        {
+          "title": "专业制造",
+          "description": "20年专注空调系统元件制造，拥有先进的生产设备和工艺",
+          "icon": "<svg class='w-12 h-12' fill='none' stroke='currentColor' viewBox='0 0 24 24'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M13 10V3L4 14h7v7l9-11h-7z'/></svg>"
+        },
+        {
+          "title": "品质保证",
+          "description": "通过ISO9001质量管理体系认证，产品品质稳定可靠",
+          "icon": "<svg class='w-12 h-12' fill='none' stroke='currentColor' viewBox='0 0 24 24'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z'/></svg>"
+        },
+        {
+          "title": "技术创新",
+          "description": "市级企业技术中心，持续创新，为客户提供优质解决方案",
+          "icon": "<svg class='w-12 h-12' fill='none' stroke='currentColor' viewBox='0 0 24 24'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z'/></svg>"
+        }
+      ]
+    },
+    "showcase": {
+      "title": "企业实力",
+      "subtitle": "20年专注空调系统元件制造，打造行业领先的现代化企业",
+      "items": [
+        {
+          "title": "现代化厂区",
+          "description": "5.1万平方米厂区，4.3万平方米建筑面积，配备先进生产设备",
+          "image": "/images/factory.jpg"
+        },
+        {
+          "title": "专业生产线",
+          "description": "全自动化生产线，年产能：容器320万台，铜管件5000吨，阻尼块2000吨",
+          "image": "/images/production.jpg"
+        },
+        {
+          "title": "研发中心",
+          "description": "市级企业技术中心，校企合作研发平台，持续创新驱动发展",
+          "image": "/images/rd.jpg"
+        }
+      ]
+    },
+    "products": {
+      "title": "产品中心",
+      "subtitle": "专业生产各类空调系统元件，为全球知名空调企业提供配套服务",
+      "items": [
+        {
+          "title": "容器类产品",
+          "description": "专业生产各类空调系统用储液器、气液分离器等容器类产品",
+          "image": "/images/containers.jpg",
+          "link": "/products/containers"
+        },
+        {
+          "title": "管路件类产品",
+          "description": "生产各类铜管件、阻尼块等管路系统配件",
+          "image": "/images/pipes.jpg",
+          "link": "/products/pipes"
+        },
+        {
+          "title": "换热器类产品",
+          "description": "提供各类换热器产品，满足不同应用场景需求",
+          "image": "/images/heat_exchangers.jpg",
+          "link": "/products/heat-exchangers"
+        }
+      ],
+      "more": "查看更多产品"
+    },
+    "partners": {
+      "title": "合作伙伴",
+      "subtitle": "与全球知名空调企业建立长期战略合作关系",
+      "items": [
+        { "name": "格力", "logo": "/images/partner1.png" },
+        { "name": "美的", "logo": "/images/partner2.png" },
+        { "name": "海尔", "logo": "/images/partner3.png" }
+      ]
+    },
+    "cta": {
+      "title": "期待与您合作",
+      "subtitle": "我们致力于为客户提供高品质的空调系统元件，期待与您建立长期合作关系",
+      "contact": "联系我们",
+      "solutions": "了解解决方案"
+    }
+  }
+} 

@@ -1,0 +1,106 @@
+{
+  "home": {
+    "hero": {
+      "title": "创新科技，引领未来",
+      "subtitle": "专注于高端智能制造装备的研发与生产，为客户提供全方位的解决方案",
+      "cta": {
+        "primary": "了解产品",
+        "secondary": "联系我们"
+      }
+    },
+    "features": {
+      "title": "我们的优势",
+      "subtitle": "以创新为驱动，以品质为基石，为客户创造更大价值",
+      "items": [
+        {
+          "icon": "<svg class='w-12 h-12' fill='none' stroke='currentColor' viewBox='0 0 24 24'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M13 10V3L4 14h7v7l9-11h-7z'/></svg>",
+          "title": "创新研发",
+          "description": "持续投入研发创新，拥有多项自主知识产权，引领行业技术发展"
+        },
+        {
+          "icon": "<svg class='w-12 h-12' fill='none' stroke='currentColor' viewBox='0 0 24 24'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z'/></svg>",
+          "title": "品质保证",
+          "description": "严格的质量管理体系，确保每一台设备都达到最高标准"
+        },
+        {
+          "icon": "<svg class='w-12 h-12' fill='none' stroke='currentColor' viewBox='0 0 24 24'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z'/></svg>",
+          "title": "专业服务",
+          "description": "专业的技术团队，为客户提供全方位的售前、售中、售后服务支持"
+        }
+      ]
+    },
+    "showcase": {
+      "title": "企业实力",
+      "subtitle": "先进的生产设备，完善的管理体系，打造行业领先的智能制造基地",
+      "items": [
+        {
+          "title": "现代化工厂",
+          "description": "占地面积超过10万平方米的现代化生产基地，配备先进的生产设备和检测仪器",
+          "image": "/images/factory.jpg"
+        },
+        {
+          "title": "智能生产线",
+          "description": "全自动化的智能生产线，实现高效、精准、稳定的生产制造",
+          "image": "/images/production.jpg"
+        },
+        {
+          "title": "研发中心",
+          "description": "配备先进的研发设备和专业的技术团队，持续推动技术创新和产品升级",
+          "image": "/images/research.jpg"
+        }
+      ]
+    },
+    "products": {
+      "title": "产品中心",
+      "subtitle": "专注于智能制造装备的研发与生产，为客户提供全方位的解决方案",
+      "learnMore": "了解更多",
+      "items": [
+        {
+          "title": "智能装备",
+          "description": "采用先进的控制系统和智能算法，实现设备的高效、精准运行",
+          "image": "/images/product1.jpg",
+          "link": "/products/equipment"
+        },
+        {
+          "title": "自动化解决方案",
+          "description": "为客户提供定制化的自动化解决方案，提升生产效率，降低运营成本",
+          "image": "/images/product2.jpg",
+          "link": "/products/solutions"
+        },
+        {
+          "title": "智能控制系统",
+          "description": "基于物联网技术的智能控制系统，实现设备的远程监控和智能管理",
+          "image": "/images/product3.jpg",
+          "link": "/products/control"
+        }
+      ]
+    },
+    "partners": {
+      "title": "合作伙伴",
+      "subtitle": "与行业领先企业建立长期战略合作关系，共同推动智能制造发展",
+      "items": [
+        {
+          "name": "合作伙伴1",
+          "logo": "/images/partner1.png"
+        },
+        {
+          "name": "合作伙伴2",
+          "logo": "/images/partner2.png"
+        },
+        {
+          "name": "合作伙伴3",
+          "logo": "/images/partner3.png"
+        },
+        {
+          "name": "合作伙伴4",
+          "logo": "/images/partner4.png"
+        }
+      ]
+    },
+    "cta": {
+      "title": "开启智能制造新未来",
+      "subtitle": "联系我们，获取专业的解决方案和优质的服务支持",
+      "button": "立即咨询"
+    }
+  }
+} 
