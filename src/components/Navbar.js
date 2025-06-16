@@ -17,11 +17,13 @@ const Navbar = () => {
       path: '/products',
       label: t('nav.products'),
       subItems: [
-        { path: '/products/containers', label: t('nav.products_sub.containers') },
-        { path: '/products/pipes', label: t('nav.products_sub.pipes') },
-        { path: '/products/heat-exchangers', label: t('nav.products_sub.heat_exchangers') },
-        { path: '/products/solutions', label: t('nav.products_sub.solutions') },
-        { path: '/products/highlights', label: t('nav.products_sub.highlights') }
+        { path: '/products/receivers', label: t('nav.products_sub.receivers') },
+        { path: '/products/gas-liquid-separators', label: t('nav.products_sub.gas_liquid_separators') },
+        { path: '/products/oil-separators', label: t('nav.products_sub.oil_separators') },
+        { path: '/products/damping-blocks', label: t('nav.products_sub.damping_blocks') },
+        { path: '/products/shell-tube-heat-exchangers', label: t('nav.products_sub.shell_tube_heat_exchangers') },
+        { path: '/products/copper-tube-series', label: t('nav.products_sub.copper_tube_series') },
+        { path: '/products/plate-heat-exchangers', label: t('nav.products_sub.plate_heat_exchangers') },
       ]
     },
     { path: '/careers', label: t('nav.careers') },
@@ -43,6 +45,14 @@ const Navbar = () => {
     setActiveDropdown(activeDropdown === index ? null : index);
   };
 
+  const handleMouseEnter = (index) => {
+    setActiveDropdown(index);
+  };
+
+  const handleMouseLeave = () => {
+    setActiveDropdown(null);
+  };
+
   return (
     <nav className="bg-white shadow-md">
       <div className="container mx-auto px-4">
@@ -55,12 +65,12 @@ const Navbar = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item, index) => (
-              <div key={index} className="relative" ref={dropdownRef}>
+              <div key={index} className="relative">
                 {item.subItems ? (
                   <div 
                     className="relative"
-                    onMouseEnter={() => setActiveDropdown(index)}
-                    onMouseLeave={() => setActiveDropdown(null)}
+                    onMouseEnter={() => handleMouseEnter(index)}
+                    onMouseLeave={handleMouseLeave}
                   >
                     <button
                       className={`flex items-center space-x-1 px-3 py-2 rounded-md text-gray-700 hover:text-[#086c7b] transition-colors duration-300 ${
@@ -85,24 +95,22 @@ const Navbar = () => {
                       </svg>
                     </button>
                     <div
-                      className={`absolute left-0 mt-0 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 transition-all duration-200 z-50 ${
+                      className={`absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 transition-all duration-200 ${
                         activeDropdown === index
-                          ? 'opacity-100 transform translate-y-0'
-                          : 'opacity-0 transform -translate-y-2 pointer-events-none'
+                          ? 'opacity-100 transform translate-y-0 visible'
+                          : 'opacity-0 transform -translate-y-2 invisible'
                       }`}
                     >
-                      <div className="py-1">
-                        {item.subItems.map((subItem, subIndex) => (
-                          <Link
-                            key={subIndex}
-                            to={subItem.path}
-                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-[#086c7b] transition-colors duration-200"
-                            onClick={() => setActiveDropdown(null)}
-                          >
-                            {subItem.label}
-                          </Link>
-                        ))}
-                      </div>
+                      {item.subItems.map((subItem, subIndex) => (
+                        <Link
+                          key={subIndex}
+                          to={subItem.path}
+                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-[#086c7b] transition-colors duration-200"
+                          onClick={() => setActiveDropdown(null)}
+                        >
+                          {subItem.label}
+                        </Link>
+                      ))}
                     </div>
                   </div>
                 ) : (

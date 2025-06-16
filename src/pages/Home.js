@@ -428,7 +428,7 @@ const Home = () => {
                 to="/contact"
                 className="inline-flex items-center justify-center px-8 py-3 border-2 border-white text-base font-medium rounded-md text-white hover:bg-white hover:text-[#086c7b] transition-all duration-300"
               >
-                {t('home.cta.button')}
+                {t('home.cta.contact')}
               </Link>
             </motion.div>
           </motion.div>

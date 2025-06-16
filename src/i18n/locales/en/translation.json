@@ -4,94 +4,110 @@
     "about": "About Us",
     "products": "Products",
     "products_sub": {
-      "containers": "Container Products",
-      "pipes": "Pipe Components",
-      "heat_exchangers": "Heat Exchanger Products",
-      "solutions": "Solutions",
-      "highlights": "Highlights"
+      "receivers": "Receivers",
+      "gas_liquid_separators": "Gas-Liquid Separators",
+      "oil_separators": "Oil Separators",
+      "damping_blocks": "Damping Blocks",
+      "shell_tube_heat_exchangers": "Shell-and-Tube Heat Exchangers",
+      "copper_tube_series": "Copper Tube Series",
+      "plate_heat_exchangers": "Plate Heat Exchangers"
     },
     "careers": "Careers",
     "contact": "Contact Us"
   },
   "home": {
     "hero": {
-      "title": "Qingdao Kaituo Longhai Refrigeration Parts Co., Ltd.",
-      "subtitle": "Professional manufacturer of air conditioning system components, providing high-quality products for world-renowned air conditioning companies",
+      "title": "Qingdao Kaituo Longhai Refrigeration Components Co., Ltd.",
+      "subtitle": "A professional manufacturer of air conditioning system components, providing high-quality products to world-renowned air conditioning companies.",
       "cta": {
-        "primary": "Explore Products",
+        "primary": "View Products",
         "secondary": "Contact Us"
       }
     },
     "features": {
       "title": "Our Advantages",
-      "subtitle": "20 years of expertise in air conditioning system components, serving global customers with professional quality",
+      "subtitle": "20 years specializing in the manufacture of air conditioning system components, serving global customers with professional quality.",
       "items": [
         {
           "title": "Professional Manufacturing",
-          "description": "20 years of focus on air conditioning system components, equipped with advanced production equipment and technology",
+          "description": "20 years of focus on air conditioning system components, equipped with advanced production equipment and processes.",
           "icon": "<svg class='w-12 h-12' fill='none' stroke='currentColor' viewBox='0 0 24 24'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M13 10V3L4 14h7v7l9-11h-7z'/></svg>"
         },
         {
           "title": "Quality Assurance",
-          "description": "Certified by ISO9001 quality management system, stable and reliable product quality",
+          "description": "ISO9001 quality management system certified, ensuring stable and reliable product quality.",
           "icon": "<svg class='w-12 h-12' fill='none' stroke='currentColor' viewBox='0 0 24 24'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z'/></svg>"
         },
         {
           "title": "Technological Innovation",
-          "description": "Municipal enterprise technology center, continuous innovation, providing high-quality solutions for customers",
+          "description": "City-level enterprise technology center, continuous innovation, providing high-quality solutions for customers.",
           "icon": "<svg class='w-12 h-12' fill='none' stroke='currentColor' viewBox='0 0 24 24'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z'/></svg>"
         }
       ]
     },
     "showcase": {
-      "title": "Corporate Strength",
-      "subtitle": "20 years of focus on air conditioning system components, building a modern enterprise leading the industry",
+      "title": "Company Strength",
+      "subtitle": "20 years of expertise in manufacturing air conditioning system components, building an industry-leading modern enterprise.",
       "items": [
         {
           "title": "Modern Factory",
-          "description": "51,000㎡ factory, 43,000㎡ building area, equipped with advanced production equipment",
+          "description": "51,000 sqm plant area, 43,000 sqm building area, equipped with advanced production equipment.",
           "image": "/images/factory.jpg"
         },
         {
-          "title": "Professional Production Line",
-          "description": "Fully automated production line, annual capacity: 3.2 million containers, 5,000 tons of copper fittings, 2,000 tons of damping blocks",
+          "title": "Professional Production Lines",
+          "description": "Fully automated lines, annual capacity: 3.2 million containers, 5,000 tons of copper fittings, 2,000 tons of damping blocks.",
           "image": "/images/production.jpg"
         },
         {
           "title": "R&D Center",
-          "description": "Municipal enterprise technology center, university-enterprise R&D platform, continuous innovation-driven development",
+          "description": "City-level enterprise technology center, university-enterprise joint R&D platform, driving innovation.",
           "image": "/images/rd.jpg"
         }
       ]
     },
     "products": {
       "title": "Product Center",
-      "subtitle": "Professional production of various air conditioning system components, providing supporting services for world-renowned air conditioning companies",
+      "subtitle": "Specialized in manufacturing core components for air conditioning systems, providing quality products and solutions for global clients.",
+      "backToProducts": "Product Center",
+      "productOverview": "Product Overview",
+      "starProducts": "Star Products",
+      "applications": "Applications",
+      "technicalAdvantages": "Technical Advantages",
+      "productFeatures": "Product Features",
+      "specifications": "Specifications",
+      "learnMore": "Learn More",
+      "contactForCustom": "Contact us for more information",
+      "needCustomSolution": "Need a customized solution?",
+      "needProfessionalSolution": "Need a professional solution?",
+      "engineerSupport": "Our engineering team will provide you with professional technical support and customized product services.",
+      "professionalSupport": "We provide professional technical consulting and customized product services to meet your specific needs.",
+      "productDeveloping": "Product Under Development",
+      "developingDesc": "We are preparing more detailed product information for you, stay tuned!",
       "items": [
         {
-          "title": "Container Products",
-          "description": "Professional production of various air conditioning system receivers, gas-liquid separators, and other container products",
+          "title": "Container Series",
+          "description": "Specialized in various types of receivers, gas-liquid separators, and other container products for air conditioning systems.",
           "image": "/images/containers.jpg",
           "link": "/products/containers"
         },
         {
-          "title": "Pipe Components",
-          "description": "Production of various copper fittings, damping blocks, and other pipe system accessories",
+          "title": "Pipeline Components",
+          "description": "Manufacturing copper pipe fittings, damping blocks, and other pipeline system accessories.",
           "image": "/images/pipes.jpg",
           "link": "/products/pipes"
         },
         {
-          "title": "Heat Exchanger Products",
-          "description": "Providing various heat exchanger products to meet different application needs",
+          "title": "Heat Exchanger Series",
+          "description": "Providing a variety of heat exchanger products for different application scenarios.",
           "image": "/images/heat_exchangers.jpg",
           "link": "/products/heat-exchangers"
         }
-      ],
-      "more": "View More Products"
+      ]
     },
     "partners": {
       "title": "Partners",
-      "subtitle": "Establishing long-term strategic partnerships with world-renowned air conditioning companies",
+      "subtitle": "Establishing long-term strategic cooperation with world-famous air conditioning companies.",
       "items": [
         { "name": "Gree", "logo": "/images/partner1.png" },
         { "name": "Midea", "logo": "/images/partner2.png" },
@@ -99,10 +115,418 @@
       ]
     },
     "cta": {
-      "title": "Looking Forward to Cooperating with You",
-      "subtitle": "We are committed to providing customers with high-quality air conditioning system components and look forward to establishing long-term cooperation with you",
+      "title": "Looking Forward to Working with You",
+      "subtitle": "We are committed to providing high-quality air conditioning system components, and look forward to building a long-term partnership with you.",
       "contact": "Contact Us",
       "solutions": "Learn About Solutions"
     }
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Looking forward to building a long-term partnership and creating high-quality air conditioning systems together.",
+    "formTitle": "Send a Message",
+    "form": {
+      "name": "Name",
+      "namePlaceholder": "Please enter your name",
+      "email": "Email",
+      "emailPlaceholder": "Please enter your email",
+      "subject": "Subject",
+      "subjectPlaceholder": "Please enter the subject",
+      "message": "Message",
+      "messagePlaceholder": "Please enter your message",
+      "sending": "Sending...",
+      "send": "Send Message",
+      "success": "Sent successfully! We will contact you as soon as possible.",
+      "error": "Failed to send, please try again later"
+    },
+    "infoTitle": "Contact Information",
+    "info": {
+      "addressTitle": "Company Address",
+      "addressContent": "Jiaozhou, Qingdao, SCO Demonstration Zone",
+      "phoneTitle": "Phone",
+      "phoneContent": "0532-XXXXXXXX",
+      "emailTitle": "Email",
+      "emailContent": "contact@ktlh.com"
+    },
+    "companyInfoTitle": "Company Information",
+    "companyInfo": {
+      "nameTitle": "Company Name",
+      "name": "Qingdao Kaituo Longhai Refrigeration Components Co., Ltd.",
+      "foundedTitle": "Founded",
+      "founded": "March 29, 2002",
+      "capitalTitle": "Registered Capital",
+      "capital": "20 million CNY",
+      "scopeTitle": "Business Scope",
+      "scope": "R&D, production and sales of air conditioning system components, including container series, pipeline components, heat exchangers, etc."
+    },
+    "officeHoursTitle": "Office Hours",
+    "officeHours": {
+      "weekdays": "Mon-Fri: 8:30 - 17:30",
+      "saturday": "Sat: 8:30 - 12:00",
+      "sunday": "Sun: Closed"
+    },
+    "locationTitle": "Company Location",
+    "mapLoading": "Loading map..."
+  },
+  "about": {
+    "title": "About Kaituo Longhai",
+    "subtitle": "A high-tech enterprise focusing on the R&D and manufacturing of air conditioning system components.",
+    "overviewTitle": "Company Overview",
+    "overview": [
+      "Qingdao Kaituo Longhai Refrigeration Components Co., Ltd. was founded on March 29, 2002. After more than 20 years of dedicated operation, it has developed into a high-tech and high value-added enterprise specializing in the manufacture of air conditioning system components. The company's R&D center is recognized as a city-level enterprise technology center in Qingdao and has also established a university-enterprise joint R&D platform with Shandong University and Shandong University of Science and Technology.",
+      "To meet the needs of business development, in August 2021, 'Qingdao Kaituo Longhai Intelligent Control Co., Ltd.' was fully established. The company is located in the SCO Demonstration Zone, Jiaozhou, Qingdao, with a factory area of 51,000 sqm, building area of 43,000 sqm, and registered capital of 20 million CNY."
+    ],
+    "productionTitle": "Production Capacity",
+    "production": [
+      "• Containers: 3.2 million units/year",
+      "• Copper fittings: 5,000 tons/year",
+      "• Damping blocks: 2,000 tons/year",
+      "• Plate, shell-and-tube heat exchangers, protective mesh and other businesses are also improving",
+      "• Planned annual output value: 880 million CNY"
+    ],
+    "teamTitle": "Talent Team",
+    "team": {
+      "intro": "We have a young, highly qualified, and professional talent echelon. The company has over 350 employees, of whom 35% have a university degree or above, and more than 30 are senior engineers in the industry.",
+      "youth": "Youthful",
+      "youthDesc": "A vibrant team, with an average age of 35",
+      "quality": "Highly Qualified",
+      "qualityDesc": "35% of employees have a higher education degree, constantly improving the quality of the team",
+      "professional": "Professional",
+      "professionalDesc": "Over 30 senior engineers, with rich experience in their fields"
+    },
+    "partners": {
+      "title": "Strategic Partners",
+      "desc": "The company has established long-term strategic alliances with well-known domestic and foreign enterprises, with products exported to Japan, Europe, America, Thailand, South Korea, and other countries.",
+      "list": [
+        "Mitsubishi Electric", "Hitachi", "Mitsubishi Heavy Industries", "Panasonic", "Fujitsu", "Carrier", "LG", "Haier", "Hisense", "Aucma", "Changhong", "Midea"
+      ]
+    },
+    "products": {
+      "title": "Core Products",
+      "container": "Containers",
+      "containerDesc": "Specialized in various types of air conditioning system containers, with an annual capacity of 3.2 million units.",
+      "pipe": "Pipeline Components",
+      "pipeDesc": "Annual output of 5,000 tons of copper fittings, 2,000 tons of damping blocks.",
+      "heatExchanger": "Heat Exchangers",
+      "heatExchangerDesc": "Professional products such as plate heat exchangers, shell-and-tube heat exchangers, etc."
+    },
+    "founderTitle": "Message from the Founder",
+    "founder": {
+      "name": "Founder Name",
+      "position": "Chairman & General Manager",
+      "motivation": "Founding Vision",
+      "motivationContent": "In 2002, with a passion for the refrigeration industry and a persistent pursuit of technological innovation, I founded Kaituo Longhai. For more than 20 years, we have always adhered to customer-oriented approach and innovation-driven development, focusing on R&D and manufacturing of air conditioning system components.",
+      "journey": "Entrepreneurial Journey",
+      "journeyContent": "From a small workshop to today's modern enterprise, we have experienced countless challenges and opportunities. Every technological breakthrough and product innovation embodies the wisdom and hard work of our team. We have established deep partnerships with renowned companies like Mitsubishi Electric, Hitachi, and Haier, with products exported overseas.",
+      "vision": "Future Vision",
+      "visionContent": "Looking ahead, we will continue to uphold the corporate philosophy of 'Innovation, Quality, Service', continuously improve our technical capabilities, expand production capacity, provide better products and services to global customers, and strive to become a world-class manufacturer of air conditioning system components."
+    }
+  },
+  "careers": {
+    "title": "Join Us",
+    "subtitle": "Join Kaituo Longhai and work with more than 350 outstanding colleagues to shape the future of air conditioning system components together.",
+    "cultureTitle": "Corporate Culture",
+    "benefitsTitle": "Employee Benefits",
+    "benefits": [
+      {
+        "category": "Work Environment",
+        "items": ["Modern production workshop", "51,000 sqm factory", "Complete supporting facilities", "Safe working environment"]
+      },
+      {
+        "category": "Career Development",
+        "items": ["City-level technology center", "University-enterprise R&D platform", "Professional training opportunities", "Clear promotion path"]
+      },
+      {
+        "category": "Employee Welfare",
+        "items": ["Competitive salary", "Complete social insurance and housing fund", "Holiday benefits", "Regular team building activities"]
+      }
+    ],
+    "values": [
+      {"title": "Innovation Driven", "description": "Continuous technological innovation to enhance product competitiveness"},
+      {"title": "Quality First", "description": "Strict quality control to ensure product reliability"},
+      {"title": "Win-Win Cooperation", "description": "Developing together with customers and employees for mutual benefit"}
+    ],
+    "jobsTitle": "Job Opportunities",
+    "jobs": [
+      {
+        "title": "Process Engineer",
+        "department": "R&D Department",
+        "location": "Jiaozhou, Qingdao",
+        "type": "Full-time",
+        "salary": "8K-15K CNY",
+        "responsibilities": [
+          "Responsible for process improvement and optimization of air conditioning system components",
+          "Develop and improve production processes",
+          "Solve technical problems in production",
+          "Improve product quality and production efficiency",
+          "Participate in process design and validation of new products"
+        ],
+        "requirements": [
+          "Bachelor's degree or above in mechanical, refrigeration or related fields",
+          "3+ years of relevant experience",
+          "Familiar with air conditioning component manufacturing processes",
+          "Good analytical and problem-solving skills",
+          "Experience in process improvement projects preferred"
+        ]
+      },
+      {
+        "title": "Quality Engineer",
+        "department": "Quality Management Department",
+        "location": "Jiaozhou, Qingdao",
+        "type": "Full-time",
+        "salary": "7K-12K CNY",
+        "responsibilities": [
+          "Establish and maintain product quality control systems",
+          "Develop quality inspection standards and procedures",
+          "Monitor product quality to ensure compliance with international standards",
+          "Handle customer quality complaints and improvement suggestions",
+          "Organize quality training and improvement activities"
+        ],
+        "requirements": [
+          "Bachelor's degree or above in quality management or related fields",
+          "Familiar with ISO9001 quality management system",
+          "Proficient in quality management tools",
+          "2+ years of quality management experience",
+          "Manufacturing quality management experience preferred"
+        ]
+      },
+      {
+        "title": "Production Supervisor",
+        "department": "Production Department",
+        "location": "Jiaozhou, Qingdao",
+        "type": "Full-time",
+        "salary": "10K-18K CNY",
+        "responsibilities": [
+          "Responsible for daily management and optimization of production lines",
+          "Develop and execute production plans",
+          "Manage production teams and ensure safe production",
+          "Monitor production progress and product quality",
+          "Continuously improve production efficiency and cost control"
+        ],
+        "requirements": [
+          "College degree or above in mechanical or management related fields",
+          "5+ years of production management experience in manufacturing",
+          "Familiar with air conditioning components production processes",
+          "Strong team management and communication skills",
+          "Lean production management experience preferred"
+        ]
+      },
+      {
+        "title": "Sales Engineer",
+        "department": "Sales Department",
+        "location": "Jiaozhou, Qingdao",
+        "type": "Full-time",
+        "salary": "6K-20K CNY",
+        "responsibilities": [
+          "Responsible for sales of air conditioning system components",
+          "Develop and maintain customer relationships",
+          "Develop sales strategies and marketing plans",
+          "Participate in business negotiations and contract signing",
+          "Collect market information and customer feedback"
+        ],
+        "requirements": [
+          "Bachelor's degree or above in mechanical, refrigeration or related fields",
+          "Air conditioning industry sales experience preferred",
+          "Good communication and negotiation skills",
+          "Ability to work under pressure",
+          "B2B sales experience preferred"
+        ]
+      }
+    ],
+    "applyNow": "Apply Now",
+    "noJobTitle": "Didn't find a suitable position?",
+    "noJobDesc": "We always welcome outstanding talent. Please send your resume to our recruitment email.",
+    "contactUs": "Contact Us"
+  },
+  "products": {
+    "receivers": {
+      "title": "Receiver Series",
+      "subtitle": "Specializing in all kinds of air conditioning system receivers, ensuring stable refrigerant supply and providing solutions for all sizes.",
+      "overview": "Our receiver products are made of high-quality materials, with excellent liquid storage performance and stable pressure control. Widely used in residential, commercial, and industrial air conditioning systems, providing reliable refrigerant storage solutions for customers.",
+      "stats": {
+        "models": "Product Models",
+        "capacity": "Capacity Range",
+        "pressure": "Maximum Working Pressure",
+        "quality": "Quality Assurance"
+      },
+      "starProduct": "Star Product",
+      "products": [
+        {
+          "name": "R-001 Vertical Receiver",
+          "description": "Suitable for small and medium air conditioning systems, with excellent storage and stable pressure control.",
+          "specifications": {
+            "capacity": "1.5L - 5L",
+            "pressure": "2.5MPa",
+            "material": "Premium Carbon Steel",
+            "connection": "Welded/Threaded"
+          },
+          "features": ["High Efficiency", "Strong Pressure Resistance", "Compact Structure", "Easy Installation"]
+        },
+        {
+          "name": "R-002 Horizontal Receiver",
+          "description": "Designed for large commercial air conditioning systems, offering larger capacity and more stable performance.",
+          "specifications": {
+            "capacity": "5L - 20L",
+            "pressure": "3.0MPa",
+            "material": "Stainless Steel",
+            "connection": "Flanged Connection"
+          },
+          "features": ["Large Capacity", "High Pressure", "Corrosion Resistant", "Easy Maintenance"]
+        },
+        {
+          "name": "R-003 High-Pressure Receiver",
+          "description": "Professional receiver for high-pressure applications, suitable for industrial refrigeration and special environments.",
+          "specifications": {
+            "capacity": "2L - 15L",
+            "pressure": "4.5MPa",
+            "material": "Alloy Steel",
+            "connection": "High-Pressure Joint"
+          },
+          "features": ["Ultra High Pressure", "Special Materials", "Safe & Reliable", "Long Lifespan"]
+        },
+        {
+          "name": "R-004 Compact Receiver",
+          "description": "Miniature design, suitable for applications with limited space, without sacrificing performance.",
+          "specifications": {
+            "capacity": "0.5L - 2L",
+            "pressure": "2.0MPa",
+            "material": "Aluminum Alloy",
+            "connection": "Quick Connect"
+          },
+          "features": ["Compact Design", "Lightweight", "Quick Installation", "High Efficiency"]
+        },
+        {
+          "name": "R-005 Smart Receiver",
+          "description": "Integrated smart monitoring for real-time monitoring of liquid status and system parameters.",
+          "specifications": {
+            "capacity": "3L - 10L",
+            "pressure": "2.8MPa",
+            "material": "Stainless Steel",
+            "connection": "Smart Interface"
+          },
+          "features": ["Smart Monitoring", "Data Collection", "Remote Control", "Alarm Function"]
+        },
+        {
+          "name": "R-006 Eco-friendly Receiver",
+          "description": "Uses environmentally friendly materials and processes, meeting the latest green standards, suitable for green buildings.",
+          "specifications": {
+            "capacity": "2L - 8L",
+            "pressure": "2.5MPa",
+            "material": "Eco Steel",
+            "connection": "Eco Connector"
+          },
+          "features": ["Eco Material", "Green Process", "Energy Saving", "Recyclable"]
+        }
+      ],
+      "specLabels": {
+        "capacity": "Capacity",
+        "pressure": "Working Pressure",
+        "material": "Material",
+        "connection": "Connection Type"
+      },
+      "applications": {
+        "residential": "Residential AC",
+        "residentialDesc": "Suitable for home split units, central air conditioning and other small systems.",
+        "commercial": "Commercial AC",
+        "commercialDesc": "Ideal for shopping malls, office buildings, hotels, and other commercial AC systems.",
+        "industrial": "Industrial Refrigeration",
+        "industrialDesc": "Used in large refrigeration systems such as industrial cold storage and refrigeration equipment."
+      },
+      "customSolution": "Need a custom receiver solution?"
+    },
+    "gasLiquidSeparators": {
+      "title": "Gas-Liquid Separator Series",
+      "subtitle": "Efficiently separates gas-liquid mixtures, improving air conditioning system efficiency and ensuring stable operation.",
+      "overview": "Our gas-liquid separators use advanced separation technology to efficiently separate gas and liquid in refrigerants, ensuring compressor safety and improving the efficiency and reliability of the whole system.",
+      "stats": {
+        "efficiency": "Max Separation Efficiency",
+        "pressure": "Max Working Pressure",
+        "capacity": "Max Capacity",
+        "models": "Product Models"
+      },
+      "products": [
+        {
+          "name": "GLS-001 High-Efficiency Separator",
+          "description": "Uses advanced separation technology, ensuring separation efficiency of over 99.5%.",
+          "specifications": {
+            "efficiency": "≥99.5%",
+            "pressure": "3.2MPa",
+            "capacity": "50-500 m³/h",
+            "material": "Stainless Steel 316L"
+          },
+          "features": ["High Efficiency", "Low Pressure Drop", "Corrosion Resistant", "Maintenance-Free"]
+        },
+        {
+          "name": "GLS-002 Compact Separator",
+          "description": "Compact design for space-limited applications, outstanding performance.",
+          "specifications": {
+            "efficiency": "≥99.0%",
+            "pressure": "2.5MPa",
+            "capacity": "20-200 m³/h",
+            "material": "Anti-corrosion Carbon Steel"
+          },
+          "features": ["Compact", "Space Saving", "Easy Installation", "Cost-Optimized"]
+        },
+        {
+          "name": "GLS-003 Heavy Duty Industrial Separator",
+          "description": "Designed for heavy industrial applications, with strong capacity and stability.",
+          "specifications": {
+            "efficiency": "≥99.8%",
+            "pressure": "4.0MPa",
+            "capacity": "500-2000 m³/h",
+            "material": "Alloy Steel"
+          },
+          "features": ["Heavy Duty", "Ultra-High Efficiency", "Long-Term Stability", "Intelligent Control"]
+        },
+        {
+          "name": "GLS-004 Smart Separator",
+          "description": "Integrated smart monitoring for real-time monitoring of separation effect and equipment status.",
+          "specifications": {
+            "efficiency": "≥99.6%",
+            "pressure": "3.5MPa",
+            "capacity": "100-800 m³/h",
+            "material": "Stainless Steel 304"
+          },
+          "features": ["Smart Monitoring", "Automatic Adjustment", "Remote Control", "Data Logging"]
+        }
+      ],
+      "specLabels": {
+        "efficiency": "Separation Efficiency",
+        "pressure": "Working Pressure",
+        "capacity": "Capacity",
+        "material": "Material"
+      },
+      "advantages": {
+        "efficient": "High Efficiency",
+        "efficientDesc": "Separation efficiency up to 99.8%, ensuring efficient operation.",
+        "lowPressure": "Low Pressure Drop Design",
+        "lowPressureDesc": "Optimized flow path design to minimize pressure loss.",
+        "maintenance": "Maintenance-Free Design",
+        "maintenanceDesc": "Simple and reliable structure, no special maintenance required.",
+        "corrosion": "Corrosion Resistant Material",
+        "corrosionDesc": "Made with premium stainless steel to adapt to various working environments."
+      },
+      "customSolution": "Need a professional gas-liquid separation solution?"
+    },
+    "oilSeparators": {
+      "title": "Oil Separator Series",
+      "subtitle": "Professional oil separation technology to protect compressors, extend service life, and ensure efficient system operation."
+    },
+    "dampingBlocks": {
+      "title": "Damping Block Series",
+      "subtitle": "Professional vibration and noise reduction, effectively lowering operating noise. Annual capacity: 2,000 tons."
+    },
+    "shellTubeHeatExchangers": {
+      "title": "Shell-and-Tube Heat Exchanger Series",
+      "subtitle": "Efficient heat transfer equipment widely used in various air conditioning and refrigeration systems, providing excellent performance."
+    },
+    "copperTubeSeries": {
+      "title": "Copper Tube Series",
+      "subtitle": "High-quality copper materials for various specifications, annual capacity: 5,000 tons."
+    },
+    "plateHeatExchangers": {
+      "title": "Plate Heat Exchanger Series",
+      "subtitle": "Compact and energy-saving, ideal for all types of refrigeration systems."
+    }
   }
-} 
+}

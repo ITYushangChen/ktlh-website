@@ -2,13 +2,15 @@
   "nav": {
     "home": "ホーム",
     "about": "会社概要",
-    "products": "製品センター",
+    "products": "製品情報",
     "products_sub": {
-      "containers": "容器製品",
-      "pipes": "配管部品",
-      "heat_exchangers": "熱交換器製品",
-      "solutions": "ソリューション",
-      "highlights": "製品の特長"
+      "receivers": "レシーバー",
+      "gas_liquid_separators": "ガス・液分離器",
+      "oil_separators": "オイルセパレーター",
+      "damping_blocks": "ダンピングブロック",
+      "shell_tube_heat_exchangers": "シェル＆チューブ熱交換器",
+      "copper_tube_series": "銅管シリーズ",
+      "plate_heat_exchangers": "プレート式熱交換器"
     },
     "careers": "採用情報",
     "contact": "お問い合わせ"
@@ -16,82 +18,96 @@
   "home": {
     "hero": {
       "title": "青島開拓隆海冷凍部品有限公司",
-      "subtitle": "空調システム部品の専門メーカーとして、世界的に有名な空調企業に高品質な製品を提供",
+      "subtitle": "空調システム部品の専門メーカーとして、世界的な有名空調企業に高品質な製品を提供しています。",
       "cta": {
-        "primary": "製品を見る",
+        "primary": "製品を知る",
         "secondary": "お問い合わせ"
       }
     },
     "features": {
       "title": "当社の強み",
-      "subtitle": "20年にわたり空調システム部品に注力し、プロフェッショナルな品質で世界中のお客様にサービスを提供",
+      "subtitle": "20年にわたり空調システム部品の製造に専念し、世界中のお客様に専門品質でサービスを提供しています。",
       "items": [
         {
-          "title": "専門的な製造",
-          "description": "20年にわたり空調システム部品に注力し、先進的な生産設備と技術を保有",
+          "title": "専門製造",
+          "description": "20年の空調システム部品製造の経験、先進的な生産設備と技術を有しています。",
           "icon": "<svg class='w-12 h-12' fill='none' stroke='currentColor' viewBox='0 0 24 24'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M13 10V3L4 14h7v7l9-11h-7z'/></svg>"
         },
         {
           "title": "品質保証",
-          "description": "ISO9001品質管理システム認証取得、安定した高品質な製品を提供",
+          "description": "ISO9001品質管理システム認証を取得し、安定した高品質を実現しています。",
           "icon": "<svg class='w-12 h-12' fill='none' stroke='currentColor' viewBox='0 0 24 24'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z'/></svg>"
         },
         {
           "title": "技術革新",
-          "description": "市級企業技術センター、継続的なイノベーションでお客様に高品質なソリューションを提供",
+          "description": "市級企業技術センターを有し、継続的なイノベーションで高品質なソリューションを提供します。",
           "icon": "<svg class='w-12 h-12' fill='none' stroke='currentColor' viewBox='0 0 24 24'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z'/></svg>"
         }
       ]
     },
     "showcase": {
-      "title": "企業の実力",
-      "subtitle": "20年にわたり空調システム部品に注力し、業界をリードする現代的な企業を構築",
+      "title": "企業実力",
+      "subtitle": "20年の空調システム部品製造経験を活かし、業界をリードする現代的企業を構築しています。",
       "items": [
         {
-          "title": "近代的な工場",
-          "description": "51,000㎡の工場、43,000㎡の建物面積、先進的な生産設備を完備",
+          "title": "現代的工場",
+          "description": "敷地面積51,000㎡、建物面積43,000㎡、先進設備を備えています。",
           "image": "/images/factory.jpg"
         },
         {
-          "title": "専門的な生産ライン",
-          "description": "全自動生産ライン、年間生産能力：容器320万台、銅管部品5,000トン、ダンピングブロック2,000トン",
+          "title": "プロ生産ライン",
+          "description": "全自動生産ライン、年産：容器320万台、銅管部品5,000トン、ダンピングブロック2,000トン。",
           "image": "/images/production.jpg"
         },
         {
           "title": "研究開発センター",
-          "description": "市級企業技術センター、産学連携の研究開発プラットフォーム、継続的なイノベーション推進",
+          "description": "市級技術センター、大学との連携研究開発プラットフォーム、イノベーション推進。",
           "image": "/images/rd.jpg"
         }
       ]
     },
     "products": {
-      "title": "製品センター",
-      "subtitle": "各種空調システム部品を専門的に生産し、世界的に有名な空調企業にサービスを提供",
+      "title": "製品情報",
+      "subtitle": "空調システムのコア部品を専門的に製造し、世界中のお客様に高品質な製品とソリューションを提供します。",
+      "backToProducts": "製品一覧に戻る",
+      "productOverview": "製品概要",
+      "starProducts": "主力製品",
+      "applications": "応用分野",
+      "technicalAdvantages": "技術的優位性",
+      "productFeatures": "製品特徴",
+      "specifications": "技術仕様",
+      "learnMore": "詳細を見る",
+      "contactForCustom": "詳細はお問い合わせください",
+      "needCustomSolution": "カスタムソリューションが必要ですか？",
+      "needProfessionalSolution": "専門的なソリューションが必要ですか？",
+      "engineerSupport": "当社エンジニアチームが専門技術サポートとカスタム製品サービスを提供します。",
+      "professionalSupport": "専門的な技術相談とカスタム製品サービスで、お客様の特別なニーズにも対応します。",
+      "productDeveloping": "開発中の製品",
+      "developingDesc": "より詳細な製品情報を準備中です。ご期待ください！",
       "items": [
         {
           "title": "容器製品",
-          "description": "各種空調システム用レシーバー、ガス液分離器などの容器製品を専門的に生産",
+          "description": "空調システム用レシーバーやガス・液分離器など各種容器を製造しています。",
           "image": "/images/containers.jpg",
           "link": "/products/containers"
         },
         {
           "title": "配管部品",
-          "description": "各種銅管部品、ダンピングブロックなどの配管システム部品を生産",
+          "description": "各種銅管部品やダンピングブロックなど配管システム部品を生産しています。",
           "image": "/images/pipes.jpg",
           "link": "/products/pipes"
         },
         {
           "title": "熱交換器製品",
-          "description": "さまざまな用途に対応する熱交換器製品を提供",
+          "description": "多様な熱交換器製品で様々な用途に対応。",
           "image": "/images/heat_exchangers.jpg",
           "link": "/products/heat-exchangers"
         }
-      ],
-      "more": "さらに製品を見る"
+      ]
     },
     "partners": {
-      "title": "パートナー",
-      "subtitle": "世界的に有名な空調企業と長期的な戦略的パートナーシップを構築",
+      "title": "パートナー企業",
+      "subtitle": "世界的な有名空調企業と長期戦略的パートナーシップを構築しています。",
       "items": [
         { "name": "グリー", "logo": "/images/partner1.png" },
         { "name": "美的", "logo": "/images/partner2.png" },
@@ -99,10 +115,418 @@
       ]
     },
     "cta": {
-      "title": "ご協力をお待ちしております",
-      "subtitle": "高品質な空調システム部品をお客様に提供し、長期的な協力関係を築くことを目指しています",
+      "title": "貴社との協業をお待ちしております",
+      "subtitle": "高品質な空調システム部品を提供し、長期的なパートナーシップ構築を目指します。",
       "contact": "お問い合わせ",
       "solutions": "ソリューションを見る"
     }
+  },
+  "contact": {
+    "title": "お問い合わせ",
+    "subtitle": "長期的な協力関係を築き、ともに高品質な空調システムを創造しましょう。",
+    "formTitle": "メッセージ送信",
+    "form": {
+      "name": "お名前",
+      "namePlaceholder": "お名前をご入力ください",
+      "email": "メールアドレス",
+      "emailPlaceholder": "メールアドレスをご入力ください",
+      "subject": "件名",
+      "subjectPlaceholder": "件名をご入力ください",
+      "message": "メッセージ内容",
+      "messagePlaceholder": "メッセージ内容をご入力ください",
+      "sending": "送信中...",
+      "send": "メッセージ送信",
+      "success": "送信完了！後ほどご連絡させていただきます。",
+      "error": "送信に失敗しました。後ほど再度お試しください。"
+    },
+    "infoTitle": "連絡先情報",
+    "info": {
+      "addressTitle": "所在地",
+      "addressContent": "中国山東省青島市膠州区 上合示範区",
+      "phoneTitle": "電話番号",
+      "phoneContent": "0532-XXXXXXXX",
+      "emailTitle": "メール",
+      "emailContent": "contact@ktlh.com"
+    },
+    "companyInfoTitle": "会社情報",
+    "companyInfo": {
+      "nameTitle": "会社名",
+      "name": "青島開拓隆海冷凍部品有限公司",
+      "foundedTitle": "設立年月日",
+      "founded": "2002年3月29日",
+      "capitalTitle": "資本金",
+      "capital": "2,000万元",
+      "scopeTitle": "事業内容",
+      "scope": "空調システム部品の研究開発・製造・販売（容器類、配管部品類、熱交換器類など）"
+    },
+    "officeHoursTitle": "営業時間",
+    "officeHours": {
+      "weekdays": "月曜〜金曜：8:30 - 17:30",
+      "saturday": "土曜：8:30 - 12:00",
+      "sunday": "日曜：休業"
+    },
+    "locationTitle": "会社所在地",
+    "mapLoading": "地図を読み込み中..."
+  },
+  "about": {
+    "title": "開拓隆海について",
+    "subtitle": "空調システム部品の研究開発と製造に特化したハイテク企業",
+    "overviewTitle": "会社概要",
+    "overview": [
+      "青島開拓隆海冷凍部品有限公司は2002年3月29日に設立されました。20年以上の専念した経営により、現在は空調システム部品製造の高付加価値ハイテク企業として成長しています。自社の研究開発センターは青島市に認定された市級企業技術センターであり、山東大学・山東科技大学と産学連携の開発プラットフォームも設立しています。",
+      "事業拡大のため、2021年8月16日に「青島開拓隆海智控有限公司」を全額出資で設立。青島市膠州区上合示範区に立地し、敷地面積51,000㎡、建物面積43,000㎡、資本金2,000万元。"
+    ],
+    "productionTitle": "生産能力",
+    "production": [
+      "• 容器：年間320万台",
+      "• 銅管部品：年間5,000トン",
+      "• ダンピングブロック：年間2,000トン",
+      "• プレート・シェル＆チューブ熱交換器等の事業も拡大中",
+      "• 年間計画生産額：8.8億元"
+    ],
+    "teamTitle": "人材チーム",
+    "team": {
+      "intro": "若くて高学歴・専門的な人材チームを有しています。従業員総数は350人以上で、そのうち大学卒以上が35％、業界の中上級エンジニアが30人以上在籍しています。",
+      "youth": "若手中心",
+      "youthDesc": "活気あるチーム、平均年齢35歳",
+      "quality": "高学歴",
+      "qualityDesc": "大学卒以上が35％、チームの質を継続的に向上",
+      "professional": "専門的",
+      "professionalDesc": "30人以上の中上級エンジニア、豊富な専門経験"
+    },
+    "partners": {
+      "title": "戦略的パートナー",
+      "desc": "国内外の有名企業と長期的な戦略的協力関係を築き、日本、欧米、タイ、韓国などへも輸出しています。",
+      "list": [
+        "三菱電機", "日立", "三菱重工", "パナソニック", "富士通", "キャリア", "LG", "ハイアール", "ハイセンス", "オーカマ", "長虹", "美的"
+      ]
+    },
+    "products": {
+      "title": "主力製品",
+      "container": "容器類",
+      "containerDesc": "空調システム用各種容器を専門的に生産。年産320万台。",
+      "pipe": "配管部品類",
+      "pipeDesc": "銅管部品年産5,000トン、ダンピングブロック年産2,000トン。",
+      "heatExchanger": "熱交換器類",
+      "heatExchangerDesc": "プレート式・シェル＆チューブ式など専門熱交換器製品"
+    },
+    "founderTitle": "創業者からのメッセージ",
+    "founder": {
+      "name": "創業者名",
+      "position": "会長兼総経理",
+      "motivation": "創業の志",
+      "motivationContent": "2002年、冷凍業界への情熱と技術革新への執着を胸に、開拓隆海を設立しました。20年以上にわたり、お客様のニーズを第一に、技術革新を原動力として、空調システム部品の研究開発と製造に専念してまいりました。",
+      "journey": "創業の歩み",
+      "journeyContent": "最初の小さな工房から今日の現代的企業まで、数え切れない挑戦と機会を経験してきました。技術的ブレークスルーや製品革新の一つ一つが、チームの知恵と努力の結晶です。三菱電機、日立、ハイアールなどの有名企業と深いパートナーシップを築き、製品は海外にも輸出されています。",
+      "vision": "将来のビジョン",
+      "visionContent": "将来に向けて、「革新・品質・サービス」の企業理念を堅持し、技術レベルの向上と生産能力の拡大を続け、世界中のお客様により良い製品とサービスを提供し、世界一流の空調システム部品メーカーを目指してまいります。"
+    }
+  },
+  "careers": {
+    "title": "採用情報",
+    "subtitle": "開拓隆海に参加し、350名以上の優秀な同僚とともに空調部品の未来を創造しましょう。",
+    "cultureTitle": "企業文化",
+    "benefitsTitle": "従業員福利厚生",
+    "benefits": [
+      {
+        "category": "職場環境",
+        "items": ["現代的な生産工場", "敷地面積51,000㎡", "充実した設備", "安全な職場環境"]
+      },
+      {
+        "category": "キャリア開発",
+        "items": ["市級技術センター", "産学連携研究開発", "専門研修機会", "明確な昇進ルート"]
+      },
+      {
+        "category": "福利厚生",
+        "items": ["競争力のある給与", "充実した社会保険", "各種祝日手当", "定期的なチーム活動"]
+      }
+    ],
+    "values": [
+      {"title": "イノベーション主導", "description": "持続的な技術革新で製品競争力を向上"},
+      {"title": "品質重視", "description": "厳格な品質管理で信頼性を確保"},
+      {"title": "協力共栄", "description": "お客様・従業員と共に発展し、ウィンウィンを目指す"}
+    ],
+    "jobsTitle": "求人情報",
+    "jobs": [
+      {
+        "title": "プロセスエンジニア",
+        "department": "技術開発部",
+        "location": "青島膠州",
+        "type": "正社員",
+        "salary": "8K-15K元",
+        "responsibilities": [
+          "空調部品の工法改善と最適化を担当",
+          "生産工程の策定と改善",
+          "生産過程での技術的問題の解決",
+          "品質と生産効率の向上",
+          "新製品の工程設計と検証への参加"
+        ],
+        "requirements": [
+          "機械・冷凍関連学科の学士以上",
+          "3年以上の関連経験",
+          "空調部品製造工程に精通",
+          "優れた分析・問題解決能力",
+          "工程改善プロジェクト経験者優遇"
+        ]
+      },
+      {
+        "title": "品質エンジニア",
+        "department": "品質管理部",
+        "location": "青島膠州",
+        "type": "正社員",
+        "salary": "7K-12K元",
+        "responsibilities": [
+          "製品品質管理システムの構築・維持",
+          "品質検査基準と手順の策定",
+          "国際基準適合のための品質監督",
+          "顧客からの品質クレーム対応と改善",
+          "品質研修と改善活動の企画"
+        ],
+        "requirements": [
+          "品質管理専攻の学士以上",
+          "ISO9001品質管理システムの知識",
+          "品質管理ツールの運用能力",
+          "2年以上の品質管理経験",
+          "製造業での品質管理経験者優遇"
+        ]
+      },
+      {
+        "title": "生産スーパーバイザー",
+        "department": "生産部",
+        "location": "青島膠州",
+        "type": "正社員",
+        "salary": "10K-18K元",
+        "responsibilities": [
+          "生産ラインの日常管理と最適化",
+          "生産計画の策定と実行",
+          "生産チームの管理と安全生産の確保",
+          "生産進捗と製品品質の監視",
+          "生産効率とコスト管理の継続的改善"
+        ],
+        "requirements": [
+          "機械・管理関連の短大卒以上",
+          "5年以上の製造業管理経験",
+          "空調部品生産工法に精通",
+          "チーム管理・コミュニケーション能力",
+          "リーン生産管理経験者優遇"
+        ]
+      },
+      {
+        "title": "営業エンジニア",
+        "department": "営業部",
+        "location": "青島膠州",
+        "type": "正社員",
+        "salary": "6K-20K元",
+        "responsibilities": [
+          "空調部品の営業業務",
+          "顧客関係の開拓と維持",
+          "営業戦略とマーケティング計画の策定",
+          "商談と契約締結への参加",
+          "市場情報と顧客ニーズの収集"
+        ],
+        "requirements": [
+          "機械・冷凍専攻の学士以上",
+          "空調業界での営業経験者優遇",
+          "優れたコミュニケーション・交渉能力",
+          "一定の業務プレッシャーに対応可能",
+          "B2B営業経験者優遇"
+        ]
+      }
+    ],
+    "applyNow": "今すぐ応募",
+    "noJobTitle": "ご希望の職種が見つかりませんか？",
+    "noJobDesc": "優秀な人材のご応募は常時歓迎しております。履歴書は採用メールまでお送りください。",
+    "contactUs": "お問い合わせ"
+  },
+  "products": {
+    "receivers": {
+      "title": "レシーバーシリーズ",
+      "subtitle": "各種空調システム用レシーバーを製造し、安定した冷媒供給を実現。全シリーズ対応可能。",
+      "overview": "当社のレシーバー製品は高品質な材料を使用し、優れた貯液性能と安定した圧力制御能力を備えています。住宅用・業務用・産業用空調システムで幅広く活用され、信頼性の高い冷媒貯蔵ソリューションを提供します。",
+      "stats": {
+        "models": "製品モデル",
+        "capacity": "容量範囲",
+        "pressure": "最大使用圧力",
+        "quality": "品質保証"
+      },
+      "starProduct": "主力製品",
+      "products": [
+        {
+          "name": "R-001 縦型レシーバー",
+          "description": "中小型空調システム向け、優れた貯液性能と安定した圧力制御。",
+          "specifications": {
+            "capacity": "1.5L - 5L",
+            "pressure": "2.5MPa",
+            "material": "高品質炭素鋼",
+            "connection": "溶接／ねじ"
+          },
+          "features": ["高効率貯液", "高耐圧", "コンパクト設計", "簡単取付"]
+        },
+        {
+          "name": "R-002 横型レシーバー",
+          "description": "大型業務用空調向け、大容量で安定した性能を実現。",
+          "specifications": {
+            "capacity": "5L - 20L",
+            "pressure": "3.0MPa",
+            "material": "ステンレス鋼",
+            "connection": "フランジ接続"
+          },
+          "features": ["大容量", "高圧対応", "耐腐食", "メンテナンス容易"]
+        },
+        {
+          "name": "R-003 高圧レシーバー",
+          "description": "産業用冷凍や特殊環境向け高圧対応レシーバー。",
+          "specifications": {
+            "capacity": "2L - 15L",
+            "pressure": "4.5MPa",
+            "material": "合金鋼",
+            "connection": "高圧継手"
+          },
+          "features": ["超高圧設計", "特殊材料", "安全信頼性", "長寿命"]
+        },
+        {
+          "name": "R-004 コンパクトレシーバー",
+          "description": "省スペース設計、性能を損なわず小型化を実現。",
+          "specifications": {
+            "capacity": "0.5L - 2L",
+            "pressure": "2.0MPa",
+            "material": "アルミ合金",
+            "connection": "クイック継手"
+          },
+          "features": ["コンパクト設計", "軽量化", "簡単設置", "高効率"]
+        },
+        {
+          "name": "R-005 スマートレシーバー",
+          "description": "スマート監視機能搭載でリアルタイム監視・制御が可能。",
+          "specifications": {
+            "capacity": "3L - 10L",
+            "pressure": "2.8MPa",
+            "material": "ステンレス鋼",
+            "connection": "スマートインターフェース"
+          },
+          "features": ["スマート監視", "データ収集", "リモート制御", "アラーム機能"]
+        },
+        {
+          "name": "R-006 環境対応型レシーバー",
+          "description": "環境対応材料と工程を採用し、最新の環境基準に適合。グリーン建築に最適。",
+          "specifications": {
+            "capacity": "2L - 8L",
+            "pressure": "2.5MPa",
+            "material": "環境鋼材",
+            "connection": "エコ継手"
+          },
+          "features": ["環境材料", "グリーン工法", "省エネ高効率", "リサイクル可能"]
+        }
+      ],
+      "specLabels": {
+        "capacity": "容量",
+        "pressure": "使用圧力",
+        "material": "材質",
+        "connection": "接続方式"
+      },
+      "applications": {
+        "residential": "家庭用空調",
+        "residentialDesc": "家庭用分離型やセントラル空調等の小型冷凍システム向け",
+        "commercial": "業務用空調",
+        "commercialDesc": "ショッピングモール、オフィスビル、ホテル等の業務用空調に最適",
+        "industrial": "産業用冷凍",
+        "industrialDesc": "産業用冷蔵庫や冷凍設備等の大型冷凍システムに使用"
+      },
+      "customSolution": "カスタムレシーバーソリューションをご希望ですか？"
+    },
+    "gasLiquidSeparators": {
+      "title": "ガス・液分離器シリーズ",
+      "subtitle": "ガス・液混合物を高効率で分離し、空調システム効率を向上、安定運転を実現。",
+      "overview": "当社のガス・液分離器は先進分離技術を採用し、冷媒中のガスと液体を効率的に分離。コンプレッサーの安全運転を確保し、システム全体の効率と信頼性を向上させます。",
+      "stats": {
+        "efficiency": "最大分離効率",
+        "pressure": "最大使用圧力",
+        "capacity": "最大処理量",
+        "models": "製品モデル"
+      },
+      "products": [
+        {
+          "name": "GLS-001 高効率分離器",
+          "description": "先進分離技術により99.5%以上の分離効率を実現。",
+          "specifications": {
+            "efficiency": "≥99.5%",
+            "pressure": "3.2MPa",
+            "capacity": "50-500 m³/h",
+            "material": "ステンレス鋼316L"
+          },
+          "features": ["高効率分離", "低圧損", "耐腐食", "メンテナンス不要"]
+        },
+        {
+          "name": "GLS-002 コンパクト分離器",
+          "description": "省スペース設計で限られた場所にも対応、優れた性能。",
+          "specifications": {
+            "efficiency": "≥99.0%",
+            "pressure": "2.5MPa",
+            "capacity": "20-200 m³/h",
+            "material": "防食炭素鋼"
+          },
+          "features": ["コンパクト", "省スペース", "簡単設置", "コスト最適化"]
+        },
+        {
+          "name": "GLS-003 重工業用分離器",
+          "description": "重工業用途向け、処理能力・安定性ともに抜群。",
+          "specifications": {
+            "efficiency": "≥99.8%",
+            "pressure": "4.0MPa",
+            "capacity": "500-2000 m³/h",
+            "material": "合金鋼"
+          },
+          "features": ["重負荷設計", "超高効率", "長期安定性", "インテリジェント制御"]
+        },
+        {
+          "name": "GLS-004 スマート分離器",
+          "description": "スマート監視システム内蔵で、分離効果や機器状態をリアルタイム監視。",
+          "specifications": {
+            "efficiency": "≥99.6%",
+            "pressure": "3.5MPa",
+            "capacity": "100-800 m³/h",
+            "material": "ステンレス鋼304"
+          },
+          "features": ["スマート監視", "自動調整", "リモート制御", "データ記録"]
+        }
+      ],
+      "specLabels": {
+        "efficiency": "分離効率",
+        "pressure": "使用圧力",
+        "capacity": "処理量",
+        "material": "材質"
+      },
+      "advantages": {
+        "efficient": "高効率分離",
+        "efficientDesc": "分離効率は99.8％に達し、システムの高効率運転を実現。",
+        "lowPressure": "低圧損設計",
+        "lowPressureDesc": "流路設計を最適化し、圧力損失を最小化。",
+        "maintenance": "メンテナンスフリー設計",
+        "maintenanceDesc": "構造がシンプルかつ信頼性が高く、特別なメンテナンス不要。",
+        "corrosion": "耐腐食材料",
+        "corrosionDesc": "高品質ステンレス鋼を採用し、様々な作業環境に適応。"
+      },
+      "customSolution": "プロ仕様のガス・液分離ソリューションをお探しですか？"
+    },
+    "oilSeparators": {
+      "title": "オイルセパレーターシリーズ",
+      "subtitle": "専門的な油分離技術でコンプレッサーを保護し、寿命を延ばし、効率的な運転を実現。"
+    },
+    "dampingBlocks": {
+      "title": "ダンピングブロックシリーズ",
+      "subtitle": "空調システムの振動・騒音低減に効果的、年間生産能力2,000トン。"
+    },
+    "shellTubeHeatExchangers": {
+      "title": "シェル＆チューブ熱交換器シリーズ",
+      "subtitle": "優れた熱交換性能で、各種空調・冷凍システムに広く利用。"
+    },
+    "copperTubeSeries": {
+      "title": "銅管シリーズ",
+      "subtitle": "高品質銅材を使用、各種規格の銅管製品を年間5,000トン供給。"
+    },
+    "plateHeatExchangers": {
+      "title": "プレート式熱交換器シリーズ",
+      "subtitle": "コンパクトで省エネ、各種冷凍システムに最適な熱交換器。"
+    }
   }
-} 
+}

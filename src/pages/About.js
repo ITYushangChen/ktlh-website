@@ -1,153 +1,379 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
+import { motion } from 'framer-motion';
 
 const About = () => {
+  const { t } = useTranslation();
+
+  // 动画变体
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0 }
+  };
+
+  const staggerContainer = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const scaleIn = {
+    hidden: { opacity: 0, scale: 0.95 },
+    visible: { opacity: 1, scale: 1 }
+  };
+
   return (
     <div className="py-16">
       {/* Hero Section */}
-      <section className="bg-gray-50 py-20">
+      <motion.section 
+        className="bg-gray-50 py-20"
+        initial="hidden"
+        animate="visible"
+        variants={fadeInUp}
+        transition={{ duration: 0.6 }}
+      >
         <div className="container mx-auto px-4">
-          <h1 className="text-4xl font-bold text-center mb-6">关于开拓隆海</h1>
-          <p className="text-xl text-gray-600 text-center max-w-3xl mx-auto">
-            专注空调系统元件研发与制造的高新技术企业
-          </p>
+          <motion.h1 
+            className="text-4xl font-bold text-center mb-6"
+            variants={fadeInUp}
+          >
+            {t('about.title')}
+          </motion.h1>
+          <motion.p 
+            className="text-xl text-gray-600 text-center max-w-3xl mx-auto"
+            variants={fadeInUp}
+            transition={{ delay: 0.2 }}
+          >
+            {t('about.subtitle')}
+          </motion.p>
         </div>
-      </section>
+      </motion.section>
 
       {/* Company Overview */}
-      <section className="py-16">
+      <motion.section 
+        className="py-16"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={staggerContainer}
+      >
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold mb-8">公司概况</h2>
-            <div className="prose prose-lg">
-              <p className="mb-6">
-                青岛开拓隆海制冷配件有限公司成立于2002年3月29日。经过二十余年专注经营，现已发展成为制造空调系统元件的高科技、高附加值的高新技术企业。公司研发中心为青岛市认定的市级企业技术中心，同时与山东大学、山东科技大学成立校企合作研发平台。
-              </p>
-              <p className="mb-6">
-                应企业的发展需求，于2021年8月16日，全资建成"青岛开拓隆海智控有限公司"。公司坐落于青岛市胶州上合示范区，厂区占地5.1万平方米，建筑面积4.3万平方米，注册资金2000万元。
-              </p>
-              <div className="bg-gray-50 p-6 rounded-lg mb-6">
-                <h3 className="text-xl font-semibold mb-4">生产能力</h3>
+            <motion.h2 
+              className="text-3xl font-bold mb-8"
+              variants={fadeInUp}
+            >
+              {t('about.overviewTitle')}
+            </motion.h2>
+            <motion.div 
+              className="prose prose-lg"
+              variants={fadeInUp}
+            >
+              <motion.p 
+                className="mb-6"
+                variants={fadeInUp}
+              >
+                {t('about.overview.0')}
+              </motion.p>
+              <motion.p 
+                className="mb-6"
+                variants={fadeInUp}
+              >
+                {t('about.overview.1')}
+              </motion.p>
+              <motion.div 
+                className="bg-gray-50 p-6 rounded-lg mb-6"
+                variants={scaleIn}
+                whileHover={{ scale: 1.02 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
+                <h3 className="text-xl font-semibold mb-4">{t('about.productionTitle')}</h3>
                 <ul className="space-y-2">
-                  <li>• 容器：320万台/年</li>
-                  <li>• 铜管件：5000吨/年</li>
-                  <li>• 阻尼块：2000吨/年</li>
-                  <li>• 板换、壳管式换热器、护网等业务同步提升</li>
-                  <li>• 计划年产值8.8亿元</li>
+                  <li>{t('about.production.0')}</li>
+                  <li>{t('about.production.1')}</li>
+                  <li>{t('about.production.2')}</li>
+                  <li>{t('about.production.3')}</li>
+                  <li>{t('about.production.4')}</li>
                 </ul>
-              </div>
+              </motion.div>
+            </motion.div>
+          </div>
+        </div>
+      </motion.section>
+
+      {/* Founder Message */}
+      <motion.section 
+        className="py-16 bg-gray-50"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={staggerContainer}
+      >
+        <div className="container mx-auto px-4">
+          <motion.h2 
+            className="text-3xl font-bold text-center mb-12"
+            variants={fadeInUp}
+          >
+            {t('about.founderTitle')}
+          </motion.h2>
+          <div className="max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              {/* Video Section */}
+              <motion.div 
+                className="order-2 lg:order-1"
+                variants={scaleIn}
+                whileHover={{ scale: 1.02 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
+                <div className="relative rounded-lg overflow-hidden shadow-lg bg-gray-200">
+                  <iframe
+                    className="w-full h-auto"
+                    src="//player.bilibili.com/player.html?bvid=BV1neM1zKEmE&page=1&high_quality=1&danmaku=0"
+                    style={{ aspectRatio: '16/9' }}
+                    frameBorder="0"
+                    allowFullScreen
+                    title="创始人寄语视频"
+                  ></iframe>
+                </div>
+              </motion.div>
+
+              {/* Content Section */}
+              <motion.div 
+                className="order-1 lg:order-2"
+                variants={staggerContainer}
+              >
+                <motion.div 
+                  className="bg-white p-8 rounded-lg shadow-md"
+                  variants={scaleIn}
+                  whileHover={{ y: -5 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
+                  <motion.div 
+                    className="text-center mb-6"
+                    variants={fadeInUp}
+                  >
+                    <h3 className="text-xl font-semibold text-gray-900">{t('about.founder.name')}</h3>
+                    <p className="text-gray-600">{t('about.founder.position')}</p>
+                  </motion.div>
+
+                  <motion.div 
+                    className="space-y-6"
+                    variants={staggerContainer}
+                  >
+                    <motion.div variants={fadeInUp}>
+                      <h4 className="text-lg font-semibold text-[#086c7b] mb-3">{t('about.founder.motivation')}</h4>
+                      <p className="text-gray-700 leading-relaxed">{t('about.founder.motivationContent')}</p>
+                    </motion.div>
+
+                    <motion.div variants={fadeInUp}>
+                      <h4 className="text-lg font-semibold text-[#086c7b] mb-3">{t('about.founder.journey')}</h4>
+                      <p className="text-gray-700 leading-relaxed">{t('about.founder.journeyContent')}</p>
+                    </motion.div>
+
+                    <motion.div variants={fadeInUp}>
+                      <h4 className="text-lg font-semibold text-[#086c7b] mb-3">{t('about.founder.vision')}</h4>
+                      <p className="text-gray-700 leading-relaxed">{t('about.founder.visionContent')}</p>
+                    </motion.div>
+                  </motion.div>
+                </motion.div>
+              </motion.div>
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Team Section */}
-      <section className="py-16 bg-gray-50">
+      <motion.section 
+        className="py-16"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={staggerContainer}
+      >
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">人才团队</h2>
+          <motion.h2 
+            className="text-3xl font-bold text-center mb-12"
+            variants={fadeInUp}
+          >
+            {t('about.teamTitle')}
+          </motion.h2>
           <div className="max-w-4xl mx-auto">
-            <div className="bg-white p-8 rounded-lg shadow-md">
-              <p className="text-lg mb-6">
-                公司有着年轻化、素质化、专业化的人才梯队。员工总人数350余人，其中大学以上学历人才占35%，行业内中高级工程师三十余人。
-              </p>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
+            <motion.div 
+              className="bg-white p-8 rounded-lg shadow-md"
+              variants={scaleIn}
+              whileHover={{ y: -5 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              <motion.p 
+                className="text-lg mb-6"
+                variants={fadeInUp}
+              >
+                {t('about.team.intro')}
+              </motion.p>
+              <motion.div 
+                className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8"
+                variants={staggerContainer}
+              >
                 {[
                   {
-                    title: '年轻化',
-                    description: '充满活力的团队，平均年龄35岁',
+                    title: t('about.team.youth'),
+                    description: t('about.team.youthDesc'),
                     icon: '👥',
                   },
                   {
-                    title: '素质化',
-                    description: '高学历人才占比35%，持续提升团队素质',
+                    title: t('about.team.quality'),
+                    description: t('about.team.qualityDesc'),
                     icon: '🎓',
                   },
                   {
-                    title: '专业化',
-                    description: '三十余位中高级工程师，专业领域经验丰富',
+                    title: t('about.team.professional'),
+                    description: t('about.team.professionalDesc'),
                     icon: '⚡',
                   },
                 ].map((value, index) => (
-                  <div key={index} className="text-center">
-                    <div className="text-4xl mb-4">{value.icon}</div>
+                  <motion.div 
+                    key={index} 
+                    className="text-center"
+                    variants={fadeInUp}
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ type: "spring", stiffness: 300 }}
+                  >
+                    <motion.div 
+                      className="text-4xl mb-4"
+                      whileHover={{ rotate: 10 }}
+                      transition={{ type: "spring", stiffness: 300 }}
+                    >
+                      {value.icon}
+                    </motion.div>
                     <h3 className="text-xl font-semibold mb-2">{value.title}</h3>
                     <p className="text-gray-600">{value.description}</p>
-                  </div>
+                  </motion.div>
                 ))}
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Business Partners */}
-      <section className="py-16">
+      <motion.section 
+        className="py-16"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={staggerContainer}
+      >
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">战略合作伙伴</h2>
+          <motion.h2 
+            className="text-3xl font-bold text-center mb-12"
+            variants={fadeInUp}
+          >
+            {t('about.partners.title')}
+          </motion.h2>
           <div className="max-w-4xl mx-auto">
-            <p className="text-lg text-center mb-8">
-              公司与国内外著名企业建立长期战略合作联盟，产品远销日本、欧美、泰国、韩国等国家。
-            </p>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-              {[
-                '三菱电机',
-                '日立',
-                '三菱重工',
-                '松下',
-                '富士通',
-                '开利',
-                'LG',
-                '海尔',
-                '海信',
-                '澳柯玛',
-                '长虹',
-                '美的',
-              ].map((partner, index) => (
-                <div
+            <motion.p 
+              className="text-lg text-center mb-8"
+              variants={fadeInUp}
+            >
+              {t('about.partners.desc')}
+            </motion.p>
+            
+            {/* World Map */}
+            <motion.div 
+              className="mb-12"
+              variants={scaleIn}
+              whileHover={{ scale: 1.02 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              <img
+                src="/images/world-map-partners.png"
+                alt="Global Partners Map"
+                className="w-full h-auto rounded-lg shadow-lg"
+                style={{ maxHeight: '500px', objectFit: 'contain' }}
+              />
+            </motion.div>
+            
+            <motion.div 
+              className="grid grid-cols-2 md:grid-cols-4 gap-8"
+              variants={staggerContainer}
+            >
+              {t('about.partners.list', { returnObjects: true }).map((partner, index) => (
+                <motion.div
                   key={index}
                   className="bg-white p-6 rounded-lg shadow-md text-center hover:shadow-lg transition-shadow duration-300"
+                  variants={fadeInUp}
+                  whileHover={{ y: -3, scale: 1.02 }}
+                  transition={{ type: "spring", stiffness: 300 }}
                 >
                   <h3 className="font-semibold">{partner}</h3>
-                </div>
+                </motion.div>
               ))}
-            </div>
+            </motion.div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Products Overview */}
-      <section className="py-16 bg-gray-50">
+      <motion.section 
+        className="py-16 bg-gray-50"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={staggerContainer}
+      >
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">核心产品</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+          <motion.h2 
+            className="text-3xl font-bold text-center mb-12"
+            variants={fadeInUp}
+          >
+            {t('about.products.title')}
+          </motion.h2>
+          <motion.div 
+            className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto"
+            variants={staggerContainer}
+          >
             {[
               {
-                title: '容器类',
-                description: '专业生产各类空调系统容器，年产能320万台',
+                title: t('about.products.container'),
+                description: t('about.products.containerDesc'),
                 icon: '🏭',
               },
               {
-                title: '管路件类',
-                description: '铜管件年产能5000吨，阻尼块年产能2000吨',
+                title: t('about.products.pipe'),
+                description: t('about.products.pipeDesc'),
                 icon: '🔧',
               },
               {
-                title: '换热器类',
-                description: '板式换热器、壳管式换热器等专业产品',
+                title: t('about.products.heatExchanger'),
+                description: t('about.products.heatExchangerDesc'),
                 icon: '🔄',
               },
             ].map((product, index) => (
-              <div
+              <motion.div
                 key={index}
                 className="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
+                variants={fadeInUp}
+                whileHover={{ y: -5 }}
+                transition={{ type: "spring", stiffness: 300 }}
               >
-                <div className="text-4xl mb-4">{product.icon}</div>
+                <motion.div 
+                  className="text-4xl mb-4"
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
+                  {product.icon}
+                </motion.div>
                 <h3 className="text-xl font-semibold mb-4">{product.title}</h3>
                 <p className="text-gray-600">{product.description}</p>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
-      </section>
+      </motion.section>
     </div>
   );
 };

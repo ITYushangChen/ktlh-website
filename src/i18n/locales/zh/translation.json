@@ -4,11 +4,13 @@
     "about": "关于我们",
     "products": "产品中心",
     "products_sub": {
-      "containers": "容器类产品",
-      "pipes": "管路件类产品",
-      "heat_exchangers": "换热器类产品",
-      "solutions": "解决方案",
-      "highlights": "产品亮点"
+      "receivers": "储液器",
+      "gas_liquid_separators": "气液分离器",
+      "oil_separators": "油分离器",
+      "damping_blocks": "阻尼块",
+      "shell_tube_heat_exchangers": "壳管式换热器",
+      "copper_tube_series": "铜管系列",
+      "plate_heat_exchangers": "板式换热器"
     },
     "careers": "招贤纳士",
     "contact": "联系我们"
@@ -66,7 +68,22 @@
     },
     "products": {
       "title": "产品中心",
-      "subtitle": "专业生产各类空调系统元件，为全球知名空调企业提供配套服务",
+      "subtitle": "专业生产空调系统核心元件，为全球客户提供优质产品和解决方案",
+      "backToProducts": "产品中心",
+      "productOverview": "产品概述",
+      "starProducts": "明星产品",
+      "applications": "应用领域",
+      "technicalAdvantages": "技术优势",
+      "productFeatures": "产品特点",
+      "specifications": "技术参数",
+      "learnMore": "了解详情",
+      "contactForCustom": "联系我们了解更多",
+      "needCustomSolution": "需要定制化解决方案？",
+      "needProfessionalSolution": "需要专业解决方案？",
+      "engineerSupport": "我们的工程师团队将为您提供专业的技术支持和定制化产品服务",
+      "professionalSupport": "我们提供专业的技术咨询和定制化产品服务，满足您的特殊需求",
+      "productDeveloping": "产品开发中",
+      "developingDesc": "我们正在为您准备更详细的产品信息，敬请期待！",
       "items": [
         {
           "title": "容器类产品",
@@ -86,8 +103,7 @@
           "image": "/images/heat_exchangers.jpg",
           "link": "/products/heat-exchangers"
         }
-      ],
-      "more": "查看更多产品"
+      ]
     },
     "partners": {
       "title": "合作伙伴",
@@ -103,6 +119,414 @@
       "subtitle": "我们致力于为客户提供高品质的空调系统元件，期待与您建立长期合作关系",
       "contact": "联系我们",
       "solutions": "了解解决方案"
+    }
+  },
+  "contact": {
+    "title": "联系我们",
+    "subtitle": "期待与您建立长期合作关系，共同打造优质空调系统",
+    "formTitle": "发送消息",
+    "form": {
+      "name": "姓名",
+      "namePlaceholder": "请输入您的姓名",
+      "email": "电子邮箱",
+      "emailPlaceholder": "请输入您的邮箱",
+      "subject": "主题",
+      "subjectPlaceholder": "请输入主题",
+      "message": "留言内容",
+      "messagePlaceholder": "请输入您的留言内容",
+      "sending": "发送中...",
+      "send": "发送消息",
+      "success": "发送成功！我们会尽快与您联系。",
+      "error": "发送失败，请稍后再试"
+    },
+    "infoTitle": "联系方式",
+    "info": {
+      "addressTitle": "公司地址",
+      "addressContent": "青岛市胶州上合示范区",
+      "phoneTitle": "联系电话",
+      "phoneContent": "0532-XXXXXXXX",
+      "emailTitle": "电子邮箱",
+      "emailContent": "contact@ktlh.com"
+    },
+    "companyInfoTitle": "公司信息",
+    "companyInfo": {
+      "nameTitle": "公司名称",
+      "name": "青岛开拓隆海制冷配件有限公司",
+      "foundedTitle": "成立时间",
+      "founded": "2002年3月29日",
+      "capitalTitle": "注册资金",
+      "capital": "2000万元",
+      "scopeTitle": "经营范围",
+      "scope": "空调系统元件的研发、生产与销售，包括容器类、管路件类、换热器类等产品"
+    },
+    "officeHoursTitle": "办公时间",
+    "officeHours": {
+      "weekdays": "周一至周五：8:30 - 17:30",
+      "saturday": "周六：8:30 - 12:00",
+      "sunday": "周日：休息"
+    },
+    "locationTitle": "公司位置",
+    "mapLoading": "地图加载中..."
+  },
+  "about": {
+    "title": "关于开拓隆海",
+    "subtitle": "专注空调系统元件研发与制造的高新技术企业",
+    "overviewTitle": "公司概况",
+    "overview": [
+      "青岛开拓隆海制冷配件有限公司成立于2002年3月29日。经过二十余年专注经营，现已发展成为制造空调系统元件的高科技、高附加值的高新技术企业。公司研发中心为青岛市认定的市级企业技术中心，同时与山东大学、山东科技大学成立校企合作研发平台。",
+      "应企业的发展需求，于2021年8月16日，全资建成\"青岛开拓隆海智控有限公司\"。公司坐落于青岛市胶州上合示范区，厂区占地5.1万平方米，建筑面积4.3万平方米，注册资金2000万元。"
+    ],
+    "productionTitle": "生产能力",
+    "production": [
+      "• 容器：320万台/年",
+      "• 铜管件：5000吨/年",
+      "• 阻尼块：2000吨/年",
+      "• 板换、壳管式换热器、护网等业务同步提升",
+      "• 计划年产值8.8亿元"
+    ],
+    "teamTitle": "人才团队",
+    "team": {
+      "intro": "公司有着年轻化、素质化、专业化的人才梯队。员工总人数350余人，其中大学以上学历人才占35%，行业内中高级工程师三十余人。",
+      "youth": "年轻化",
+      "youthDesc": "充满活力的团队，平均年龄35岁",
+      "quality": "素质化",
+      "qualityDesc": "高学历人才占比35%，持续提升团队素质",
+      "professional": "专业化",
+      "professionalDesc": "三十余位中高级工程师，专业领域经验丰富"
+    },
+    "partners": {
+      "title": "战略合作伙伴",
+      "desc": "公司与国内外著名企业建立长期战略合作联盟，产品远销日本、欧美、泰国、韩国等国家。",
+      "list": [
+        "三菱电机", "日立", "三菱重工", "松下", "富士通", "开利", "LG", "海尔", "海信", "澳柯玛", "长虹", "美的"
+      ]
+    },
+    "products": {
+      "title": "核心产品",
+      "container": "容器类",
+      "containerDesc": "专业生产各类空调系统容器，年产能320万台",
+      "pipe": "管路件类",
+      "pipeDesc": "铜管件年产能5000吨，阻尼块年产能2000吨",
+      "heatExchanger": "换热器类",
+      "heatExchangerDesc": "板式换热器、壳管式换热器等专业产品"
+    },
+    "founderTitle": "创始人寄语",
+    "founder": {
+      "name": "创始人姓名",
+      "position": "董事长兼总经理",
+      "motivation": "创业初心",
+      "motivationContent": "2002年，怀着对制冷行业的热爱和对技术创新的执着追求，我创立了开拓隆海。二十多年来，我们始终坚持以客户需求为导向，以技术创新为驱动，专注于空调系统元件的研发与制造。",
+      "journey": "创业历程",
+      "journeyContent": "从最初的小作坊到如今的现代化企业，我们经历了无数的挑战与机遇。每一次技术突破，每一个产品创新，都凝聚着团队的智慧与汗水。我们与三菱电机、日立、海尔等知名企业建立了深度合作关系，产品远销海外。",
+      "vision": "未来愿景",
+      "visionContent": "面向未来，我们将继续秉承'创新、品质、服务'的企业理念，不断提升技术水平，扩大产能规模，为全球客户提供更优质的产品和服务，努力成为世界一流的空调系统元件制造商。"
+    }
+  },
+  "careers": {
+    "title": "加入我们",
+    "subtitle": "加入开拓隆海，与350余名优秀同事一起，共同打造空调系统元件的未来",
+    "cultureTitle": "企业文化",
+    "benefitsTitle": "员工福利",
+    "benefits": [
+      {
+        "category": "工作环境",
+        "items": ["现代化生产车间", "5.1万平方米厂区", "完善的配套设施", "安全的工作环境"]
+      },
+      {
+        "category": "职业发展",
+        "items": ["市级企业技术中心", "校企合作研发平台", "专业培训机会", "清晰的晋升通道"]
+      },
+      {
+        "category": "员工福利",
+        "items": ["具有竞争力的薪资", "完善的五险一金", "节日福利", "定期团建活动"]
+      }
+    ],
+    "values": [
+      {"title": "创新驱动", "description": "持续技术创新，提升产品竞争力"},
+      {"title": "品质至上", "description": "严格的质量控制，确保产品可靠性"},
+      {"title": "合作共赢", "description": "与客户、员工共同发展，实现多方共赢"}
+    ],
+    "jobsTitle": "职位机会",
+    "jobs": [
+      {
+        "title": "工艺工程师",
+        "department": "技术研发部",
+        "location": "青岛胶州",
+        "type": "全职",
+        "salary": "8K-15K",
+        "responsibilities": [
+          "负责空调系统元件的工艺改进和优化",
+          "制定和完善生产工艺流程",
+          "解决生产过程中的技术问题",
+          "提升产品质量和生产效率",
+          "参与新产品的工艺设计和验证"
+        ],
+        "requirements": [
+          "本科及以上学历，机械、制冷等相关专业",
+          "3年以上相关工作经验",
+          "熟悉空调系统元件制造工艺",
+          "具备良好的分析和解决问题能力",
+          "有工艺改进项目经验者优先"
+        ]
+      },
+      {
+        "title": "质量工程师",
+        "department": "质量管理部",
+        "location": "青岛胶州",
+        "type": "全职",
+        "salary": "7K-12K",
+        "responsibilities": [
+          "建立和维护产品质量控制体系",
+          "制定质量检验标准和流程",
+          "监督产品质量，确保符合国际标准",
+          "处理客户质量投诉和改进建议",
+          "组织质量培训和质量改进活动"
+        ],
+        "requirements": [
+          "本科及以上学历，质量管理或相关专业",
+          "熟悉ISO9001质量管理体系",
+          "具备质量管理工具应用能力",
+          "2年以上质量管理工作经验",
+          "有制造业质量管理经验者优先"
+        ]
+      },
+      {
+        "title": "生产主管",
+        "department": "生产部",
+        "location": "青岛胶州",
+        "type": "全职",
+        "salary": "10K-18K",
+        "responsibilities": [
+          "负责生产线的日常管理和优化",
+          "制定和执行生产计划",
+          "管理生产团队，确保安全生产",
+          "监控生产进度和产品质量",
+          "持续改进生产效率和成本控制"
+        ],
+        "requirements": [
+          "大专及以上学历，机械或管理相关专业",
+          "5年以上制造业生产管理经验",
+          "熟悉空调配件生产工艺",
+          "具备团队管理和沟通协调能力",
+          "有精益生产管理经验者优先"
+        ]
+      },
+      {
+        "title": "销售工程师",
+        "department": "销售部",
+        "location": "青岛胶州",
+        "type": "全职",
+        "salary": "6K-20K",
+        "responsibilities": [
+          "负责空调系统元件的销售工作",
+          "开发和维护客户关系",
+          "制定销售策略和市场推广方案",
+          "参与商务谈判和合同签订",
+          "收集市场信息和客户需求反馈"
+        ],
+        "requirements": [
+          "本科及以上学历，机械、制冷等相关专业",
+          "有空调行业销售经验优先",
+          "具备良好的沟通和谈判能力",
+          "能够承受一定的工作压力",
+          "有B2B销售经验者优先"
+        ]
+      }
+    ],
+    "applyNow": "立即申请",
+    "noJobTitle": "没有找到合适的职位？",
+    "noJobDesc": "我们始终欢迎优秀人才的加入，请发送您的简历至我们的招聘邮箱",
+    "contactUs": "联系我们"
+  },
+  "products": {
+    "receivers": {
+      "title": "储液器系列",
+      "subtitle": "专业生产各类空调系统储液器，确保制冷剂的稳定供应，提供从小型到大型的全系列产品解决方案",
+      "overview": "我们的储液器产品采用优质材料制造，具有优良的储液性能和稳定的压力控制能力。产品广泛应用于家用、商用及工业空调系统，为客户提供可靠的制冷剂储存解决方案。",
+      "stats": {
+        "models": "产品型号",
+        "capacity": "容量范围", 
+        "pressure": "最高工作压力",
+        "quality": "质量保证"
+      },
+      "starProduct": "明星产品",
+      "products": [
+        {
+          "name": "R-001 立式储液器",
+          "description": "适用于中小型空调系统，具有优良的储液性能和稳定的压力控制。",
+          "specifications": {
+            "capacity": "1.5L - 5L",
+            "pressure": "2.5MPa", 
+            "material": "优质碳钢",
+            "connection": "焊接/螺纹"
+          },
+          "features": ["高效储液", "耐压性强", "结构紧凑", "安装便捷"]
+        },
+        {
+          "name": "R-002 卧式储液器",
+          "description": "专为大型商用空调系统设计，提供更大的储液容量和更稳定的性能。",
+          "specifications": {
+            "capacity": "5L - 20L",
+            "pressure": "3.0MPa",
+            "material": "不锈钢", 
+            "connection": "法兰连接"
+          },
+          "features": ["大容量储液", "高压承受", "耐腐蚀", "维护简便"]
+        },
+        {
+          "name": "R-003 高压储液器",
+          "description": "专业高压应用储液器，适用于工业制冷和特殊环境应用。",
+          "specifications": {
+            "capacity": "2L - 15L",
+            "pressure": "4.5MPa",
+            "material": "合金钢",
+            "connection": "高压接头"
+          },
+          "features": ["超高压设计", "特殊材质", "安全可靠", "长寿命"]
+        },
+        {
+          "name": "R-004 紧凑型储液器", 
+          "description": "小型化设计，适用于空间受限的应用场景，不牺牲性能。",
+          "specifications": {
+            "capacity": "0.5L - 2L",
+            "pressure": "2.0MPa",
+            "material": "铝合金",
+            "connection": "快速接头"
+          },
+          "features": ["小型化设计", "轻量化", "快速安装", "高效节能"]
+        },
+        {
+          "name": "R-005 智能储液器",
+          "description": "集成智能监控功能，实时监测储液状态和系统运行参数。",
+          "specifications": {
+            "capacity": "3L - 10L",
+            "pressure": "2.8MPa",
+            "material": "不锈钢",
+            "connection": "智能接口"
+          },
+          "features": ["智能监控", "数据采集", "远程控制", "预警功能"]
+        },
+        {
+          "name": "R-006 环保型储液器",
+          "description": "采用环保材料和工艺，符合最新环保标准，适用于绿色建筑。",
+          "specifications": {
+            "capacity": "2L - 8L",
+            "pressure": "2.5MPa",
+            "material": "环保钢材",
+            "connection": "环保接头"
+          },
+          "features": ["环保材料", "绿色工艺", "节能高效", "可回收"]
+        }
+      ],
+      "specLabels": {
+        "capacity": "容量",
+        "pressure": "工作压力",
+        "material": "材质",
+        "connection": "连接方式"
+      },
+      "applications": {
+        "residential": "家用空调",
+        "residentialDesc": "适用于家用分体式、中央空调等小型制冷系统",
+        "commercial": "商用空调", 
+        "commercialDesc": "商场、办公楼、酒店等商用空调系统的理想选择",
+        "industrial": "工业制冷",
+        "industrialDesc": "工业冷库、制冷设备等大型制冷系统应用"
+      },
+      "customSolution": "需要定制化储液器解决方案？"
+    },
+    "gasLiquidSeparators": {
+      "title": "气液分离器系列",
+      "subtitle": "高效分离气液混合物，提升空调系统运行效率，确保制冷系统的稳定运行",
+      "overview": "我们的气液分离器采用先进的分离技术，能够高效分离制冷剂中的气体和液体，确保压缩机的安全运行，提高整个制冷系统的效率和可靠性。",
+      "stats": {
+        "efficiency": "最高分离效率",
+        "pressure": "最高工作压力", 
+        "capacity": "最大处理量",
+        "models": "产品型号"
+      },
+      "products": [
+        {
+          "name": "GLS-001 高效气液分离器",
+          "description": "采用先进的分离技术，确保气液分离效率达到99.5%以上。",
+          "specifications": {
+            "efficiency": "≥99.5%",
+            "pressure": "3.2MPa",
+            "capacity": "50-500 m³/h",
+            "material": "不锈钢316L"
+          },
+          "features": ["高效分离", "低压降", "耐腐蚀", "免维护"]
+        },
+        {
+          "name": "GLS-002 紧凑型分离器",
+          "description": "小型化设计，适用于空间受限的应用场景，性能卓越。",
+          "specifications": {
+            "efficiency": "≥99.0%",
+            "pressure": "2.5MPa",
+            "capacity": "20-200 m³/h",
+            "material": "碳钢防腐"
+          },
+          "features": ["紧凑设计", "节省空间", "安装简便", "成本优化"]
+        },
+        {
+          "name": "GLS-003 重型工业分离器",
+          "description": "专为重型工业应用设计，具有超强的处理能力和稳定性。",
+          "specifications": {
+            "efficiency": "≥99.8%",
+            "pressure": "4.0MPa",
+            "capacity": "500-2000 m³/h",
+            "material": "合金钢"
+          },
+          "features": ["重载设计", "超高效率", "长期稳定", "智能控制"]
+        },
+        {
+          "name": "GLS-004 智能分离器",
+          "description": "集成智能监控系统，实时监测分离效果和设备状态。",
+          "specifications": {
+            "efficiency": "≥99.6%",
+            "pressure": "3.5MPa",
+            "capacity": "100-800 m³/h",
+            "material": "不锈钢304"
+          },
+          "features": ["智能监控", "自动调节", "远程控制", "数据记录"]
+        }
+      ],
+      "specLabels": {
+        "efficiency": "分离效率",
+        "pressure": "工作压力",
+        "capacity": "处理量",
+        "material": "材质"
+      },
+      "advantages": {
+        "efficient": "高效分离",
+        "efficientDesc": "分离效率高达99.8%，确保系统高效运行",
+        "lowPressure": "低压降设计",
+        "lowPressureDesc": "优化流道设计，最小化系统压力损失",
+        "maintenance": "免维护设计",
+        "maintenanceDesc": "结构简单可靠，运行期间无需特殊维护",
+        "corrosion": "耐腐蚀材料",
+        "corrosionDesc": "采用优质不锈钢，适应各种工作环境"
+      },
+      "customSolution": "需要专业的气液分离解决方案？"
+    },
+    "oilSeparators": {
+      "title": "油分离器系列",
+      "subtitle": "专业油分离技术，保护压缩机延长使用寿命，确保制冷系统高效运行"
+    },
+    "dampingBlocks": {
+      "title": "阻尼块系列",
+      "subtitle": "专业减震降噪产品，有效降低空调系统运行噪音，年产能2000吨"
+    },
+    "shellTubeHeatExchangers": {
+      "title": "壳管式换热器系列",
+      "subtitle": "高效传热设备，广泛应用于各类空调制冷系统，提供卓越的换热性能"
+    },
+    "copperTubeSeries": {
+      "title": "铜管系列",
+      "subtitle": "优质铜材制造，提供各类规格的铜管产品，年产能5000吨"
+    },
+    "plateHeatExchangers": {
+      "title": "板式换热器系列",
+      "subtitle": "紧凑型换热设备，高效节能的理想选择，广泛应用于各类制冷系统"
     }
   }
 } 
