@@ -3,7 +3,7 @@
     {
       "id": "receivers",
       "active": true,
-      "image": "/images/products/receivers.jpg",
+      "image": "/images/products/img-1774939169564-mjnb06.png",
       "link": "/products/receivers",
       "title": {
         "zh": "储液器",
@@ -11,7 +11,7 @@
         "ja": "レシーバー"
       },
       "description": {
-        "zh": "专业生产各类空调系统储液器，确保制冷剂的稳定供应",
+        "zh": "专业生产各类空调系统里的储液器，确保制冷剂的稳定供应",
         "en": "Professional production of various air conditioning system receivers, ensuring stable refrigerant supply",
         "ja": "各種空調システム用レシーバーを製造、冷媒の安定供給を実現"
       },
@@ -20,7 +20,7 @@
           "高效储液",
           "耐压设计",
           "多规格可选",
-          "质量可靠"
+          "质量可靠测试"
         ],
         "en": [
           "High-efficiency storage",
