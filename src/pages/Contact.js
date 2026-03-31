@@ -224,15 +224,6 @@ const Contact = () => {
                   </div>
                 </div>
               </div>
-
-              <div className="bg-white p-8 rounded-lg shadow-md">
-                <h2 className="text-2xl font-bold mb-6">{t('contact.officeHoursTitle')}</h2>
-                <div className="space-y-2">
-                  <p className="text-gray-600">{t('contact.officeHours.weekdays')}</p>
-                  <p className="text-gray-600">{t('contact.officeHours.saturday')}</p>
-                  <p className="text-gray-600">{t('contact.officeHours.sunday')}</p>
-                </div>
-              </div>
             </div>
           </div>
         </div>

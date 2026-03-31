@@ -159,12 +159,6 @@
       "scopeTitle": "经营范围",
       "scope": "空调系统元件的研发、生产与销售，包括容器类、管路件类、换热器类等产品"
     },
-    "officeHoursTitle": "办公时间",
-    "officeHours": {
-      "weekdays": "周一至周五：8:30 - 17:30",
-      "saturday": "周六：8:30 - 12:00",
-      "sunday": "周日：休息"
-    },
     "locationTitle": "公司位置",
     "mapLoading": "地图加载中...",
     "mapsChooseHint": "选择地图应用查看位置与路线（默认 Apple 地图）",

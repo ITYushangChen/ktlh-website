@@ -159,12 +159,6 @@
       "scopeTitle": "Business Scope",
       "scope": "R&D, production and sales of air conditioning system components, including container series, pipeline components, heat exchangers, etc."
     },
-    "officeHoursTitle": "Office Hours",
-    "officeHours": {
-      "weekdays": "Mon-Fri: 8:30 - 17:30",
-      "saturday": "Sat: 8:30 - 12:00",
-      "sunday": "Sun: Closed"
-    },
     "locationTitle": "Company Location",
     "mapLoading": "Loading map...",
     "mapsChooseHint": "Choose a maps app for location and directions (Apple Maps by default)",
