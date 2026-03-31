@@ -1,0 +1,151 @@
+{
+  "categories": [
+    {
+      "id": "receivers",
+      "active": true,
+      "image": "/images/products/receivers.jpg",
+      "link": "/products/receivers",
+      "title": {
+        "zh": "储液器",
+        "en": "Receivers",
+        "ja": "レシーバー"
+      },
+      "description": {
+        "zh": "专业生产各类空调系统储液器，确保制冷剂的稳定供应",
+        "en": "Professional production of various air conditioning system receivers, ensuring stable refrigerant supply",
+        "ja": "各種空調システム用レシーバーを製造、冷媒の安定供給を実現"
+      },
+      "features": {
+        "zh": ["高效储液", "耐压设计", "多规格可选", "质量可靠"],
+        "en": ["High-efficiency storage", "Pressure-resistant design", "Multiple specifications", "Reliable quality"],
+        "ja": ["高効率貯液", "耐圧設計", "多規格対応", "信頼の品質"]
+      }
+    },
+    {
+      "id": "gas-liquid-separators",
+      "active": true,
+      "image": "/images/products/gas-liquid-separators.jpg",
+      "link": "/products/gas-liquid-separators",
+      "title": {
+        "zh": "气液分离器",
+        "en": "Gas-Liquid Separators",
+        "ja": "ガス・液分離器"
+      },
+      "description": {
+        "zh": "高效分离气液混合物，提升空调系统运行效率",
+        "en": "Efficient gas-liquid mixture separation, improving air conditioning system efficiency",
+        "ja": "気液混合物を高効率に分離し、空調システムの運転効率を向上"
+      },
+      "features": {
+        "zh": ["高效分离", "低压降", "结构紧凑", "维护简便"],
+        "en": ["High-efficiency separation", "Low pressure drop", "Compact structure", "Easy maintenance"],
+        "ja": ["高効率分離", "低圧力損失", "コンパクト構造", "メンテナンス容易"]
+      }
+    },
+    {
+      "id": "oil-separators",
+      "active": true,
+      "image": "/images/products/oil-separators.jpg",
+      "link": "/products/oil-separators",
+      "title": {
+        "zh": "油分离器",
+        "en": "Oil Separators",
+        "ja": "オイルセパレーター"
+      },
+      "description": {
+        "zh": "专业油分离技术，保护压缩机延长使用寿命",
+        "en": "Professional oil separation technology to protect compressors and extend service life",
+        "ja": "専門的なオイル分離技術でコンプレッサーを保護し寿命を延長"
+      },
+      "features": {
+        "zh": ["高效油分", "节能环保", "智能设计", "长寿命"],
+        "en": ["High-efficiency oil separation", "Energy-saving", "Smart design", "Long lifespan"],
+        "ja": ["高効率油分離", "省エネ環境配慮", "スマート設計", "長寿命"]
+      }
+    },
+    {
+      "id": "damping-blocks",
+      "active": true,
+      "image": "/images/products/damping-blocks.jpg",
+      "link": "/products/damping-blocks",
+      "title": {
+        "zh": "阻尼块",
+        "en": "Damping Blocks",
+        "ja": "ダンピングブロック"
+      },
+      "description": {
+        "zh": "专业减震降噪产品，有效降低空调系统运行噪音",
+        "en": "Professional vibration damping and noise reduction, effectively reducing AC system operating noise",
+        "ja": "専門的な制振・防音製品で空調システムの運転騒音を効果的に低減"
+      },
+      "features": {
+        "zh": ["减震降噪", "耐久性强", "安装简便", "环保材料"],
+        "en": ["Vibration & noise reduction", "High durability", "Easy installation", "Eco-friendly materials"],
+        "ja": ["制振・防音", "高耐久性", "簡単取付", "環境配慮素材"]
+      }
+    },
+    {
+      "id": "shell-tube-heat-exchangers",
+      "active": true,
+      "image": "/images/products/shell-tube-heat-exchangers.jpg",
+      "link": "/products/shell-tube-heat-exchangers",
+      "title": {
+        "zh": "壳管式换热器",
+        "en": "Shell & Tube Heat Exchangers",
+        "ja": "シェル＆チューブ熱交換器"
+      },
+      "description": {
+        "zh": "高效传热设备，广泛应用于各类空调制冷系统",
+        "en": "High-efficiency heat transfer equipment, widely used in various air conditioning and refrigeration systems",
+        "ja": "高効率伝熱機器、各種空調・冷凍システムに幅広く使用"
+      },
+      "features": {
+        "zh": ["传热高效", "结构稳定", "耐腐蚀", "易维护"],
+        "en": ["Efficient heat transfer", "Stable structure", "Corrosion-resistant", "Easy maintenance"],
+        "ja": ["高効率伝熱", "安定構造", "耐腐食", "メンテナンス容易"]
+      }
+    },
+    {
+      "id": "copper-tube-series",
+      "active": true,
+      "image": "/images/products/copper-tube-series.jpg",
+      "link": "/products/copper-tube-series",
+      "title": {
+        "zh": "铜管系列",
+        "en": "Copper Tube Series",
+        "ja": "銅管シリーズ"
+      },
+      "description": {
+        "zh": "优质铜材制造，提供各类规格的铜管产品",
+        "en": "High-quality copper material manufacturing, providing copper tube products in various specifications",
+        "ja": "高品質銅材で製造、各種規格の銅管製品を供給"
+      },
+      "features": {
+        "zh": ["优质铜材", "精密加工", "规格齐全", "导热优良"],
+        "en": ["Premium copper", "Precision processing", "Full range specs", "Excellent conductivity"],
+        "ja": ["高品質銅材", "精密加工", "豊富な規格", "優れた熱伝導"]
+      }
+    },
+    {
+      "id": "plate-heat-exchangers",
+      "active": true,
+      "image": "/images/products/plate-heat-exchangers.jpg",
+      "link": "/products/plate-heat-exchangers",
+      "title": {
+        "zh": "板式换热器",
+        "en": "Plate Heat Exchangers",
+        "ja": "プレート式熱交換器"
+      },
+      "description": {
+        "zh": "紧凑型换热设备，高效节能的理想选择",
+        "en": "Compact heat exchange equipment, an ideal choice for energy-efficient solutions",
+        "ja": "コンパクト型熱交換器、省エネに最適な選択肢"
+      },
+      "features": {
+        "zh": ["紧凑设计", "换热高效", "节能环保", "维护方便"],
+        "en": ["Compact design", "Efficient heat exchange", "Energy-saving", "Easy maintenance"],
+        "ja": ["コンパクト設計", "高効率熱交換", "省エネ環境配慮", "メンテナンス容易"]
+      }
+    }
+  ]
+}
