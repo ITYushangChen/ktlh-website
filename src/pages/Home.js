@@ -24,10 +24,6 @@ const scaleIn = {
   visible: { opacity: 1, scale: 1 }
 };
 
-const slideIn = {
-  hidden: { opacity: 0, x: -20 },
-  visible: { opacity: 1, x: 0 }
-};
 
 const Home = () => {
   const { t } = useTranslation();
