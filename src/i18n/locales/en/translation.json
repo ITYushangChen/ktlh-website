@@ -339,6 +339,23 @@
     "contactUs": "Contact Us"
   },
   "products": {
+    "title": "Product Center",
+    "subtitle": "Specialized in manufacturing core components for air conditioning systems, providing quality products and solutions for global clients.",
+    "backToProducts": "Product Center",
+    "productOverview": "Product Overview",
+    "starProducts": "Star Products",
+    "applications": "Applications",
+    "technicalAdvantages": "Technical Advantages",
+    "productFeatures": "Product Features",
+    "specifications": "Specifications",
+    "learnMore": "Learn More",
+    "contactForCustom": "Contact us for more information",
+    "needCustomSolution": "Need a customized solution?",
+    "needProfessionalSolution": "Need a professional solution?",
+    "engineerSupport": "Our engineering team will provide you with professional technical support and customized product services.",
+    "professionalSupport": "We provide professional technical consulting and customized product services to meet your specific needs.",
+    "productDeveloping": "Product Under Development",
+    "developingDesc": "We are preparing more detailed product information for you, stay tuned!",
     "receivers": {
       "title": "Receiver Series",
       "subtitle": "Specializing in all kinds of air conditioning system receivers, ensuring stable refrigerant supply and providing solutions for all sizes.",

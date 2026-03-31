@@ -339,6 +339,23 @@
     "contactUs": "お問い合わせ"
   },
   "products": {
+    "title": "製品情報",
+    "subtitle": "空調システムのコア部品を専門的に製造し、世界中のお客様に高品質な製品とソリューションを提供します。",
+    "backToProducts": "製品一覧に戻る",
+    "productOverview": "製品概要",
+    "starProducts": "主力製品",
+    "applications": "応用分野",
+    "technicalAdvantages": "技術的優位性",
+    "productFeatures": "製品特徴",
+    "specifications": "技術仕様",
+    "learnMore": "詳細を見る",
+    "contactForCustom": "詳細はお問い合わせください",
+    "needCustomSolution": "カスタムソリューションが必要ですか？",
+    "needProfessionalSolution": "専門的なソリューションが必要ですか？",
+    "engineerSupport": "当社エンジニアチームが専門技術サポートとカスタム製品サービスを提供します。",
+    "professionalSupport": "専門的な技術相談とカスタム製品サービスで、お客様の特別なニーズにも対応します。",
+    "productDeveloping": "開発中の製品",
+    "developingDesc": "より詳細な製品情報を準備中です。ご期待ください！",
     "receivers": {
       "title": "レシーバーシリーズ",
       "subtitle": "各種空調システム用レシーバーを製造し、安定した冷媒供給を実現。全シリーズ対応可能。",

@@ -339,6 +339,23 @@
     "contactUs": "联系我们"
   },
   "products": {
+    "title": "产品中心",
+    "subtitle": "专业生产空调系统核心元件，为全球客户提供优质产品和解决方案",
+    "backToProducts": "产品中心",
+    "productOverview": "产品概述",
+    "starProducts": "明星产品",
+    "applications": "应用领域",
+    "technicalAdvantages": "技术优势",
+    "productFeatures": "产品特点",
+    "specifications": "技术参数",
+    "learnMore": "了解详情",
+    "contactForCustom": "联系我们了解更多",
+    "needCustomSolution": "需要定制化解决方案？",
+    "needProfessionalSolution": "需要专业解决方案？",
+    "engineerSupport": "我们的工程师团队将为您提供专业的技术支持和定制化产品服务",
+    "professionalSupport": "我们提供专业的技术咨询和定制化产品服务，满足您的特殊需求",
+    "productDeveloping": "产品开发中",
+    "developingDesc": "我们正在为您准备更详细的产品信息，敬请期待！",
     "receivers": {
       "title": "储液器系列",
       "subtitle": "专业生产各类空调系统储液器，确保制冷剂的稳定供应，提供从小型到大型的全系列产品解决方案",
