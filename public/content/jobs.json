@@ -267,6 +267,49 @@
           "B2B営業経験者優遇"
         ]
       }
+    },
+    {
+      "id": "job-1774922894940",
+      "active": true,
+      "salary": "8",
+      "location": "青岛胶州",
+      "title": {
+        "zh": "测试",
+        "en": "Test",
+        "ja": "テスト"
+      },
+      "department": {
+        "zh": "测试",
+        "en": "Testing",
+        "ja": "テスト"
+      },
+      "type": {
+        "zh": "全职",
+        "en": "Full-time",
+        "ja": "正社員"
+      },
+      "responsibilities": {
+        "zh": [
+          "测试"
+        ],
+        "en": [
+          "Testing"
+        ],
+        "ja": [
+          "テスト"
+        ]
+      },
+      "requirements": {
+        "zh": [
+          "测试"
+        ],
+        "en": [
+          "Testing"
+        ],
+        "ja": [
+          "テスト"
+        ]
+      }
     }
   ]
 }
