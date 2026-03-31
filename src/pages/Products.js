@@ -7,7 +7,7 @@ const Products = () => {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    fetch('/content/products.json')
+    fetch(`/content/products.json?t=${Date.now()}`)
       .then(res => res.json())
       .then(data => setCategories((data.categories || []).filter(c => c.active !== false)))
       .catch(() => setCategories([]));

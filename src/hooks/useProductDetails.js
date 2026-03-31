@@ -6,7 +6,7 @@ export function useProductDetails(categoryKey) {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
-    fetch('/content/product-details.json')
+    fetch(`/content/product-details.json?t=${Date.now()}`)
       .then(res => res.json())
       .then(data => setItems((data[categoryKey] || []).filter(i => i.active !== false)))
       .catch(() => setItems([]));

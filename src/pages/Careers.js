@@ -7,7 +7,7 @@ const Careers = () => {
   const [jobs, setJobs] = useState([]);
 
   useEffect(() => {
-    fetch('/content/jobs.json')
+    fetch(`/content/jobs.json?t=${Date.now()}`)
       .then(res => res.json())
       .then(data => setJobs((data.jobs || []).filter(j => j.active !== false)))
       .catch(() => setJobs([]));
