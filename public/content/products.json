@@ -2,7 +2,7 @@
   "categories": [
     {
       "id": "receivers",
-      "active": false,
+      "active": true,
       "image": "/images/products/receivers.jpg",
       "link": "/products/receivers",
       "title": {
@@ -38,7 +38,7 @@
     },
     {
       "id": "gas-liquid-separators",
-      "active": false,
+      "active": true,
       "image": "/images/products/gas-liquid-separators.jpg",
       "link": "/products/gas-liquid-separators",
       "title": {
@@ -74,7 +74,7 @@
     },
     {
       "id": "oil-separators",
-      "active": false,
+      "active": true,
       "image": "/images/products/oil-separators.jpg",
       "link": "/products/oil-separators",
       "title": {
