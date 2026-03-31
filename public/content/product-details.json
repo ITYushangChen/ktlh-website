@@ -1,0 +1,186 @@
+{
+  "receivers": [
+    {
+      "id": "r-001",
+      "active": true,
+      "image": "/images/products/receivers/r-001.jpg",
+      "name": { "zh": "R-001 立式储液器", "en": "R-001 Vertical Receiver", "ja": "R-001 立式レシーバー" },
+      "description": { "zh": "适用于中小型空调系统，具有优良的储液性能和稳定的压力控制。", "en": "Suitable for small and medium-sized air conditioning systems with excellent liquid storage performance and stable pressure control.", "ja": "中小型空調システムに適し、優れた貯液性能と安定した圧力制御を備えています。" },
+      "specifications": {
+        "capacity": "1.5L - 5L",
+        "pressure": "2.5MPa",
+        "material": { "zh": "优质碳钢", "en": "Quality carbon steel", "ja": "高品質炭素鋼" },
+        "connection": { "zh": "焊接/螺纹", "en": "Welding/Thread", "ja": "溶接/ネジ" }
+      },
+      "features": {
+        "zh": ["高效储液", "耐压性强", "结构紧凑", "安装便捷"],
+        "en": ["High-efficiency storage", "High pressure resistance", "Compact structure", "Easy installation"],
+        "ja": ["高効率貯液", "高耐圧", "コンパクト構造", "簡単取付"]
+      }
+    },
+    {
+      "id": "r-002",
+      "active": true,
+      "image": "/images/products/receivers/r-002.jpg",
+      "name": { "zh": "R-002 卧式储液器", "en": "R-002 Horizontal Receiver", "ja": "R-002 横型レシーバー" },
+      "description": { "zh": "专为大型商用空调系统设计，提供更大的储液容量和更稳定的性能。", "en": "Designed for large commercial air conditioning systems, providing larger liquid storage capacity and more stable performance.", "ja": "大型業務用空調システム向けに設計、より大きな貯液容量と安定した性能を提供。" },
+      "specifications": {
+        "capacity": "5L - 20L",
+        "pressure": "3.0MPa",
+        "material": { "zh": "不锈钢", "en": "Stainless steel", "ja": "ステンレス鋼" },
+        "connection": { "zh": "法兰连接", "en": "Flange connection", "ja": "フランジ接続" }
+      },
+      "features": {
+        "zh": ["大容量储液", "高压承受", "耐腐蚀", "维护简便"],
+        "en": ["Large capacity storage", "High pressure tolerance", "Corrosion-resistant", "Easy maintenance"],
+        "ja": ["大容量貯液", "高圧耐性", "耐腐食", "メンテナンス容易"]
+      }
+    },
+    {
+      "id": "r-003",
+      "active": true,
+      "image": "/images/products/receivers/r-003.jpg",
+      "name": { "zh": "R-003 高压储液器", "en": "R-003 High-Pressure Receiver", "ja": "R-003 高圧レシーバー" },
+      "description": { "zh": "专业高压应用储液器，适用于工业制冷和特殊环境应用。", "en": "Professional high-pressure receiver for industrial refrigeration and special environment applications.", "ja": "産業用冷凍および特殊環境向けの高圧レシーバー。" },
+      "specifications": {
+        "capacity": "2L - 15L",
+        "pressure": "4.5MPa",
+        "material": { "zh": "合金钢", "en": "Alloy steel", "ja": "合金鋼" },
+        "connection": { "zh": "高压接头", "en": "High-pressure fitting", "ja": "高圧継手" }
+      },
+      "features": {
+        "zh": ["超高压设计", "特殊材质", "安全可靠", "长寿命"],
+        "en": ["Ultra-high pressure design", "Special materials", "Safe and reliable", "Long lifespan"],
+        "ja": ["超高圧設計", "特殊素材", "安全・信頼", "長寿命"]
+      }
+    },
+    {
+      "id": "r-004",
+      "active": true,
+      "image": "/images/products/receivers/r-004.jpg",
+      "name": { "zh": "R-004 紧凑型储液器", "en": "R-004 Compact Receiver", "ja": "R-004 コンパクトレシーバー" },
+      "description": { "zh": "小型化设计，适用于空间受限的应用场景，不牺牲性能。", "en": "Miniaturized design for space-limited applications without compromising performance.", "ja": "省スペース設計、性能を犠牲にせず限られた設置スペースに対応。" },
+      "specifications": {
+        "capacity": "0.5L - 2L",
+        "pressure": "2.0MPa",
+        "material": { "zh": "铝合金", "en": "Aluminum alloy", "ja": "アルミ合金" },
+        "connection": { "zh": "快速接头", "en": "Quick connector", "ja": "クイックコネクタ" }
+      },
+      "features": {
+        "zh": ["小型化设计", "轻量化", "快速安装", "高效节能"],
+        "en": ["Miniaturized design", "Lightweight", "Quick installation", "Energy-efficient"],
+        "ja": ["小型化設計", "軽量化", "クイック取付", "高効率省エネ"]
+      }
+    },
+    {
+      "id": "r-005",
+      "active": true,
+      "image": "/images/products/receivers/r-005.jpg",
+      "name": { "zh": "R-005 智能储液器", "en": "R-005 Smart Receiver", "ja": "R-005 スマートレシーバー" },
+      "description": { "zh": "集成智能监控功能，实时监测储液状态和系统运行参数。", "en": "Integrated smart monitoring for real-time liquid status and system parameter monitoring.", "ja": "スマート監視機能を搭載、貯液状態とシステム運転パラメータをリアルタイム監視。" },
+      "specifications": {
+        "capacity": "3L - 10L",
+        "pressure": "2.8MPa",
+        "material": { "zh": "不锈钢", "en": "Stainless steel", "ja": "ステンレス鋼" },
+        "connection": { "zh": "智能接口", "en": "Smart interface", "ja": "スマートインターフェース" }
+      },
+      "features": {
+        "zh": ["智能监控", "数据采集", "远程控制", "预警功能"],
+        "en": ["Smart monitoring", "Data collection", "Remote control", "Alert function"],
+        "ja": ["スマート監視", "データ収集", "遠隔制御", "アラート機能"]
+      }
+    },
+    {
+      "id": "r-006",
+      "active": true,
+      "image": "/images/products/receivers/r-006.jpg",
+      "name": { "zh": "R-006 环保型储液器", "en": "R-006 Eco-friendly Receiver", "ja": "R-006 エコフレンドリーレシーバー" },
+      "description": { "zh": "采用环保材料和工艺，符合最新环保标准，适用于绿色建筑。", "en": "Made with eco-friendly materials and processes, meeting the latest environmental standards for green buildings.", "ja": "環境配慮素材と工程を採用、最新の環境基準に適合、グリーンビルディング向け。" },
+      "specifications": {
+        "capacity": "2L - 8L",
+        "pressure": "2.5MPa",
+        "material": { "zh": "环保钢材", "en": "Eco-friendly steel", "ja": "環境配慮鋼材" },
+        "connection": { "zh": "环保接头", "en": "Eco-friendly fitting", "ja": "環境配慮継手" }
+      },
+      "features": {
+        "zh": ["环保材料", "绿色工艺", "节能高效", "可回收"],
+        "en": ["Eco-friendly materials", "Green process", "Energy-efficient", "Recyclable"],
+        "ja": ["環境配慮素材", "グリーン工程", "省エネ高効率", "リサイクル可能"]
+      }
+    }
+  ],
+  "gas-liquid-separators": [
+    {
+      "id": "gls-001",
+      "active": true,
+      "image": "/images/products/gas-liquid-separators/gls-001.jpg",
+      "name": { "zh": "GLS-001 高效气液分离器", "en": "GLS-001 High-Efficiency Gas-Liquid Separator", "ja": "GLS-001 高効率ガス・液分離器" },
+      "description": { "zh": "采用先进的分离技术，确保气液分离效率达到99.5%以上。", "en": "Using advanced separation technology, ensuring gas-liquid separation efficiency above 99.5%.", "ja": "先進分離技術を採用、99.5%以上のガス・液分離効率を実現。" },
+      "specifications": {
+        "efficiency": "≥99.5%",
+        "pressure": "3.2MPa",
+        "capacity": "50-500 m³/h",
+        "material": { "zh": "不锈钢316L", "en": "Stainless Steel 316L", "ja": "ステンレス316L" }
+      },
+      "features": {
+        "zh": ["高效分离", "低压降", "耐腐蚀", "免维护"],
+        "en": ["High-efficiency separation", "Low pressure drop", "Corrosion-resistant", "Maintenance-free"],
+        "ja": ["高効率分離", "低圧力損失", "耐腐食", "メンテナンスフリー"]
+      }
+    },
+    {
+      "id": "gls-002",
+      "active": true,
+      "image": "/images/products/gas-liquid-separators/gls-002.jpg",
+      "name": { "zh": "GLS-002 紧凑型分离器", "en": "GLS-002 Compact Separator", "ja": "GLS-002 コンパクト分離器" },
+      "description": { "zh": "小型化设计，适用于空间受限的应用场景，性能卓越。", "en": "Miniaturized design for space-limited applications with excellent performance.", "ja": "小型化設計、省スペースながら優れた性能を発揮。" },
+      "specifications": {
+        "efficiency": "≥99.0%",
+        "pressure": "2.5MPa",
+        "capacity": "20-200 m³/h",
+        "material": { "zh": "碳钢防腐", "en": "Anti-corrosion carbon steel", "ja": "防食炭素鋼" }
+      },
+      "features": {
+        "zh": ["紧凑设计", "节省空间", "安装简便", "成本优化"],
+        "en": ["Compact design", "Space-saving", "Easy installation", "Cost-optimized"],
+        "ja": ["コンパクト設計", "省スペース", "簡単取付", "コスト最適化"]
+      }
+    },
+    {
+      "id": "gls-003",
+      "active": true,
+      "image": "/images/products/gas-liquid-separators/gls-003.jpg",
+      "name": { "zh": "GLS-003 重型工业分离器", "en": "GLS-003 Heavy-Duty Industrial Separator", "ja": "GLS-003 重工業用分離器" },
+      "description": { "zh": "专为重型工业应用设计，具有超强的处理能力和稳定性。", "en": "Designed for heavy-duty industrial applications with superior processing capacity and stability.", "ja": "重工業用途向けに設計、優れた処理能力と安定性を実現。" },
+      "specifications": {
+        "efficiency": "≥99.8%",
+        "pressure": "4.0MPa",
+        "capacity": "500-2000 m³/h",
+        "material": { "zh": "合金钢", "en": "Alloy steel", "ja": "合金鋼" }
+      },
+      "features": {
+        "zh": ["重载设计", "超高效率", "长期稳定", "智能控制"],
+        "en": ["Heavy-duty design", "Ultra-high efficiency", "Long-term stability", "Smart control"],
+        "ja": ["重荷重設計", "超高効率", "長期安定", "スマート制御"]
+      }
+    },
+    {
+      "id": "gls-004",
+      "active": true,
+      "image": "/images/products/gas-liquid-separators/gls-004.jpg",
+      "name": { "zh": "GLS-004 智能分离器", "en": "GLS-004 Smart Separator", "ja": "GLS-004 スマート分離器" },
+      "description": { "zh": "集成智能监控系统，实时监测分离效果和设备状态。", "en": "Integrated smart monitoring system for real-time separation effect and equipment status monitoring.", "ja": "スマート監視システムを搭載、分離効果と機器状態をリアルタイム監視。" },
+      "specifications": {
+        "efficiency": "≥99.6%",
+        "pressure": "3.5MPa",
+        "capacity": "100-800 m³/h",
+        "material": { "zh": "不锈钢304", "en": "Stainless Steel 304", "ja": "ステンレス304" }
+      },
+      "features": {
+        "zh": ["智能监控", "自动调节", "远程控制", "数据记录"],
+        "en": ["Smart monitoring", "Auto adjustment", "Remote control", "Data logging"],
+        "ja": ["スマート監視", "自動調整", "遠隔制御", "データ記録"]
+      }
+    }
+  ]
+}

@@ -301,6 +301,12 @@ export default function AdminProducts() {
                         >
                           {prod.active ? '隐藏' : '显示'}
                         </button>
+                        <Link
+                          to={`/admin/product-details/${prod.id}`}
+                          className="text-xs px-3 py-1.5 rounded-lg border border-purple-300 text-purple-600 hover:bg-purple-50 transition-colors"
+                        >
+                          子产品
+                        </Link>
                         <button
                           onClick={() => handleEdit(index)}
                           className="text-xs px-3 py-1.5 rounded-lg border border-blue-300 text-blue-600 hover:bg-blue-50 transition-colors"

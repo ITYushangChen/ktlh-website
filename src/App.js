@@ -19,6 +19,7 @@ import PlateHeatExchangers from './pages/products/PlateHeatExchangers';
 import AdminLogin from './pages/admin/AdminLogin';
 import AdminJobs from './pages/admin/AdminJobs';
 import AdminProducts from './pages/admin/AdminProducts';
+import AdminProductDetails from './pages/admin/AdminProductDetails';
 import './i18n';
 
 function PublicLayout() {
@@ -61,6 +62,7 @@ function App() {
         <Route path="/admin/login" element={<AdminLogin />} />
         <Route path="/admin/jobs" element={<AdminJobs />} />
         <Route path="/admin/products" element={<AdminProducts />} />
+        <Route path="/admin/product-details/:categoryId" element={<AdminProductDetails />} />
         <Route path="/admin" element={<AdminLogin />} />
       </Routes>
     </Router>
