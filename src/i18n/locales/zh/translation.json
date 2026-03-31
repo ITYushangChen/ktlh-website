@@ -590,5 +590,12 @@
       "privacy": "隐私政策",
       "terms": "使用条款"
     }
+  },
+  "admin": {
+    "imageUploadButton": "上传图片",
+    "imageUploadHint": "从本机选择图片并上传到仓库",
+    "imageUploading": "上传中…",
+    "imagePickImage": "请选择图片文件",
+    "imageNeedLogin": "请先登录后台"
   }
 } 

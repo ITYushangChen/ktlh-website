@@ -590,5 +590,12 @@
       "privacy": "Privacy Policy",
       "terms": "Terms of Use"
     }
+  },
+  "admin": {
+    "imageUploadButton": "Upload image",
+    "imageUploadHint": "Choose an image from your computer and upload to the repo",
+    "imageUploading": "Uploading…",
+    "imagePickImage": "Please choose an image file",
+    "imageNeedLogin": "Please log in to admin first"
   }
 }

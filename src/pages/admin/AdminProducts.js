@@ -3,6 +3,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { useAdminAuth } from '../../hooks/useAdminAuth';
 import { fetchFileFromGitHub, commitFileToGitHub } from '../../utils/githubApi';
 import { translateProductContent } from '../../utils/deepseekApi';
+import AdminImageField from '../../components/admin/AdminImageField';
 
 const FILE_PATH = 'public/content/products.json';
 
@@ -459,15 +460,14 @@ function EditProductForm({
         {/* Shared fields */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">图片路径</label>
-            <input
-              type="text"
+            <AdminImageField
+              label="图片路径"
               value={product.image}
-              onChange={e => setField('image', e.target.value)}
-              className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#086c7b]"
+              onChange={(v) => setField('image', v)}
               placeholder="/images/products/xxx.jpg"
+              subdir="products"
             />
-            <p className="text-xs text-gray-400 mt-1">图片放在 public/images/products/ 目录下</p>
+            <p className="text-xs text-gray-400 mt-1">可手动填写路径，或点「上传图片」从本机选择文件并提交到仓库 public/images/products/</p>
           </div>
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">详情页链接</label>

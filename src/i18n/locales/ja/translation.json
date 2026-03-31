@@ -590,5 +590,12 @@
       "privacy": "プライバシーポリシー",
       "terms": "利用規約"
     }
+  },
+  "admin": {
+    "imageUploadButton": "画像をアップロード",
+    "imageUploadHint": "PC から画像を選んでリポジトリにアップロード",
+    "imageUploading": "アップロード中…",
+    "imagePickImage": "画像ファイルを選択してください",
+    "imageNeedLogin": "先に管理画面にログインしてください"
   }
 }

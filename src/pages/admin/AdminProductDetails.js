@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate, Link, useParams } from 'react-router-dom';
 import { useAdminAuth } from '../../hooks/useAdminAuth';
 import { fetchFileFromGitHub, commitFileToGitHub } from '../../utils/githubApi';
+import AdminImageField from '../../components/admin/AdminImageField';
 
 const FILE_PATH = 'public/content/product-details.json';
 const LANGS = [
@@ -285,6 +286,7 @@ export default function AdminProductDetails() {
           </>
         ) : (
           <EditItemForm
+            categoryId={categoryId}
             item={editingItem} isNew={editingIndex === null}
             activeLang={activeLang} setActiveLang={setActiveLang}
             sf={sf} slf={slf}
@@ -300,6 +302,7 @@ export default function AdminProductDetails() {
 }
 
 function EditItemForm({
+  categoryId,
   item, isNew, activeLang, setActiveLang,
   sf, slf, setSpecField, setSpecLangField, addSpecField, removeSpecField,
   setFeatureItem, addFeature, removeFeature,
@@ -332,10 +335,13 @@ function EditItemForm({
 
         {/* Image */}
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">产品图片路径</label>
-          <input type="text" value={item.image} onChange={e => sf('image', e.target.value)}
-            className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#086c7b]"
-            placeholder="/images/products/receivers/r-001.jpg" />
+          <AdminImageField
+            label="产品图片路径"
+            value={item.image}
+            onChange={(v) => sf('image', v)}
+            placeholder="/images/products/receivers/r-001.jpg"
+            subdir={`products/${categoryId}`}
+          />
           {item.image && (
             <img src={item.image} alt="预览" className="mt-2 w-32 h-24 object-cover rounded bg-gray-100 border"
               onError={(e) => { e.target.style.display = 'none'; }} />
