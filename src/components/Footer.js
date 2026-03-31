@@ -146,7 +146,7 @@ const Footer = () => {
         <div className="border-t border-gray-800 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm">
-              © {currentYear} 青岛开拓隆海制冷配件有限公司 {t('footer.copyright')}
+              © {currentYear} 青岛开拓隆海智控有限公司 {t('footer.copyright')}
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <Link to="/privacy" className="text-gray-400 hover:text-[#086c7b] text-sm">
