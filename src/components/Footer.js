@@ -13,7 +13,6 @@ const Footer = () => {
       title: t('footer.sections.about.title'),
       links: [
         { path: '/about', label: t('footer.sections.about.links.companyProfile') },
-        { path: '/careers', label: t('footer.sections.about.links.careers') },
         { path: '/contact', label: t('footer.sections.about.links.contact') },
       ],
     },

@@ -43,7 +43,7 @@ export default function AdminLogin() {
       repo: form.repo.trim(),
       branch: form.branch.trim() || 'main',
     });
-    navigate('/admin/jobs');
+    navigate('/admin/products');
   };
 
   return (

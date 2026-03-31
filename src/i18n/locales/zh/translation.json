@@ -105,15 +105,6 @@
         }
       ]
     },
-    "partners": {
-      "title": "合作伙伴",
-      "subtitle": "与全球知名空调企业建立长期战略合作关系",
-      "items": [
-        { "name": "格力", "logo": "/images/partner1.png" },
-        { "name": "美的", "logo": "/images/partner2.png" },
-        { "name": "海尔", "logo": "/images/partner3.png" }
-      ]
-    },
     "cta": {
       "title": "期待与您合作",
       "subtitle": "我们致力于为客户提供高品质的空调系统元件，期待与您建立长期合作关系",

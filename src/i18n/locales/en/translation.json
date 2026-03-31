@@ -105,15 +105,6 @@
         }
       ]
     },
-    "partners": {
-      "title": "Partners",
-      "subtitle": "Establishing long-term strategic cooperation with world-famous air conditioning companies.",
-      "items": [
-        { "name": "Gree", "logo": "/images/partner1.png" },
-        { "name": "Midea", "logo": "/images/partner2.png" },
-        { "name": "Haier", "logo": "/images/partner3.png" }
-      ]
-    },
     "cta": {
       "title": "Looking Forward to Working with You",
       "subtitle": "We are committed to providing high-quality air conditioning system components, and look forward to building a long-term partnership with you.",

@@ -105,15 +105,6 @@
         }
       ]
     },
-    "partners": {
-      "title": "パートナー企業",
-      "subtitle": "世界的な有名空調企業と長期戦略的パートナーシップを構築しています。",
-      "items": [
-        { "name": "グリー", "logo": "/images/partner1.png" },
-        { "name": "美的", "logo": "/images/partner2.png" },
-        { "name": "ハイアール", "logo": "/images/partner3.png" }
-      ]
-    },
     "cta": {
       "title": "貴社との協業をお待ちしております",
       "subtitle": "高品質な空調システム部品を提供し、長期的なパートナーシップ構築を目指します。",

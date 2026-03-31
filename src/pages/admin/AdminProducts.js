@@ -182,12 +182,6 @@ export default function AdminProducts() {
           <span className="text-blue-200 text-sm hidden sm:inline">/ 产品管理</span>
         </div>
         <div className="flex items-center gap-3">
-          <Link
-            to="/admin/jobs"
-            className="text-sm text-blue-200 hover:text-white transition-colors"
-          >
-            职位管理
-          </Link>
           <a
             href="/products"
             target="_blank"

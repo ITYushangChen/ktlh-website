@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, Outlet } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Outlet, Navigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -7,7 +7,6 @@ import ScrollToTop from './components/ScrollToTop';
 import Home from './pages/Home';
 import About from './pages/About';
 import Products from './pages/Products';
-import Careers from './pages/Careers';
 import Contact from './pages/Contact';
 import Receivers from './pages/products/Receivers';
 import GasLiquidSeparators from './pages/products/GasLiquidSeparators';
@@ -17,7 +16,6 @@ import ShellTubeHeatExchangers from './pages/products/ShellTubeHeatExchangers';
 import CopperTubeSeries from './pages/products/CopperTubeSeries';
 import PlateHeatExchangers from './pages/products/PlateHeatExchangers';
 import AdminLogin from './pages/admin/AdminLogin';
-import AdminJobs from './pages/admin/AdminJobs';
 import AdminProducts from './pages/admin/AdminProducts';
 import AdminProductDetails from './pages/admin/AdminProductDetails';
 import './i18n';
@@ -56,11 +54,11 @@ function App() {
           <Route path="/products/shell-tube-heat-exchangers" element={<ShellTubeHeatExchangers />} />
           <Route path="/products/copper-tube-series" element={<CopperTubeSeries />} />
           <Route path="/products/plate-heat-exchangers" element={<PlateHeatExchangers />} />
-          <Route path="/careers" element={<Careers />} />
+          <Route path="/careers" element={<Navigate to="/" replace />} />
           <Route path="/contact" element={<Contact />} />
         </Route>
         <Route path="/admin/login" element={<AdminLogin />} />
-        <Route path="/admin/jobs" element={<AdminJobs />} />
+        <Route path="/admin/jobs" element={<Navigate to="/admin/products" replace />} />
         <Route path="/admin/products" element={<AdminProducts />} />
         <Route path="/admin/product-details/:categoryId" element={<AdminProductDetails />} />
         <Route path="/admin" element={<AdminLogin />} />

@@ -37,7 +37,6 @@ const Navbar = () => {
       label: t('nav.products'),
       subItems: productSubItems.map(s => ({ path: s.path, label: gl(s.titleObj) })),
     },
-    { path: '/careers', label: t('nav.careers') },
     { path: '/contact', label: t('nav.contact') }
   ];
 

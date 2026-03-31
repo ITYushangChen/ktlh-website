@@ -14,12 +14,6 @@ const Home = () => {
   const features = getTranslationArray('home.features.items');
   const showcaseItems = getTranslationArray('home.showcase.items');
   const products = getTranslationArray('home.products.items');
-  const partners = getTranslationArray('home.partners.items');
-
-  console.log('Features:', features);
-  console.log('Showcase Items:', showcaseItems);
-  console.log('Products:', products);
-  console.log('Partners:', partners);
 
   return (
     <div className="min-h-screen">
@@ -220,39 +214,6 @@ const Home = () => {
                       </svg>
                     </Link>
                   </div>
-                </motion.div>
-              ))}
-            </div>
-          )}
-        </div>
-      </section>
-
-      {/* Partners Section —— Logo 图片保留动画 */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              {t('home.partners.title')}
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              {t('home.partners.subtitle')}
-            </p>
-          </div>
-
-          {partners.length > 0 && (
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center">
-              {partners.map((partner, index) => (
-                <motion.div
-                  key={index}
-                  className="flex items-center justify-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300"
-                  whileHover={{ scale: 1.05 }}
-                >
-                  <motion.img
-                    src={partner.logo}
-                    alt={partner.name}
-                    className="max-h-12 max-w-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
-                    whileHover={{ scale: 1.1 }}
-                  />
                 </motion.div>
               ))}
             </div>

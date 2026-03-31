@@ -198,7 +198,6 @@ export default function AdminProductDetails() {
         </div>
         <div className="flex items-center gap-3">
           <Link to="/admin/products" className="text-sm text-blue-200 hover:text-white transition-colors">产品管理</Link>
-          <Link to="/admin/jobs" className="text-sm text-blue-200 hover:text-white transition-colors">职位管理</Link>
           <button onClick={logout} className="text-sm bg-white/10 hover:bg-white/20 px-4 py-1.5 rounded-lg transition-colors">退出登录</button>
         </div>
       </header>
