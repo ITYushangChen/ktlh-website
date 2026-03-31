@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Outlet } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
@@ -32,6 +33,12 @@ function PublicLayout() {
 }
 
 function App() {
+  const { i18n } = useTranslation();
+
+  useEffect(() => {
+    document.documentElement.lang = i18n.language;
+  }, [i18n.language]);
+
   return (
     <Router>
       <ScrollToTop />

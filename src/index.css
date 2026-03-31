@@ -12,6 +12,25 @@
   }
 }
 
+/* 英文版专用字体：DM Sans（仿 Neue Montreal 风格） */
+html[lang="en"] body,
+html[lang="en"] h1,
+html[lang="en"] h2,
+html[lang="en"] h3,
+html[lang="en"] h4,
+html[lang="en"] h5,
+html[lang="en"] h6,
+html[lang="en"] p,
+html[lang="en"] a,
+html[lang="en"] span,
+html[lang="en"] button,
+html[lang="en"] input,
+html[lang="en"] textarea,
+html[lang="en"] li {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  letter-spacing: 0.01em;
+}
+
 @layer components {
   .container {
     @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
