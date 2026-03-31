@@ -181,7 +181,13 @@ export default function AdminProducts() {
           <span className="font-bold text-lg tracking-wide">KTLH 后台管理</span>
           <span className="text-blue-200 text-sm hidden sm:inline">/ 产品管理</span>
         </div>
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 flex-wrap justify-end">
+          <Link
+            to="/admin/certifications"
+            className="text-sm text-blue-200 hover:text-white transition-colors"
+          >
+            资质认证
+          </Link>
           <a
             href="/products"
             target="_blank"

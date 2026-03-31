@@ -196,8 +196,9 @@ export default function AdminProductDetails() {
             / <Link to="/admin/products" className="hover:text-white">产品管理</Link> / {categoryNames[categoryId] || categoryId} 子产品
           </span>
         </div>
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 flex-wrap justify-end">
           <Link to="/admin/products" className="text-sm text-blue-200 hover:text-white transition-colors">产品管理</Link>
+          <Link to="/admin/certifications" className="text-sm text-blue-200 hover:text-white transition-colors">资质认证</Link>
           <button onClick={logout} className="text-sm bg-white/10 hover:bg-white/20 px-4 py-1.5 rounded-lg transition-colors">退出登录</button>
         </div>
       </header>
