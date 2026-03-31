@@ -6,9 +6,28 @@ import LanguageSwitcher from './LanguageSwitcher';
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
+  const [productSubItems, setProductSubItems] = useState([]);
   const dropdownRef = useRef(null);
   const location = useLocation();
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+
+  useEffect(() => {
+    fetch(`/content/products.json?t=${Date.now()}`)
+      .then(res => res.json())
+      .then(data => {
+        const active = (data.categories || []).filter(c => c.active !== false);
+        setProductSubItems(active.map(c => ({
+          path: c.link,
+          titleObj: c.title,
+        })));
+      })
+      .catch(() => setProductSubItems([]));
+  }, []);
+
+  const gl = (field) => {
+    if (!field || typeof field === 'string') return field || '';
+    return field[i18n.language] || field.zh || '';
+  };
 
   const navItems = [
     { path: '/', label: t('nav.home') },
@@ -16,15 +35,7 @@ const Navbar = () => {
     {
       path: '/products',
       label: t('nav.products'),
-      subItems: [
-        { path: '/products/receivers', label: t('nav.products_sub.receivers') },
-        { path: '/products/gas-liquid-separators', label: t('nav.products_sub.gas_liquid_separators') },
-        { path: '/products/oil-separators', label: t('nav.products_sub.oil_separators') },
-        { path: '/products/damping-blocks', label: t('nav.products_sub.damping_blocks') },
-        { path: '/products/shell-tube-heat-exchangers', label: t('nav.products_sub.shell_tube_heat_exchangers') },
-        { path: '/products/copper-tube-series', label: t('nav.products_sub.copper_tube_series') },
-        { path: '/products/plate-heat-exchangers', label: t('nav.products_sub.plate_heat_exchangers') },
-      ]
+      subItems: productSubItems.map(s => ({ path: s.path, label: gl(s.titleObj) })),
     },
     { path: '/careers', label: t('nav.careers') },
     { path: '/contact', label: t('nav.contact') }
