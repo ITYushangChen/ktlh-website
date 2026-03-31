@@ -528,5 +528,50 @@
       "title": "板式换热器系列",
       "subtitle": "紧凑型换热设备，高效节能的理想选择，广泛应用于各类制冷系统"
     }
+  },
+  "footer": {
+    "companyName": "开拓隆海",
+    "companyDesc": "专注空调系统元件研发与制造的高新技术企业，为全球知名空调企业提供优质产品",
+    "sections": {
+      "about": {
+        "title": "关于我们",
+        "links": {
+          "companyProfile": "公司简介",
+          "careers": "招贤纳士",
+          "contact": "联系我们"
+        }
+      },
+      "products": {
+        "title": "产品中心",
+        "links": {
+          "overview": "产品概览",
+          "solutions": "解决方案",
+          "highlights": "产品亮点"
+        }
+      },
+      "legal": {
+        "title": "法律声明",
+        "links": {
+          "privacy": "隐私政策",
+          "terms": "使用条款"
+        }
+      },
+      "contact": {
+        "title": "联系方式",
+        "address": "地址：青岛市胶州上合示范区",
+        "phone": "电话：0532-XXXXXXXX",
+        "email": "邮箱：contact@ktlh.com"
+      }
+    },
+    "social": {
+      "wechat": "微信",
+      "xiaohongshu": "小红书",
+      "qrSuffix": "二维码"
+    },
+    "copyright": "版权所有",
+    "bottomLinks": {
+      "privacy": "隐私政策",
+      "terms": "使用条款"
+    }
   }
 } 

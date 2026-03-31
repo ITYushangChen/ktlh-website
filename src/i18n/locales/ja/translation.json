@@ -528,5 +528,50 @@
       "title": "プレート式熱交換器シリーズ",
       "subtitle": "コンパクトで省エネ、各種冷凍システムに最適な熱交換器。"
     }
+  },
+  "footer": {
+    "companyName": "開拓隆海",
+    "companyDesc": "空調システム部品の研究開発・製造に特化したハイテク企業。世界的な空調メーカーに高品質な製品を提供しています。",
+    "sections": {
+      "about": {
+        "title": "会社情報",
+        "links": {
+          "companyProfile": "会社概要",
+          "careers": "採用情報",
+          "contact": "お問い合わせ"
+        }
+      },
+      "products": {
+        "title": "製品情報",
+        "links": {
+          "overview": "製品一覧",
+          "solutions": "ソリューション",
+          "highlights": "製品の特長"
+        }
+      },
+      "legal": {
+        "title": "法的情報",
+        "links": {
+          "privacy": "プライバシーポリシー",
+          "terms": "利用規約"
+        }
+      },
+      "contact": {
+        "title": "お問い合わせ",
+        "address": "住所：青島市膠州上合示範区",
+        "phone": "電話：0532-XXXXXXXX",
+        "email": "メール：contact@ktlh.com"
+      }
+    },
+    "social": {
+      "wechat": "WeChat",
+      "xiaohongshu": "小紅書",
+      "qrSuffix": "QRコード"
+    },
+    "copyright": "All rights reserved.",
+    "bottomLinks": {
+      "privacy": "プライバシーポリシー",
+      "terms": "利用規約"
+    }
   }
 }

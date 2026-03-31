@@ -528,5 +528,50 @@
       "title": "Plate Heat Exchanger Series",
       "subtitle": "Compact and energy-saving, ideal for all types of refrigeration systems."
     }
+  },
+  "footer": {
+    "companyName": "Kaituo Longhai",
+    "companyDesc": "A high-tech enterprise specializing in R&D and manufacturing of air conditioning system components, providing quality products to global leading air conditioning brands.",
+    "sections": {
+      "about": {
+        "title": "About Us",
+        "links": {
+          "companyProfile": "Company Profile",
+          "careers": "Careers",
+          "contact": "Contact Us"
+        }
+      },
+      "products": {
+        "title": "Products",
+        "links": {
+          "overview": "Product Overview",
+          "solutions": "Solutions",
+          "highlights": "Highlights"
+        }
+      },
+      "legal": {
+        "title": "Legal",
+        "links": {
+          "privacy": "Privacy Policy",
+          "terms": "Terms of Use"
+        }
+      },
+      "contact": {
+        "title": "Contact",
+        "address": "Address: Jiaozhou SCO Demonstration Zone, Qingdao",
+        "phone": "Phone: 0532-XXXXXXXX",
+        "email": "Email: contact@ktlh.com"
+      }
+    },
+    "social": {
+      "wechat": "WeChat",
+      "xiaohongshu": "Xiaohongshu",
+      "qrSuffix": "QR Code"
+    },
+    "copyright": "All rights reserved.",
+    "bottomLinks": {
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Use"
+    }
   }
 }
