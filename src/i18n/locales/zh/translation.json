@@ -167,6 +167,11 @@
     },
     "locationTitle": "公司位置",
     "mapLoading": "地图加载中...",
+    "mapsChooseHint": "选择地图应用查看位置与路线（默认 Apple 地图）",
+    "mapTabApple": "Apple 地图",
+    "mapTabGoogle": "Google 地图",
+    "appleMapsPanelHint": "在浏览器或 iPhone、iPad、Mac 上使用 Apple 地图查看路线与导航。",
+    "openInAppleMaps": "在 Apple 地图中打开",
     "openInGoogleMaps": "在 Google 地图中打开（路线与导航）"
   },
   "about": {

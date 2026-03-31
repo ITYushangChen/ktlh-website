@@ -22,6 +22,18 @@ const Contact = () => {
     const q = encodeURIComponent(mapPlaceQuery);
     return `https://www.google.com/maps/search/?api=1&query=${q}`;
   }, [mapPlaceQuery]);
+
+  const mapAppleUrl = useMemo(() => {
+    const q = encodeURIComponent(mapPlaceQuery);
+    return `https://maps.apple.com/?q=${q}`;
+  }, [mapPlaceQuery]);
+
+  const defaultMapTab =
+    (process.env.REACT_APP_CONTACT_DEFAULT_MAP || 'apple').toLowerCase() === 'google'
+      ? 'google'
+      : 'apple';
+  const [mapTab, setMapTab] = useState(defaultMapTab);
+
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState('');
 
@@ -232,26 +244,69 @@ const Contact = () => {
           <h2 className="text-3xl font-bold text-center mb-12">{t('contact.locationTitle')}</h2>
           <div className="max-w-4xl mx-auto">
             <div className="bg-white p-4 rounded-lg shadow-md">
-              <div className="overflow-hidden rounded-lg bg-gray-100">
-                <iframe
-                  title={t('contact.locationTitle')}
-                  src={mapEmbedSrc}
-                  className="w-full h-96 border-0"
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  allowFullScreen
-                />
-              </div>
-              <p className="text-center mt-4 text-sm text-gray-600">
-                <a
-                  href={mapOpenUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[#086c7b] hover:text-[#065a67] font-medium underline-offset-2 hover:underline"
+              <p className="text-center text-sm text-gray-500 mb-4">{t('contact.mapsChooseHint')}</p>
+              <div className="flex justify-center gap-2 mb-4 flex-wrap">
+                <button
+                  type="button"
+                  onClick={() => setMapTab('apple')}
+                  className={`px-5 py-2.5 rounded-lg text-sm font-medium transition-colors ${
+                    mapTab === 'apple'
+                      ? 'bg-[#086c7b] text-white shadow'
+                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  }`}
                 >
-                  {t('contact.openInGoogleMaps')}
-                </a>
-              </p>
+                  {t('contact.mapTabApple')}
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setMapTab('google')}
+                  className={`px-5 py-2.5 rounded-lg text-sm font-medium transition-colors ${
+                    mapTab === 'google'
+                      ? 'bg-[#086c7b] text-white shadow'
+                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  }`}
+                >
+                  {t('contact.mapTabGoogle')}
+                </button>
+              </div>
+
+              {mapTab === 'apple' ? (
+                <div className="rounded-lg border border-gray-200 bg-gray-50 min-h-[24rem] flex flex-col items-center justify-center px-6 py-10 text-center">
+                  <p className="text-gray-800 font-medium text-lg mb-2">{mapPlaceQuery}</p>
+                  <p className="text-sm text-gray-500 mb-6 max-w-md">{t('contact.appleMapsPanelHint')}</p>
+                  <a
+                    href={mapAppleUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center px-8 py-3 rounded-lg bg-[#086c7b] text-white font-medium hover:bg-[#065a67] transition-colors"
+                  >
+                    {t('contact.openInAppleMaps')}
+                  </a>
+                </div>
+              ) : (
+                <>
+                  <div className="overflow-hidden rounded-lg bg-gray-100">
+                    <iframe
+                      title={t('contact.mapTabGoogle')}
+                      src={mapEmbedSrc}
+                      className="w-full h-96 border-0"
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                      allowFullScreen
+                    />
+                  </div>
+                  <p className="text-center mt-4 text-sm text-gray-600">
+                    <a
+                      href={mapOpenUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[#086c7b] hover:text-[#065a67] font-medium underline-offset-2 hover:underline"
+                    >
+                      {t('contact.openInGoogleMaps')}
+                    </a>
+                  </p>
+                </>
+              )}
             </div>
           </div>
         </div>

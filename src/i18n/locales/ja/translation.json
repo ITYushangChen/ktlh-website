@@ -167,6 +167,11 @@
     },
     "locationTitle": "会社所在地",
     "mapLoading": "地図を読み込み中...",
+    "mapsChooseHint": "地図アプリを選んで場所と経路を表示（既定は Apple マップ）",
+    "mapTabApple": "Apple マップ",
+    "mapTabGoogle": "Google マップ",
+    "appleMapsPanelHint": "ブラウザ、iPhone、iPad、Mac の Apple マップで経路・ナビをご利用いただけます。",
+    "openInAppleMaps": "Apple マップで開く",
     "openInGoogleMaps": "Google マップで開く（経路・ナビ）"
   },
   "about": {

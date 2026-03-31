@@ -167,6 +167,11 @@
     },
     "locationTitle": "Company Location",
     "mapLoading": "Loading map...",
+    "mapsChooseHint": "Choose a maps app for location and directions (Apple Maps by default)",
+    "mapTabApple": "Apple Maps",
+    "mapTabGoogle": "Google Maps",
+    "appleMapsPanelHint": "Open in your browser or on iPhone, iPad, or Mac for directions and navigation.",
+    "openInAppleMaps": "Open in Apple Maps",
     "openInGoogleMaps": "Open in Google Maps (directions)"
   },
   "about": {
