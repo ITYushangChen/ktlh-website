@@ -1,0 +1,36 @@
+{
+  "items": [
+    {
+      "image": "/images/certifications/cert-01.svg",
+      "title": {
+        "zh": "ISO9001 质量管理体系认证",
+        "en": "ISO 9001 Quality Management System",
+        "ja": "ISO9001 品質マネジメントシステム"
+      }
+    },
+    {
+      "image": "/images/certifications/cert-02.svg",
+      "title": {
+        "zh": "高新技术企业认定",
+        "en": "High-tech Enterprise Certification",
+        "ja": "ハイテク企業認定"
+      }
+    },
+    {
+      "image": "/images/certifications/cert-03.svg",
+      "title": {
+        "zh": "市级企业技术中心",
+        "en": "Municipal Enterprise Technology Center",
+        "ja": "市級企業技術センター"
+      }
+    },
+    {
+      "image": "/images/certifications/cert-04.svg",
+      "title": {
+        "zh": "其他资质与荣誉（示意）",
+        "en": "Additional credentials (placeholder)",
+        "ja": "その他の認証・表彰（プレースホルダー）"
+      }
+    }
+  ]
+}

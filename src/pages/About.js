@@ -1,9 +1,23 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 
+function certTitleForLang(titleObj, lang) {
+  if (!titleObj || typeof titleObj !== 'object') return '';
+  const key = lang.startsWith('ja') ? 'ja' : lang.startsWith('en') ? 'en' : 'zh';
+  return titleObj[key] || titleObj.zh || titleObj.en || titleObj.ja || '';
+}
+
 const About = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const [certItems, setCertItems] = useState([]);
+
+  useEffect(() => {
+    fetch(`/content/certifications.json?t=${Date.now()}`)
+      .then((res) => res.json())
+      .then((data) => setCertItems(Array.isArray(data.items) ? data.items : []))
+      .catch(() => setCertItems([]));
+  }, []);
 
   return (
     <div className="py-16">
@@ -41,6 +55,58 @@ const About = () => {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* 资质认证 */}
+      <section className="py-16 bg-gray-50 border-y border-gray-100">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-900">
+            {t('about.certificationsTitle')}
+          </h2>
+          <p className="text-lg text-gray-600 text-center max-w-3xl mx-auto mb-12">
+            {t('about.certificationsSubtitle')}
+          </p>
+          {certItems.length === 0 ? (
+            <p className="text-center text-gray-500">{t('about.certificationsEmpty')}</p>
+          ) : (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+              {certItems.map((item, index) => {
+                const label = certTitleForLang(item.title, i18n.language || 'zh');
+                return (
+                  <motion.article
+                    key={`${item.image}-${index}`}
+                    className="bg-white rounded-xl shadow-md overflow-hidden border border-gray-100 hover:shadow-lg transition-shadow duration-300"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: '-60px' }}
+                    transition={{ duration: 0.4, delay: Math.min(index * 0.06, 0.3) }}
+                  >
+                    <a
+                      href={item.image}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block focus:outline-none focus-visible:ring-2 focus-visible:ring-[#086c7b] focus-visible:ring-offset-2 rounded-t-xl"
+                    >
+                      <div className="aspect-[3/4] bg-gray-50 flex items-center justify-center p-3 min-h-[200px]">
+                        <img
+                          src={item.image}
+                          alt={label}
+                          className="max-h-full max-w-full w-auto object-contain"
+                          loading="lazy"
+                        />
+                      </div>
+                    </a>
+                    <div className="px-4 py-3 border-t border-gray-100 min-h-[3.5rem] flex items-center justify-center">
+                      <p className="text-sm font-medium text-gray-800 text-center leading-snug">
+                        {label}
+                      </p>
+                    </div>
+                  </motion.article>
+                );
+              })}
+            </div>
+          )}
         </div>
       </section>
 
