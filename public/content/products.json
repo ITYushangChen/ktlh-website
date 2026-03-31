@@ -74,7 +74,7 @@
     },
     {
       "id": "oil-separators",
-      "active": true,
+      "active": false,
       "image": "/images/products/oil-separators.jpg",
       "link": "/products/oil-separators",
       "title": {
