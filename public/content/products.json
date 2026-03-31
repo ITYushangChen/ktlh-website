@@ -2,7 +2,7 @@
   "categories": [
     {
       "id": "receivers",
-      "active": true,
+      "active": false,
       "image": "/images/products/receivers.jpg",
       "link": "/products/receivers",
       "title": {
@@ -16,14 +16,29 @@
         "ja": "各種空調システム用レシーバーを製造、冷媒の安定供給を実現"
       },
       "features": {
-        "zh": ["高效储液", "耐压设计", "多规格可选", "质量可靠"],
-        "en": ["High-efficiency storage", "Pressure-resistant design", "Multiple specifications", "Reliable quality"],
-        "ja": ["高効率貯液", "耐圧設計", "多規格対応", "信頼の品質"]
+        "zh": [
+          "高效储液",
+          "耐压设计",
+          "多规格可选",
+          "质量可靠"
+        ],
+        "en": [
+          "High-efficiency storage",
+          "Pressure-resistant design",
+          "Multiple specifications",
+          "Reliable quality"
+        ],
+        "ja": [
+          "高効率貯液",
+          "耐圧設計",
+          "多規格対応",
+          "信頼の品質"
+        ]
       }
     },
     {
       "id": "gas-liquid-separators",
-      "active": true,
+      "active": false,
       "image": "/images/products/gas-liquid-separators.jpg",
       "link": "/products/gas-liquid-separators",
       "title": {
@@ -37,9 +52,24 @@
         "ja": "気液混合物を高効率に分離し、空調システムの運転効率を向上"
       },
       "features": {
-        "zh": ["高效分离", "低压降", "结构紧凑", "维护简便"],
-        "en": ["High-efficiency separation", "Low pressure drop", "Compact structure", "Easy maintenance"],
-        "ja": ["高効率分離", "低圧力損失", "コンパクト構造", "メンテナンス容易"]
+        "zh": [
+          "高效分离",
+          "低压降",
+          "结构紧凑",
+          "维护简便"
+        ],
+        "en": [
+          "High-efficiency separation",
+          "Low pressure drop",
+          "Compact structure",
+          "Easy maintenance"
+        ],
+        "ja": [
+          "高効率分離",
+          "低圧力損失",
+          "コンパクト構造",
+          "メンテナンス容易"
+        ]
       }
     },
     {
@@ -58,9 +88,24 @@
         "ja": "専門的なオイル分離技術でコンプレッサーを保護し寿命を延長"
       },
       "features": {
-        "zh": ["高效油分", "节能环保", "智能设计", "长寿命"],
-        "en": ["High-efficiency oil separation", "Energy-saving", "Smart design", "Long lifespan"],
-        "ja": ["高効率油分離", "省エネ環境配慮", "スマート設計", "長寿命"]
+        "zh": [
+          "高效油分",
+          "节能环保",
+          "智能设计",
+          "长寿命"
+        ],
+        "en": [
+          "High-efficiency oil separation",
+          "Energy-saving",
+          "Smart design",
+          "Long lifespan"
+        ],
+        "ja": [
+          "高効率油分離",
+          "省エネ環境配慮",
+          "スマート設計",
+          "長寿命"
+        ]
       }
     },
     {
@@ -79,9 +124,24 @@
         "ja": "専門的な制振・防音製品で空調システムの運転騒音を効果的に低減"
       },
       "features": {
-        "zh": ["减震降噪", "耐久性强", "安装简便", "环保材料"],
-        "en": ["Vibration & noise reduction", "High durability", "Easy installation", "Eco-friendly materials"],
-        "ja": ["制振・防音", "高耐久性", "簡単取付", "環境配慮素材"]
+        "zh": [
+          "减震降噪",
+          "耐久性强",
+          "安装简便",
+          "环保材料"
+        ],
+        "en": [
+          "Vibration & noise reduction",
+          "High durability",
+          "Easy installation",
+          "Eco-friendly materials"
+        ],
+        "ja": [
+          "制振・防音",
+          "高耐久性",
+          "簡単取付",
+          "環境配慮素材"
+        ]
       }
     },
     {
@@ -100,9 +160,24 @@
         "ja": "高効率伝熱機器、各種空調・冷凍システムに幅広く使用"
       },
       "features": {
-        "zh": ["传热高效", "结构稳定", "耐腐蚀", "易维护"],
-        "en": ["Efficient heat transfer", "Stable structure", "Corrosion-resistant", "Easy maintenance"],
-        "ja": ["高効率伝熱", "安定構造", "耐腐食", "メンテナンス容易"]
+        "zh": [
+          "传热高效",
+          "结构稳定",
+          "耐腐蚀",
+          "易维护"
+        ],
+        "en": [
+          "Efficient heat transfer",
+          "Stable structure",
+          "Corrosion-resistant",
+          "Easy maintenance"
+        ],
+        "ja": [
+          "高効率伝熱",
+          "安定構造",
+          "耐腐食",
+          "メンテナンス容易"
+        ]
       }
     },
     {
@@ -121,9 +196,24 @@
         "ja": "高品質銅材で製造、各種規格の銅管製品を供給"
       },
       "features": {
-        "zh": ["优质铜材", "精密加工", "规格齐全", "导热优良"],
-        "en": ["Premium copper", "Precision processing", "Full range specs", "Excellent conductivity"],
-        "ja": ["高品質銅材", "精密加工", "豊富な規格", "優れた熱伝導"]
+        "zh": [
+          "优质铜材",
+          "精密加工",
+          "规格齐全",
+          "导热优良"
+        ],
+        "en": [
+          "Premium copper",
+          "Precision processing",
+          "Full range specs",
+          "Excellent conductivity"
+        ],
+        "ja": [
+          "高品質銅材",
+          "精密加工",
+          "豊富な規格",
+          "優れた熱伝導"
+        ]
       }
     },
     {
@@ -142,9 +232,24 @@
         "ja": "コンパクト型熱交換器、省エネに最適な選択肢"
       },
       "features": {
-        "zh": ["紧凑设计", "换热高效", "节能环保", "维护方便"],
-        "en": ["Compact design", "Efficient heat exchange", "Energy-saving", "Easy maintenance"],
-        "ja": ["コンパクト設計", "高効率熱交換", "省エネ環境配慮", "メンテナンス容易"]
+        "zh": [
+          "紧凑设计",
+          "换热高效",
+          "节能环保",
+          "维护方便"
+        ],
+        "en": [
+          "Compact design",
+          "Efficient heat exchange",
+          "Energy-saving",
+          "Easy maintenance"
+        ],
+        "ja": [
+          "コンパクト設計",
+          "高効率熱交換",
+          "省エネ環境配慮",
+          "メンテナンス容易"
+        ]
       }
     }
   ]
