@@ -1,10 +1,29 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 
 const Careers = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const [jobs, setJobs] = useState([]);
+
+  useEffect(() => {
+    fetch('/content/jobs.json')
+      .then(res => res.json())
+      .then(data => setJobs((data.jobs || []).filter(j => j.active !== false)))
+      .catch(() => setJobs([]));
+  }, []);
+
+  const gl = (field) => {
+    if (!field || typeof field === 'string') return field || '';
+    return field[i18n.language] || field.zh || '';
+  };
+
+  const gla = (field) => {
+    if (!field) return [];
+    if (Array.isArray(field)) return field;
+    return field[i18n.language] || field.zh || [];
+  };
 
   // 动画变体
   const fadeInUp = {
@@ -257,7 +276,7 @@ const Careers = () => {
             className="max-w-5xl mx-auto space-y-8"
             variants={staggerContainer}
           >
-            {t('careers.jobs', { returnObjects: true }).map((job, index) => (
+            {jobs.map((job, index) => (
               <motion.div
                 key={index}
                 className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
@@ -281,21 +300,21 @@ const Careers = () => {
                         className="text-2xl font-bold mb-2"
                         whileHover={{ scale: 1.02 }}
                       >
-                        {job.title}
+                        {gl(job.title)}
                       </motion.h3>
                       <div className="flex flex-wrap gap-4 text-blue-100">
-                        <motion.span whileHover={{ scale: 1.05 }}>{job.department}</motion.span>
+                        <motion.span whileHover={{ scale: 1.05 }}>{gl(job.department)}</motion.span>
                         <span>•</span>
                         <motion.span whileHover={{ scale: 1.05 }}>{job.location}</motion.span>
                         <span>•</span>
-                        <motion.span whileHover={{ scale: 1.05 }}>{job.type}</motion.span>
+                        <motion.span whileHover={{ scale: 1.05 }}>{gl(job.type)}</motion.span>
                       </div>
                     </motion.div>
                     <motion.div 
                       className="mt-4 md:mt-0 flex flex-col items-end"
                       whileHover={{ scale: 1.05 }}
                     >
-                      <div className="text-2xl font-bold mb-2">{job.salary}</div>
+                      <div className="text-2xl font-bold mb-2">{gl(job.salary)}</div>
                       <motion.div
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
@@ -333,7 +352,7 @@ const Careers = () => {
                         岗位职责
                       </h4>
                       <ul className="space-y-2">
-                        {job.responsibilities.map((responsibility, idx) => (
+                        {gla(job.responsibilities).map((responsibility, idx) => (
                           <motion.li 
                             key={idx}
                             className="flex items-start text-gray-700"
@@ -371,7 +390,7 @@ const Careers = () => {
                         任职要求
                       </h4>
                       <ul className="space-y-2">
-                        {job.requirements.map((requirement, idx) => (
+                        {gla(job.requirements).map((requirement, idx) => (
                           <motion.li 
                             key={idx}
                             className="flex items-start text-gray-700"

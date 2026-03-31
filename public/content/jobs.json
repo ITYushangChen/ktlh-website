@@ -1,0 +1,272 @@
+{
+  "jobs": [
+    {
+      "id": "job-1",
+      "active": true,
+      "salary": "8K-15K",
+      "location": "青岛胶州",
+      "title": {
+        "zh": "工艺工程师",
+        "en": "Process Engineer",
+        "ja": "プロセスエンジニア"
+      },
+      "department": {
+        "zh": "技术研发部",
+        "en": "R&D Department",
+        "ja": "技術開発部"
+      },
+      "type": {
+        "zh": "全职",
+        "en": "Full-time",
+        "ja": "正社員"
+      },
+      "responsibilities": {
+        "zh": [
+          "负责空调系统元件的工艺改进和优化",
+          "制定和完善生产工艺流程",
+          "解决生产过程中的技术问题",
+          "提升产品质量和生产效率",
+          "参与新产品的工艺设计和验证"
+        ],
+        "en": [
+          "Responsible for process improvement and optimization of air conditioning system components",
+          "Develop and improve production processes",
+          "Solve technical problems in production",
+          "Improve product quality and production efficiency",
+          "Participate in process design and validation of new products"
+        ],
+        "ja": [
+          "空調部品の工法改善と最適化を担当",
+          "生産工程の策定と改善",
+          "生産過程での技術的問題の解決",
+          "品質と生産効率の向上",
+          "新製品の工程設計と検証への参加"
+        ]
+      },
+      "requirements": {
+        "zh": [
+          "本科及以上学历，机械、制冷等相关专业",
+          "3年以上相关工作经验",
+          "熟悉空调系统元件制造工艺",
+          "具备良好的分析和解决问题能力",
+          "有工艺改进项目经验者优先"
+        ],
+        "en": [
+          "Bachelor's degree or above in mechanical, refrigeration or related fields",
+          "3+ years of relevant experience",
+          "Familiar with air conditioning component manufacturing processes",
+          "Good analytical and problem-solving skills",
+          "Experience in process improvement projects preferred"
+        ],
+        "ja": [
+          "機械・冷凍関連学科の学士以上",
+          "3年以上の関連経験",
+          "空調部品製造工程に精通",
+          "優れた分析・問題解決能力",
+          "工程改善プロジェクト経験者優遇"
+        ]
+      }
+    },
+    {
+      "id": "job-2",
+      "active": true,
+      "salary": "7K-12K",
+      "location": "青岛胶州",
+      "title": {
+        "zh": "质量工程师",
+        "en": "Quality Engineer",
+        "ja": "品質エンジニア"
+      },
+      "department": {
+        "zh": "质量管理部",
+        "en": "Quality Management Department",
+        "ja": "品質管理部"
+      },
+      "type": {
+        "zh": "全职",
+        "en": "Full-time",
+        "ja": "正社員"
+      },
+      "responsibilities": {
+        "zh": [
+          "建立和维护产品质量控制体系",
+          "制定质量检验标准和流程",
+          "监督产品质量，确保符合国际标准",
+          "处理客户质量投诉和改进建议",
+          "组织质量培训和质量改进活动"
+        ],
+        "en": [
+          "Establish and maintain product quality control systems",
+          "Develop quality inspection standards and procedures",
+          "Monitor product quality to ensure compliance with international standards",
+          "Handle customer quality complaints and improvement suggestions",
+          "Organize quality training and improvement activities"
+        ],
+        "ja": [
+          "製品品質管理システムの構築・維持",
+          "品質検査基準と手順の策定",
+          "国際基準適合のための品質監督",
+          "顧客からの品質クレーム対応と改善",
+          "品質研修と改善活動の企画"
+        ]
+      },
+      "requirements": {
+        "zh": [
+          "本科及以上学历，质量管理或相关专业",
+          "熟悉ISO9001质量管理体系",
+          "具备质量管理工具应用能力",
+          "2年以上质量管理工作经验",
+          "有制造业质量管理经验者优先"
+        ],
+        "en": [
+          "Bachelor's degree or above in quality management or related fields",
+          "Familiar with ISO9001 quality management system",
+          "Proficient in quality management tools",
+          "2+ years of quality management experience",
+          "Manufacturing quality management experience preferred"
+        ],
+        "ja": [
+          "品質管理専攻の学士以上",
+          "ISO9001品質管理システムの知識",
+          "品質管理ツールの運用能力",
+          "2年以上の品質管理経験",
+          "製造業での品質管理経験者優遇"
+        ]
+      }
+    },
+    {
+      "id": "job-3",
+      "active": true,
+      "salary": "10K-18K",
+      "location": "青岛胶州",
+      "title": {
+        "zh": "生产主管",
+        "en": "Production Supervisor",
+        "ja": "生産スーパーバイザー"
+      },
+      "department": {
+        "zh": "生产部",
+        "en": "Production Department",
+        "ja": "生産部"
+      },
+      "type": {
+        "zh": "全职",
+        "en": "Full-time",
+        "ja": "正社員"
+      },
+      "responsibilities": {
+        "zh": [
+          "负责生产线的日常管理和优化",
+          "制定和执行生产计划",
+          "管理生产团队，确保安全生产",
+          "监控生产进度和产品质量",
+          "持续改进生产效率和成本控制"
+        ],
+        "en": [
+          "Responsible for daily management and optimization of production lines",
+          "Develop and execute production plans",
+          "Manage production teams and ensure safe production",
+          "Monitor production progress and product quality",
+          "Continuously improve production efficiency and cost control"
+        ],
+        "ja": [
+          "生産ラインの日常管理と最適化",
+          "生産計画の策定と実行",
+          "生産チームの管理と安全生産の確保",
+          "生産進捗と製品品質の監視",
+          "生産効率とコスト管理の継続的改善"
+        ]
+      },
+      "requirements": {
+        "zh": [
+          "大专及以上学历，机械或管理相关专业",
+          "5年以上制造业生产管理经验",
+          "熟悉空调配件生产工艺",
+          "具备团队管理和沟通协调能力",
+          "有精益生产管理经验者优先"
+        ],
+        "en": [
+          "Associate degree or above in mechanical or management-related fields",
+          "5+ years of manufacturing production management experience",
+          "Familiar with air conditioning component production processes",
+          "Team management and communication skills",
+          "Lean production management experience preferred"
+        ],
+        "ja": [
+          "機械・管理関連の短大卒以上",
+          "5年以上の製造業管理経験",
+          "空調部品生産工法に精通",
+          "チーム管理・コミュニケーション能力",
+          "リーン生産管理経験者優遇"
+        ]
+      }
+    },
+    {
+      "id": "job-4",
+      "active": true,
+      "salary": "6K-20K",
+      "location": "青岛胶州",
+      "title": {
+        "zh": "销售工程师",
+        "en": "Sales Engineer",
+        "ja": "営業エンジニア"
+      },
+      "department": {
+        "zh": "销售部",
+        "en": "Sales Department",
+        "ja": "営業部"
+      },
+      "type": {
+        "zh": "全职",
+        "en": "Full-time",
+        "ja": "正社員"
+      },
+      "responsibilities": {
+        "zh": [
+          "负责空调系统元件的销售工作",
+          "开发和维护客户关系",
+          "制定销售策略和市场推广方案",
+          "参与商务谈判和合同签订",
+          "收集市场信息和客户需求反馈"
+        ],
+        "en": [
+          "Responsible for sales of air conditioning system components",
+          "Develop and maintain customer relationships",
+          "Develop sales strategies and marketing plans",
+          "Participate in business negotiations and contract signing",
+          "Collect market information and customer feedback"
+        ],
+        "ja": [
+          "空調部品の営業業務",
+          "顧客関係の開拓と維持",
+          "営業戦略とマーケティング計画の策定",
+          "商談と契約締結への参加",
+          "市場情報と顧客ニーズの収集"
+        ]
+      },
+      "requirements": {
+        "zh": [
+          "本科及以上学历，机械、制冷等相关专业",
+          "有空调行业销售经验优先",
+          "具备良好的沟通和谈判能力",
+          "能够承受一定的工作压力",
+          "有B2B销售经验者优先"
+        ],
+        "en": [
+          "Bachelor's degree or above in mechanical, refrigeration or related fields",
+          "Air conditioning industry sales experience preferred",
+          "Excellent communication and negotiation skills",
+          "Ability to work under pressure",
+          "B2B sales experience preferred"
+        ],
+        "ja": [
+          "機械・冷凍専攻の学士以上",
+          "空調業界での営業経験者優遇",
+          "優れたコミュニケーション・交渉能力",
+          "一定の業務プレッシャーに対応可能",
+          "B2B営業経験者優遇"
+        ]
+      }
+    }
+  ]
+}
