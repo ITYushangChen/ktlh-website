@@ -166,7 +166,8 @@
       "sunday": "Sun: Closed"
     },
     "locationTitle": "Company Location",
-    "mapLoading": "Loading map..."
+    "mapLoading": "Loading map...",
+    "openInGoogleMaps": "Open in Google Maps (directions)"
   },
   "about": {
     "title": "About Kaituo Longhai",

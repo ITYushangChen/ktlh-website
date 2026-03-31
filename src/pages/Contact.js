@@ -1,11 +1,27 @@
-import React, { useRef, useState } from 'react';
+import React, { useMemo, useRef, useState } from 'react';
 import emailjs from 'emailjs-com';
 import { useTranslation } from 'react-i18next';
+
+/** 与文案中的公司地址一致；也可用 REACT_APP_GOOGLE_MAPS_QUERY 覆盖 */
+const DEFAULT_MAP_QUERY = '青岛市胶州上合示范区';
 
 const Contact = () => {
   const { t } = useTranslation();
   const formRef = useRef();
   const [sending, setSending] = useState(false);
+
+  const mapPlaceQuery = (process.env.REACT_APP_GOOGLE_MAPS_QUERY || DEFAULT_MAP_QUERY).trim();
+  const mapEmbedSrc = useMemo(() => {
+    const custom = process.env.REACT_APP_GOOGLE_MAPS_EMBED_SRC?.trim();
+    if (custom) return custom;
+    const q = encodeURIComponent(mapPlaceQuery);
+    return `https://www.google.com/maps?q=${q}&hl=zh-CN&z=15&output=embed`;
+  }, [mapPlaceQuery]);
+
+  const mapOpenUrl = useMemo(() => {
+    const q = encodeURIComponent(mapPlaceQuery);
+    return `https://www.google.com/maps/search/?api=1&query=${q}`;
+  }, [mapPlaceQuery]);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState('');
 
@@ -216,12 +232,26 @@ const Contact = () => {
           <h2 className="text-3xl font-bold text-center mb-12">{t('contact.locationTitle')}</h2>
           <div className="max-w-4xl mx-auto">
             <div className="bg-white p-4 rounded-lg shadow-md">
-              {/* 这里可以嵌入地图组件，例如百度地图或高德地图 */}
-              <div className="aspect-w-16 aspect-h-9 bg-gray-200 rounded-lg">
-                <div className="w-full h-96 flex items-center justify-center text-gray-500">
-                  {t('contact.mapLoading')}
-                </div>
+              <div className="overflow-hidden rounded-lg bg-gray-100">
+                <iframe
+                  title={t('contact.locationTitle')}
+                  src={mapEmbedSrc}
+                  className="w-full h-96 border-0"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  allowFullScreen
+                />
               </div>
+              <p className="text-center mt-4 text-sm text-gray-600">
+                <a
+                  href={mapOpenUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#086c7b] hover:text-[#065a67] font-medium underline-offset-2 hover:underline"
+                >
+                  {t('contact.openInGoogleMaps')}
+                </a>
+              </p>
             </div>
           </div>
         </div>

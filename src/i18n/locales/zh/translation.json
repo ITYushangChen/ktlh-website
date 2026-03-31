@@ -166,7 +166,8 @@
       "sunday": "周日：休息"
     },
     "locationTitle": "公司位置",
-    "mapLoading": "地图加载中..."
+    "mapLoading": "地图加载中...",
+    "openInGoogleMaps": "在 Google 地图中打开（路线与导航）"
   },
   "about": {
     "title": "关于开拓隆海",
