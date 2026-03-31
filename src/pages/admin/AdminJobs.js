@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAdminAuth } from '../../hooks/useAdminAuth';
 import { fetchFileFromGitHub, commitFileToGitHub } from '../../utils/githubApi';
+import { translateJobContent } from '../../utils/deepseekApi';
 
 const FILE_PATH = 'public/content/jobs.json';
 
@@ -350,6 +351,24 @@ export default function AdminJobs() {
             removeListItem={removeListItem}
             onConfirm={handleConfirmEdit}
             onCancel={handleCancelEdit}
+            onFillTranslation={(result) => {
+              setEditingJob(prev => ({
+                ...prev,
+                title: { ...prev.title, en: result.en.title, ja: result.ja.title },
+                department: { ...prev.department, en: result.en.department, ja: result.ja.department },
+                type: { ...prev.type, en: result.en.type, ja: result.ja.type },
+                responsibilities: {
+                  ...prev.responsibilities,
+                  en: result.en.responsibilities,
+                  ja: result.ja.responsibilities,
+                },
+                requirements: {
+                  ...prev.requirements,
+                  en: result.en.requirements,
+                  ja: result.ja.requirements,
+                },
+              }));
+            }}
           />
         )}
       </div>
@@ -369,8 +388,37 @@ function EditJobForm({
   removeListItem,
   onConfirm,
   onCancel,
+  onFillTranslation,
 }) {
+  const [translating, setTranslating] = useState(false);
+  const [translateError, setTranslateError] = useState('');
+
   if (!job) return null;
+
+  const handleTranslate = async () => {
+    const zhData = {
+      title: job.title.zh,
+      department: job.department.zh,
+      type: job.type.zh,
+      responsibilities: job.responsibilities.zh.filter(s => s.trim()),
+      requirements: job.requirements.zh.filter(s => s.trim()),
+    };
+    if (!zhData.title) {
+      setTranslateError('请先填写中文职位名称');
+      return;
+    }
+    setTranslating(true);
+    setTranslateError('');
+    try {
+      const result = await translateJobContent(zhData);
+      onFillTranslation(result);
+      setActiveLang('en');
+    } catch (err) {
+      setTranslateError(err.message);
+    } finally {
+      setTranslating(false);
+    }
+  };
 
   return (
     <div>
@@ -389,23 +437,50 @@ function EditJobForm({
       </div>
 
       <div className="bg-white rounded-xl shadow-sm p-6 space-y-6">
-        {/* Language tabs */}
-        <div>
-          <label className="block text-sm font-medium text-gray-500 mb-2">编辑语言</label>
-          <div className="flex gap-2">
-            {LANGS.map(({ key, label }) => (
-              <button
-                key={key}
-                onClick={() => setActiveLang(key)}
-                className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                  activeLang === key
-                    ? 'bg-[#086c7b] text-white'
-                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                }`}
-              >
-                {label}
-              </button>
-            ))}
+        {/* Language tabs + translate button */}
+        <div className="flex flex-col sm:flex-row sm:items-end gap-4">
+          <div className="flex-1">
+            <label className="block text-sm font-medium text-gray-500 mb-2">编辑语言</label>
+            <div className="flex gap-2">
+              {LANGS.map(({ key, label }) => (
+                <button
+                  key={key}
+                  onClick={() => setActiveLang(key)}
+                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+                    activeLang === key
+                      ? 'bg-[#086c7b] text-white'
+                      : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                  }`}
+                >
+                  {label}
+                </button>
+              ))}
+            </div>
+          </div>
+          <div className="flex flex-col items-start sm:items-end gap-1">
+            <button
+              onClick={handleTranslate}
+              disabled={translating}
+              className="flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 disabled:bg-gray-300 text-white px-5 py-2 rounded-lg text-sm font-medium transition-colors"
+            >
+              {translating ? (
+                <>
+                  <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24" fill="none">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z" />
+                  </svg>
+                  翻译中...
+                </>
+              ) : (
+                <>✨ 一键翻译英文/日文</>
+              )}
+            </button>
+            <p className="text-xs text-gray-400">
+              根据中文内容自动生成，之后可手动修改
+            </p>
+            {translateError && (
+              <p className="text-xs text-red-500">{translateError}</p>
+            )}
           </div>
         </div>
 
