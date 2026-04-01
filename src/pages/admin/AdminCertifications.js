@@ -3,6 +3,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { useAdminAuth } from '../../hooks/useAdminAuth';
 import { fetchFileFromGitHub, commitFileToGitHub } from '../../utils/githubApi';
 import AdminImageField from '../../components/admin/AdminImageField';
+import { translateCertificationTitle } from '../../utils/deepseekApi';
 
 const FILE_PATH = 'public/content/certifications.json';
 
@@ -36,6 +37,8 @@ export default function AdminCertifications() {
   const [editingItem, setEditingItem] = useState(null);
   const [activeLang, setActiveLang] = useState('zh');
   const [toast, setToast] = useState(null);
+  const [translating, setTranslating] = useState(false);
+  const [translateError, setTranslateError] = useState('');
 
   useEffect(() => {
     if (!isLoggedIn) navigate('/admin/login');
@@ -100,6 +103,7 @@ export default function AdminCertifications() {
       : { zh: '', en: '', ja: '' };
     setEditingItem({ image: row.image || '', title });
     setActiveLang('zh');
+    setTranslateError('');
     setView('edit');
   };
 
@@ -107,6 +111,7 @@ export default function AdminCertifications() {
     setEditingIndex(null);
     setEditingItem(emptyItem());
     setActiveLang('zh');
+    setTranslateError('');
     setView('edit');
   };
 
@@ -133,6 +138,32 @@ export default function AdminCertifications() {
       ...p,
       title: { ...p.title, [lang]: value },
     }));
+  };
+
+  const handleTranslateTitle = async () => {
+    const zhTitle = (editingItem?.title?.zh || '').trim();
+    if (!zhTitle) {
+      setTranslateError('请先填写中文标题');
+      return;
+    }
+    setTranslating(true);
+    setTranslateError('');
+    try {
+      const result = await translateCertificationTitle({ title: zhTitle });
+      setEditingItem((prev) => ({
+        ...prev,
+        title: {
+          ...prev.title,
+          en: result?.en?.title ?? prev.title.en,
+          ja: result?.ja?.title ?? prev.title.ja,
+        },
+      }));
+      setActiveLang('en');
+    } catch (err) {
+      setTranslateError(err.message || String(err));
+    } finally {
+      setTranslating(false);
+    }
   };
 
   if (!isLoggedIn) return null;
@@ -269,23 +300,47 @@ export default function AdminCertifications() {
             </h1>
 
             <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 space-y-6">
-              <div>
-                <label className="block text-sm font-medium text-gray-500 mb-2">语言</label>
-                <div className="flex gap-2 flex-wrap">
-                  {LANGS.map(({ key, label }) => (
-                    <button
-                      key={key}
-                      type="button"
-                      onClick={() => setActiveLang(key)}
-                      className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                        activeLang === key
-                          ? 'bg-[#086c7b] text-white'
-                          : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                      }`}
-                    >
-                      {label}
-                    </button>
-                  ))}
+              <div className="flex flex-col sm:flex-row sm:items-end gap-4">
+                <div className="flex-1">
+                  <label className="block text-sm font-medium text-gray-500 mb-2">语言</label>
+                  <div className="flex gap-2 flex-wrap">
+                    {LANGS.map(({ key, label }) => (
+                      <button
+                        key={key}
+                        type="button"
+                        onClick={() => setActiveLang(key)}
+                        className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+                          activeLang === key
+                            ? 'bg-[#086c7b] text-white'
+                            : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                        }`}
+                      >
+                        {label}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+                <div className="flex flex-col items-start sm:items-end gap-1">
+                  <button
+                    type="button"
+                    onClick={handleTranslateTitle}
+                    disabled={translating}
+                    className="flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 disabled:bg-gray-300 text-white px-5 py-2 rounded-lg text-sm font-medium transition-colors"
+                  >
+                    {translating ? (
+                      <>
+                        <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24" fill="none">
+                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z" />
+                        </svg>
+                        翻译中...
+                      </>
+                    ) : (
+                      <>✨ 一键翻译英文/日文（据中文标题）</>
+                    )}
+                  </button>
+                  <p className="text-xs text-gray-400">根据中文标题自动生成，之后可手动修改</p>
+                  {translateError && <p className="text-xs text-red-500">{translateError}</p>}
                 </div>
               </div>
 
