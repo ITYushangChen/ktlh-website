@@ -193,26 +193,7 @@ const Home = () => {
                   </motion.div>
                   <div className="p-6">
                     <h3 className="text-xl font-semibold text-gray-900 mb-2">{product.title}</h3>
-                    <p className="text-gray-600 mb-4">{product.description}</p>
-                    <Link
-                      to={product.link}
-                      className="inline-flex items-center text-[#086c7b] hover:text-[#065a66] transition-colors duration-300"
-                    >
-                      {t('home.products.learnMore')}
-                      <svg
-                        className="w-4 h-4 ml-2"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M9 5l7 7-7 7"
-                        />
-                      </svg>
-                    </Link>
+                    <p className="text-gray-600">{product.description}</p>
                   </div>
                 </motion.div>
               ))}

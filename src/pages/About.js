@@ -225,50 +225,6 @@ const About = () => {
           </div>
         </div>
       </section>
-
-      {/* Products Overview */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">
-            {t('about.products.title')}
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            {[
-              {
-                title: t('about.products.container'),
-                description: t('about.products.containerDesc'),
-                image: '/images/containers.jpg',
-              },
-              {
-                title: t('about.products.pipe'),
-                description: t('about.products.pipeDesc'),
-                image: '/images/pipes.jpg',
-              },
-              {
-                title: t('about.products.heatExchanger'),
-                description: t('about.products.heatExchangerDesc'),
-                image: '/images/heat_exchangers.jpg',
-              },
-            ].map((product, index) => (
-              <div
-                key={index}
-                className="relative min-h-[260px] rounded-xl shadow-md overflow-hidden group hover:shadow-lg transition-shadow duration-300"
-              >
-                <div
-                  className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
-                  style={{ backgroundImage: `url('${product.image}')` }}
-                  aria-hidden
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/45 to-black/25" />
-                <div className="relative z-10 p-8 h-full min-h-[260px] flex flex-col justify-end">
-                  <h3 className="text-xl font-semibold mb-3 text-white drop-shadow-sm">{product.title}</h3>
-                  <p className="text-white/90 text-sm leading-relaxed drop-shadow-sm">{product.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
     </div>
   );
 };
