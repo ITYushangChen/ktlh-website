@@ -111,58 +111,42 @@ const About = () => {
       </section>
 
       {/* Founder Message */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">
+      <section
+        className="relative py-20 bg-cover bg-center overflow-hidden"
+        style={{ backgroundImage: "url('/images/containers.jpg')" }}
+      >
+        <div className="absolute inset-0 bg-black/50" aria-hidden />
+        <div className="container mx-auto px-4 relative z-10">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-white drop-shadow-sm">
             {t('about.founderTitle')}
           </h2>
-          <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              {/* 视频区域 —— 保留图片/视频动画 */}
-              <motion.div
-                className="order-2 lg:order-1"
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true, margin: '-100px' }}
-                whileHover={{ scale: 1.02 }}
-                transition={{ type: 'spring', stiffness: 300 }}
-              >
-                <div className="relative rounded-lg overflow-hidden shadow-lg bg-gray-200">
-                  <iframe
-                    className="w-full h-auto"
-                    src="//player.bilibili.com/player.html?bvid=BV1neM1zKEmE&page=1&high_quality=1&danmaku=0"
-                    style={{ aspectRatio: '16/9' }}
-                    frameBorder="0"
-                    allowFullScreen
-                    title="创始人寄语视频"
-                  ></iframe>
+          <div className="max-w-3xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-80px' }}
+              transition={{ duration: 0.45 }}
+              className="bg-white/95 backdrop-blur-sm p-8 md:p-10 rounded-xl shadow-xl border border-white/20"
+            >
+              <div className="text-center mb-6">
+                <h3 className="text-xl font-semibold text-gray-900">{t('about.founder.name')}</h3>
+                <p className="text-gray-600">{t('about.founder.position')}</p>
+              </div>
+              <div className="space-y-6">
+                <div>
+                  <h4 className="text-lg font-semibold text-[#086c7b] mb-3">{t('about.founder.motivation')}</h4>
+                  <p className="text-gray-700 leading-relaxed">{t('about.founder.motivationContent')}</p>
                 </div>
-              </motion.div>
-
-              {/* 文字区域 */}
-              <div className="order-1 lg:order-2">
-                <div className="bg-white p-8 rounded-lg shadow-md">
-                  <div className="text-center mb-6">
-                    <h3 className="text-xl font-semibold text-gray-900">{t('about.founder.name')}</h3>
-                    <p className="text-gray-600">{t('about.founder.position')}</p>
-                  </div>
-                  <div className="space-y-6">
-                    <div>
-                      <h4 className="text-lg font-semibold text-[#086c7b] mb-3">{t('about.founder.motivation')}</h4>
-                      <p className="text-gray-700 leading-relaxed">{t('about.founder.motivationContent')}</p>
-                    </div>
-                    <div>
-                      <h4 className="text-lg font-semibold text-[#086c7b] mb-3">{t('about.founder.journey')}</h4>
-                      <p className="text-gray-700 leading-relaxed">{t('about.founder.journeyContent')}</p>
-                    </div>
-                    <div>
-                      <h4 className="text-lg font-semibold text-[#086c7b] mb-3">{t('about.founder.vision')}</h4>
-                      <p className="text-gray-700 leading-relaxed">{t('about.founder.visionContent')}</p>
-                    </div>
-                  </div>
+                <div>
+                  <h4 className="text-lg font-semibold text-[#086c7b] mb-3">{t('about.founder.journey')}</h4>
+                  <p className="text-gray-700 leading-relaxed">{t('about.founder.journeyContent')}</p>
+                </div>
+                <div>
+                  <h4 className="text-lg font-semibold text-[#086c7b] mb-3">{t('about.founder.vision')}</h4>
+                  <p className="text-gray-700 leading-relaxed">{t('about.founder.visionContent')}</p>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
