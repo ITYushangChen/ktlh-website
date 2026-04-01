@@ -1,11 +1,43 @@
 {
   "items": [
     {
-      "image": "/images/certifications/cert-01.svg",
+      "image": "/images/certifications/img-1775027800737-3qm09a.png",
       "title": {
         "zh": "ISO9001 质量管理体系认证",
         "en": "ISO 9001 Quality Management System",
         "ja": "ISO9001 品質マネジメントシステム"
+      }
+    },
+    {
+      "image": "/images/certifications/img-1775027843937-hbl79u.png",
+      "title": {
+        "zh": "ASME 认证",
+        "en": "",
+        "ja": ""
+      }
+    },
+    {
+      "image": "/images/certifications/img-1775027897122-vlc7zc.png",
+      "title": {
+        "zh": "14001环境体系认证",
+        "en": "",
+        "ja": ""
+      }
+    },
+    {
+      "image": "/images/certifications/img-1775028003773-nr6rya.png",
+      "title": {
+        "zh": "15001 职业健康安全管理体系认证证书",
+        "en": "",
+        "ja": ""
+      }
+    },
+    {
+      "image": "/images/certifications/img-1775028054494-zm45pa.jpg",
+      "title": {
+        "zh": "PED 证书",
+        "en": "",
+        "ja": ""
       }
     }
   ]
