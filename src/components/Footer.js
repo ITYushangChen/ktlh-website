@@ -66,7 +66,7 @@ const Footer = () => {
       name: t('footer.social.instagram'),
       icon: (
         <img
-          src="/images/500px-Instagram_logo_2022.svg"
+          src="/images/500px-Instagram_logo_2022.svg.png"
           alt=""
           className="h-7 w-7 object-contain"
           width={28}
@@ -74,6 +74,7 @@ const Footer = () => {
           aria-hidden
         />
       ),
+      qrCode: '/images/qr-instagram.png',
       href: process.env.REACT_APP_INSTAGRAM_URL || 'https://www.instagram.com/',
     },
   ];
@@ -118,64 +119,73 @@ const Footer = () => {
             <div className="mt-6 pt-5 border-t border-gray-800">
               <p className="text-sm text-gray-500 mb-3">{t('footer.sections.contact.socialTitle')}</p>
               <div className="flex items-center gap-5">
-                {socialMedia.map((social) => (
-                  <div key={social.nameKey} className="relative">
-                    {social.href ? (
-                      <a
-                        href={social.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-gray-400 hover:text-[#086c7b] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#086c7b] rounded-lg flex items-center justify-center hover:bg-gray-800/50 p-1"
-                        aria-label={social.name}
-                      >
-                        <span className="sr-only">{social.name}</span>
-                        {social.icon}
-                      </a>
-                    ) : (
-                      <>
+                {socialMedia.map((social) => {
+                  const triggerClass =
+                    'text-gray-400 hover:text-[#086c7b] transition-colors duration-200 focus:outline-none flex items-center justify-center rounded-lg hover:bg-gray-800/50 p-1';
+                  const qrHandlers = social.qrCode
+                    ? {
+                        onMouseEnter: () => setActiveQR(social.nameKey),
+                        onMouseLeave: () => setActiveQR(null),
+                      }
+                    : {};
+
+                  return (
+                    <div key={social.nameKey} className="relative">
+                      {social.href ? (
+                        <a
+                          href={social.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={`${triggerClass} focus-visible:ring-2 focus-visible:ring-[#086c7b]`}
+                          aria-label={social.name}
+                          {...qrHandlers}
+                        >
+                          <span className="sr-only">{social.name}</span>
+                          {social.icon}
+                        </a>
+                      ) : (
                         <button
                           type="button"
-                          className="text-gray-400 hover:text-[#086c7b] transition-colors duration-200 focus:outline-none flex items-center justify-center rounded-lg hover:bg-gray-800/50 p-1"
-                          onMouseEnter={() => setActiveQR(social.nameKey)}
-                          onMouseLeave={() => setActiveQR(null)}
+                          className={triggerClass}
                           aria-label={social.name}
+                          {...qrHandlers}
                         >
                           <span className="sr-only">{social.name}</span>
                           {social.icon}
                         </button>
-                        {activeQR === social.nameKey && social.qrCode && (
-                          <div
-                            className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-4 p-3 bg-white rounded-lg shadow-xl z-50"
-                            style={{
-                              minWidth: '160px',
-                              boxShadow: '0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06)',
-                            }}
-                          >
-                            <img
-                              src={social.qrCode}
-                              alt={`${social.name} ${t('footer.social.qrSuffix')}`}
-                              className="w-40 h-40 object-contain rounded"
-                              style={{ maxWidth: 'none' }}
-                            />
-                            <div className="text-center text-sm text-gray-800 mt-2 font-medium">
-                              {social.name} {t('footer.social.qrSuffix')}
-                            </div>
-                            <div
-                              className="absolute -bottom-2 left-1/2 transform -translate-x-1/2"
-                              style={{
-                                width: 0,
-                                height: 0,
-                                borderLeft: '8px solid transparent',
-                                borderRight: '8px solid transparent',
-                                borderTop: '8px solid white',
-                              }}
-                            />
+                      )}
+                      {activeQR === social.nameKey && social.qrCode && (
+                        <div
+                          className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-4 p-3 bg-white rounded-lg shadow-xl z-50"
+                          style={{
+                            minWidth: '160px',
+                            boxShadow: '0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06)',
+                          }}
+                        >
+                          <img
+                            src={social.qrCode}
+                            alt={`${social.name} ${t('footer.social.qrSuffix')}`}
+                            className="w-40 h-40 object-contain rounded"
+                            style={{ maxWidth: 'none' }}
+                          />
+                          <div className="text-center text-sm text-gray-800 mt-2 font-medium">
+                            {social.name} {t('footer.social.qrSuffix')}
                           </div>
-                        )}
-                      </>
-                    )}
-                  </div>
-                ))}
+                          <div
+                            className="absolute -bottom-2 left-1/2 transform -translate-x-1/2"
+                            style={{
+                              width: 0,
+                              height: 0,
+                              borderLeft: '8px solid transparent',
+                              borderRight: '8px solid transparent',
+                              borderTop: '8px solid white',
+                            }}
+                          />
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
               </div>
             </div>
           </div>
