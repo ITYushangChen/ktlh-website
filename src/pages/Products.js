@@ -90,31 +90,6 @@ const Products = () => {
         </div>
       </section>
 
-      {/* Company Advantages */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">{t('products.title')}</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
-            {[
-              { title: '专业制造', description: '20年专注空调系统元件制造经验', icon: '🏭', stat: '20年+' },
-              { title: '生产规模', description: '年产能容器320万台，铜管件5000吨', icon: '📊', stat: '320万台' },
-              { title: '质量认证', description: 'ISO9001质量管理体系认证', icon: '✅', stat: 'ISO9001' },
-              { title: '全球服务', description: '产品远销日本、欧美、东南亚等地', icon: '🌍', stat: '全球化' },
-            ].map((advantage, index) => (
-              <div
-                key={index}
-                className="bg-white p-6 rounded-lg shadow-md text-center hover:shadow-lg transition-shadow duration-300"
-              >
-                <div className="text-4xl mb-4">{advantage.icon}</div>
-                <div className="text-2xl font-bold text-[#086c7b] mb-2">{advantage.stat}</div>
-                <h3 className="text-lg font-semibold mb-2">{advantage.title}</h3>
-                <p className="text-gray-600 text-sm">{advantage.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Production Capacity */}
       <section className="py-16">
         <div className="container mx-auto px-4">
