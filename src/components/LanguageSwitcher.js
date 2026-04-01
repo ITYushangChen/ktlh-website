@@ -23,7 +23,7 @@ const LanguageSwitcher = () => {
 
   return (
     <div
-      className="inline-flex rounded-full border border-black overflow-hidden bg-white shadow-sm"
+      className="group inline-flex rounded-full overflow-hidden bg-white shadow-sm border border-[#4da3b5] hover:border-[#086c7b] transition-colors duration-200"
       role="group"
       aria-label="Language"
     >
@@ -37,8 +37,10 @@ const LanguageSwitcher = () => {
             className={[
               'px-2.5 sm:px-3 py-1 min-w-[2.25rem] text-[11px] sm:text-xs font-semibold uppercase tracking-wide transition-colors duration-200',
               'focus:outline-none focus-visible:relative focus-visible:z-10 focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#086c7b]',
-              index > 0 ? 'border-l border-black' : '',
-              active ? 'bg-black text-white' : 'bg-white text-black hover:bg-neutral-100',
+              index > 0 ? 'border-l border-[#4da3b5] group-hover:border-[#086c7b]' : '',
+              active
+                ? 'bg-[#4da3b5] text-white group-hover:bg-[#086c7b]'
+                : 'bg-white text-[#4da3b5] group-hover:text-[#086c7b]',
             ].join(' ')}
             aria-pressed={active}
           >
