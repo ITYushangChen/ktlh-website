@@ -12,32 +12,32 @@
       "image": "/images/certifications/img-1775027843937-hbl79u.png",
       "title": {
         "zh": "ASME 认证",
-        "en": "",
-        "ja": ""
+        "en": "ASME Certification",
+        "ja": "ASME認証"
       }
     },
     {
       "image": "/images/certifications/img-1775027897122-vlc7zc.png",
       "title": {
-        "zh": "14001环境体系认证",
-        "en": "",
-        "ja": ""
+        "zh": "ISO14001环境体系认证",
+        "en": "ISO 14001 Environmental Management System Certification",
+        "ja": "ISO14001環境マネジメントシステム認証"
       }
     },
     {
       "image": "/images/certifications/img-1775028003773-nr6rya.png",
       "title": {
-        "zh": "15001 职业健康安全管理体系认证证书",
-        "en": "",
-        "ja": ""
+        "zh": "ISO45001 职业健康安全管理体系认证证书",
+        "en": "ISO 45001 Occupational Health and Safety Management System Certification",
+        "ja": "ISO 45001 労働安全衛生マネジメントシステム認証書"
       }
     },
     {
       "image": "/images/certifications/img-1775028054494-zm45pa.jpg",
       "title": {
         "zh": "PED 证书",
-        "en": "",
-        "ja": ""
+        "en": "PED Certificate",
+        "ja": "PED証明書"
       }
     }
   ]
