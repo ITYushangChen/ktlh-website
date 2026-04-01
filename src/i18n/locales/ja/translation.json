@@ -572,12 +572,13 @@
         "address": "住所：青島市膠州上合示範区",
         "phone": "電話：0532-XXXXXXXX",
         "email": "メール：sales_ktlh@outlook.com",
-        "socialTitle": "WeChat・小紅書"
+        "socialTitle": "ソーシャルメディア"
       }
     },
     "social": {
       "wechat": "WeChat",
       "xiaohongshu": "小紅書",
+      "instagram": "Instagram",
       "qrSuffix": "QRコード"
     },
     "copyright": "All rights reserved.",

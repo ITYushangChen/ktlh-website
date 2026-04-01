@@ -572,12 +572,13 @@
         "address": "Address: Jiaozhou SCO Demonstration Zone, Qingdao",
         "phone": "Phone: 0532-XXXXXXXX",
         "email": "Email: sales_ktlh@outlook.com",
-        "socialTitle": "WeChat & Xiaohongshu"
+        "socialTitle": "Social media"
       }
     },
     "social": {
       "wechat": "WeChat",
       "xiaohongshu": "Xiaohongshu",
+      "instagram": "Instagram",
       "qrSuffix": "QR Code"
     },
     "copyright": "All rights reserved.",

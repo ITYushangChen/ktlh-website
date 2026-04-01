@@ -572,12 +572,13 @@
         "address": "地址：青岛市胶州上合示范区",
         "phone": "电话：0532-XXXXXXXX",
         "email": "邮箱：sales_ktlh@outlook.com",
-        "socialTitle": "微信与小红书"
+        "socialTitle": "社交媒体"
       }
     },
     "social": {
       "wechat": "微信",
       "xiaohongshu": "小红书",
+      "instagram": "Instagram",
       "qrSuffix": "二维码"
     },
     "copyright": "版权所有",
