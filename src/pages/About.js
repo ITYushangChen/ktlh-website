@@ -162,12 +162,11 @@ const About = () => {
               <p className="text-lg mb-6">{t('about.team.intro')}</p>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
                 {[
-                  { title: t('about.team.youth'), description: t('about.team.youthDesc'), icon: '👥' },
-                  { title: t('about.team.quality'), description: t('about.team.qualityDesc'), icon: '🎓' },
-                  { title: t('about.team.professional'), description: t('about.team.professionalDesc'), icon: '⚡' },
+                  { title: t('about.team.youth'), description: t('about.team.youthDesc') },
+                  { title: t('about.team.quality'), description: t('about.team.qualityDesc') },
+                  { title: t('about.team.professional'), description: t('about.team.professionalDesc') },
                 ].map((value, index) => (
                   <div key={index} className="text-center">
-                    <div className="text-4xl mb-4">{value.icon}</div>
                     <h3 className="text-xl font-semibold mb-2">{value.title}</h3>
                     <p className="text-gray-600">{value.description}</p>
                   </div>
