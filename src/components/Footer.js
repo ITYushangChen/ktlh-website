@@ -40,9 +40,14 @@ const Footer = () => {
       nameKey: 'wechat',
       name: t('footer.social.wechat'),
       icon: (
-        <svg className="h-7 w-7" fill="currentColor" viewBox="0 0 24 24" aria-hidden>
-          <path d="M8.691 2.188C3.891 2.188 0 5.476 0 9.53c0 2.212 1.17 4.203 3.002 5.55a.59.59 0 01.213.665l-.39 1.48c-.019.07-.048.141-.048.213 0 .163.13.295.29.295a.328.328 0 00.168-.054l1.903-1.113a.864.864 0 01.718-.098 10.16 10.16 0 001.372.471c-.149-.464-.232-.95-.232-1.455 0-2.322 2.226-4.205 4.97-4.205.274 0 .543.02.807.058-.95-2.904-4.17-5.05-8.064-5.05zM5.785 5.991c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 01-1.162 1.178A1.17 1.17 0 014.623 7.17c0-.651.52-1.18 1.162-1.18zm6.6 0c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 01-1.162 1.178 1.17 1.17 0 01-1.162-1.178c0-.651.52-1.18 1.162-1.18zm2.332 2.238c-2.322 0-4.97 1.882-4.97 4.205 0 2.324 2.648 4.206 4.97 4.206.403 0 .79-.048 1.162-.137a.59.59 0 01.665.213l1.113 1.903c.054.098.13.168.213.168.163 0 .295-.13.295-.29 0-.072-.03-.142-.048-.213l-.39-1.48a.59.59 0 01.213-.665c1.832-1.347 3.002-3.338 3.002-5.55 0-2.323-2.648-4.205-4.97-4.205zm.807 2.238c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 01-1.162 1.178 1.17 1.17 0 01-1.162-1.178c0-.651.52-1.18 1.162-1.18zm-4.97 1.18c0-.651.52-1.18 1.162-1.18.642 0 1.162.529 1.162 1.18a1.17 1.17 0 01-1.162 1.178 1.17 1.17 0 01-1.162-1.178z"/>
-        </svg>
+        <img
+          src="/images/wechat-logo-svgrepo-com.svg"
+          alt=""
+          className="h-7 w-7 object-contain"
+          width={28}
+          height={28}
+          aria-hidden
+        />
       ),
       qrCode: '/images/qr-wechat.png',
     },
@@ -76,6 +81,22 @@ const Footer = () => {
       ),
       qrCode: '/images/qr-instagram.png',
       href: process.env.REACT_APP_INSTAGRAM_URL || 'https://www.instagram.com/',
+    },
+    {
+      nameKey: 'facebook',
+      name: t('footer.social.facebook'),
+      icon: (
+        <img
+          src="/images/500px-2023_Facebook_icon.svg.png"
+          alt=""
+          className="h-7 w-7 object-contain"
+          width={28}
+          height={28}
+          aria-hidden
+        />
+      ),
+      qrCode: '/images/qr-facebook.png',
+      href: process.env.REACT_APP_FACEBOOK_URL || 'https://www.facebook.com/',
     },
   ];
 
