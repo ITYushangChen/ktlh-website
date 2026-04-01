@@ -64,16 +64,16 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-white shadow-md">
-      <div className="container mx-auto px-4">
-        <div className="flex justify-between items-center h-20">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm shadow-md">
+      <div className="max-w-6xl mx-auto px-4">
+        <div className="flex justify-between items-center h-14">
           {/* Logo */}
-          <Link to="/" className="flex items-center">
-            <img src="/images/logo.png" alt="Logo" className="h-12" />
+          <Link to="/" className="flex items-center shrink-0">
+            <img src="/images/logo.png" alt="Logo" className="h-9 w-auto" />
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-5">
             {navItems.map((item, index) => (
               <div key={index} className="relative">
                 {item.subItems ? (
@@ -83,7 +83,7 @@ const Navbar = () => {
                     onMouseLeave={handleMouseLeave}
                   >
                     <button
-                      className={`flex items-center space-x-1 px-3 py-2 rounded-md text-gray-700 hover:text-[#086c7b] transition-colors duration-300 ${
+                      className={`flex items-center space-x-1 px-2 py-1.5 rounded-md text-sm text-gray-700 hover:text-[#086c7b] transition-colors duration-300 ${
                         location.pathname.startsWith(item.path) ? 'text-[#086c7b]' : ''
                       }`}
                     >
@@ -126,7 +126,7 @@ const Navbar = () => {
                 ) : (
                   <Link
                     to={item.path}
-                    className={`px-3 py-2 rounded-md text-gray-700 hover:text-[#086c7b] transition-colors duration-300 ${
+                    className={`px-2 py-1.5 rounded-md text-sm text-gray-700 hover:text-[#086c7b] transition-colors duration-300 ${
                       location.pathname === item.path ? 'text-[#086c7b]' : ''
                     }`}
                   >
@@ -175,10 +175,10 @@ const Navbar = () => {
         {/* Mobile menu */}
         <div
           className={`md:hidden transition-all duration-300 ease-in-out ${
-            isOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0 overflow-hidden'
+            isOpen ? 'max-h-[min(70vh,calc(100vh-3.5rem))] opacity-100 overflow-y-auto' : 'max-h-0 opacity-0 overflow-hidden'
           }`}
         >
-          <div className="px-2 pt-2 pb-3 space-y-1">
+          <div className="px-2 pt-2 pb-3 space-y-1 border-t border-gray-100">
             {navItems.map((item, index) => (
               <div key={index}>
                 {item.subItems ? (

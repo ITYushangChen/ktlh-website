@@ -10,10 +10,10 @@ const LanguageSwitcher = () => {
 
   return (
     <div className="relative inline-block text-left">
-      <div className="flex items-center space-x-2">
+      <div className="flex items-center space-x-1.5">
         <button
           onClick={() => changeLanguage('zh')}
-          className={`px-2 py-1 rounded ${
+          className={`px-2 py-0.5 text-xs rounded ${
             i18n.language === 'zh'
               ? 'bg-[#086c7b] text-white'
               : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
@@ -23,7 +23,7 @@ const LanguageSwitcher = () => {
         </button>
         <button
           onClick={() => changeLanguage('en')}
-          className={`px-2 py-1 rounded ${
+          className={`px-2 py-0.5 text-xs rounded ${
             i18n.language === 'en'
               ? 'bg-[#086c7b] text-white'
               : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
@@ -33,7 +33,7 @@ const LanguageSwitcher = () => {
         </button>
         <button
           onClick={() => changeLanguage('ja')}
-          className={`px-2 py-1 rounded ${
+          className={`px-2 py-0.5 text-xs rounded ${
             i18n.language === 'ja'
               ? 'bg-[#086c7b] text-white'
               : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
