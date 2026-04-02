@@ -11,9 +11,9 @@
         "ja": "レシーバー"
       },
       "description": {
-        "zh": "专业生产各类空调系统里的储液器，确保制冷剂的稳定供应",
-        "en": "Professional production of various air conditioning system receivers, ensuring stable refrigerant supply",
-        "ja": "各種空調システム用レシーバーを製造、冷媒の安定供給を実現"
+        "zh": "专业生产各类制冷系统里的储液器，确保制冷剂的稳定供应",
+        "en": "Professional production of various refrigeration system receivers, ensuring stable refrigerant supply",
+        "ja": "各種冷凍システム用レシーバーを製造、冷媒の安定供給を実現"
       },
       "features": {
         "zh": [
@@ -47,9 +47,9 @@
         "ja": "ガス・液分離器"
       },
       "description": {
-        "zh": "高效分离气液混合物，提升空调系统运行效率",
-        "en": "Efficient gas-liquid mixture separation, improving air conditioning system efficiency",
-        "ja": "気液混合物を高効率に分離し、空調システムの運転効率を向上"
+        "zh": "高效分离气液混合物，提升制冷系统运行效率",
+        "en": "Efficient gas-liquid mixture separation, improving refrigeration system efficiency",
+        "ja": "気液混合物を高効率に分離し、冷凍システムの運転効率を向上"
       },
       "features": {
         "zh": [
@@ -119,9 +119,9 @@
         "ja": "ダンピングブロック"
       },
       "description": {
-        "zh": "专业减震降噪产品，有效降低空调系统运行噪音",
+        "zh": "专业减震降噪产品，有效降低制冷系统运行噪音",
         "en": "Professional vibration damping and noise reduction, effectively reducing AC system operating noise",
-        "ja": "専門的な制振・防音製品で空調システムの運転騒音を効果的に低減"
+        "ja": "専門的な制振・防音製品で冷凍システムの運転騒音を効果的に低減"
       },
       "features": {
         "zh": [
@@ -155,9 +155,9 @@
         "ja": "シェル＆チューブ熱交換器"
       },
       "description": {
-        "zh": "高效传热设备，广泛应用于各类空调制冷系统",
-        "en": "High-efficiency heat transfer equipment, widely used in various air conditioning and refrigeration systems",
-        "ja": "高効率伝熱機器、各種空調・冷凍システムに幅広く使用"
+        "zh": "高效传热设备，广泛应用于各类制冷系统",
+        "en": "High-efficiency heat transfer equipment, widely used in various refrigeration systems",
+        "ja": "高効率伝熱機器、各種冷凍システムに幅広く使用"
       },
       "features": {
         "zh": [

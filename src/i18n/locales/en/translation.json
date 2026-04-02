@@ -56,7 +56,7 @@
     },
     "showcase": {
       "title": "Company Strength",
-      "subtitle": "20 years of expertise in manufacturing air conditioning system components, building an industry-leading modern enterprise.",
+      "subtitle": "20 years of expertise in manufacturing refrigeration system components, building an industry-leading modern enterprise.",
       "items": [
         {
           "title": "Modern Factory Area",
@@ -82,7 +82,7 @@
     },
     "products": {
       "title": "Product Center",
-      "subtitle": "Specialized in manufacturing core components for air conditioning systems, providing quality products and solutions for global clients.",
+      "subtitle": "Specialized in manufacturing core components for refrigeration systems, providing quality products and solutions for global clients.",
       "backToProducts": "Product Center",
       "productOverview": "Product Overview",
       "starProducts": "Star Products",
@@ -102,7 +102,7 @@
       "items": [
         {
           "title": "Container Series",
-          "description": "Specialized in various types of receivers, gas-liquid separators, and other container products for air conditioning systems.",
+          "description": "Specialized in various types of receivers, gas-liquid separators, and other container products for refrigeration systems.",
           "image": "/images/containers.jpg",
           "link": "/products/containers"
         },
@@ -122,14 +122,14 @@
     },
     "cta": {
       "title": "Looking Forward to Working with You",
-      "subtitle": "We are committed to providing high-quality air conditioning system components, and look forward to building a long-term partnership with you.",
+      "subtitle": "We are committed to providing high-quality refrigeration system components, and look forward to building a long-term partnership with you.",
       "contact": "Contact Us",
       "solutions": "Learn About Solutions"
     }
   },
   "contact": {
     "title": "Contact Us",
-    "subtitle": "Looking forward to building a long-term partnership and creating high-quality air conditioning systems together.",
+    "subtitle": "Looking forward to building a long-term partnership and creating high-quality refrigeration systems together.",
     "formTitle": "Send a Message",
     "form": {
       "name": "Name",
@@ -163,7 +163,7 @@
       "capitalTitle": "Registered Capital",
       "capital": "20 million CNY",
       "scopeTitle": "Business Scope",
-      "scope": "R&D, production and sales of air conditioning system components, including container series, pipeline components, heat exchangers, etc."
+      "scope": "R&D, production and sales of refrigeration system components, including container series, pipeline components, heat exchangers, etc."
     },
     "locationTitle": "Company Location",
     "mapLoading": "Loading map...",
@@ -178,7 +178,7 @@
     "title": "About Kaituo Longhai",
     "overviewTitle": "Company Overview",
     "overview": [
-      "Qingdao Kaituo Longhai Intelligent Control Co., Ltd. was founded on March 29, 2002. After more than 20 years of dedicated operation, it has developed into a high-tech and high value-added enterprise specializing in the manufacture of air conditioning system components. The company's R&D center is recognized as a city-level enterprise technology center in Qingdao and has also established a university-enterprise joint R&D platform with Shandong University and Shandong University of Science and Technology.",
+      "Qingdao Kaituo Longhai Intelligent Control Co., Ltd. was founded on March 29, 2002. After more than 20 years of dedicated operation, it has developed into a high-tech and high value-added enterprise specializing in the manufacture of refrigeration system components. The company's R&D center is recognized as a city-level enterprise technology center in Qingdao and has also established a university-enterprise joint R&D platform with Shandong University and Shandong University of Science and Technology.",
       "To support business growth, in August 2021 the company commissioned a modern manufacturing campus in the SCO Demonstration Zone, Jiaozhou, Qingdao, covering 51,000 sqm with 43,000 sqm of building area and registered capital of 20 million CNY."
     ],
     "productionTitle": "Production Capacity",
@@ -201,7 +201,7 @@
     "products": {
       "title": "Core Products",
       "container": "Containers",
-      "containerDesc": "Specialized in various types of air conditioning system containers, with an annual capacity of 3.2 million units.",
+      "containerDesc": "Specialized in various types of refrigeration system containers, with an annual capacity of 3.2 million units.",
       "pipe": "Pipeline Components",
       "pipeDesc": "Annual output of 5,000 tons of copper fittings, 2,000 tons of damping blocks.",
       "heatExchanger": "Heat Exchangers",
@@ -220,7 +220,7 @@
   },
   "careers": {
     "title": "Join Us",
-    "subtitle": "Join Kaituo Longhai and work with more than 350 outstanding colleagues to shape the future of air conditioning system components together.",
+    "subtitle": "Join Kaituo Longhai and work with more than 350 outstanding colleagues to shape the future of refrigeration system components together.",
     "cultureTitle": "Corporate Culture",
     "benefitsTitle": "Employee Benefits",
     "benefits": [
@@ -251,7 +251,7 @@
         "type": "Full-time",
         "salary": "8K-15K CNY",
         "responsibilities": [
-          "Responsible for process improvement and optimization of air conditioning system components",
+          "Responsible for process improvement and optimization of refrigeration system components",
           "Develop and improve production processes",
           "Solve technical problems in production",
           "Improve product quality and production efficiency",
@@ -260,7 +260,7 @@
         "requirements": [
           "Bachelor's degree or above in mechanical, refrigeration or related fields",
           "3+ years of relevant experience",
-          "Familiar with air conditioning component manufacturing processes",
+          "Familiar with refrigeration component manufacturing processes",
           "Good analytical and problem-solving skills",
           "Experience in process improvement projects preferred"
         ]
@@ -302,7 +302,7 @@
         "requirements": [
           "College degree or above in mechanical or management related fields",
           "5+ years of production management experience in manufacturing",
-          "Familiar with air conditioning components production processes",
+          "Familiar with refrigeration components production processes",
           "Strong team management and communication skills",
           "Lean production management experience preferred"
         ]
@@ -314,7 +314,7 @@
         "type": "Full-time",
         "salary": "6K-20K CNY",
         "responsibilities": [
-          "Responsible for sales of air conditioning system components",
+          "Responsible for sales of refrigeration system components",
           "Develop and maintain customer relationships",
           "Develop sales strategies and marketing plans",
           "Participate in business negotiations and contract signing",
@@ -336,7 +336,7 @@
   },
   "products": {
     "title": "Product Center",
-    "subtitle": "Specialized in manufacturing core components for air conditioning systems, providing quality products and solutions for global clients.",
+    "subtitle": "Specialized in manufacturing core components for refrigeration systems, providing quality products and solutions for global clients.",
     "backToProducts": "Product Center",
     "productOverview": "Product Overview",
     "starProducts": "Star Products",
@@ -357,8 +357,8 @@
     "developingDesc": "We are preparing more detailed product information for you, stay tuned!",
     "receivers": {
       "title": "Receiver Series",
-      "subtitle": "Specializing in all kinds of air conditioning system receivers, ensuring stable refrigerant supply and providing solutions for all sizes.",
-      "overview": "Our receiver products are made of high-quality materials, with excellent liquid storage performance and stable pressure control. Widely used in residential, commercial, and industrial air conditioning systems, providing reliable refrigerant storage solutions for customers.",
+      "subtitle": "Specializing in all kinds of refrigeration system receivers, ensuring stable refrigerant supply and providing solutions for all sizes.",
+      "overview": "Our receiver products are made of high-quality materials, with excellent liquid storage performance and stable pressure control. Widely used in residential, commercial, and industrial refrigeration systems, providing reliable refrigerant storage solutions for customers.",
       "stats": {
         "models": "Product Models",
         "capacity": "Capacity Range",
@@ -369,7 +369,7 @@
       "products": [
         {
           "name": "R-001 Vertical Receiver",
-          "description": "Suitable for small and medium air conditioning systems, with excellent storage and stable pressure control.",
+          "description": "Suitable for small and medium refrigeration systems, with excellent storage and stable pressure control.",
           "specifications": {
             "capacity": "1.5L - 5L",
             "pressure": "2.5MPa",
@@ -380,7 +380,7 @@
         },
         {
           "name": "R-002 Horizontal Receiver",
-          "description": "Designed for large commercial air conditioning systems, offering larger capacity and more stable performance.",
+          "description": "Designed for large commercial refrigeration systems, offering larger capacity and more stable performance.",
           "specifications": {
             "capacity": "5L - 20L",
             "pressure": "3.0MPa",
@@ -442,7 +442,7 @@
       },
       "applications": {
         "residential": "Residential AC",
-        "residentialDesc": "Suitable for home split units, central air conditioning and other small systems.",
+        "residentialDesc": "Suitable for home split units, central refrigeration and other small systems.",
         "commercial": "Commercial AC",
         "commercialDesc": "Ideal for shopping malls, office buildings, hotels, and other commercial AC systems.",
         "industrial": "Industrial Refrigeration",
@@ -452,7 +452,7 @@
     },
     "gasLiquidSeparators": {
       "title": "Gas-Liquid Separator Series",
-      "subtitle": "Efficiently separates gas-liquid mixtures, improving air conditioning system efficiency and ensuring stable operation.",
+      "subtitle": "Efficiently separates gas-liquid mixtures, improving refrigeration system efficiency and ensuring stable operation.",
       "overview": "Our gas-liquid separators use advanced separation technology to efficiently separate gas and liquid in refrigerants, ensuring compressor safety and improving the efficiency and reliability of the whole system.",
       "stats": {
         "efficiency": "Max Separation Efficiency",
@@ -534,7 +534,7 @@
     },
     "shellTubeHeatExchangers": {
       "title": "Shell-and-Tube Heat Exchanger Series",
-      "subtitle": "Efficient heat transfer equipment widely used in various air conditioning and refrigeration systems, providing excellent performance."
+      "subtitle": "Efficient heat transfer equipment widely used in various refrigeration systems, providing excellent performance."
     },
     "copperTubeSeries": {
       "title": "Copper Tube Series",
@@ -548,7 +548,7 @@
   "footer": {
     "companyName": "Kaituo Longhai",
     "companyLegalName": "Qingdao Kaituo Longhai Intelligent Control Co., Ltd.",
-    "companyDesc": "Providing quality products to global leading air conditioning brands.",
+    "companyDesc": "Providing quality products to global leading refrigeration brands.",
     "topNav": {
       "contact": "Contact",
       "siteStatement": "Site Notice",

@@ -10,9 +10,9 @@
         "ja": "R-001 立式レシーバー"
       },
       "description": {
-        "zh": "适用于中小型空调系统，具有优良的储液性能和稳定的压力控制。",
-        "en": "Suitable for small and medium-sized air conditioning systems with excellent liquid storage performance and stable pressure control.",
-        "ja": "中小型空調システムに適し、優れた貯液性能と安定した圧力制御を備えています。"
+        "zh": "适用于中小型制冷系统，具有优良的储液性能和稳定的压力控制。",
+        "en": "Suitable for small and medium-sized refrigeration systems with excellent liquid storage performance and stable pressure control.",
+        "ja": "中小型冷凍システムに適し、優れた貯液性能と安定した圧力制御を備えています。"
       },
       "specifications": {
         "capacity": "1.5L - 5L",
@@ -59,9 +59,9 @@
         "ja": "R-002 横型レシーバー"
       },
       "description": {
-        "zh": "专为大型商用空调系统设计，提供更大的储液容量和更稳定的性能。",
-        "en": "Designed for large commercial air conditioning systems, providing larger liquid storage capacity and more stable performance.",
-        "ja": "大型業務用空調システム向けに設計、より大きな貯液容量と安定した性能を提供。"
+        "zh": "专为大型商用制冷系统设计，提供更大的储液容量和更稳定的性能。",
+        "en": "Designed for large commercial refrigeration systems, providing larger liquid storage capacity and more stable performance.",
+        "ja": "大型業務用冷凍システム向けに設計、より大きな貯液容量と安定した性能を提供。"
       },
       "specifications": {
         "capacity": "5L - 20L",
