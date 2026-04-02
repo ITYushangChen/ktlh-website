@@ -543,7 +543,17 @@
   },
   "footer": {
     "companyName": "開拓隆海",
+    "companyLegalName": "青島開拓隆海智控有限公司",
     "companyDesc": "空調システム部品の研究開発・製造に特化したハイテク企業。世界的な空調メーカーに高品質な製品を提供しています。",
+    "topNav": {
+      "contact": "お問い合わせ",
+      "siteStatement": "サイト声明",
+      "privacy": "プライバシーポリシー",
+      "disclaimer": "免責事項",
+      "careers": "キャリア"
+    },
+    "icpRecord": "",
+    "publicSecurityRecord": "",
     "sections": {
       "about": {
         "title": "会社情報",
@@ -583,7 +593,7 @@
       "facebook": "Facebook",
       "qrSuffix": "QRコード"
     },
-    "copyright": "All rights reserved.",
+    "copyright": "無断転載を禁じます。",
     "bottomLinks": {
       "privacy": "プライバシーポリシー",
       "terms": "利用規約"

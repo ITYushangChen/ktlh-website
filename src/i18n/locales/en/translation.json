@@ -543,7 +543,17 @@
   },
   "footer": {
     "companyName": "Kaituo Longhai",
+    "companyLegalName": "Qingdao Kaituo Longhai Intelligent Control Co., Ltd.",
     "companyDesc": "A high-tech enterprise specializing in R&D and manufacturing of air conditioning system components, providing quality products to global leading air conditioning brands.",
+    "topNav": {
+      "contact": "Contact",
+      "siteStatement": "Site Notice",
+      "privacy": "Privacy Policy",
+      "disclaimer": "Disclaimer",
+      "careers": "Careers"
+    },
+    "icpRecord": "",
+    "publicSecurityRecord": "",
     "sections": {
       "about": {
         "title": "About Us",

@@ -543,7 +543,17 @@
   },
   "footer": {
     "companyName": "开拓隆海",
+    "companyLegalName": "青岛开拓隆海智控有限公司",
     "companyDesc": "专注空调系统元件研发与制造的高新技术企业，为全球知名空调企业提供优质产品",
+    "topNav": {
+      "contact": "联系方式",
+      "siteStatement": "网站声明",
+      "privacy": "隐私政策",
+      "disclaimer": "免责条款",
+      "careers": "职业发展"
+    },
+    "icpRecord": "",
+    "publicSecurityRecord": "",
     "sections": {
       "about": {
         "title": "关于我们",
