@@ -147,41 +147,43 @@ const About = () => {
           {certItems.length === 0 ? (
             <p className="text-center text-gray-500">{t('about.certificationsEmpty')}</p>
           ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
-              {certItems.map((item, index) => {
-                const label = certTitleForLang(item.title, i18n.language || 'zh');
-                return (
-                  <motion.article
-                    key={`${item.image}-${index}`}
-                    className="bg-white rounded-xl shadow-md overflow-hidden border border-gray-100 hover:shadow-lg transition-shadow duration-300"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: '-60px' }}
-                    transition={{ duration: 0.4, delay: Math.min(index * 0.06, 0.3) }}
-                  >
-                    <a
-                      href={item.image}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="block focus:outline-none focus-visible:ring-2 focus-visible:ring-[#086c7b] focus-visible:ring-offset-2 rounded-t-xl"
+            <div className="overflow-x-auto pb-4 -mx-4 px-4 scrollbar-thin">
+              <div className="flex gap-6" style={{ minWidth: 'max-content' }}>
+                {certItems.map((item, index) => {
+                  const label = certTitleForLang(item.title, i18n.language || 'zh');
+                  return (
+                    <motion.article
+                      key={`${item.image}-${index}`}
+                      className="bg-white rounded-xl shadow-md overflow-hidden border border-gray-100 hover:shadow-lg transition-shadow duration-300 shrink-0 w-56"
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true, margin: '-60px' }}
+                      transition={{ duration: 0.4, delay: Math.min(index * 0.06, 0.3) }}
                     >
-                      <div className="aspect-[3/4] bg-gray-50 flex items-center justify-center p-3 min-h-[200px]">
-                        <img
-                          src={item.image}
-                          alt={label}
-                          className="max-h-full max-w-full w-auto object-contain"
-                          loading="lazy"
-                        />
+                      <a
+                        href={item.image}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block focus:outline-none focus-visible:ring-2 focus-visible:ring-[#086c7b] focus-visible:ring-offset-2 rounded-t-xl"
+                      >
+                        <div className="aspect-[3/4] bg-gray-50 flex items-center justify-center p-3 min-h-[200px]">
+                          <img
+                            src={item.image}
+                            alt={label}
+                            className="max-h-full max-w-full w-auto object-contain"
+                            loading="lazy"
+                          />
+                        </div>
+                      </a>
+                      <div className="px-4 py-3 border-t border-gray-100 min-h-[3.5rem] flex items-center justify-center">
+                        <p className="text-sm font-medium text-gray-800 text-center leading-snug">
+                          {label}
+                        </p>
                       </div>
-                    </a>
-                    <div className="px-4 py-3 border-t border-gray-100 min-h-[3.5rem] flex items-center justify-center">
-                      <p className="text-sm font-medium text-gray-800 text-center leading-snug">
-                        {label}
-                      </p>
-                    </div>
-                  </motion.article>
-                );
-              })}
+                    </motion.article>
+                  );
+                })}
+              </div>
             </div>
           )}
         </div>
