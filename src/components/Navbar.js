@@ -93,21 +93,22 @@ const Navbar = () => {
                     onMouseEnter={() => handleMouseEnter(index)}
                     onMouseLeave={handleMouseLeave}
                   >
-                    <button
-                      type="button"
-                      className={`flex items-center space-x-1 ${navLinkBase} ${
+                    <Link
+                      to={item.path}
+                      className={`inline-flex items-center space-x-1 ${navLinkBase} ${
                         isNavActive(item.path) ? navActiveClass : navInactiveClass
                       } transition-colors duration-300`}
                       aria-current={isNavActive(item.path) ? 'page' : undefined}
                     >
                       <span>{item.label}</span>
                       <svg
-                        className={`w-4 h-4 transform transition-transform duration-200 ${
+                        className={`w-4 h-4 shrink-0 transform transition-transform duration-200 pointer-events-none ${
                           activeDropdown === index ? 'rotate-180' : ''
                         }`}
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
+                        aria-hidden
                       >
                         <path
                           strokeLinecap="round"
@@ -116,7 +117,7 @@ const Navbar = () => {
                           d="M19 9l-7 7-7-7"
                         />
                       </svg>
-                    </button>
+                    </Link>
                     <div
                       className={`absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 transition-all duration-200 ${
                         activeDropdown === index
@@ -205,33 +206,46 @@ const Navbar = () => {
               <div key={index}>
                 {item.subItems ? (
                   <div>
-                    <button
-                      type="button"
-                      onClick={() => toggleDropdown(index)}
-                      className={`w-full flex items-center justify-between px-3 py-2 rounded-md text-left transition-colors ${
-                        isNavActive(item.path)
-                          ? `${navActiveClass}`
-                          : 'text-gray-700 hover:text-[#086c7b] hover:bg-gray-50'
-                      }`}
-                      aria-current={isNavActive(item.path) ? 'page' : undefined}
-                    >
-                      <span>{item.label}</span>
-                      <svg
-                        className={`w-4 h-4 transform transition-transform duration-200 ${
-                          activeDropdown === index ? 'rotate-180' : ''
+                    <div className="flex items-stretch rounded-md overflow-hidden border border-transparent">
+                      <Link
+                        to={item.path}
+                        className={`flex-1 min-w-0 px-3 py-2 text-left transition-colors ${
+                          isNavActive(item.path)
+                            ? `${navActiveClass}`
+                            : 'text-gray-700 hover:text-[#086c7b] hover:bg-gray-50'
                         }`}
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
+                        aria-current={isNavActive(item.path) ? 'page' : undefined}
+                        onClick={() => setIsOpen(false)}
                       >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M19 9l-7 7-7-7"
-                        />
-                      </svg>
-                    </button>
+                        {item.label}
+                      </Link>
+                      <button
+                        type="button"
+                        onClick={() => toggleDropdown(index)}
+                        className={`shrink-0 px-3 py-2 border-l border-gray-100 text-gray-500 hover:text-[#086c7b] hover:bg-gray-50 transition-colors ${
+                          isNavActive(item.path) ? 'bg-[#086c7b]/5' : ''
+                        }`}
+                        aria-expanded={activeDropdown === index}
+                        aria-label={t('nav.expandSubmenu')}
+                      >
+                        <svg
+                          className={`w-4 h-4 transform transition-transform duration-200 ${
+                            activeDropdown === index ? 'rotate-180' : ''
+                          }`}
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                          aria-hidden
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M19 9l-7 7-7-7"
+                          />
+                        </svg>
+                      </button>
+                    </div>
                     <div
                       className={`pl-4 space-y-1 transition-all duration-200 z-50 ${
                         activeDropdown === index ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0 overflow-hidden'
