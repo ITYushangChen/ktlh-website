@@ -26,11 +26,11 @@ const Products = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {categories.map((category) => (
               <div key={category.id} className={`${PRODUCT_CARD_FRAME} bg-white`}>
-                <div className="relative overflow-hidden bg-gray-100">
+                <div className="relative overflow-hidden bg-white">
                   <img
                     src={category.image}
                     alt={gl(category.title)}
-                    className="w-full h-48 object-cover object-center"
+                    className="w-full h-52 object-contain p-4"
                   />
                 </div>
                 <div className="p-6 flex flex-col flex-1">

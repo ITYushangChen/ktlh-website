@@ -16,11 +16,11 @@ const ProductDetailCard = ({ product, gl, gla, t, specLabelPrefix }) => {
 
   return (
     <div className={PRODUCT_CARD_FRAME}>
-      <div className="relative overflow-hidden bg-gray-100">
+      <div className="relative overflow-hidden bg-white">
         <img
           src={product.image}
           alt={gl(product.name)}
-          className="w-full h-48 object-cover object-center"
+          className="w-full h-52 object-contain p-4"
         />
       </div>
       <div className="p-6 flex flex-col flex-1">
