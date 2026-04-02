@@ -298,7 +298,7 @@
   "gas-liquid-separators": [
     {
       "id": "gls-001",
-      "active": true,
+      "active": false,
       "image": "/images/products/gas-liquid-separators/gls-001.jpg",
       "name": {
         "zh": "GLS-001 高效气液分离器",
@@ -343,7 +343,7 @@
     },
     {
       "id": "gls-002",
-      "active": true,
+      "active": false,
       "image": "/images/products/gas-liquid-separators/gls-002.jpg",
       "name": {
         "zh": "GLS-002 紧凑型分离器",
@@ -388,7 +388,7 @@
     },
     {
       "id": "gls-003",
-      "active": true,
+      "active": false,
       "image": "/images/products/gas-liquid-separators/gls-003.jpg",
       "name": {
         "zh": "GLS-003 重型工业分离器",
@@ -433,7 +433,7 @@
     },
     {
       "id": "gls-004",
-      "active": true,
+      "active": false,
       "image": "/images/products/gas-liquid-separators/gls-004.jpg",
       "name": {
         "zh": "GLS-004 智能分离器",
