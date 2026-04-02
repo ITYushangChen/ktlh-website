@@ -63,6 +63,17 @@ const Navbar = () => {
     setActiveDropdown(null);
   };
 
+  /** 当前一级导航是否激活（首页仅匹配 /） */
+  const isNavActive = (path) => {
+    if (path === '/') return location.pathname === '/';
+    return location.pathname === path || location.pathname.startsWith(`${path}/`);
+  };
+
+  const navActiveClass = 'font-semibold text-[#086c7b] bg-[#086c7b]/12';
+  const navInactiveClass = 'text-gray-700 hover:text-[#086c7b]';
+  const navLinkBase =
+    'px-2 py-1.5 rounded-md text-sm transition-colors duration-300';
+
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm shadow-md">
       <div className="max-w-6xl mx-auto px-4">
@@ -83,9 +94,11 @@ const Navbar = () => {
                     onMouseLeave={handleMouseLeave}
                   >
                     <button
-                      className={`flex items-center space-x-1 px-2 py-1.5 rounded-md text-sm text-gray-700 hover:text-[#086c7b] transition-colors duration-300 ${
-                        location.pathname.startsWith(item.path) ? 'text-[#086c7b]' : ''
-                      }`}
+                      type="button"
+                      className={`flex items-center space-x-1 ${navLinkBase} ${
+                        isNavActive(item.path) ? navActiveClass : navInactiveClass
+                      } transition-colors duration-300`}
+                      aria-current={isNavActive(item.path) ? 'page' : undefined}
                     >
                       <span>{item.label}</span>
                       <svg
@@ -111,24 +124,33 @@ const Navbar = () => {
                           : 'opacity-0 transform -translate-y-2 invisible'
                       }`}
                     >
-                      {item.subItems.map((subItem, subIndex) => (
-                        <Link
-                          key={subIndex}
-                          to={subItem.path}
-                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-[#086c7b] transition-colors duration-200"
-                          onClick={() => setActiveDropdown(null)}
-                        >
-                          {subItem.label}
-                        </Link>
-                      ))}
+                      {item.subItems.map((subItem, subIndex) => {
+                        const subCurrent = location.pathname === subItem.path;
+                        return (
+                          <Link
+                            key={subIndex}
+                            to={subItem.path}
+                            className={`block px-4 py-2 text-sm transition-colors duration-200 ${
+                              subCurrent
+                                ? 'font-semibold text-[#086c7b] bg-[#086c7b]/8'
+                                : 'text-gray-700 hover:bg-gray-100 hover:text-[#086c7b]'
+                            }`}
+                            aria-current={subCurrent ? 'page' : undefined}
+                            onClick={() => setActiveDropdown(null)}
+                          >
+                            {subItem.label}
+                          </Link>
+                        );
+                      })}
                     </div>
                   </div>
                 ) : (
                   <Link
                     to={item.path}
-                    className={`px-2 py-1.5 rounded-md text-sm text-gray-700 hover:text-[#086c7b] transition-colors duration-300 ${
-                      location.pathname === item.path ? 'text-[#086c7b]' : ''
+                    className={`${navLinkBase} ${
+                      isNavActive(item.path) ? navActiveClass : navInactiveClass
                     }`}
+                    aria-current={isNavActive(item.path) ? 'page' : undefined}
                   >
                     {item.label}
                   </Link>
@@ -184,8 +206,14 @@ const Navbar = () => {
                 {item.subItems ? (
                   <div>
                     <button
+                      type="button"
                       onClick={() => toggleDropdown(index)}
-                      className="w-full flex items-center justify-between px-3 py-2 rounded-md text-gray-700 hover:text-[#086c7b] hover:bg-gray-50"
+                      className={`w-full flex items-center justify-between px-3 py-2 rounded-md text-left transition-colors ${
+                        isNavActive(item.path)
+                          ? `${navActiveClass}`
+                          : 'text-gray-700 hover:text-[#086c7b] hover:bg-gray-50'
+                      }`}
+                      aria-current={isNavActive(item.path) ? 'page' : undefined}
                     >
                       <span>{item.label}</span>
                       <svg
@@ -209,25 +237,38 @@ const Navbar = () => {
                         activeDropdown === index ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0 overflow-hidden'
                       }`}
                     >
-                      {item.subItems.map((subItem, subIndex) => (
-                        <Link
-                          key={subIndex}
-                          to={subItem.path}
-                          className="block px-3 py-2 rounded-md text-gray-700 hover:text-[#086c7b] hover:bg-gray-50"
-                          onClick={() => {
-                            setIsOpen(false);
-                            setActiveDropdown(null);
-                          }}
-                        >
-                          {subItem.label}
-                        </Link>
-                      ))}
+                      {item.subItems.map((subItem, subIndex) => {
+                        const subCurrent = location.pathname === subItem.path;
+                        return (
+                          <Link
+                            key={subIndex}
+                            to={subItem.path}
+                            className={`block px-3 py-2 rounded-md transition-colors ${
+                              subCurrent
+                                ? 'font-semibold text-[#086c7b] bg-[#086c7b]/10'
+                                : 'text-gray-700 hover:text-[#086c7b] hover:bg-gray-50'
+                            }`}
+                            aria-current={subCurrent ? 'page' : undefined}
+                            onClick={() => {
+                              setIsOpen(false);
+                              setActiveDropdown(null);
+                            }}
+                          >
+                            {subItem.label}
+                          </Link>
+                        );
+                      })}
                     </div>
                   </div>
                 ) : (
                   <Link
                     to={item.path}
-                    className="block px-3 py-2 rounded-md text-gray-700 hover:text-[#086c7b] hover:bg-gray-50"
+                    className={`block px-3 py-2 rounded-md transition-colors ${
+                      isNavActive(item.path)
+                        ? 'font-semibold text-[#086c7b] bg-[#086c7b]/10'
+                        : 'text-gray-700 hover:text-[#086c7b] hover:bg-gray-50'
+                    }`}
+                    aria-current={isNavActive(item.path) ? 'page' : undefined}
                     onClick={() => setIsOpen(false)}
                   >
                     {item.label}
