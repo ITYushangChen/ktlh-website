@@ -346,6 +346,8 @@
     "specifications": "技術仕様",
     "learnMore": "詳細を見る",
     "clickToView": "詳しく見る",
+    "loadingProduct": "読み込み中…",
+    "productNotFound": "該当する製品が見つからないか、掲載を終了しています。",
     "contactForCustom": "詳細はお問い合わせください",
     "needCustomSolution": "カスタムソリューションが必要ですか？",
     "needProfessionalSolution": "専門的なソリューションが必要ですか？",

@@ -4,12 +4,15 @@ import { useTranslation } from 'react-i18next';
 export function useProductDetails(categoryKey) {
   const { i18n } = useTranslation();
   const [items, setItems] = useState([]);
+  const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
+    setLoaded(false);
     fetch(`/content/product-details.json?t=${Date.now()}`)
       .then(res => res.json())
       .then(data => setItems((data[categoryKey] || []).filter(i => i.active !== false)))
-      .catch(() => setItems([]));
+      .catch(() => setItems([]))
+      .finally(() => setLoaded(true));
   }, [categoryKey]);
 
   const gl = (field) => {
@@ -23,5 +26,5 @@ export function useProductDetails(categoryKey) {
     return field[i18n.language] || field.zh || [];
   };
 
-  return { items, gl, gla };
+  return { items, gl, gla, loaded };
 }
