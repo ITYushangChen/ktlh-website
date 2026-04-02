@@ -332,7 +332,7 @@ const Home = () => {
             </p>
           </div>
 
-          <div className="flex flex-1 flex-col items-center justify-center px-4 py-8 md:py-12">
+          <div className="flex flex-1 flex-col justify-end items-stretch px-4 sm:px-6 md:px-10 lg:px-14 pb-4 md:pb-6 min-h-0">
             {currentSlide && (
               <AnimatePresence mode="wait">
                 <motion.div
@@ -341,12 +341,12 @@ const Home = () => {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
                   transition={{ duration: 0.4 }}
-                  className="text-center max-w-3xl mx-auto"
+                  className="text-left max-w-xl sm:max-w-2xl lg:max-w-3xl mr-auto w-full"
                 >
-                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 md:mb-6 drop-shadow-lg">
+                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 md:mb-4 drop-shadow-lg">
                     {currentSlide.title}
                   </h3>
-                  <p className="text-base md:text-lg lg:text-xl text-gray-100 leading-relaxed drop-shadow">
+                  <p className="text-base md:text-lg lg:text-xl text-gray-100 leading-relaxed drop-shadow [text-shadow:0_1px_12px_rgba(0,0,0,0.45)]">
                     {currentSlide.description}
                   </p>
                 </motion.div>
