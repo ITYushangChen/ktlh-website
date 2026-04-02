@@ -60,6 +60,81 @@ const About = () => {
         </div>
       </section>
 
+      {/* Business Partners */}
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-12">
+            {t('about.partners.title')}
+          </h2>
+          <div className="max-w-4xl mx-auto">
+            <p className="text-lg text-center mb-8">{t('about.partners.desc')}</p>
+
+            <motion.div
+              className="mb-12"
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true, margin: '-100px' }}
+              whileHover={{ scale: 1.02 }}
+              transition={{ type: 'spring', stiffness: 300 }}
+            >
+              <img
+                src="/images/world-map-partners.png"
+                alt="Global Partners Map"
+                className="w-full h-auto rounded-lg shadow-lg"
+                style={{ maxHeight: '500px', objectFit: 'contain' }}
+              />
+            </motion.div>
+
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+              {(t('about.partners.list', { returnObjects: true }) || []).map((partner, index, arr) => {
+                const n = arr.length;
+                const lastStart = 1.2;
+                const delay = n > 1 ? (index / (n - 1)) * lastStart : 0;
+                return (
+                  <motion.div
+                    key={index}
+                    className="bg-white p-6 rounded-lg shadow-md text-center hover:shadow-lg transition-shadow duration-300"
+                    initial={{ opacity: 0, y: 14 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: '-30px' }}
+                    transition={{ duration: 0.3, delay, ease: [0.22, 1, 0.36, 1] }}
+                  >
+                    <h3 className="font-semibold">{partner}</h3>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 创始人致辞 */}
+      <section className="relative py-20 overflow-hidden bg-gradient-to-br from-violet-100/90 via-orange-50/95 to-amber-50">
+        <div className="container mx-auto px-4 relative z-10">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-10 md:mb-12 text-gray-900">
+            {t('about.founderTitle')}
+          </h2>
+          <div className="max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-80px' }}
+              transition={{ duration: 0.45 }}
+              className="bg-white/90 backdrop-blur-sm p-8 md:p-10 rounded-xl shadow-lg border border-white/60"
+            >
+              <p className="text-gray-900 font-medium text-lg mb-6 md:mb-8">
+                {t('about.founder.salutation')}
+              </p>
+              <div className="space-y-6 text-gray-800 leading-relaxed text-[15px] md:text-base text-justify">
+                {founderParagraphs.map((para, i) => (
+                  <p key={i}>{para}</p>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       {/* 资质认证 */}
       <section className="py-16 bg-gray-50 border-y border-gray-100">
         <div className="container mx-auto px-4">
@@ -109,82 +184,6 @@ const About = () => {
               })}
             </div>
           )}
-        </div>
-      </section>
-
-      {/* 创始人致辞 */}
-      <section className="relative py-20 overflow-hidden bg-gradient-to-br from-violet-100/90 via-orange-50/95 to-amber-50">
-        <div className="container mx-auto px-4 relative z-10">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-10 md:mb-12 text-gray-900">
-            {t('about.founderTitle')}
-          </h2>
-          <div className="max-w-4xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-80px' }}
-              transition={{ duration: 0.45 }}
-              className="bg-white/90 backdrop-blur-sm p-8 md:p-10 rounded-xl shadow-lg border border-white/60"
-            >
-              <p className="text-gray-900 font-medium text-lg mb-6 md:mb-8">
-                {t('about.founder.salutation')}
-              </p>
-              <div className="space-y-6 text-gray-800 leading-relaxed text-[15px] md:text-base text-justify">
-                {founderParagraphs.map((para, i) => (
-                  <p key={i}>{para}</p>
-                ))}
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Business Partners */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">
-            {t('about.partners.title')}
-          </h2>
-          <div className="max-w-4xl mx-auto">
-            <p className="text-lg text-center mb-8">{t('about.partners.desc')}</p>
-
-            {/* 世界地图 —— 保留图片动画 */}
-            <motion.div
-              className="mb-12"
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true, margin: '-100px' }}
-              whileHover={{ scale: 1.02 }}
-              transition={{ type: 'spring', stiffness: 300 }}
-            >
-              <img
-                src="/images/world-map-partners.png"
-                alt="Global Partners Map"
-                className="w-full h-auto rounded-lg shadow-lg"
-                style={{ maxHeight: '500px', objectFit: 'contain' }}
-              />
-            </motion.div>
-
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-              {(t('about.partners.list', { returnObjects: true }) || []).map((partner, index, arr) => {
-                const n = arr.length;
-                const lastStart = 1.2;
-                const delay = n > 1 ? (index / (n - 1)) * lastStart : 0;
-                return (
-                  <motion.div
-                    key={index}
-                    className="bg-white p-6 rounded-lg shadow-md text-center hover:shadow-lg transition-shadow duration-300"
-                    initial={{ opacity: 0, y: 14 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: '-30px' }}
-                    transition={{ duration: 0.3, delay, ease: [0.22, 1, 0.36, 1] }}
-                  >
-                    <h3 className="font-semibold">{partner}</h3>
-                  </motion.div>
-                );
-              })}
-            </div>
-          </div>
         </div>
       </section>
     </div>
