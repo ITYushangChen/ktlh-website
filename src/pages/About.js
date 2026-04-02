@@ -114,21 +114,34 @@ const About = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-10 md:mb-12 text-gray-900">
             {t('about.founderTitle')}
           </h2>
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-5xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-80px' }}
               transition={{ duration: 0.45 }}
-              className="bg-white/90 backdrop-blur-sm p-8 md:p-10 rounded-xl shadow-lg border border-white/60"
+              className="bg-white/90 backdrop-blur-sm p-6 sm:p-8 md:p-10 rounded-xl shadow-lg border border-white/60"
             >
-              <p className="text-gray-900 font-medium text-lg mb-6 md:mb-8">
-                {t('about.founder.salutation')}
-              </p>
-              <div className="space-y-6 text-gray-800 leading-relaxed text-[15px] md:text-base text-justify">
-                {founderParagraphs.map((para, i) => (
-                  <p key={i}>{para}</p>
-                ))}
+              <div className="flex flex-col md:flex-row md:items-start gap-8 md:gap-10">
+                <figure className="shrink-0 mx-auto md:mx-0 w-full max-w-[280px] sm:max-w-[300px] md:max-w-[min(38vw,300px)] lg:max-w-[320px]">
+                  <img
+                    src="/images/chairman.png"
+                    alt={t('about.founder.imageAlt')}
+                    className="w-full h-auto rounded-xl shadow-md border border-gray-100/90 object-contain bg-white/40"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </figure>
+                <div className="flex-1 min-w-0">
+                  <p className="text-gray-900 font-medium text-lg mb-6 md:mb-8">
+                    {t('about.founder.salutation')}
+                  </p>
+                  <div className="space-y-6 text-gray-800 leading-relaxed text-[15px] md:text-base text-justify">
+                    {founderParagraphs.map((para, i) => (
+                      <p key={i}>{para}</p>
+                    ))}
+                  </div>
+                </div>
               </div>
             </motion.div>
           </div>
