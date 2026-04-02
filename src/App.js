@@ -17,6 +17,7 @@ import DampingBlocks from './pages/products/DampingBlocks';
 import ShellTubeHeatExchangers from './pages/products/ShellTubeHeatExchangers';
 import CopperTubeSeries from './pages/products/CopperTubeSeries';
 import PlateHeatExchangers from './pages/products/PlateHeatExchangers';
+import ProductItemDetail from './pages/products/ProductItemDetail';
 import AdminLogin from './pages/admin/AdminLogin';
 import AdminProducts from './pages/admin/AdminProducts';
 import AdminProductDetails from './pages/admin/AdminProductDetails';
@@ -57,6 +58,7 @@ function App() {
           <Route path="/products/shell-tube-heat-exchangers" element={<ShellTubeHeatExchangers />} />
           <Route path="/products/copper-tube-series" element={<CopperTubeSeries />} />
           <Route path="/products/plate-heat-exchangers" element={<PlateHeatExchangers />} />
+          <Route path="/products/:categoryPath/:productId" element={<ProductItemDetail />} />
           <Route path="/careers" element={<Navigate to="/" replace />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/terms" element={<SiteStatement />} />

@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 import { PRODUCT_CARD_FRAME } from '../constants/productUi';
 
-/** 与产品中心列表卡片一致：图、名称、主色分割线、「点击查看」 */
-const ProductDetailCard = ({ product, gl, t }) => (
+/** 与产品中心列表卡片一致：图、名称、主色分割线、「点击查看」→ 子产品详情 */
+const ProductDetailCard = ({ product, gl, t, listPath }) => (
   <div className={`${PRODUCT_CARD_FRAME} bg-white`}>
     <div className="relative overflow-hidden bg-white">
       <img
@@ -16,7 +16,7 @@ const ProductDetailCard = ({ product, gl, t }) => (
       <div className="h-0.5 w-full mb-4 shrink-0 bg-[#086c7b]" aria-hidden />
       <div className="flex-1 min-h-0" aria-hidden />
       <Link
-        to="/contact"
+        to={`${listPath}/${product.id}`}
         className="inline-flex items-center text-sm font-medium mt-auto text-[#086c7b] hover:text-[#065a66] transition-colors"
       >
         {t('products.clickToView')}

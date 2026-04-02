@@ -21,7 +21,13 @@ const GasLiquidSeparators = () => {
           </nav>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {items.map((product) => (
-              <ProductDetailCard key={product.id} product={product} gl={gl} t={t} />
+              <ProductDetailCard
+                key={product.id}
+                product={product}
+                gl={gl}
+                t={t}
+                listPath="/products/gas-liquid-separators"
+              />
             ))}
           </div>
         </div>

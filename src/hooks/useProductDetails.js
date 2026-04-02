@@ -4,9 +4,14 @@ import { useTranslation } from 'react-i18next';
 export function useProductDetails(categoryKey) {
   const { i18n } = useTranslation();
   const [items, setItems] = useState([]);
-  const [loaded, setLoaded] = useState(false);
+  const [loaded, setLoaded] = useState(() => categoryKey == null);
 
   useEffect(() => {
+    if (categoryKey == null) {
+      setItems([]);
+      setLoaded(true);
+      return;
+    }
     setLoaded(false);
     fetch(`/content/product-details.json?t=${Date.now()}`)
       .then(res => res.json())
