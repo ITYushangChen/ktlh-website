@@ -49,7 +49,6 @@ const About = () => {
                   <li>{t('about.production.1')}</li>
                   <li>{t('about.production.2')}</li>
                   <li>{t('about.production.3')}</li>
-                  <li>{t('about.production.4')}</li>
                 </ul>
               </div>
             </div>
