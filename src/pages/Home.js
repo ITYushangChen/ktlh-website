@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
+
+const HERO_INTERVAL_MS = 6500;
 
 const Home = () => {
   const { t } = useTranslation();
@@ -11,52 +13,100 @@ const Home = () => {
     return Array.isArray(result) ? result : [];
   };
 
+  const heroSlides = useMemo(() => {
+    const raw = t('home.hero.slides', { returnObjects: true });
+    const arr = Array.isArray(raw) ? raw : [];
+    if (arr.length > 0) return arr;
+    return [
+      {
+        image: '/images/factory.jpg',
+        title: t('home.hero.title'),
+        subtitle: t('home.hero.subtitle'),
+      },
+    ];
+  }, [t]);
+
+  const [heroIndex, setHeroIndex] = useState(0);
+
+  useEffect(() => {
+    if (heroSlides.length === 0) return;
+    setHeroIndex((i) => Math.min(i, heroSlides.length - 1));
+  }, [heroSlides.length]);
+
+  useEffect(() => {
+    if (heroSlides.length <= 1) return undefined;
+    const id = window.setInterval(() => {
+      setHeroIndex((i) => (i + 1) % heroSlides.length);
+    }, HERO_INTERVAL_MS);
+    return () => window.clearInterval(id);
+  }, [heroSlides.length]);
+
+  const goPrev = () =>
+    setHeroIndex((i) => (i - 1 + heroSlides.length) % heroSlides.length);
+  const goNext = () => setHeroIndex((i) => (i + 1) % heroSlides.length);
+
   const features = getTranslationArray('home.features.items');
   const showcaseItems = getTranslationArray('home.showcase.items');
   const products = getTranslationArray('home.products.items');
 
+  const currentSlide = heroSlides[heroIndex] || heroSlides[0];
+
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#086c7b] to-[#065a66]">
-        {/* 背景装饰图案（保留动画） */}
-        <motion.div
-          className="absolute inset-0 z-0"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 0.1 }}
-          transition={{ duration: 1 }}
-        >
-          <div className="absolute inset-0" style={{
-            backgroundImage: `
-              linear-gradient(to right, rgba(255,255,255,0.1) 1px, transparent 1px),
-              linear-gradient(to bottom, rgba(255,255,255,0.1) 1px, transparent 1px)
-            `,
-            backgroundSize: '40px 40px'
-          }}></div>
-          <div className="absolute inset-0" style={{
-            backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px)',
-            backgroundSize: '20px 20px'
-          }}></div>
-        </motion.div>
+      {/* Hero：全屏轮播，向下滚动进入后续板块 */}
+      <section
+        className="relative w-full overflow-hidden bg-gray-900"
+        style={{ height: 'calc(100vh - 3.5rem)', minHeight: '22rem' }}
+        aria-roledescription="carousel"
+        aria-label={t('nav.home')}
+      >
+        {heroSlides.map((slide, i) => (
+          <motion.div
+            key={`${slide.image}-${i}`}
+            className="absolute inset-0 z-0 pointer-events-none"
+            initial={false}
+            animate={{ opacity: i === heroIndex ? 1 : 0 }}
+            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <div
+              className="absolute inset-0 bg-cover bg-center"
+              style={{ backgroundImage: `url('${slide.image}')` }}
+              aria-hidden
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/45 to-black/65" aria-hidden />
+          </motion.div>
+        ))}
 
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl mx-auto text-center text-white">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              {t('home.hero.title')}
-            </h1>
-            <p className="text-xl md:text-2xl mb-8 text-gray-100">
-              {t('home.hero.subtitle')}
-            </p>
+        <div className="absolute inset-0 z-10 flex flex-col items-center justify-center px-4 text-center text-white pointer-events-none">
+          <div className="pointer-events-auto max-w-4xl mx-auto">
+            <AnimatePresence mode="wait">
+              {currentSlide && (
+                <motion.div
+                  key={heroIndex}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -12 }}
+                  transition={{ duration: 0.45 }}
+                >
+                  <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 drop-shadow-md tracking-tight">
+                    {currentSlide.title}
+                  </h1>
+                  <p className="text-lg md:text-xl lg:text-2xl text-gray-100 mb-8 md:mb-10 max-w-3xl mx-auto drop-shadow leading-relaxed">
+                    {currentSlide.subtitle}
+                  </p>
+                </motion.div>
+              )}
+            </AnimatePresence>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 to="/products"
-                className="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-[#086c7b] bg-white hover:bg-gray-50 transition-colors duration-300"
+                className="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-[#086c7b] bg-white hover:bg-gray-50 transition-colors duration-300 shadow-lg"
               >
                 {t('home.hero.cta.primary')}
               </Link>
               <Link
                 to="/contact"
-                className="inline-flex items-center justify-center px-8 py-3 border border-white text-base font-medium rounded-md text-white hover:bg-white/10 transition-colors duration-300"
+                className="inline-flex items-center justify-center px-8 py-3 border-2 border-white text-base font-medium rounded-md text-white hover:bg-white/15 transition-colors duration-300"
               >
                 {t('home.hero.cta.secondary')}
               </Link>
@@ -64,13 +114,61 @@ const Home = () => {
           </div>
         </div>
 
-        {/* 底部渐变（保留动画） */}
+        {heroSlides.length > 1 && (
+          <>
+            <button
+              type="button"
+              onClick={goPrev}
+              className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-20 p-2 rounded-full bg-black/25 text-white hover:bg-black/45 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-white/80"
+              aria-label={t('home.hero.prevSlide')}
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+            <button
+              type="button"
+              onClick={goNext}
+              className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-20 p-2 rounded-full bg-black/25 text-white hover:bg-black/45 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-white/80"
+              aria-label={t('home.hero.nextSlide')}
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+            <div
+              className="absolute bottom-24 left-0 right-0 z-20 flex justify-center gap-2"
+              role="tablist"
+              aria-label="slides"
+            >
+              {heroSlides.map((_, i) => (
+                <button
+                  key={i}
+                  type="button"
+                  onClick={() => setHeroIndex(i)}
+                  className={`h-2 rounded-full transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/80 ${
+                    i === heroIndex ? 'w-8 bg-white' : 'w-2 bg-white/45 hover:bg-white/70'
+                  }`}
+                  aria-label={`${i + 1} / ${heroSlides.length}`}
+                  aria-current={i === heroIndex}
+                />
+              ))}
+            </div>
+          </>
+        )}
+
+        <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-t from-white via-white/80 to-transparent z-[15]" />
+
         <motion.div
-          className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.5, duration: 1 }}
-        />
+          className="absolute bottom-5 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center text-white/90 pointer-events-none"
+          animate={{ y: [0, 6, 0] }}
+          transition={{ repeat: Infinity, duration: 2.2, ease: 'easeInOut' }}
+        >
+          <span className="text-xs sm:text-sm tracking-wide mb-1 drop-shadow">{t('home.hero.scrollHint')}</span>
+          <svg className="w-5 h-5 opacity-90" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+          </svg>
+        </motion.div>
       </section>
 
       {/* Features Section */}

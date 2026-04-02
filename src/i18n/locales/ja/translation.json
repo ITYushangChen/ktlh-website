@@ -23,15 +23,40 @@
       "cta": {
         "primary": "製品を知る",
         "secondary": "お問い合わせ"
-      }
+      },
+      "slides": [
+        {
+          "image": "/images/factory.jpg",
+          "title": "青島開拓隆海智控有限公司",
+          "subtitle": "冷凍システム部品の専門メーカーとして、世界中の企業に高品質な製品を提供しています。"
+        },
+        {
+          "image": "/images/production.jpg",
+          "title": "先進の製造力",
+          "subtitle": "自動化ラインと厳格な品質管理で、安定した供給を実現します。"
+        },
+        {
+          "image": "/images/rd.jpg",
+          "title": "継続的な技術革新",
+          "subtitle": "市級技術センターと産学連携による研究開発。"
+        },
+        {
+          "image": "/images/containers.jpg",
+          "title": "冷凍システム部品に注力",
+          "subtitle": "容器・配管部品・熱交換器など、世界中のお客様に製品を提供。"
+        }
+      ],
+      "prevSlide": "前のスライド",
+      "nextSlide": "次のスライド",
+      "scrollHint": "下にスクロール"
     },
     "features": {
       "title": "当社の強み",
-      "subtitle": "20年にわたり空調システム部品の製造に専念し、世界中のお客様に専門品質でサービスを提供しています。",
+      "subtitle": "20年にわたり冷凍システム部品の製造に専念し、世界中のお客様に専門品質でサービスを提供しています。",
       "items": [
         {
           "title": "専門製造",
-          "description": "20年の空調システム部品製造の経験、先進的な生産設備と技術を有しています。",
+          "description": "20年の冷凍システム部品製造の経験、先進的な生産設備と技術を有しています。",
           "icon": "<svg class='w-12 h-12' fill='none' stroke='currentColor' viewBox='0 0 24 24'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M13 10V3L4 14h7v7l9-11h-7z'/></svg>"
         },
         {
