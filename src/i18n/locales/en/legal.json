@@ -1,0 +1,78 @@
+{
+  "siteStatement": {
+    "title": "Site Notice",
+    "updated": "Last updated: March 31, 2025",
+    "sections": [
+      {
+        "heading": "1. General",
+        "body": "Welcome to the official website of Qingdao Kaituo Longhai Intelligent Control Co., Ltd. (“the Company”). Please read this notice carefully before using this website. By accessing or using this website, you acknowledge that you have read and understood this notice.\n\nThis website is intended to present information about the Company and its air conditioning system components business. Nothing on this website constitutes an offer or commitment."
+      },
+      {
+        "heading": "2. Accuracy of information",
+        "body": "Product descriptions, technical data, capacity figures, and news published on this website are prepared based on information available at the time of publication and are for reference only. We strive to keep content accurate but disclaim liability for discrepancies due to outdated information, transmission errors, or data provided by third parties.\n\nThe Company may update, modify, or remove content on this website without prior notice."
+      },
+      {
+        "heading": "3. Intellectual property",
+        "body": "Unless otherwise stated, text, images, logos, layout, software, and other materials on this website are protected by copyright, trademark, and other intellectual property rights owned by the Company or its licensors. No part may be copied, reproduced, linked, mirrored, or otherwise used for commercial purposes without prior written permission."
+      },
+      {
+        "heading": "4. Third-party links",
+        "body": "This website may contain links to third-party websites for your convenience only. The Company is not responsible for the content, privacy practices, or availability of such sites, and does not endorse their products or services. You access third-party sites at your own risk."
+      },
+      {
+        "heading": "5. Limitation of liability",
+        "body": "To the fullest extent permitted by law, the Company shall not be liable for any direct, indirect, incidental, or consequential loss arising from use or inability to use this website, errors in content, viruses, outages, or other technical issues."
+      },
+      {
+        "heading": "6. Governing law and changes",
+        "body": "This notice shall be interpreted in accordance with the laws of the People’s Republic of China (Mainland). The Company may revise this notice at any time; the revised version takes effect when published on this website. Continued use constitutes acceptance of the revised notice."
+      },
+      {
+        "heading": "7. Contact",
+        "body": "If you have questions about this notice, please contact us using the details provided on the “Contact” page of this website."
+      }
+    ]
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "updated": "Last updated: March 31, 2025",
+    "sections": [
+      {
+        "heading": "1. Introduction",
+        "body": "Qingdao Kaituo Longhai Intelligent Control Co., Ltd. (“the Company”) respects your privacy. This policy explains how we collect, use, store, and protect personal information when you visit our website or use related features.\n\nBy using this website, you agree to this policy. If you do not agree, please stop using the website or do not submit personal information."
+      },
+      {
+        "heading": "2. Information we collect",
+        "body": "(1) Information you provide: for example, name, email, phone, company name, and message content submitted through the “Contact” form, used to respond to your inquiry or for business communication.\n\n(2) Technical information: when you browse, our servers may automatically log browser type, access time, approximate region, referrer, and IP address for security, statistics, and service improvement.\n\n(3) Cookies and similar technologies: we may use cookies or local storage for sessions, language preferences, or traffic analysis. You can manage or disable cookies in your browser; some features may not work properly if you do."
+      },
+      {
+        "heading": "3. How we use information",
+        "body": "We use your information only as necessary to: respond to your requests; improve website content and user experience; comply with legal obligations; and, with your consent, send business-related notices (you may opt out of marketing at any time).\n\nWe do not sell your personal information to third parties."
+      },
+      {
+        "heading": "4. Sharing and disclosure",
+        "body": "We do not share your personal information with third parties except: (1) with your explicit consent; (2) when required by law, courts, or regulators; (3) with trusted processors who assist in operating the website or providing IT/cloud services, bound by confidentiality and processing only within authorized scope."
+      },
+      {
+        "heading": "5. Storage and security",
+        "body": "We retain information only as long as necessary for the purposes described in this policy, unless a longer period is required by law. We implement reasonable technical and organizational measures; however, no method of transmission or storage is completely secure."
+      },
+      {
+        "heading": "6. Your rights",
+        "body": "Where applicable law allows, you may request access, correction, or deletion of your personal information, or restrict or object to certain processing. To exercise your rights, please contact us via the “Contact” page. We will respond within a reasonable time."
+      },
+      {
+        "heading": "7. Minors",
+        "body": "This website is primarily intended for business users and adults. If you are a minor, please use this website only with guardian consent and do not provide personal information to us."
+      },
+      {
+        "heading": "8. Changes to this policy",
+        "body": "We may update this privacy policy from time to time. The updated version will be posted on this page with a new “last updated” date. For material changes, we will provide notice on the website where appropriate. Please review this page periodically."
+      },
+      {
+        "heading": "9. Contact",
+        "body": "If you have questions, comments, or complaints about this privacy policy, please contact us using the email or address shown on the “Contact” page of this website."
+      }
+    ]
+  }
+}

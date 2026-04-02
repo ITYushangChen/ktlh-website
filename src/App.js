@@ -8,6 +8,8 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Products from './pages/Products';
 import Contact from './pages/Contact';
+import SiteStatement from './pages/SiteStatement';
+import PrivacyPolicy from './pages/PrivacyPolicy';
 import Receivers from './pages/products/Receivers';
 import GasLiquidSeparators from './pages/products/GasLiquidSeparators';
 import OilSeparators from './pages/products/OilSeparators';
@@ -57,6 +59,8 @@ function App() {
           <Route path="/products/plate-heat-exchangers" element={<PlateHeatExchangers />} />
           <Route path="/careers" element={<Navigate to="/" replace />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/terms" element={<SiteStatement />} />
+          <Route path="/privacy" element={<PrivacyPolicy />} />
         </Route>
         <Route path="/admin/login" element={<AdminLogin />} />
         <Route path="/admin/jobs" element={<Navigate to="/admin/products" replace />} />

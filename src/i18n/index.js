@@ -6,17 +6,29 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 import translationZH from './locales/zh/translation.json';
 import translationEN from './locales/en/translation.json';
 import translationJA from './locales/ja/translation.json';
+import legalZH from './locales/zh/legal.json';
+import legalEN from './locales/en/legal.json';
+import legalJA from './locales/ja/legal.json';
 
 const resources = {
   zh: {
-    translation: translationZH
+    translation: {
+      ...translationZH,
+      legal: legalZH,
+    },
   },
   en: {
-    translation: translationEN
+    translation: {
+      ...translationEN,
+      legal: legalEN,
+    },
   },
   ja: {
-    translation: translationJA
-  }
+    translation: {
+      ...translationJA,
+      legal: legalJA,
+    },
+  },
 };
 
 i18n

@@ -11,8 +11,6 @@ const Footer = () => {
     { to: '/contact', labelKey: 'footer.topNav.contact' },
     { to: '/terms', labelKey: 'footer.topNav.siteStatement' },
     { to: '/privacy', labelKey: 'footer.topNav.privacy' },
-    { to: '/terms#disclaimer', labelKey: 'footer.topNav.disclaimer' },
-    { to: '/careers', labelKey: 'footer.topNav.careers' },
   ];
 
   const socialMedia = [
