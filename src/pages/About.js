@@ -109,8 +109,8 @@ const About = () => {
       </section>
 
       {/* 创始人致辞 */}
-      <section className="relative py-20 overflow-hidden bg-gradient-to-br from-violet-100/90 via-orange-50/95 to-amber-50">
-        <div className="container mx-auto px-4 relative z-10">
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-10 md:mb-12 text-gray-900">
             {t('about.founderTitle')}
           </h2>
@@ -120,7 +120,7 @@ const About = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-80px' }}
               transition={{ duration: 0.45 }}
-              className="bg-white/90 backdrop-blur-sm p-6 sm:p-8 md:p-10 rounded-xl shadow-lg border border-white/60"
+              className="bg-gray-50 p-6 sm:p-8 md:p-10 rounded-xl shadow-md border border-gray-100"
             >
               <div className="flex flex-col md:flex-row md:items-start gap-8 md:gap-10">
                 <figure className="shrink-0 mx-auto md:mx-0 w-full max-w-[280px] sm:max-w-[300px] md:max-w-[min(38vw,300px)] lg:max-w-[320px]">
