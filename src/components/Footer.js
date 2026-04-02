@@ -96,18 +96,17 @@ const Footer = () => {
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 py-8 border-b border-gray-200/90">
           <Link
             to="/"
-            className="flex items-center gap-2.5 shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#086c7b] focus-visible:ring-offset-2 rounded-md"
+            className="inline-flex items-center shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#086c7b] focus-visible:ring-offset-2 rounded-md"
+            aria-label={t('footer.companyName')}
           >
             <img
               src="/images/logo.png"
-              alt={t('footer.companyName')}
+              alt=""
               className="h-9 w-auto"
               width={120}
               height={36}
+              aria-hidden
             />
-            <span className="text-lg sm:text-xl font-bold text-[#086c7b] tracking-tight">
-              {t('footer.companyName')}
-            </span>
           </Link>
 
           <nav

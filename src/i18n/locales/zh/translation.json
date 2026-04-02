@@ -23,28 +23,34 @@
       "cta": {
         "primary": "了解产品",
         "secondary": "联系我们"
-      }
+      },
+      "scrollHint": "向下滑动了解更多"
     },
     "features": {
       "title": "我们的优势",
-      "subtitle": "20年专注制冷系统元件制造，以专业品质服务全球客户",
+      "subtitle": "二十年专注制冷系统元件制造，融合专业竞争力与现代化企业实力，服务全球客户",
       "prevSlide": "上一项",
       "nextSlide": "下一项",
       "items": [
         {
-          "title": "专业制造",
-          "description": "20年专注制冷系统元件制造，拥有先进的生产设备和工艺",
-          "icon": "<svg class='w-12 h-12' fill='none' stroke='currentColor' viewBox='0 0 24 24'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M13 10V3L4 14h7v7l9-11h-7z'/></svg>"
+          "title": "现代化厂区",
+          "description": "5.1万平方米厂区，4.3万平方米建筑面积，配备先进生产设备",
+          "image": "/images/厂房/DJI_0176(1).jpg"
         },
         {
-          "title": "品质保证",
-          "description": "通过ISO9001质量管理体系认证，产品品质稳定可靠",
-          "icon": "<svg class='w-12 h-12' fill='none' stroke='currentColor' viewBox='0 0 24 24'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z'/></svg>"
+          "title": "完备证书",
+          "description": "拥有完善的证书背书",
+          "image": "/images/证书.png"
         },
         {
-          "title": "技术创新",
-          "description": "市级企业技术中心，持续创新，为客户提供优质解决方案",
-          "icon": "<svg class='w-12 h-12' fill='none' stroke='currentColor' viewBox='0 0 24 24'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z'/></svg>"
+          "title": "专业生产线",
+          "description": "全自动化生产线，年产能：容器320万台，铜管件5000吨，阻尼块2000吨",
+          "image": "/images/设备/_NOP8697.JPG"
+        },
+        {
+          "title": "专业定制化",
+          "description": "我们拥有行业内顶尖人才，拥有从零开始设计、开模具到量产的能力",
+          "image": "/images/技术/_NOP8602.JPG"
         }
       ]
     },
@@ -55,17 +61,22 @@
         {
           "title": "现代化厂区",
           "description": "5.1万平方米厂区，4.3万平方米建筑面积，配备先进生产设备",
-          "image": "/images/factory.jpg"
+          "image": "/images/厂房/DJI_0176(1).jpg"
+        },
+        {
+          "title": "完备证书",
+          "description": "拥有完善的证书背书",
+          "image": "/images/证书.png"
         },
         {
           "title": "专业生产线",
           "description": "全自动化生产线，年产能：容器320万台，铜管件5000吨，阻尼块2000吨",
-          "image": "/images/production.jpg"
+          "image": "/images/设备/_NOP8697.JPG"
         },
         {
-          "title": "研发中心",
-          "description": "市级企业技术中心，校企合作研发平台，持续创新驱动发展",
-          "image": "/images/rd.jpg"
+          "title": "专业定制化",
+          "description": "我们拥有行业内顶尖人才，拥有从零开始设计、开模具到量产的能力",
+          "image": "/images/技术/_NOP8602.JPG"
         }
       ]
     },
@@ -182,19 +193,9 @@
     "certificationsTitle": "资质认证",
     "certificationsSubtitle": "以下认证与资质体现公司在质量、技术与合规方面的综合实力；证书扫描件可随时在仓库中更新替换。",
     "certificationsEmpty": "资质资料整理中，敬请期待。",
-    "teamTitle": "人才团队",
-    "team": {
-      "intro": "公司有着年轻化、素质化、专业化的人才梯队。员工总人数350余人，其中大学以上学历人才占35%，行业内中高级工程师三十余人。",
-      "youth": "年轻化",
-      "youthDesc": "充满活力的团队，平均年龄35岁",
-      "quality": "素质化",
-      "qualityDesc": "高学历人才占比35%，持续提升团队素质",
-      "professional": "专业化",
-      "professionalDesc": "三十余位中高级工程师，专业领域经验丰富"
-    },
     "partners": {
       "title": "战略合作伙伴",
-      "desc": "公司与国内外著名企业建立长期战略合作联盟，产品远销日本、欧美、泰国、韩国等国家。",
+      "desc": "与国内外著名企业建立长期战略合作联盟，产品远销日本、印度、墨西哥、泰国、韩国等国家。",
       "list": [
         "三菱电机", "日立", "三菱重工", "松下", "富士通", "开利", "LG", "海尔", "海信", "澳柯玛", "长虹", "美的"
       ]
@@ -208,16 +209,14 @@
       "heatExchanger": "换热器类",
       "heatExchangerDesc": "板式换热器、壳管式换热器等专业产品"
     },
-    "founderTitle": "创始人寄语",
+    "founderTitle": "创始人致辞",
     "founder": {
-      "name": "陈林君",
-      "position": "董事长",
-      "motivation": "创业初心",
-      "motivationContent": "2002年，怀着对制冷行业的热爱和对技术创新的执着追求，我创立了开拓隆海。二十多年来，我们始终坚持以客户需求为导向，以技术创新为驱动，专注于空调系统元件的研发与制造。",
-      "journey": "创业历程",
-      "journeyContent": "从最初的小作坊到如今的现代化企业，我们经历了无数的挑战与机遇。每一次技术突破，每一个产品创新，都凝聚着团队的智慧与汗水。我们与三菱电机、日立、海尔等知名企业建立了深度合作关系，产品远销海外。",
-      "vision": "未来愿景",
-      "visionContent": "面向未来，我们将继续秉承'创新、品质、服务'的企业理念，不断提升技术水平，扩大产能规模，为全球客户提供更优质的产品和服务，努力成为世界一流的空调系统元件制造商。"
+      "salutation": "尊敬的朋友们、开拓隆海的家人们：",
+      "paragraphs": [
+        "自从我们开拓隆海成立的那天起，开拓隆海就以客户为中心、以质量为基石，将精诚团结、锐意进取作为企业创新发展的根本精神，扎实而快速地开启了我们描绘蓝图的崭新事业，经过二十多年的艰苦发展，今天的开拓隆海，已经拥有了众多的优质客户群体和质量过硬的优质产品，这是全体开拓隆海家人们携手奋斗的喜人成果！但是行业竞争日趋激烈，科技改革迅速变化，未来的路将更加险峻和更加崎岖，我们应当要更加清醒地认识到严峻的市场和自己的不足，去面对未来，最终赢得未来。",
+        "未来的开拓隆海将成为一所\"学校\"，希望每一位开拓隆海人，在工作产生经济价值的同时，更要勤奋学习和钻研，不断地提高自身的文化修养和专业素质，以实现与公司同发展共成长的宏大目标！",
+        "我相信通过我们大家的共同努力和不懈奋斗，必定也必然会使开拓隆海的前景灿烂辉煌！我愿：以\"仁铸大业、规矩创乾坤\"的坚定信念，与大家一起来建设和实现开拓隆海更美好的未来！"
+      ]
     }
   },
   "careers": {
@@ -347,6 +346,7 @@
     "productFeatures": "产品特点",
     "specifications": "技术参数",
     "learnMore": "了解详情",
+    "clickToView": "点击查看",
     "contactForCustom": "联系我们了解更多",
     "needCustomSolution": "需要定制化解决方案？",
     "needProfessionalSolution": "需要专业解决方案？",

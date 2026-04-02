@@ -11,6 +11,8 @@ function certTitleForLang(titleObj, lang) {
 const About = () => {
   const { t, i18n } = useTranslation();
   const [certItems, setCertItems] = useState([]);
+  const founderParagraphsRaw = t('about.founder.paragraphs', { returnObjects: true });
+  const founderParagraphs = Array.isArray(founderParagraphsRaw) ? founderParagraphsRaw : [];
 
   useEffect(() => {
     fetch(`/content/certifications.json?t=${Date.now()}`)
@@ -110,69 +112,29 @@ const About = () => {
         </div>
       </section>
 
-      {/* Founder Message */}
-      <section
-        className="relative py-20 bg-cover bg-center overflow-hidden"
-        style={{ backgroundImage: "url('/images/containers.jpg')" }}
-      >
-        <div className="absolute inset-0 bg-black/50" aria-hidden />
+      {/* 创始人致辞 */}
+      <section className="relative py-20 overflow-hidden bg-gradient-to-br from-violet-100/90 via-orange-50/95 to-amber-50">
         <div className="container mx-auto px-4 relative z-10">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-white drop-shadow-sm">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-10 md:mb-12 text-gray-900">
             {t('about.founderTitle')}
           </h2>
-          <div className="max-w-3xl mx-auto">
+          <div className="max-w-4xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-80px' }}
               transition={{ duration: 0.45 }}
-              className="bg-white/95 backdrop-blur-sm p-8 md:p-10 rounded-xl shadow-xl border border-white/20"
+              className="bg-white/90 backdrop-blur-sm p-8 md:p-10 rounded-xl shadow-lg border border-white/60"
             >
-              <div className="text-center mb-6">
-                <h3 className="text-xl font-semibold text-gray-900">{t('about.founder.name')}</h3>
-                <p className="text-gray-600">{t('about.founder.position')}</p>
-              </div>
-              <div className="space-y-6">
-                <div>
-                  <h4 className="text-lg font-semibold text-[#086c7b] mb-3">{t('about.founder.motivation')}</h4>
-                  <p className="text-gray-700 leading-relaxed">{t('about.founder.motivationContent')}</p>
-                </div>
-                <div>
-                  <h4 className="text-lg font-semibold text-[#086c7b] mb-3">{t('about.founder.journey')}</h4>
-                  <p className="text-gray-700 leading-relaxed">{t('about.founder.journeyContent')}</p>
-                </div>
-                <div>
-                  <h4 className="text-lg font-semibold text-[#086c7b] mb-3">{t('about.founder.vision')}</h4>
-                  <p className="text-gray-700 leading-relaxed">{t('about.founder.visionContent')}</p>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Team Section */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">
-            {t('about.teamTitle')}
-          </h2>
-          <div className="max-w-4xl mx-auto">
-            <div className="bg-white p-8 rounded-lg shadow-md">
-              <p className="text-lg mb-6">{t('about.team.intro')}</p>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
-                {[
-                  { title: t('about.team.youth'), description: t('about.team.youthDesc') },
-                  { title: t('about.team.quality'), description: t('about.team.qualityDesc') },
-                  { title: t('about.team.professional'), description: t('about.team.professionalDesc') },
-                ].map((value, index) => (
-                  <div key={index} className="text-center">
-                    <h3 className="text-xl font-semibold mb-2">{value.title}</h3>
-                    <p className="text-gray-600">{value.description}</p>
-                  </div>
+              <p className="text-gray-900 font-medium text-lg mb-6 md:mb-8">
+                {t('about.founder.salutation')}
+              </p>
+              <div className="space-y-6 text-gray-800 leading-relaxed text-[15px] md:text-base text-justify">
+                {founderParagraphs.map((para, i) => (
+                  <p key={i}>{para}</p>
                 ))}
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>

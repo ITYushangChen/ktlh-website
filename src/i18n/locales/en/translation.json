@@ -23,28 +23,34 @@
       "cta": {
         "primary": "View Products",
         "secondary": "Contact Us"
-      }
+      },
+      "scrollHint": "Scroll down to learn more"
     },
     "features": {
       "title": "Our Advantages",
-      "subtitle": "20 years of focus on refrigeration system components, serving global customers with professional quality.",
+      "subtitle": "Two decades of expertise in refrigeration components—combining professional strengths with modern manufacturing scale for customers worldwide.",
       "prevSlide": "Previous",
       "nextSlide": "Next",
       "items": [
         {
-          "title": "Professional Manufacturing",
-          "description": "20 years of focus on refrigeration system components, equipped with advanced production equipment and processes.",
-          "icon": "<svg class='w-12 h-12' fill='none' stroke='currentColor' viewBox='0 0 24 24'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M13 10V3L4 14h7v7l9-11h-7z'/></svg>"
+          "title": "Modern Factory Area",
+          "description": "51,000 m² site, 43,000 m² building area, equipped with advanced production facilities.",
+          "image": "/images/厂房/DJI_0176(1).jpg"
         },
         {
-          "title": "Quality Assurance",
-          "description": "ISO9001 quality management system certified, ensuring stable and reliable product quality.",
-          "icon": "<svg class='w-12 h-12' fill='none' stroke='currentColor' viewBox='0 0 24 24'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z'/></svg>"
+          "title": "Certifications",
+          "description": "Backed by a comprehensive portfolio of certifications and credentials.",
+          "image": "/images/证书.png"
         },
         {
-          "title": "Technological Innovation",
-          "description": "City-level enterprise technology center, continuous innovation, providing high-quality solutions for customers.",
-          "icon": "<svg class='w-12 h-12' fill='none' stroke='currentColor' viewBox='0 0 24 24'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z'/></svg>"
+          "title": "Professional Production Lines",
+          "description": "Fully automated lines—annual capacity: 3.2 million containers, 5,000 tons of copper fittings, 2,000 tons of damping blocks.",
+          "image": "/images/设备/_NOP8697.JPG"
+        },
+        {
+          "title": "Professional Customization",
+          "description": "Our team includes top industry talent, with full capability from ground-up design and tooling through mass production.",
+          "image": "/images/技术/_NOP8602.JPG"
         }
       ]
     },
@@ -53,19 +59,24 @@
       "subtitle": "20 years of expertise in manufacturing air conditioning system components, building an industry-leading modern enterprise.",
       "items": [
         {
-          "title": "Modern Factory",
-          "description": "51,000 sqm plant area, 43,000 sqm building area, equipped with advanced production equipment.",
-          "image": "/images/factory.jpg"
+          "title": "Modern Factory Area",
+          "description": "51,000 m² site, 43,000 m² building area, equipped with advanced production facilities.",
+          "image": "/images/厂房/DJI_0176(1).jpg"
+        },
+        {
+          "title": "Certifications",
+          "description": "Backed by a comprehensive portfolio of certifications and credentials.",
+          "image": "/images/证书.png"
         },
         {
           "title": "Professional Production Lines",
-          "description": "Fully automated lines, annual capacity: 3.2 million containers, 5,000 tons of copper fittings, 2,000 tons of damping blocks.",
-          "image": "/images/production.jpg"
+          "description": "Fully automated lines—annual capacity: 3.2 million containers, 5,000 tons of copper fittings, 2,000 tons of damping blocks.",
+          "image": "/images/设备/_NOP8697.JPG"
         },
         {
-          "title": "R&D Center",
-          "description": "City-level enterprise technology center, university-enterprise joint R&D platform, driving innovation.",
-          "image": "/images/rd.jpg"
+          "title": "Professional Customization",
+          "description": "Our team includes top industry talent, with full capability from ground-up design and tooling through mass production.",
+          "image": "/images/技术/_NOP8602.JPG"
         }
       ]
     },
@@ -182,19 +193,9 @@
     "certificationsTitle": "Certifications & Qualifications",
     "certificationsSubtitle": "Credentials below reflect our commitment to quality, technology, and compliance. Replace images in the repository with scanned certificates anytime.",
     "certificationsEmpty": "Certification materials are being prepared. Please check back soon.",
-    "teamTitle": "Talent Team",
-    "team": {
-      "intro": "We have a young, highly qualified, and professional talent echelon. The company has over 350 employees, of whom 35% have a university degree or above, and more than 30 are senior engineers in the industry.",
-      "youth": "Youthful",
-      "youthDesc": "A vibrant team, with an average age of 35",
-      "quality": "Highly Qualified",
-      "qualityDesc": "35% of employees have a higher education degree, constantly improving the quality of the team",
-      "professional": "Professional",
-      "professionalDesc": "Over 30 senior engineers, with rich experience in their fields"
-    },
     "partners": {
       "title": "Strategic Partners",
-      "desc": "The company has established long-term strategic alliances with well-known domestic and foreign enterprises, with products exported to Japan, Europe, America, Thailand, South Korea, and other countries.",
+      "desc": "Long-term strategic alliances with well-known domestic and foreign enterprises; products are exported to Japan, India, Mexico, Thailand, South Korea, and other countries.",
       "list": [
         "Mitsubishi Electric", "Hitachi", "Mitsubishi Heavy Industries", "Panasonic", "Fujitsu", "Carrier", "LG", "Haier", "Hisense", "Aucma", "Changhong", "Midea"
       ]
@@ -208,16 +209,14 @@
       "heatExchanger": "Heat Exchangers",
       "heatExchangerDesc": "Professional products such as plate heat exchangers, shell-and-tube heat exchangers, etc."
     },
-    "founderTitle": "Message from the Founder",
+    "founderTitle": "Founder's Address",
     "founder": {
-      "name": "Chen Linjun",
-      "position": "Chairman",
-      "motivation": "Founding Vision",
-      "motivationContent": "In 2002, with a passion for the refrigeration industry and a persistent pursuit of technological innovation, I founded Kaituo Longhai. For more than 20 years, we have always adhered to customer-oriented approach and innovation-driven development, focusing on R&D and manufacturing of air conditioning system components.",
-      "journey": "Entrepreneurial Journey",
-      "journeyContent": "From a small workshop to today's modern enterprise, we have experienced countless challenges and opportunities. Every technological breakthrough and product innovation embodies the wisdom and hard work of our team. We have established deep partnerships with renowned companies like Mitsubishi Electric, Hitachi, and Haier, with products exported overseas.",
-      "vision": "Future Vision",
-      "visionContent": "Looking ahead, we will continue to uphold the corporate philosophy of 'Innovation, Quality, Service', continuously improve our technical capabilities, expand production capacity, provide better products and services to global customers, and strive to become a world-class manufacturer of air conditioning system components."
+      "salutation": "Dear friends and members of the Kaituo Longhai family,",
+      "paragraphs": [
+        "Since the day Kaituo Longhai was founded, we have put customers first and quality as our foundation, with unity and enterprise as the spirit that drives our innovation and growth. We opened a new chapter in our blueprint with vigour and speed. After more than twenty years of development, Kaituo Longhai today has a broad base of quality customers and reliable products—this is the result of everyone at Kaituo Longhai working together. Yet competition in the industry is fiercer, and technology is changing rapidly; the road ahead will be harder and steeper. We must see clearly the challenges of the market and our own gaps, face the future, and win it.",
+        "In the future, Kaituo Longhai will become a “school”: I hope every member of Kaituo Longhai, while creating economic value at work, will study and learn diligently, and raise their cultural and professional competence, to achieve the great goal of growing together with the company.",
+        "I believe that through our shared effort and perseverance, we will surely make Kaituo Longhai’s future bright and glorious! I wish to build, together with all of you, with the firm conviction of “building great enterprise with benevolence, shaping the world with discipline”—a better future for Kaituo Longhai!"
+      ]
     }
   },
   "careers": {
@@ -347,6 +346,7 @@
     "productFeatures": "Product Features",
     "specifications": "Specifications",
     "learnMore": "Learn More",
+    "clickToView": "View details",
     "contactForCustom": "Contact us for more information",
     "needCustomSolution": "Need a customized solution?",
     "needProfessionalSolution": "Need a professional solution?",
