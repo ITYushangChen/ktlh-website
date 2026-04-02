@@ -198,7 +198,7 @@
     },
     {
       "id": "r-005",
-      "active": true,
+      "active": false,
       "image": "/images/products/receivers/r-005.jpg",
       "name": {
         "zh": "R-005 智能储液器",
@@ -247,7 +247,7 @@
     },
     {
       "id": "r-006",
-      "active": true,
+      "active": false,
       "image": "/images/products/receivers/r-006.jpg",
       "name": {
         "zh": "R-006 环保型储液器",
