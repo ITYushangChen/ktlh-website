@@ -23,36 +23,13 @@
       "cta": {
         "primary": "了解产品",
         "secondary": "联系我们"
-      },
-      "slides": [
-        {
-          "image": "/images/factory.jpg",
-          "title": "青岛开拓隆海智控有限公司",
-          "subtitle": "专业制冷系统元件制造商，为全球企业提供优质产品"
-        },
-        {
-          "image": "/images/production.jpg",
-          "title": "先进制造能力",
-          "subtitle": "全自动化生产线与严格质控，保障稳定交付"
-        },
-        {
-          "image": "/images/rd.jpg",
-          "title": "持续技术创新",
-          "subtitle": "市级企业技术中心，产学研协同研发"
-        },
-        {
-          "image": "/images/containers.jpg",
-          "title": "深耕制冷系统元件",
-          "subtitle": "容器、管路件、换热器等产品服务全球客户"
-        }
-      ],
-      "prevSlide": "上一张",
-      "nextSlide": "下一张",
-      "scrollHint": "向下滚动"
+      }
     },
     "features": {
       "title": "我们的优势",
       "subtitle": "20年专注制冷系统元件制造，以专业品质服务全球客户",
+      "prevSlide": "上一项",
+      "nextSlide": "下一项",
       "items": [
         {
           "title": "专业制造",

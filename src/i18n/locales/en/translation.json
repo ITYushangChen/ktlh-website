@@ -23,36 +23,13 @@
       "cta": {
         "primary": "View Products",
         "secondary": "Contact Us"
-      },
-      "slides": [
-        {
-          "image": "/images/factory.jpg",
-          "title": "Qingdao Kaituo Longhai Intelligent Control Co., Ltd.",
-          "subtitle": "A professional manufacturer of refrigeration system components, providing quality products to enterprises worldwide."
-        },
-        {
-          "image": "/images/production.jpg",
-          "title": "Advanced Manufacturing",
-          "subtitle": "Automated production lines and strict quality control for reliable delivery."
-        },
-        {
-          "image": "/images/rd.jpg",
-          "title": "Continuous Innovation",
-          "subtitle": "City-level technology center with university–industry collaboration."
-        },
-        {
-          "image": "/images/containers.jpg",
-          "title": "Refrigeration System Components",
-          "subtitle": "Containers, pipeline parts, heat exchangers, and more for customers worldwide."
-        }
-      ],
-      "prevSlide": "Previous slide",
-      "nextSlide": "Next slide",
-      "scrollHint": "Scroll down"
+      }
     },
     "features": {
       "title": "Our Advantages",
       "subtitle": "20 years of focus on refrigeration system components, serving global customers with professional quality.",
+      "prevSlide": "Previous",
+      "nextSlide": "Next",
       "items": [
         {
           "title": "Professional Manufacturing",

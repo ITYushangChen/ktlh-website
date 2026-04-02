@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const HERO_INTERVAL_MS = 6500;
+const FEATURE_CAROUSEL_MS = 5500;
 
 const Home = () => {
   const { t } = useTranslation();
@@ -13,100 +13,75 @@ const Home = () => {
     return Array.isArray(result) ? result : [];
   };
 
-  const heroSlides = useMemo(() => {
-    const raw = t('home.hero.slides', { returnObjects: true });
-    const arr = Array.isArray(raw) ? raw : [];
-    if (arr.length > 0) return arr;
-    return [
-      {
-        image: '/images/factory.jpg',
-        title: t('home.hero.title'),
-        subtitle: t('home.hero.subtitle'),
-      },
-    ];
-  }, [t]);
-
-  const [heroIndex, setHeroIndex] = useState(0);
-
-  useEffect(() => {
-    if (heroSlides.length === 0) return;
-    setHeroIndex((i) => Math.min(i, heroSlides.length - 1));
-  }, [heroSlides.length]);
-
-  useEffect(() => {
-    if (heroSlides.length <= 1) return undefined;
-    const id = window.setInterval(() => {
-      setHeroIndex((i) => (i + 1) % heroSlides.length);
-    }, HERO_INTERVAL_MS);
-    return () => window.clearInterval(id);
-  }, [heroSlides.length]);
-
-  const goPrev = () =>
-    setHeroIndex((i) => (i - 1 + heroSlides.length) % heroSlides.length);
-  const goNext = () => setHeroIndex((i) => (i + 1) % heroSlides.length);
-
   const features = getTranslationArray('home.features.items');
   const showcaseItems = getTranslationArray('home.showcase.items');
   const products = getTranslationArray('home.products.items');
 
-  const currentSlide = heroSlides[heroIndex] || heroSlides[0];
+  const [featureIndex, setFeatureIndex] = useState(0);
+
+  useEffect(() => {
+    if (features.length === 0) return;
+    setFeatureIndex((i) => Math.min(i, features.length - 1));
+  }, [features.length]);
+
+  useEffect(() => {
+    if (features.length <= 1) return undefined;
+    const id = window.setInterval(() => {
+      setFeatureIndex((i) => (i + 1) % features.length);
+    }, FEATURE_CAROUSEL_MS);
+    return () => window.clearInterval(id);
+  }, [features.length]);
+
+  const goPrevFeature = () =>
+    setFeatureIndex((i) => (i - 1 + features.length) % features.length);
+  const goNextFeature = () =>
+    setFeatureIndex((i) => (i + 1) % features.length);
+
+  const currentFeature = features[featureIndex];
 
   return (
     <div className="min-h-screen">
-      {/* Hero：全屏轮播，向下滚动进入后续板块 */}
-      <section
-        className="relative w-full overflow-hidden bg-gray-900"
-        style={{ height: 'calc(100vh - 3.5rem)', minHeight: '22rem' }}
-        aria-roledescription="carousel"
-        aria-label={t('nav.home')}
-      >
-        {heroSlides.map((slide, i) => (
-          <motion.div
-            key={`${slide.image}-${i}`}
-            className="absolute inset-0 z-0 pointer-events-none"
-            initial={false}
-            animate={{ opacity: i === heroIndex ? 1 : 0 }}
-            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <div
-              className="absolute inset-0 bg-cover bg-center"
-              style={{ backgroundImage: `url('${slide.image}')` }}
-              aria-hidden
-            />
-            <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/45 to-black/65" aria-hidden />
-          </motion.div>
-        ))}
+      {/* Hero Section */}
+      <section className="relative h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#086c7b] to-[#065a66]">
+        <motion.div
+          className="absolute inset-0 z-0"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0.1 }}
+          transition={{ duration: 1 }}
+        >
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage: `
+              linear-gradient(to right, rgba(255,255,255,0.1) 1px, transparent 1px),
+              linear-gradient(to bottom, rgba(255,255,255,0.1) 1px, transparent 1px)
+            `,
+              backgroundSize: '40px 40px',
+            }}
+          />
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px)',
+              backgroundSize: '20px 20px',
+            }}
+          />
+        </motion.div>
 
-        <div className="absolute inset-0 z-10 flex flex-col items-center justify-center px-4 text-center text-white pointer-events-none">
-          <div className="pointer-events-auto max-w-4xl mx-auto">
-            <AnimatePresence mode="wait">
-              {currentSlide && (
-                <motion.div
-                  key={heroIndex}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -12 }}
-                  transition={{ duration: 0.45 }}
-                >
-                  <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 drop-shadow-md tracking-tight">
-                    {currentSlide.title}
-                  </h1>
-                  <p className="text-lg md:text-xl lg:text-2xl text-gray-100 mb-8 md:mb-10 max-w-3xl mx-auto drop-shadow leading-relaxed">
-                    {currentSlide.subtitle}
-                  </p>
-                </motion.div>
-              )}
-            </AnimatePresence>
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-4xl mx-auto text-center text-white">
+            <h1 className="text-4xl md:text-6xl font-bold mb-6">{t('home.hero.title')}</h1>
+            <p className="text-xl md:text-2xl mb-8 text-gray-100">{t('home.hero.subtitle')}</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 to="/products"
-                className="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-[#086c7b] bg-white hover:bg-gray-50 transition-colors duration-300 shadow-lg"
+                className="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-[#086c7b] bg-white hover:bg-gray-50 transition-colors duration-300"
               >
                 {t('home.hero.cta.primary')}
               </Link>
               <Link
                 to="/contact"
-                className="inline-flex items-center justify-center px-8 py-3 border-2 border-white text-base font-medium rounded-md text-white hover:bg-white/15 transition-colors duration-300"
+                className="inline-flex items-center justify-center px-8 py-3 border border-white text-base font-medium rounded-md text-white hover:bg-white/10 transition-colors duration-300"
               >
                 {t('home.hero.cta.secondary')}
               </Link>
@@ -114,90 +89,95 @@ const Home = () => {
           </div>
         </div>
 
-        {heroSlides.length > 1 && (
-          <>
-            <button
-              type="button"
-              onClick={goPrev}
-              className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-20 p-2 rounded-full bg-black/25 text-white hover:bg-black/45 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-white/80"
-              aria-label={t('home.hero.prevSlide')}
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-              </svg>
-            </button>
-            <button
-              type="button"
-              onClick={goNext}
-              className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-20 p-2 rounded-full bg-black/25 text-white hover:bg-black/45 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-white/80"
-              aria-label={t('home.hero.nextSlide')}
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </button>
-            <div
-              className="absolute bottom-24 left-0 right-0 z-20 flex justify-center gap-2"
-              role="tablist"
-              aria-label="slides"
-            >
-              {heroSlides.map((_, i) => (
-                <button
-                  key={i}
-                  type="button"
-                  onClick={() => setHeroIndex(i)}
-                  className={`h-2 rounded-full transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/80 ${
-                    i === heroIndex ? 'w-8 bg-white' : 'w-2 bg-white/45 hover:bg-white/70'
-                  }`}
-                  aria-label={`${i + 1} / ${heroSlides.length}`}
-                  aria-current={i === heroIndex}
-                />
-              ))}
-            </div>
-          </>
-        )}
-
-        <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-t from-white via-white/80 to-transparent z-[15]" />
-
         <motion.div
-          className="absolute bottom-5 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center text-white/90 pointer-events-none"
-          animate={{ y: [0, 6, 0] }}
-          transition={{ repeat: Infinity, duration: 2.2, ease: 'easeInOut' }}
-        >
-          <span className="text-xs sm:text-sm tracking-wide mb-1 drop-shadow">{t('home.hero.scrollHint')}</span>
-          <svg className="w-5 h-5 opacity-90" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-          </svg>
-        </motion.div>
+          className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.5, duration: 1 }}
+        />
       </section>
 
-      {/* Features Section */}
-      <section className="py-20 bg-white">
+      {/* Features：轮播 */}
+      <section className="py-20 bg-white" aria-labelledby="features-heading">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <div className="text-center mb-12 md:mb-16">
+            <h2
+              id="features-heading"
+              className="text-3xl md:text-4xl font-bold text-gray-900 mb-4"
+            >
               {t('home.features.title')}
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              {t('home.features.subtitle')}
-            </p>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">{t('home.features.subtitle')}</p>
           </div>
 
-          {features.length > 0 && (
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {features.map((feature, index) => (
-                <div
-                  key={index}
-                  className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
-                >
-                  <div
-                    className="text-[#086c7b] mb-4"
-                    dangerouslySetInnerHTML={{ __html: feature.icon }}
-                  />
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">{feature.title}</h3>
-                  <p className="text-gray-600">{feature.description}</p>
+          {features.length > 0 && currentFeature && (
+            <div className="max-w-2xl mx-auto">
+              <div className="flex items-stretch gap-2 sm:gap-4">
+                {features.length > 1 && (
+                  <button
+                    type="button"
+                    onClick={goPrevFeature}
+                    className="shrink-0 self-center p-2 rounded-full border border-gray-200 text-gray-600 hover:bg-[#086c7b]/10 hover:text-[#086c7b] hover:border-[#086c7b]/30 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#086c7b]"
+                    aria-label={t('home.features.prevSlide')}
+                  >
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                    </svg>
+                  </button>
+                )}
+
+                <div className="flex-1 min-w-0 min-h-[280px] sm:min-h-[240px]">
+                  <AnimatePresence mode="wait">
+                    <motion.div
+                      key={featureIndex}
+                      initial={{ opacity: 0, x: 28 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: -28 }}
+                      transition={{ duration: 0.35 }}
+                      className="bg-white p-8 md:p-10 rounded-xl shadow-lg border border-gray-100 text-center h-full flex flex-col items-center justify-center"
+                    >
+                      <div
+                        className="text-[#086c7b] mb-4 flex justify-center"
+                        dangerouslySetInnerHTML={{ __html: currentFeature.icon }}
+                      />
+                      <h3 className="text-xl md:text-2xl font-semibold text-gray-900 mb-3">
+                        {currentFeature.title}
+                      </h3>
+                      <p className="text-gray-600 leading-relaxed">{currentFeature.description}</p>
+                    </motion.div>
+                  </AnimatePresence>
                 </div>
-              ))}
+
+                {features.length > 1 && (
+                  <button
+                    type="button"
+                    onClick={goNextFeature}
+                    className="shrink-0 self-center p-2 rounded-full border border-gray-200 text-gray-600 hover:bg-[#086c7b]/10 hover:text-[#086c7b] hover:border-[#086c7b]/30 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#086c7b]"
+                    aria-label={t('home.features.nextSlide')}
+                  >
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </button>
+                )}
+              </div>
+
+              {features.length > 1 && (
+                <div className="flex justify-center gap-2 mt-8" role="tablist" aria-label="features">
+                  {features.map((_, i) => (
+                    <button
+                      key={i}
+                      type="button"
+                      onClick={() => setFeatureIndex(i)}
+                      className={`h-2 rounded-full transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#086c7b] focus-visible:ring-offset-2 ${
+                        i === featureIndex ? 'w-8 bg-[#086c7b]' : 'w-2 bg-gray-300 hover:bg-gray-400'
+                      }`}
+                      aria-label={`${i + 1} / ${features.length}`}
+                      aria-current={i === featureIndex ? true : undefined}
+                    />
+                  ))}
+                </div>
+              )}
             </div>
           )}
         </div>
