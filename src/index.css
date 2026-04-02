@@ -31,6 +31,44 @@ html[lang="en"] li {
   letter-spacing: 0.01em;
 }
 
+/* 中文：思源黑体 Noto Sans SC，清晰现代 */
+html[lang^="zh"] body,
+html[lang^="zh"] h1,
+html[lang^="zh"] h2,
+html[lang^="zh"] h3,
+html[lang^="zh"] h4,
+html[lang^="zh"] h5,
+html[lang^="zh"] h6,
+html[lang^="zh"] p,
+html[lang^="zh"] a,
+html[lang^="zh"] span,
+html[lang^="zh"] button,
+html[lang^="zh"] input,
+html[lang^="zh"] textarea,
+html[lang^="zh"] li {
+  font-family: 'Noto Sans SC', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', system-ui, sans-serif;
+  letter-spacing: 0.02em;
+}
+
+/* 日文：Noto Sans JP */
+html[lang^="ja"] body,
+html[lang^="ja"] h1,
+html[lang^="ja"] h2,
+html[lang^="ja"] h3,
+html[lang^="ja"] h4,
+html[lang^="ja"] h5,
+html[lang^="ja"] h6,
+html[lang^="ja"] p,
+html[lang^="ja"] a,
+html[lang^="ja"] span,
+html[lang^="ja"] button,
+html[lang^="ja"] input,
+html[lang^="ja"] textarea,
+html[lang^="ja"] li {
+  font-family: 'Noto Sans JP', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Noto Sans SC', sans-serif;
+  letter-spacing: 0.02em;
+}
+
 @layer components {
   .container {
     @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
