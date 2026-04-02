@@ -6,7 +6,7 @@ import ProductDetailCard from '../../components/ProductDetailCard';
 
 const GasLiquidSeparators = () => {
   const { t } = useTranslation();
-  const { items, gl, gla } = useProductDetails('gas-liquid-separators');
+  const { items, gl } = useProductDetails('gas-liquid-separators');
 
   return (
     <div className="py-8 pb-16 bg-white">
@@ -21,14 +21,7 @@ const GasLiquidSeparators = () => {
           </nav>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {items.map((product) => (
-              <ProductDetailCard
-                key={product.id}
-                product={product}
-                gl={gl}
-                gla={gla}
-                t={t}
-                specLabelPrefix="products.gasLiquidSeparators.specLabels"
-              />
+              <ProductDetailCard key={product.id} product={product} gl={gl} t={t} />
             ))}
           </div>
         </div>
