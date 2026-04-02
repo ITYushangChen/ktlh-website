@@ -101,9 +101,9 @@
     {
       "id": "r-003",
       "active": true,
-      "image": "/images/products/receivers/img-1774939559574-7aher2.png",
+      "image": "/images/products/receivers/img-1775113103755-08870i.png",
       "name": {
-        "zh": "R-003 高压储液器",
+        "zh": "储液器1",
         "en": "R-003 High-Pressure Receiver",
         "ja": "R-003 高圧レシーバー"
       },
@@ -150,9 +150,9 @@
     {
       "id": "r-004",
       "active": true,
-      "image": "/images/products/receivers/r-004.jpg",
+      "image": "/images/products/receivers/img-1775113117102-spzakf.png",
       "name": {
-        "zh": "R-004 紧凑型储液器",
+        "zh": "储液器2",
         "en": "R-004 Compact Receiver",
         "ja": "R-004 コンパクトレシーバー"
       },
