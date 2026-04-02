@@ -26,12 +26,9 @@ const About = () => {
       {/* Hero Section */}
       <section className="bg-gray-50 py-20">
         <div className="container mx-auto px-4">
-          <h1 className="text-4xl font-bold text-center mb-6">
+          <h1 className="text-4xl font-bold text-center">
             {t('about.title')}
           </h1>
-          <p className="text-xl text-gray-600 text-center max-w-3xl mx-auto">
-            {t('about.subtitle')}
-          </p>
         </div>
       </section>
 

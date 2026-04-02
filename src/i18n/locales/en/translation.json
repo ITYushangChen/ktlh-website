@@ -176,7 +176,6 @@
   },
   "about": {
     "title": "About Kaituo Longhai",
-    "subtitle": "A high-tech enterprise focusing on the R&D and manufacturing of air conditioning system components.",
     "overviewTitle": "Company Overview",
     "overview": [
       "Qingdao Kaituo Longhai Intelligent Control Co., Ltd. was founded on March 29, 2002. After more than 20 years of dedicated operation, it has developed into a high-tech and high value-added enterprise specializing in the manufacture of air conditioning system components. The company's R&D center is recognized as a city-level enterprise technology center in Qingdao and has also established a university-enterprise joint R&D platform with Shandong University and Shandong University of Science and Technology.",
@@ -187,8 +186,7 @@
       "• Containers: 3.2 million units/year",
       "• Copper fittings: 5,000 tons/year",
       "• Damping blocks: 2,000 tons/year",
-      "• Plate, shell-and-tube heat exchangers, protective mesh and other businesses are also improving",
-      "• Planned annual output value: 880 million CNY"
+      "• Plate, shell-and-tube heat exchangers, protective mesh and other businesses are also improving"
     ],
     "certificationsTitle": "Certifications & Qualifications",
     "certificationsSubtitle": "Credentials below reflect our commitment to quality, technology, and compliance. Replace images in the repository with scanned certificates anytime.",
@@ -548,7 +546,7 @@
   "footer": {
     "companyName": "Kaituo Longhai",
     "companyLegalName": "Qingdao Kaituo Longhai Intelligent Control Co., Ltd.",
-    "companyDesc": "A high-tech enterprise specializing in R&D and manufacturing of air conditioning system components, providing quality products to global leading air conditioning brands.",
+    "companyDesc": "Providing quality products to global leading air conditioning brands.",
     "topNav": {
       "contact": "Contact",
       "siteStatement": "Site Notice",
