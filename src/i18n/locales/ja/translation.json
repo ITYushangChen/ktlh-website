@@ -191,6 +191,8 @@
     "certificationsTitle": "認証・資格",
     "certificationsSubtitle": "品質・技術・コンプライアンスへの取り組みを示す認証です。証書のスキャン画像はリポジトリ内で随時差し替えできます。",
     "certificationsEmpty": "認証資料を準備中です。しばらくしてからご覧ください。",
+    "certificationsPrev": "前の認証へ",
+    "certificationsNext": "次の認証へ",
     "partners": {
       "title": "戦略的パートナー",
       "desc": "国内外の有名企業と長期的な戦略的協力関係を築き、日本、インド、メキシコ、タイ、韓国などへも輸出しています。",

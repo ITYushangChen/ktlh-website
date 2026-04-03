@@ -191,6 +191,8 @@
     "certificationsTitle": "Certifications & Qualifications",
     "certificationsSubtitle": "Credentials below reflect our commitment to quality, technology, and compliance. Replace images in the repository with scanned certificates anytime.",
     "certificationsEmpty": "Certification materials are being prepared. Please check back soon.",
+    "certificationsPrev": "Previous certificate",
+    "certificationsNext": "Next certificate",
     "partners": {
       "title": "Strategic Partners",
       "desc": "Long-term strategic alliances with well-known domestic and foreign enterprises; products are exported to Japan, India, Mexico, Thailand, South Korea, and other countries.",

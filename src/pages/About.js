@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import WorldPartnersMap from '../components/WorldPartnersMap';
@@ -12,8 +12,19 @@ function certTitleForLang(titleObj, lang) {
 const About = () => {
   const { t, i18n } = useTranslation();
   const [certItems, setCertItems] = useState([]);
+  const certScrollRef = useRef(null);
+  const [canCertPrev, setCanCertPrev] = useState(false);
+  const [canCertNext, setCanCertNext] = useState(false);
   const founderParagraphsRaw = t('about.founder.paragraphs', { returnObjects: true });
   const founderParagraphs = Array.isArray(founderParagraphsRaw) ? founderParagraphsRaw : [];
+
+  const updateCertScrollArrows = useCallback(() => {
+    const el = certScrollRef.current;
+    if (!el) return;
+    const { scrollLeft, scrollWidth, clientWidth } = el;
+    setCanCertPrev(scrollLeft > 2);
+    setCanCertNext(scrollLeft < scrollWidth - clientWidth - 2);
+  }, []);
 
   useEffect(() => {
     fetch(`/content/certifications.json?t=${Date.now()}`)
@@ -21,6 +32,32 @@ const About = () => {
       .then((data) => setCertItems(Array.isArray(data.items) ? data.items : []))
       .catch(() => setCertItems([]));
   }, []);
+
+  useEffect(() => {
+    updateCertScrollArrows();
+  }, [certItems, updateCertScrollArrows]);
+
+  useEffect(() => {
+    const el = certScrollRef.current;
+    if (!el) return undefined;
+    const onScroll = () => updateCertScrollArrows();
+    const ro = new ResizeObserver(() => updateCertScrollArrows());
+    ro.observe(el);
+    el.addEventListener('scroll', onScroll, { passive: true });
+    return () => {
+      ro.disconnect();
+      el.removeEventListener('scroll', onScroll);
+    };
+  }, [updateCertScrollArrows, certItems.length]);
+
+  const scrollCertByOne = (dir) => {
+    const el = certScrollRef.current;
+    if (!el || certItems.length < 2) return;
+    const articles = el.querySelectorAll('article');
+    if (articles.length < 2) return;
+    const step = articles[1].offsetLeft - articles[0].offsetLeft;
+    el.scrollBy({ left: dir * step, behavior: 'smooth' });
+  };
 
   return (
     <div className="pt-16">
@@ -60,16 +97,13 @@ const About = () => {
       {/* Business Partners */}
       <section className="py-16">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">
+          <h2 className="text-3xl font-bold text-center mb-8">
             {t('about.partners.title')}
           </h2>
-          <div className="max-w-6xl mx-auto">
-            <p className="text-lg text-center mb-8 max-w-4xl mx-auto">{t('about.partners.desc')}</p>
-          </div>
         </div>
 
-        <div className="relative left-1/2 w-screen -translate-x-1/2 flex justify-center items-center py-6 min-h-[min(90vh,920px)]">
-          <div className="w-[90vw] h-[90vh] min-h-[480px] min-w-[300px] max-w-[1920px] max-h-[1200px]">
+        <div className="relative left-1/2 w-screen -translate-x-1/2 flex justify-center items-center py-6 min-h-[min(72vh,736px)]">
+          <div className="w-[72vw] h-[72vh] min-h-[384px] min-w-[240px] max-w-[1536px] max-h-[960px]">
             <WorldPartnersMap />
           </div>
         </div>
@@ -127,14 +161,40 @@ const About = () => {
           {certItems.length === 0 ? (
             <p className="text-center text-gray-500">{t('about.certificationsEmpty')}</p>
           ) : (
-            <div className="overflow-x-auto pb-4 -mx-4 px-4 scrollbar-thin">
-              <div className="flex gap-6" style={{ minWidth: 'max-content' }}>
+            <div className="relative max-w-6xl mx-auto">
+              <button
+                type="button"
+                onClick={() => scrollCertByOne(-1)}
+                disabled={!canCertPrev}
+                aria-label={t('about.certificationsPrev')}
+                className="absolute left-0 top-1/2 z-10 -translate-y-1/2 flex h-11 w-11 items-center justify-center rounded-full border border-gray-200/90 bg-white/95 text-[#086c7b] shadow-md backdrop-blur-sm transition hover:bg-teal-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#086c7b] focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-35 sm:h-12 sm:w-12 sm:-translate-x-1"
+              >
+                <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
+              <button
+                type="button"
+                onClick={() => scrollCertByOne(1)}
+                disabled={!canCertNext}
+                aria-label={t('about.certificationsNext')}
+                className="absolute right-0 top-1/2 z-10 -translate-y-1/2 flex h-11 w-11 items-center justify-center rounded-full border border-gray-200/90 bg-white/95 text-[#086c7b] shadow-md backdrop-blur-sm transition hover:bg-teal-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#086c7b] focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-35 sm:h-12 sm:w-12 sm:translate-x-1"
+              >
+                <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+              <div
+                ref={certScrollRef}
+                className="overflow-x-auto scroll-smooth pb-4 px-12 sm:px-14 -mx-4 scrollbar-thin snap-x snap-mandatory [scrollbar-color:rgba(8,108,123,0.35)_transparent]"
+              >
+                <div className="flex gap-6" style={{ minWidth: 'max-content' }}>
                 {certItems.map((item, index) => {
                   const label = certTitleForLang(item.title, i18n.language || 'zh');
                   return (
                     <motion.article
                       key={`${item.image}-${index}`}
-                      className="bg-white rounded-xl shadow-md overflow-hidden border border-gray-100 hover:shadow-lg transition-shadow duration-300 shrink-0 w-56"
+                      className="snap-start bg-white rounded-xl shadow-md overflow-hidden border border-gray-100 hover:shadow-lg transition-shadow duration-300 shrink-0 w-56"
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true, margin: '-60px' }}
@@ -163,6 +223,7 @@ const About = () => {
                     </motion.article>
                   );
                 })}
+                </div>
               </div>
             </div>
           )}

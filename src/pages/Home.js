@@ -282,7 +282,7 @@ const Home = () => {
         </motion.div>
 
         <motion.div
-          className="absolute bottom-0 left-0 right-0 h-36 bg-gradient-to-t from-white to-transparent z-[5] pointer-events-none"
+          className="absolute bottom-0 left-0 right-0 h-[min(32vh,220px)] bg-gradient-to-t from-gray-950 via-[#063239]/90 to-transparent z-[5] pointer-events-none"
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.55, duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
@@ -292,10 +292,15 @@ const Home = () => {
       {/* 我们的优势：4 屏轮播（文案与配图见 home.features.items） */}
       <section
         id="home-features"
-        className="relative min-h-screen w-full overflow-hidden"
+        className="relative min-h-screen w-full overflow-hidden bg-gray-950"
         aria-labelledby="features-heading"
       >
         <div className="absolute inset-0 bg-gray-900" aria-hidden />
+        {/* 顶部与 Hero 同色系衔接，避免整屏图突然出现 */}
+        <div
+          className="absolute inset-x-0 top-0 z-[2] h-40 md:h-48 bg-gradient-to-b from-[#032a30] from-0% via-[#032a30]/65 via-45% to-transparent pointer-events-none"
+          aria-hidden
+        />
 
         {advantageSlides.length > 0 &&
           advantageSlides.map((f, i) => {
@@ -318,7 +323,7 @@ const Home = () => {
           })}
 
         <div
-          className="absolute inset-0 z-[1] bg-gradient-to-b from-black/60 via-black/45 to-black/60 pointer-events-none"
+          className="absolute inset-0 z-[1] bg-gradient-to-b from-black/45 via-black/40 to-black/55 pointer-events-none"
           aria-hidden
         />
 
@@ -419,32 +424,28 @@ const Home = () => {
           {products.length > 0 && (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {products.map((product, index) => (
-                <motion.div
-                  key={index}
-                  className="bg-white rounded-lg shadow-lg overflow-hidden"
-                  whileHover={{ y: -5 }}
-                  transition={{ type: 'spring', stiffness: 300 }}
+                <div
+                  key={product.title || index}
+                  className="group bg-white rounded-lg shadow-lg overflow-hidden motion-safe:transition-transform motion-safe:duration-300 motion-safe:ease-out motion-safe:hover:-translate-y-1"
                 >
-                  <motion.div
-                    className="relative overflow-hidden"
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ duration: 0.3 }}
-                  >
+                  <div className="relative h-48 overflow-hidden">
                     <img
                       src={product.image}
                       alt={product.title}
-                      className="w-full h-48 object-cover"
+                      loading="lazy"
+                      decoding="async"
+                      className="h-full w-full object-cover motion-safe:transition-transform motion-safe:duration-300 motion-safe:ease-out motion-safe:group-hover:scale-[1.04] transform-gpu"
                     />
-                    <motion.div
-                      className="absolute inset-0 bg-[#086c7b] bg-opacity-0"
-                      whileHover={{ opacity: 0.2 }}
+                    <div
+                      className="pointer-events-none absolute inset-0 bg-[#086c7b] opacity-0 motion-safe:transition-opacity motion-safe:duration-300 motion-safe:group-hover:opacity-20"
+                      aria-hidden
                     />
-                  </motion.div>
+                  </div>
                   <div className="p-6">
                     <h3 className="text-xl font-semibold text-gray-900 mb-2">{product.title}</h3>
                     <p className="text-gray-600">{product.description}</p>
                   </div>
-                </motion.div>
+                </div>
               ))}
             </div>
           )}

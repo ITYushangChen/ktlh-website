@@ -88,54 +88,14 @@ function HubQuadBezierLinks({ hubLng, hubLat, nodes, highlightedNodeIds }) {
               key={`link-${node.id}`}
               d={d}
               fill="none"
-              stroke="#2563eb"
+              stroke={HUB_BRAND}
               strokeWidth={width}
               strokeLinecap="round"
               opacity={isDim ? 0.28 : opacity}
+              pointerEvents="none"
               style={{
                 transition:
                   'stroke-width 0.35s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.35s cubic-bezier(0.22, 1, 0.36, 1)',
-              }}
-            />
-          );
-        })}
-      </g>
-      <g className="pointer-events-none" style={{ isolation: 'isolate' }}>
-        {list.map((node) => {
-          const pTo = projection([Number(node.lng), Number(node.lat)]);
-          if (!pHub || !pTo) return null;
-          const d = quadBezierBetween(
-            pHub[0],
-            pHub[1],
-            pTo[0],
-            pTo[1],
-            LINK_BEND_FACTOR,
-            LINK_MAX_BEND_PX,
-          );
-          const hasSel = highlightedNodeIds && highlightedNodeIds.size > 0;
-          const isActive = hasSel && highlightedNodeIds.has(node.id);
-          if (!isActive) return null;
-
-          return (
-            <motion.path
-              key={`link-active-${node.id}`}
-              d={d}
-              fill="none"
-              stroke="url(#partnerLineActive)"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              filter="url(#partnerLineGlow)"
-              vectorEffect="non-scaling-stroke"
-              initial={{ pathLength: 0, opacity: 0.75 }}
-              animate={{
-                pathLength: 1,
-                opacity: 1,
-                strokeWidth: 4.1,
-              }}
-              transition={{
-                pathLength: { duration: 0.62, ease: LINE_DRAW_EASE },
-                strokeWidth: { ...LINE_SPRING, delay: 0.04 },
-                opacity: { duration: 0.2 },
               }}
             />
           );
@@ -145,12 +105,72 @@ function HubQuadBezierLinks({ hubLng, hubLat, nodes, highlightedNodeIds }) {
   );
 }
 
-/** 品牌主色：枢纽图钉与站点视觉统一（与合作伙伴红钉同形异色） */
-const HUB_BRAND = '#086c7b';
-const HUB_BRAND_ACTIVE = '#0f766e';
-const HUB_PULSE_RING = '#14b8a6';
+/** 高亮连线单独一层，需在标记之后插入才能压在最上；见 WorldPartnersMap 内渲染顺序 */
+function HubActiveLinksOnly({ hubLng, hubLat, nodes, highlightedNodeIds }) {
+  const { projection } = useMapContext();
+  const pHub = projection([Number(hubLng), Number(hubLat)]);
+  const list = nodes.filter((n) => n.connectToHub !== false);
 
-/** 仅用图钉，无文字标签 */
+  return (
+    <g className="pointer-events-none" style={{ isolation: 'isolate' }}>
+      {list.map((node) => {
+        const pTo = projection([Number(node.lng), Number(node.lat)]);
+        if (!pHub || !pTo) return null;
+        const d = quadBezierBetween(
+          pHub[0],
+          pHub[1],
+          pTo[0],
+          pTo[1],
+          LINK_BEND_FACTOR,
+          LINK_MAX_BEND_PX,
+        );
+        const hasSel = highlightedNodeIds && highlightedNodeIds.size > 0;
+        const isActive = hasSel && highlightedNodeIds.has(node.id);
+        if (!isActive) return null;
+
+        return (
+          <motion.path
+            key={`link-active-${node.id}`}
+            d={d}
+            fill="none"
+            stroke="url(#partnerLineActive)"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            filter="url(#partnerLineGlow)"
+            vectorEffect="non-scaling-stroke"
+            initial={{ pathLength: 0, opacity: 0.75 }}
+            animate={{
+              pathLength: 1,
+              opacity: 1,
+              strokeWidth: 4.1,
+            }}
+            transition={{
+              pathLength: { duration: 0.62, ease: LINE_DRAW_EASE },
+              strokeWidth: { ...LINE_SPRING, delay: 0.04 },
+              opacity: { duration: 0.2 },
+            }}
+          />
+        );
+      })}
+    </g>
+  );
+}
+
+/** 品牌主色：连线等 */
+const HUB_BRAND = '#086c7b';
+/** 枢纽（开拓隆海）图钉：与合作伙伴同为红色系，尺寸更大 */
+const HUB_PIN_RED = '#e11d48';
+const HUB_PIN_RED_ACTIVE = '#be123c';
+
+/** 优先 JSON 的 address 多语言，否则用 subtitle（地区/说明） */
+function addressLineFromPoint(point, lang) {
+  if (point.address && typeof point.address === 'object') {
+    return pickLocalized(point.address, lang);
+  }
+  return pickLocalized(point.subtitle, lang);
+}
+
+/** 仅用图钉；高亮时显示标题 + 地址说明 */
 function MapPinOnly({
   point,
   isHub,
@@ -163,6 +183,7 @@ function MapPinOnly({
   const id = point.id;
   const title = pickLocalized(point.title, lang);
   const subtitle = pickLocalized(point.subtitle, lang);
+  const addressLine = addressLineFromPoint(point, lang);
   const lng = Number(point.lng);
   const lat = Number(point.lat);
 
@@ -182,11 +203,19 @@ function MapPinOnly({
 
   const pinFill = isHub
     ? highlighted
-      ? HUB_BRAND_ACTIVE
-      : HUB_BRAND
+      ? HUB_PIN_RED_ACTIVE
+      : HUB_PIN_RED
     : highlighted
       ? '#1d4ed8'
       : '#e11d48';
+
+  const pinSize = isHub ? 34 : 26;
+  const pinTx = -pinSize / 2;
+  const pinTy = -pinSize;
+  const pinStrokeW = isHub ? 2.55 : 2.25;
+  /** 仅图钉附近小圆触发悬停，避免大矩形与邻近标记重复触发 */
+  const hitR = coarsePointer ? pinSize * 0.58 : pinSize * 0.5;
+  const hitCy = -pinSize * 0.48;
 
   const onMarkerClick = useCallback(
     (e) => {
@@ -208,16 +237,23 @@ function MapPinOnly({
     [coarsePointer, isHub, id, connectNodeIds, onHighlightChange],
   );
 
+  const onMarkerLeaveGroup = useCallback(
+    (e) => {
+      const rt = e.relatedTarget;
+      if (rt && e.currentTarget.contains(rt)) return;
+      onLeave();
+    },
+    [onLeave],
+  );
+
   return (
     <Marker coordinates={[lng, lat]}>
       <g
         tabIndex={0}
         role="button"
-        aria-label={`${title}. ${subtitle}`}
+        aria-label={`${title}. ${addressLine || subtitle}`}
         aria-pressed={highlighted}
-        onMouseEnter={onEnter}
-        onMouseLeave={onLeave}
-        onClick={onMarkerClick}
+        onMouseLeave={onMarkerLeaveGroup}
         onFocus={() => {
           if (isHub && connectNodeIds) onHighlightChange(new Set(connectNodeIds));
           else onHighlightChange(new Set([id]));
@@ -235,45 +271,60 @@ function MapPinOnly({
         }}
         style={{ cursor: 'pointer' }}
       >
-        <rect x="-56" y="-72" width="112" height="88" fill="transparent" />
-
-        <motion.g
-          initial={false}
-          animate={{ scale: highlighted ? 1.22 : 1 }}
-          transition={{ type: 'spring', stiffness: 460, damping: 22 }}
-          style={{ transformOrigin: '0px -28px' }}
-        >
-          {highlighted ? (
-            <motion.circle
-              cx={0}
-              cy={-24}
-              r={18}
-              fill="none"
-              stroke={isHub ? HUB_PULSE_RING : '#3b82f6'}
-              strokeWidth={2}
-              initial={{ opacity: 0, scale: 0.5 }}
-              animate={{
-                opacity: [0.45, 0.75, 0.45],
-                scale: [1, 1.45, 1],
+        <g style={{ pointerEvents: 'none' }}>
+          <motion.g
+            initial={false}
+            animate={{ scale: highlighted ? 1.22 : 1 }}
+            transition={{ type: 'spring', stiffness: 460, damping: 22 }}
+            style={{ transformOrigin: `0px ${pinTy}px` }}
+          >
+            <g transform={`translate(${pinTx}, ${pinTy})`}>
+              <MapPin
+                size={pinSize}
+                strokeWidth={pinStrokeW}
+                stroke="#ffffff"
+                fill={pinFill}
+                className="pointer-events-none drop-shadow-md"
+                aria-hidden
+              />
+            </g>
+          </motion.g>
+        </g>
+        {highlighted && !isHub ? (
+          <foreignObject
+            x={-102}
+            y={-88}
+            width={204}
+            height={72}
+            style={{ overflow: 'visible', pointerEvents: 'auto' }}
+          >
+            <div
+              xmlns="http://www.w3.org/1999/xhtml"
+              className="rounded-none border border-gray-200 bg-white px-2.5 py-1.5 text-center shadow-lg"
+              onMouseEnter={onEnter}
+              onClick={(e) => {
+                e.stopPropagation();
+                onMarkerClick(e);
               }}
-              transition={{
-                duration: 1.85,
-                repeat: Infinity,
-                ease: 'easeInOut',
-              }}
-            />
-          ) : null}
-          <g transform="translate(-12, -26)">
-            <MapPin
-              size={26}
-              strokeWidth={2.25}
-              stroke="#ffffff"
-              fill={pinFill}
-              className="drop-shadow-md"
-              aria-hidden
-            />
-          </g>
-        </motion.g>
+            >
+              <div className="text-[13px] font-semibold leading-tight text-gray-900">{title}</div>
+              {addressLine ? (
+                <div className="mt-0.5 text-[11px] leading-snug text-gray-600">{addressLine}</div>
+              ) : null}
+            </div>
+          </foreignObject>
+        ) : null}
+        <circle
+          cx={0}
+          cy={hitCy}
+          r={hitR}
+          fill="transparent"
+          stroke="none"
+          pointerEvents="all"
+          style={{ cursor: 'pointer' }}
+          onMouseEnter={onEnter}
+          onClick={onMarkerClick}
+        />
       </g>
     </Marker>
   );
@@ -361,6 +412,28 @@ export default function WorldPartnersMap() {
     [data.nodes],
   );
 
+  const hubAllHighlighted =
+    connectNodeIds.length > 0 &&
+    highlightedNodeIds != null &&
+    connectNodeIds.every((id) => highlightedNodeIds.has(id)) &&
+    highlightedNodeIds.size === connectNodeIds.length;
+
+  const lowNodes = useMemo(
+    () =>
+      data.nodes.filter(
+        (n) => n.connectToHub !== false && !(highlightedNodeIds && highlightedNodeIds.has(n.id)),
+      ),
+    [data.nodes, highlightedNodeIds],
+  );
+
+  const hiNodes = useMemo(
+    () =>
+      data.nodes.filter(
+        (n) => n.connectToHub !== false && highlightedNodeIds && highlightedNodeIds.has(n.id),
+      ),
+    [data.nodes, highlightedNodeIds],
+  );
+
   const isGroupActive = useCallback(
     (group) =>
       highlightedNodeIds &&
@@ -420,9 +493,9 @@ export default function WorldPartnersMap() {
         >
           <defs>
             <linearGradient id="partnerLineActive" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#38bdf8" stopOpacity={1} />
-              <stop offset="45%" stopColor="#2563eb" stopOpacity={1} />
-              <stop offset="100%" stopColor="#6366f1" stopOpacity={1} />
+              <stop offset="0%" stopColor="#14b8a6" stopOpacity={1} />
+              <stop offset="45%" stopColor="#086c7b" stopOpacity={1} />
+              <stop offset="100%" stopColor="#0f766e" stopOpacity={1} />
             </linearGradient>
             <filter
               id="partnerLineGlow"
@@ -449,8 +522,8 @@ export default function WorldPartnersMap() {
                 dx="0"
                 dy="0"
                 stdDeviation="0.65"
-                floodColor="#1e40af"
-                floodOpacity="0.14"
+                floodColor="#086c7b"
+                floodOpacity="0.18"
               />
             </filter>
           </defs>
@@ -491,40 +564,70 @@ export default function WorldPartnersMap() {
             highlightedNodeIds={highlightedNodeIds}
           />
 
-          {data.nodes.map((node) => (
+          {lowNodes.map((node) => (
             <MapPinOnly
               key={node.id}
               point={node}
               isHub={false}
-              highlighted={Boolean(highlightedNodeIds?.has(node.id))}
+              highlighted={false}
               coarsePointer={coarsePointer}
               lang={lang}
               onHighlightChange={setHighlightFromMarker}
             />
           ))}
 
-          <MapPinOnly
-            point={data.hub}
-            isHub
-            highlighted={
-              connectNodeIds.length > 0 &&
-              highlightedNodeIds != null &&
-              connectNodeIds.every((id) => highlightedNodeIds.has(id)) &&
-              highlightedNodeIds.size === connectNodeIds.length
-            }
-            coarsePointer={coarsePointer}
-            lang={lang}
-            onHighlightChange={setHighlightFromMarker}
-            connectNodeIds={connectNodeIds}
+          {!hubAllHighlighted ? (
+            <MapPinOnly
+              key={`${data.hub.id}-base`}
+              point={data.hub}
+              isHub
+              highlighted={false}
+              coarsePointer={coarsePointer}
+              lang={lang}
+              onHighlightChange={setHighlightFromMarker}
+              connectNodeIds={connectNodeIds}
+            />
+          ) : null}
+
+          <HubActiveLinksOnly
+            hubLng={hubLng}
+            hubLat={hubLat}
+            nodes={data.nodes}
+            highlightedNodeIds={highlightedNodeIds}
           />
+
+          {hiNodes.map((node) => (
+            <MapPinOnly
+              key={node.id}
+              point={node}
+              isHub={false}
+              highlighted
+              coarsePointer={coarsePointer}
+              lang={lang}
+              onHighlightChange={setHighlightFromMarker}
+            />
+          ))}
+
+          {hubAllHighlighted ? (
+            <MapPinOnly
+              key={`${data.hub.id}-top`}
+              point={data.hub}
+              isHub
+              highlighted
+              coarsePointer={coarsePointer}
+              lang={lang}
+              onHighlightChange={setHighlightFromMarker}
+              connectNodeIds={connectNodeIds}
+            />
+          ) : null}
         </ComposableMap>
 
         <div
-          className="pointer-events-none absolute inset-x-0 top-0 z-10 flex justify-center pt-3 px-2"
+          className="pointer-events-none absolute inset-x-0 top-0 z-10 flex justify-center pt-4 px-3 sm:px-4"
           aria-hidden={false}
         >
           <div
-            className="pointer-events-auto flex max-w-[min(96%,920px)] flex-wrap items-center justify-center gap-2"
+            className="pointer-events-auto flex w-full max-w-[min(96%,920px)] flex-nowrap items-center gap-2 overflow-x-auto overflow-y-hidden overscroll-x-contain [-ms-overflow-style:none] [scrollbar-width:thin] [scrollbar-color:rgba(8,108,123,0.35)_transparent] snap-x snap-mandatory sm:flex-wrap sm:justify-center sm:overflow-x-visible sm:overflow-y-visible sm:snap-none [&::-webkit-scrollbar]:h-1.5 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-[#086c7b]/30"
             onMouseLeave={() => {
               if (!coarsePointer) setHighlightedNodeIds(null);
             }}
@@ -532,13 +635,16 @@ export default function WorldPartnersMap() {
             {brandGroups.map((group) => {
               const active = isGroupActive(group);
               return (
-                <button
+                <motion.button
                   key={group.key}
                   type="button"
-                  className={`rounded-full border px-3 py-1.5 text-sm font-medium shadow-sm transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2563eb] focus-visible:ring-offset-2 ${
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  transition={{ type: 'spring', stiffness: 420, damping: 26 }}
+                  className={`shrink-0 snap-start rounded-none border px-3 py-1.5 text-sm font-medium whitespace-nowrap transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#086c7b] focus-visible:ring-offset-2 ${
                     active
-                      ? 'border-[#2563eb] bg-[#2563eb] text-white'
-                      : 'border-gray-200 bg-white/95 text-gray-800 hover:border-[#2563eb]/60 hover:bg-blue-50/90'
+                      ? 'border-[#086c7b] bg-[#086c7b] text-white shadow-sm ring-1 ring-inset ring-white/15'
+                      : 'border-[#086c7b]/30 bg-white/60 text-gray-800 hover:border-[#086c7b]/50 hover:bg-teal-50/95'
                   }`}
                   onMouseEnter={() => onBrandEnter(group)}
                   onFocus={() => onBrandEnter(group)}
@@ -548,8 +654,8 @@ export default function WorldPartnersMap() {
                   }}
                   onClick={(e) => onBrandClick(e, group)}
                 >
-                  {group.label}
-                </button>
+                  <span className="inline-block max-w-[10rem] truncate sm:max-w-none">{group.label}</span>
+                </motion.button>
               );
             })}
           </div>

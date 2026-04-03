@@ -191,6 +191,8 @@
     "certificationsTitle": "资质认证",
     "certificationsSubtitle": "以下认证与资质体现公司在质量、技术与合规方面的综合实力；证书扫描件可随时在仓库中更新替换。",
     "certificationsEmpty": "资质资料整理中，敬请期待。",
+    "certificationsPrev": "上一张证书",
+    "certificationsNext": "下一张证书",
     "partners": {
       "title": "战略合作伙伴",
       "desc": "与国内外著名企业建立长期战略合作联盟，产品远销日本、印度、墨西哥、泰国、韩国等国家。",

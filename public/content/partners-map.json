@@ -22,8 +22,8 @@
       "lat": 40.71,
       "lng": -74.01,
       "connectToHub": true,
-      "title": { "zh": "Carrier", "en": "Carrier", "ja": "キャリア" },
-      "subtitle": { "zh": "美国东岸", "en": "US East Coast", "ja": "米国東海岸" },
+      "title": { "zh": "开利", "en": "Carrier", "ja": "キャリア" },
+      "subtitle": { "zh": "美国", "en": "US", "ja": "米国" },
       "image": ""
     },
     {
@@ -49,7 +49,7 @@
       "lat": 40.42,
       "lng": -3.7,
       "connectToHub": true,
-      "title": { "zh": "江森自控-日立", "en": "Johnson Controls–Hitachi", "ja": "ジョンソンコントロールズ・日立" },
+      "title": { "zh": "日立", "en": "Hitachi", "ja": "日立" },
       "subtitle": { "zh": "西班牙", "en": "Spain", "ja": "スペイン" },
       "image": ""
     },
@@ -59,7 +59,7 @@
       "lng": 100.5,
       "connectToHub": true,
       "title": { "zh": "三菱重工", "en": "Mitsubishi Heavy Industries", "ja": "三菱重工" },
-      "subtitle": { "zh": "东南亚", "en": "Southeast Asia", "ja": "東南アジア" },
+      "subtitle": { "zh": "泰国", "en": "Thailand", "ja": "泰国" },
       "image": ""
     },
     {
