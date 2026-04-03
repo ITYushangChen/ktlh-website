@@ -39,6 +39,14 @@
         "en": "PED Certificate",
         "ja": "PED証明書"
       }
+    },
+    {
+      "image": "/images/certifications/img-1775179318154-2s5309.png",
+      "title": {
+        "zh": "压力容器制造生产许可证",
+        "en": "Pressure Vessel Manufacturing License",
+        "ja": "圧力容器製造許可証"
+      }
     }
   ]
 }
