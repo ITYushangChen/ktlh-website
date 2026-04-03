@@ -17,7 +17,7 @@ function emptyJob() {
     id: `job-${Date.now()}`,
     active: true,
     salary: '',
-    location: '青岛胶州',
+    location: '青岛市胶州上合示范区湘江路21号',
     title: { zh: '', en: '', ja: '' },
     department: { zh: '', en: '', ja: '' },
     type: { zh: '全职', en: 'Full-time', ja: '正社員' },
@@ -499,7 +499,7 @@ function EditJobForm({
               value={job.location}
               onChange={e => setField('location', e.target.value)}
               className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#086c7b]"
-              placeholder="青岛胶州"
+              placeholder="青岛市胶州上合示范区湘江路21号"
             />
           </div>
           <div>

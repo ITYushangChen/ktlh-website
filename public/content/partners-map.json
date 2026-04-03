@@ -1,0 +1,120 @@
+{
+  "viewBox": { "w": 1000, "h": 520 },
+  "hub": {
+    "id": "qingdao_hub",
+    "lat": 36.15,
+    "lng": 120.05,
+    "title": {
+      "zh": "开拓隆海",
+      "en": "Kaituo Longhai",
+      "ja": "開拓隆海"
+    },
+    "subtitle": {
+      "zh": "青岛胶州 · 全球战略合作枢纽",
+      "en": "Jiaozhou, Qingdao · Global hub",
+      "ja": "青島膠州・グローバルハブ"
+    },
+    "image": ""
+  },
+  "nodes": [
+    {
+      "id": "carrier_us",
+      "lat": 40.71,
+      "lng": -74.01,
+      "connectToHub": true,
+      "title": { "zh": "Carrier", "en": "Carrier", "ja": "キャリア" },
+      "subtitle": { "zh": "美国东岸", "en": "US East Coast", "ja": "米国東海岸" },
+      "image": ""
+    },
+    {
+      "id": "mexico_me",
+      "lat": 19.43,
+      "lng": -99.13,
+      "connectToHub": true,
+      "title": { "zh": "三菱电机", "en": "Mitsubishi Electric", "ja": "三菱電機" },
+      "subtitle": { "zh": "墨西哥", "en": "Mexico", "ja": "メキシコ" },
+      "image": ""
+    },
+    {
+      "id": "brazil_hitachi",
+      "lat": -23.55,
+      "lng": -46.63,
+      "connectToHub": true,
+      "title": { "zh": "日立", "en": "Hitachi", "ja": "日立" },
+      "subtitle": { "zh": "巴西", "en": "Brazil", "ja": "ブラジル" },
+      "image": ""
+    },
+    {
+      "id": "spain_jci",
+      "lat": 40.42,
+      "lng": -3.7,
+      "connectToHub": true,
+      "title": { "zh": "江森自控-日立", "en": "Johnson Controls–Hitachi", "ja": "ジョンソンコントロールズ・日立" },
+      "subtitle": { "zh": "西班牙", "en": "Spain", "ja": "スペイン" },
+      "image": ""
+    },
+    {
+      "id": "thailand_mhi",
+      "lat": 13.76,
+      "lng": 100.5,
+      "connectToHub": true,
+      "title": { "zh": "三菱重工", "en": "Mitsubishi Heavy Industries", "ja": "三菱重工" },
+      "subtitle": { "zh": "东南亚", "en": "Southeast Asia", "ja": "東南アジア" },
+      "image": ""
+    },
+    {
+      "id": "korea_lg",
+      "lat": 37.57,
+      "lng": 126.98,
+      "connectToHub": true,
+      "title": { "zh": "LG", "en": "LG", "ja": "LG" },
+      "subtitle": { "zh": "韩国", "en": "South Korea", "ja": "韓国" },
+      "image": ""
+    },
+    {
+      "id": "dalian_panasonic",
+      "lat": 38.92,
+      "lng": 121.62,
+      "connectToHub": true,
+      "title": { "zh": "松下", "en": "Panasonic", "ja": "パナソニック" },
+      "subtitle": { "zh": "大连", "en": "Dalian", "ja": "大連" },
+      "image": ""
+    },
+    {
+      "id": "wuxi_fujitsu",
+      "lat": 31.57,
+      "lng": 120.3,
+      "connectToHub": true,
+      "title": { "zh": "富士通", "en": "Fujitsu", "ja": "富士通" },
+      "subtitle": { "zh": "无锡", "en": "Wuxi", "ja": "無錫" },
+      "image": ""
+    },
+    {
+      "id": "tokyo_me",
+      "lat": 35.68,
+      "lng": 139.76,
+      "connectToHub": true,
+      "title": { "zh": "三菱电机", "en": "Mitsubishi Electric", "ja": "三菱電機" },
+      "subtitle": { "zh": "日本", "en": "Japan", "ja": "日本" },
+      "image": ""
+    },
+    {
+      "id": "guangzhou_panasonic",
+      "lat": 23.13,
+      "lng": 113.26,
+      "connectToHub": true,
+      "title": { "zh": "松下", "en": "Panasonic", "ja": "パナソニック" },
+      "subtitle": { "zh": "广州", "en": "Guangzhou", "ja": "広州" },
+      "image": ""
+    },
+    {
+      "id": "foshan_midea",
+      "lat": 23.02,
+      "lng": 113.12,
+      "connectToHub": true,
+      "title": { "zh": "美的", "en": "Midea", "ja": "美的" },
+      "subtitle": { "zh": "佛山/华南", "en": "Foshan / South China", "ja": "仏山・華南" },
+      "image": ""
+    }
+  ]
+}

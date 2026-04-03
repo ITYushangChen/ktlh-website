@@ -148,7 +148,7 @@
     "infoTitle": "Contact Information",
     "info": {
       "addressTitle": "Company Address",
-      "addressContent": "Jiaozhou, Qingdao, SCO Demonstration Zone",
+      "addressContent": "No. 21 Xiangjiang Road, SCO Demonstration Zone, Jiaozhou, Qingdao",
       "phoneTitle": "Phone",
       "phoneContent": "0532-87909886",
       "emailTitle": "Email",
@@ -179,7 +179,7 @@
     "overviewTitle": "Company Overview",
     "overview": [
       "Qingdao Kaituo Longhai Intelligent Control Co., Ltd. was founded on March 29, 2002. After more than 20 years of dedicated operation, it has developed into a high-tech and high value-added enterprise specializing in the manufacture of refrigeration system components. The company's R&D center is recognized as a city-level enterprise technology center in Qingdao and has also established a university-enterprise joint R&D platform with Shandong University and Shandong University of Science and Technology.",
-      "To support business growth, in August 2021 the company commissioned a modern manufacturing campus in the SCO Demonstration Zone, Jiaozhou, Qingdao, covering 51,000 sqm with 43,000 sqm of building area and registered capital of 20 million CNY."
+      "To support business growth, in August 2021 the company commissioned a modern manufacturing campus at No. 21 Xiangjiang Road in the SCO Demonstration Zone, Jiaozhou, Qingdao, covering 51,000 sqm with 43,000 sqm of building area and registered capital of 20 million CNY."
     ],
     "productionTitle": "Production Capacity",
     "production": [
@@ -194,6 +194,7 @@
     "partners": {
       "title": "Strategic Partners",
       "desc": "Long-term strategic alliances with well-known domestic and foreign enterprises; products are exported to Japan, India, Mexico, Thailand, South Korea, and other countries.",
+      "mapAria": "Strategic partners world map",
       "list": [
         "Mitsubishi Electric", "Hitachi", "Mitsubishi Heavy Industries", "Panasonic", "Fujitsu", "Carrier", "LG", "Haier", "Hisense", "Aucma", "Changhong", "Midea"
       ]
@@ -247,7 +248,7 @@
       {
         "title": "Process Engineer",
         "department": "R&D Department",
-        "location": "Jiaozhou, Qingdao",
+        "location": "No. 21 Xiangjiang Road, SCO Demonstration Zone, Jiaozhou, Qingdao",
         "type": "Full-time",
         "salary": "8K-15K CNY",
         "responsibilities": [
@@ -268,7 +269,7 @@
       {
         "title": "Quality Engineer",
         "department": "Quality Management Department",
-        "location": "Jiaozhou, Qingdao",
+        "location": "No. 21 Xiangjiang Road, SCO Demonstration Zone, Jiaozhou, Qingdao",
         "type": "Full-time",
         "salary": "7K-12K CNY",
         "responsibilities": [
@@ -289,7 +290,7 @@
       {
         "title": "Production Supervisor",
         "department": "Production Department",
-        "location": "Jiaozhou, Qingdao",
+        "location": "No. 21 Xiangjiang Road, SCO Demonstration Zone, Jiaozhou, Qingdao",
         "type": "Full-time",
         "salary": "10K-18K CNY",
         "responsibilities": [
@@ -310,7 +311,7 @@
       {
         "title": "Sales Engineer",
         "department": "Sales Department",
-        "location": "Jiaozhou, Qingdao",
+        "location": "No. 21 Xiangjiang Road, SCO Demonstration Zone, Jiaozhou, Qingdao",
         "type": "Full-time",
         "salary": "6K-20K CNY",
         "responsibilities": [
@@ -582,7 +583,7 @@
       },
       "contact": {
         "title": "Contact",
-        "address": "Address: Jiaozhou SCO Demonstration Zone, Qingdao",
+        "address": "Address: No. 21 Xiangjiang Road, SCO Demonstration Zone, Jiaozhou, Qingdao",
         "phone": "Phone: 0532-87909886",
         "email": "Email: sales_ktlh@outlook.com",
         "socialTitle": "Social media"

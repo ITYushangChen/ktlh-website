@@ -3,9 +3,9 @@ import emailjs from 'emailjs-com';
 import { useTranslation } from 'react-i18next';
 
 /** 与文案中的公司地址一致；也可用 REACT_APP_GOOGLE_MAPS_QUERY 覆盖 */
-const DEFAULT_MAP_QUERY = '青岛市胶州上合示范区';
+const DEFAULT_MAP_QUERY = '青岛市胶州上合示范区湘江路21号';
 
-/** 默认 Google 嵌入图（胶州上合示范区）；可用 REACT_APP_GOOGLE_MAPS_EMBED_SRC 覆盖 */
+/** 默认 Google 嵌入图（胶州上合示范区湘江路）；可用 REACT_APP_GOOGLE_MAPS_EMBED_SRC 覆盖 */
 const DEFAULT_GOOGLE_EMBED_SRC =
   'https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3221.6715530291162!2d120.05987653409888!3d36.15020967351968!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzbCsDA5JzAwLjgiTiAxMjDCsDAzJzQ0LjYiRQ!5e0!3m2!1szh-CN!2sus!4v1775113511206!5m2!1szh-CN!2sus';
 

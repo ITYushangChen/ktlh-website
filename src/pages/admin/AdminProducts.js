@@ -188,6 +188,12 @@ export default function AdminProducts() {
           >
             资质认证
           </Link>
+          <Link
+            to="/admin/partners-map"
+            className="text-sm text-blue-200 hover:text-white transition-colors"
+          >
+            战略伙伴地图
+          </Link>
           <a
             href="/products"
             target="_blank"

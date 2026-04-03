@@ -4,7 +4,7 @@
       "id": "job-1",
       "active": true,
       "salary": "8K-15K",
-      "location": "青岛胶州",
+      "location": "青岛市胶州上合示范区湘江路21号",
       "title": {
         "zh": "工艺工程师",
         "en": "Process Engineer",
@@ -71,7 +71,7 @@
       "id": "job-2",
       "active": true,
       "salary": "7K-12K",
-      "location": "青岛胶州",
+      "location": "青岛市胶州上合示范区湘江路21号",
       "title": {
         "zh": "质量工程师",
         "en": "Quality Engineer",
@@ -138,7 +138,7 @@
       "id": "job-3",
       "active": true,
       "salary": "10K-18K",
-      "location": "青岛胶州",
+      "location": "青岛市胶州上合示范区湘江路21号",
       "title": {
         "zh": "生产主管",
         "en": "Production Supervisor",
@@ -205,7 +205,7 @@
       "id": "job-4",
       "active": true,
       "salary": "6K-20K",
-      "location": "青岛胶州",
+      "location": "青岛市胶州上合示范区湘江路21号",
       "title": {
         "zh": "销售工程师",
         "en": "Sales Engineer",
@@ -272,7 +272,7 @@
       "id": "job-1774922894940",
       "active": true,
       "salary": "8",
-      "location": "青岛胶州",
+      "location": "青岛市胶州上合示范区湘江路21号",
       "title": {
         "zh": "测试",
         "en": "Test",

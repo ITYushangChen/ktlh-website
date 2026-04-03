@@ -179,6 +179,9 @@ export default function AdminCertifications() {
           <Link to="/admin/products" className="text-sm text-blue-200 hover:text-white transition-colors">
             产品管理
           </Link>
+          <Link to="/admin/partners-map" className="text-sm text-blue-200 hover:text-white transition-colors">
+            战略伙伴地图
+          </Link>
           <a
             href="/about"
             target="_blank"

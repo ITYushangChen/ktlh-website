@@ -22,6 +22,7 @@ import AdminLogin from './pages/admin/AdminLogin';
 import AdminProducts from './pages/admin/AdminProducts';
 import AdminProductDetails from './pages/admin/AdminProductDetails';
 import AdminCertifications from './pages/admin/AdminCertifications';
+import AdminPartnersMap from './pages/admin/AdminPartnersMap';
 import './i18n';
 
 function PublicLayout() {
@@ -69,6 +70,7 @@ function App() {
         <Route path="/admin/products" element={<AdminProducts />} />
         <Route path="/admin/product-details/:categoryId" element={<AdminProductDetails />} />
         <Route path="/admin/certifications" element={<AdminCertifications />} />
+        <Route path="/admin/partners-map" element={<AdminPartnersMap />} />
         <Route path="/admin" element={<AdminLogin />} />
       </Routes>
     </Router>

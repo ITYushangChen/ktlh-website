@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
+import WorldPartnersMap from '../components/WorldPartnersMap';
 
 function certTitleForLang(titleObj, lang) {
   if (!titleObj || typeof titleObj !== 'object') return '';
@@ -62,44 +63,14 @@ const About = () => {
           <h2 className="text-3xl font-bold text-center mb-12">
             {t('about.partners.title')}
           </h2>
-          <div className="max-w-4xl mx-auto">
-            <p className="text-lg text-center mb-8">{t('about.partners.desc')}</p>
+          <div className="max-w-6xl mx-auto">
+            <p className="text-lg text-center mb-8 max-w-4xl mx-auto">{t('about.partners.desc')}</p>
+          </div>
+        </div>
 
-            <motion.div
-              className="mb-12"
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true, margin: '-100px' }}
-              whileHover={{ scale: 1.02 }}
-              transition={{ type: 'spring', stiffness: 300 }}
-            >
-              <img
-                src="/images/world-map-partners.png"
-                alt="Global Partners Map"
-                className="w-full h-auto rounded-lg shadow-lg"
-                style={{ maxHeight: '500px', objectFit: 'contain' }}
-              />
-            </motion.div>
-
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-              {(t('about.partners.list', { returnObjects: true }) || []).map((partner, index, arr) => {
-                const n = arr.length;
-                const lastStart = 1.2;
-                const delay = n > 1 ? (index / (n - 1)) * lastStart : 0;
-                return (
-                  <motion.div
-                    key={index}
-                    className="bg-white p-6 rounded-lg shadow-md text-center hover:shadow-lg transition-shadow duration-300"
-                    initial={{ opacity: 0, y: 14 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: '-30px' }}
-                    transition={{ duration: 0.3, delay, ease: [0.22, 1, 0.36, 1] }}
-                  >
-                    <h3 className="font-semibold">{partner}</h3>
-                  </motion.div>
-                );
-              })}
-            </div>
+        <div className="relative left-1/2 w-screen -translate-x-1/2 flex justify-center items-center py-6 min-h-[min(90vh,920px)]">
+          <div className="w-[90vw] h-[90vh] min-h-[480px] min-w-[300px] max-w-[1920px] max-h-[1200px]">
+            <WorldPartnersMap />
           </div>
         </div>
       </section>
