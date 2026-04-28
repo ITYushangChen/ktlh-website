@@ -223,6 +223,23 @@
         "ja": "大连"
       },
       "image": "/images/app/partners-map/img-1777348543448-btjelq.png"
+    },
+    {
+      "id": "sss",
+      "lat": 31.86,
+      "lng": 117.28,
+      "connectToHub": true,
+      "title": {
+        "zh": "海尔",
+        "en": "",
+        "ja": ""
+      },
+      "subtitle": {
+        "zh": "合肥",
+        "en": "",
+        "ja": ""
+      },
+      "image": ""
     }
   ]
 }
