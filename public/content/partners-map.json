@@ -231,13 +231,13 @@
       "connectToHub": true,
       "title": {
         "zh": "海尔",
-        "en": "",
-        "ja": ""
+        "en": "Haier",
+        "ja": "Haier"
       },
       "subtitle": {
         "zh": "合肥",
-        "en": "",
-        "ja": ""
+        "en": "Hefei",
+        "ja": "Hefei"
       },
       "image": ""
     }
