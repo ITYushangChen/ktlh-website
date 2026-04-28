@@ -17,7 +17,7 @@ function emptyProduct() {
   return {
     id: `prod-${Date.now()}`,
     active: true,
-    image: '/images/products/',
+    image: '/images/app/products/',
     link: '/products/',
     title: { zh: '', en: '', ja: '' },
     description: { zh: '', en: '', ja: '' },
@@ -276,7 +276,7 @@ export default function AdminProducts() {
                           src={prod.image}
                           alt={prod.title.zh}
                           className="w-20 h-14 object-cover rounded-lg bg-gray-100 shrink-0"
-                          onError={(e) => { e.target.src = '/images/logo.png'; }}
+                          onError={(e) => { e.target.src = '/images/app/logo.png'; }}
                         />
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center gap-3 flex-wrap">
@@ -470,10 +470,10 @@ function EditProductForm({
               label="图片路径"
               value={product.image}
               onChange={(v) => setField('image', v)}
-              placeholder="/images/products/xxx.jpg"
+              placeholder="/images/app/products/xxx.jpg"
               subdir="products"
             />
-            <p className="text-xs text-gray-400 mt-1">可手动填写路径，或点「上传图片」从本机选择文件并提交到仓库 public/images/products/</p>
+            <p className="text-xs text-gray-400 mt-1">可手动填写路径，或点「上传图片」从本机选择文件并提交到仓库 public/images/app/products/</p>
           </div>
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">详情页链接</label>

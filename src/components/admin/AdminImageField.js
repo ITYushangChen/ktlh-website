@@ -4,15 +4,20 @@ import { useAdminAuth } from '../../hooks/useAdminAuth';
 import { uploadBinaryToGitHub, sanitizeUploadedImageName } from '../../utils/githubApi';
 
 /**
- * 图片路径：文本输入 + 浏览上传（直传 GitHub public/images/...）
- * subdir: 相对 public/images，如 "products" 或 "products/receivers"
+ * 图片路径：文本输入 + 浏览上传（直传 GitHub public/images/app/...）
+ * subdir: 相对 public/images/app，如 "products" 或 "products/receivers"
  */
 export default function AdminImageField({
   label,
   value,
   onChange,
-  placeholder = '/images/products/xxx.jpg',
+  placeholder = '/images/app/products/xxx.jpg',
   subdir = 'products',
+  repoBaseDir = 'public/images/app',
+  publicBaseDir = '/images/app',
+  accept = 'image/*',
+  fileTypeLabel,
+  uploadButtonLabel,
 }) {
   const { t } = useTranslation();
   const { auth } = useAdminAuth();
@@ -24,10 +29,33 @@ export default function AdminImageField({
     const file = e.target.files?.[0];
     e.target.value = '';
     if (!file) return;
-    if (!file.type.startsWith('image/')) {
-      setUploadError(t('admin.imagePickImage', { defaultValue: '请选择图片文件' }));
+
+    const loweredName = (file.name || '').toLowerCase();
+    const normalizedAccept = accept.toLowerCase();
+    const fileType = (file.type || '').toLowerCase();
+    const acceptByExt = normalizedAccept
+      .split(',')
+      .map((s) => s.trim())
+      .filter((s) => s.startsWith('.'))
+      .some((ext) => loweredName.endsWith(ext));
+    const acceptByMime = normalizedAccept
+      .split(',')
+      .map((s) => s.trim())
+      .filter((s) => s && !s.startsWith('.'))
+      .some((mime) => {
+        if (mime.endsWith('/*')) {
+          const prefix = mime.slice(0, -1);
+          return fileType.startsWith(prefix);
+        }
+        return fileType === mime;
+      });
+
+    if (!(acceptByExt || acceptByMime || normalizedAccept === '*/*')) {
+      const fallbackTypeLabel = fileTypeLabel || t('admin.imageUploadButton', { defaultValue: '图片' });
+      setUploadError(`请选择${fallbackTypeLabel}文件`);
       return;
     }
+
     if (!auth?.githubToken || !auth?.owner || !auth?.repo) {
       setUploadError(t('admin.imageNeedLogin', { defaultValue: '请先登录后台' }));
       return;
@@ -36,7 +64,9 @@ export default function AdminImageField({
     setUploadError('');
     try {
       const name = sanitizeUploadedImageName(file.name);
-      const repoPath = `public/images/${subdir.replace(/^\//, '').replace(/\/$/, '')}/${name}`;
+      const cleanSubdir = subdir.replace(/^\//, '').replace(/\/$/, '');
+      const cleanRepoBaseDir = repoBaseDir.replace(/\/$/, '');
+      const repoPath = `${cleanRepoBaseDir}/${cleanSubdir}/${name}`;
       const { publicPath } = await uploadBinaryToGitHub({
         token: auth.githubToken,
         owner: auth.owner,
@@ -44,9 +74,15 @@ export default function AdminImageField({
         branch: auth.branch || 'main',
         repoPath,
         file,
-        message: `Upload image ${name}`,
+        message: `Upload file ${name}`,
       });
-      onChange(publicPath);
+      const cleanPublicBaseDir = publicBaseDir.replace(/\/$/, '');
+      const normalizedPublicPath = `/${publicPath.replace(/^\//, '')}`;
+      const expectedPrefix = `/${cleanRepoBaseDir.replace(/^public\//, '')}/`;
+      const nextPublicPath = normalizedPublicPath.startsWith(expectedPrefix)
+        ? normalizedPublicPath.replace(expectedPrefix, `${cleanPublicBaseDir}/`)
+        : normalizedPublicPath;
+      onChange(nextPublicPath);
     } catch (err) {
       setUploadError(err.message || String(err));
     } finally {
@@ -68,7 +104,7 @@ export default function AdminImageField({
         <input
           ref={inputRef}
           type="file"
-          accept="image/*"
+          accept={accept}
           className="hidden"
           onChange={handlePick}
           disabled={uploading}
@@ -82,7 +118,7 @@ export default function AdminImageField({
         >
           {uploading
             ? t('admin.imageUploading', { defaultValue: '上传中…' })
-            : t('admin.imageUploadButton', { defaultValue: '上传图片' })}
+            : uploadButtonLabel || t('admin.imageUploadButton', { defaultValue: '上传图片' })}
         </button>
       </div>
       {uploadError && <p className="text-sm text-red-600 mt-1">{uploadError}</p>}

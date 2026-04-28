@@ -1,7 +1,7 @@
 {
   "items": [
     {
-      "image": "/images/certifications/img-1775031008767-jyxudh.png",
+      "image": "/images/app/certifications/img-1775031008767-jyxudh.png",
       "title": {
         "zh": "ISO9001 质量管理体系认证",
         "en": "ISO 9001 Quality Management System",
@@ -9,7 +9,7 @@
       }
     },
     {
-      "image": "/images/app/certifications/img-1776132951863-g7oo4n.png",
+      "image": "/images/app/certifications/img-1775031023424-oiwn3w.png",
       "title": {
         "zh": "ASME 认证",
         "en": "ASME Certification",
@@ -17,7 +17,7 @@
       }
     },
     {
-      "image": "/images/certifications/img-1775031035669-hhvnn2.png",
+      "image": "/images/app/certifications/img-1775031035669-hhvnn2.png",
       "title": {
         "zh": "ISO14001环境体系认证",
         "en": "ISO 14001 Environmental Management System Certification",
@@ -25,7 +25,7 @@
       }
     },
     {
-      "image": "/images/certifications/img-1775031052871-8ri0hl.png",
+      "image": "/images/app/certifications/img-1775031052871-8ri0hl.png",
       "title": {
         "zh": "ISO45001 职业健康安全管理体系认证证书",
         "en": "ISO 45001 Occupational Health and Safety Management System Certification",
@@ -33,7 +33,7 @@
       }
     },
     {
-      "image": "/images/certifications/img-1775031064918-x8z7wy.jpg",
+      "image": "/images/app/certifications/img-1775031064918-x8z7wy.jpg",
       "title": {
         "zh": "PED 证书",
         "en": "PED Certificate",
@@ -41,7 +41,7 @@
       }
     },
     {
-      "image": "/images/certifications/img-1775179318154-2s5309.png",
+      "image": "/images/app/certifications/img-1775179318154-2s5309.png",
       "title": {
         "zh": "压力容器制造生产许可证",
         "en": "Pressure Vessel Manufacturing License",

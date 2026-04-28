@@ -35,22 +35,22 @@
         {
           "title": "Modern Factory Area",
           "description": "51,000 m² site, 43,000 m² building area, equipped with advanced production facilities.",
-          "image": "/images/厂房/DJI_0176(1).jpg"
+          "image": "/images/app/厂房/DJI_0176(1).jpg"
         },
         {
           "title": "Certifications",
           "description": "Backed by a comprehensive portfolio of certifications and credentials.",
-          "image": "/images/证书.png"
+          "image": "/images/app/证书.png"
         },
         {
           "title": "Professional Production Lines",
           "description": "Fully automated lines—annual capacity: 3.2 million containers, 5,000 tons of copper fittings, 2,000 tons of damping blocks.",
-          "image": "/images/设备/_NOP8697.JPG"
+          "image": "/images/app/设备/_NOP8697.JPG"
         },
         {
           "title": "Professional Customization",
           "description": "Our team includes top industry talent, with full capability from ground-up design and tooling through mass production.",
-          "image": "/images/技术/_NOP8602.JPG"
+          "image": "/images/app/技术/_NOP8602.JPG"
         }
       ]
     },
@@ -61,22 +61,22 @@
         {
           "title": "Modern Factory Area",
           "description": "51,000 m² site, 43,000 m² building area, equipped with advanced production facilities.",
-          "image": "/images/厂房/DJI_0176(1).jpg"
+          "image": "/images/app/厂房/DJI_0176(1).jpg"
         },
         {
           "title": "Certifications",
           "description": "Backed by a comprehensive portfolio of certifications and credentials.",
-          "image": "/images/证书.png"
+          "image": "/images/app/证书.png"
         },
         {
           "title": "Professional Production Lines",
           "description": "Fully automated lines—annual capacity: 3.2 million containers, 5,000 tons of copper fittings, 2,000 tons of damping blocks.",
-          "image": "/images/设备/_NOP8697.JPG"
+          "image": "/images/app/设备/_NOP8697.JPG"
         },
         {
           "title": "Professional Customization",
           "description": "Our team includes top industry talent, with full capability from ground-up design and tooling through mass production.",
-          "image": "/images/技术/_NOP8602.JPG"
+          "image": "/images/app/技术/_NOP8602.JPG"
         }
       ]
     },
@@ -103,19 +103,19 @@
         {
           "title": "Container Series",
           "description": "Specialized in various types of receivers, gas-liquid separators, and other container products for refrigeration systems.",
-          "image": "/images/containers.jpg",
+          "image": "/images/app/containers.jpg",
           "link": "/products/containers"
         },
         {
           "title": "Pipeline Components",
           "description": "Manufacturing copper pipe fittings, damping blocks, and other pipeline system accessories.",
-          "image": "/images/pipes.jpg",
+          "image": "/images/app/pipes.jpg",
           "link": "/products/pipes"
         },
         {
           "title": "Heat Exchanger Series",
           "description": "Providing a variety of heat exchanger products for different application scenarios.",
-          "image": "/images/heat_exchangers.jpg",
+          "image": "/images/app/heat_exchangers.jpg",
           "link": "/products/heat-exchangers"
         }
       ]
@@ -152,7 +152,7 @@
       "phoneTitle": "Phone",
       "phoneContent": "0532-87909886",
       "emailTitle": "Email",
-      "emailContent": "sales_ktlh@outlook.com"
+      "emailContent": "sales@kaituolonghai.com"
     },
     "companyInfoTitle": "Company Information",
     "companyInfo": {
@@ -350,6 +350,11 @@
     "learnMore": "Learn More",
     "clickToView": "View details",
     "loadingProduct": "Loading…",
+    "viewer3dTitle": "3D model — drag to rotate",
+    "viewer3dAria": "Interactive rotatable 3D model (GLB)",
+    "viewer3dLoading": "Loading 3D model…",
+    "viewer3dError": "3D preview could not be loaded. The product image above still shows correctly.",
+    "viewer3dTip": "Loads when this section enters the viewport • drag to orbit · scroll / pinch to zoom",
     "productNotFound": "This product could not be found or is no longer available.",
     "contactForCustom": "Contact us for more information",
     "needCustomSolution": "Need a customized solution?",
@@ -587,7 +592,7 @@
         "title": "Contact",
         "address": "Address: No. 21 Xiangjiang Road, SCO Demonstration Zone, Jiaozhou, Qingdao",
         "phone": "Phone: 0532-87909886",
-        "email": "Email: sales_ktlh@outlook.com",
+        "email": "Email: sales@kaituolonghai.com",
         "socialTitle": "Social media"
       }
     },
@@ -596,6 +601,8 @@
       "xiaohongshu": "Xiaohongshu",
       "instagram": "Instagram",
       "facebook": "Facebook",
+      "tiktok": "TikTok",
+      "whatsapp": "WhatsApp",
       "qrSuffix": "QR Code"
     },
     "copyright": "All rights reserved.",

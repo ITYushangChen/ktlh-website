@@ -35,22 +35,22 @@
         {
           "title": "现代化厂区",
           "description": "5.1万平方米厂区，4.3万平方米建筑面积，配备先进生产设备",
-          "image": "/images/厂房/DJI_0176(1).jpg"
+          "image": "/images/app/厂房/DJI_0176(1).jpg"
         },
         {
           "title": "完备证书",
           "description": "拥有完善的证书背书",
-          "image": "/images/证书.png"
+          "image": "/images/app/证书.png"
         },
         {
           "title": "专业生产线",
           "description": "全自动化生产线，年产能：容器320万台，铜管件5000吨，阻尼块2000吨",
-          "image": "/images/设备/_NOP8697.JPG"
+          "image": "/images/app/设备/_NOP8697.JPG"
         },
         {
           "title": "专业定制化",
           "description": "我们拥有行业内顶尖人才，拥有从零开始设计、开模具到量产的能力",
-          "image": "/images/技术/_NOP8602.JPG"
+          "image": "/images/app/技术/_NOP8602.JPG"
         }
       ]
     },
@@ -61,22 +61,22 @@
         {
           "title": "现代化厂区",
           "description": "5.1万平方米厂区，4.3万平方米建筑面积，配备先进生产设备",
-          "image": "/images/厂房/DJI_0176(1).jpg"
+          "image": "/images/app/厂房/DJI_0176(1).jpg"
         },
         {
           "title": "完备证书",
           "description": "拥有完善的证书背书",
-          "image": "/images/证书.png"
+          "image": "/images/app/证书.png"
         },
         {
           "title": "专业生产线",
           "description": "全自动化生产线，年产能：容器320万台，铜管件5000吨，阻尼块2000吨",
-          "image": "/images/设备/_NOP8697.JPG"
+          "image": "/images/app/设备/_NOP8697.JPG"
         },
         {
           "title": "专业定制化",
           "description": "我们拥有行业内顶尖人才，拥有从零开始设计、开模具到量产的能力",
-          "image": "/images/技术/_NOP8602.JPG"
+          "image": "/images/app/技术/_NOP8602.JPG"
         }
       ]
     },
@@ -103,19 +103,19 @@
         {
           "title": "容器类产品",
           "description": "专业生产各类制冷系统用储液器、气液分离器等容器类产品",
-          "image": "/images/containers.jpg",
+          "image": "/images/app/containers.jpg",
           "link": "/products/containers"
         },
         {
           "title": "管路件类产品",
           "description": "生产各类铜管件、阻尼块等管路系统配件",
-          "image": "/images/pipes.jpg",
+          "image": "/images/app/pipes.jpg",
           "link": "/products/pipes"
         },
         {
           "title": "换热器类产品",
           "description": "提供各类换热器产品，满足不同应用场景需求",
-          "image": "/images/heat_exchangers.jpg",
+          "image": "/images/app/heat_exchangers.jpg",
           "link": "/products/heat-exchangers"
         }
       ]
@@ -152,7 +152,7 @@
       "phoneTitle": "联系电话",
       "phoneContent": "0532-87909886",
       "emailTitle": "电子邮箱",
-      "emailContent": "sales_ktlh@outlook.com"
+      "emailContent": "sales@kaituolonghai.com"
     },
     "companyInfoTitle": "公司信息",
     "companyInfo": {
@@ -350,6 +350,11 @@
     "learnMore": "了解详情",
     "clickToView": "点击查看",
     "loadingProduct": "加载中…",
+    "viewer3dTitle": "3D 模型 — 拖动旋转",
+    "viewer3dAria": "可旋转的三维模型预览（GLB）",
+    "viewer3dLoading": "正在加载 3D 模型…",
+    "viewer3dError": "暂时无法加载 3D 预览，上方示意图仍可正常浏览。",
+    "viewer3dTip": "此区域接近可视区域后开始加载 • 拖拽旋转视角 · 滚轮或双指缩放",
     "productNotFound": "未找到该产品或已下架",
     "contactForCustom": "联系我们了解更多",
     "needCustomSolution": "需要定制化解决方案？",
@@ -587,7 +592,7 @@
         "title": "联系方式",
         "address": "地址：青岛市胶州上合示范区湘江路21号",
         "phone": "电话：0532-87909886",
-        "email": "邮箱：sales_ktlh@outlook.com",
+        "email": "邮箱：sales@kaituolonghai.com",
         "socialTitle": "社交媒体"
       }
     },
@@ -596,6 +601,8 @@
       "xiaohongshu": "小红书",
       "instagram": "Instagram",
       "facebook": "Facebook",
+      "tiktok": "TikTok",
+      "whatsapp": "WhatsApp",
       "qrSuffix": "二维码"
     },
     "copyright": "版权所有",

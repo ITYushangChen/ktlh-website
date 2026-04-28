@@ -15,7 +15,7 @@ const LANGS = [
 
 function emptyItem() {
   return {
-    image: '/images/certifications/',
+    image: '/images/app/certifications/',
     title: { zh: '', en: '', ja: '' },
   };
 }
@@ -235,7 +235,7 @@ export default function AdminCertifications() {
             </div>
 
             <p className="text-sm text-gray-500 mb-6 bg-amber-50 border border-amber-200 rounded-lg px-4 py-3">
-              图片可填写路径或使用「上传图片」提交到 <code className="text-xs">public/images/certifications/</code>
+              图片可填写路径或使用「上传图片」提交到 <code className="text-xs">public/images/app/certifications/</code>
               ，保存后前台关于页将读取最新 JSON。
             </p>
 
@@ -351,7 +351,7 @@ export default function AdminCertifications() {
                 label="证书图片路径"
                 value={editingItem.image}
                 onChange={(v) => setEditingItem((p) => ({ ...p, image: v }))}
-                placeholder="/images/certifications/xxx.jpg"
+                placeholder="/images/app/certifications/xxx.jpg"
                 subdir="certifications"
               />
 

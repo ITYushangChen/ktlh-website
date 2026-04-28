@@ -3,7 +3,7 @@
     {
       "id": "r-001",
       "active": false,
-      "image": "/images/products/receivers/r-001.jpg",
+      "image": "/images/app/products/receivers/r-001.jpg",
       "name": {
         "zh": "R-001 立式储液器",
         "en": "R-001 Vertical Receiver",
@@ -52,7 +52,7 @@
     {
       "id": "r-002",
       "active": false,
-      "image": "/images/products/receivers/r-002.jpg",
+      "image": "/images/app/products/receivers/r-002.jpg",
       "name": {
         "zh": "R-002 卧式储液器",
         "en": "R-002 Horizontal Receiver",
@@ -101,7 +101,8 @@
     {
       "id": "r-003",
       "active": true,
-      "image": "/images/products/receivers/img-1775113103755-08870i.png",
+      "viewer3dGlb": "/images/products_3d/KTLH-ACC-40-2.21.glb",
+      "image": "/images/app/products/receivers/img-1775113103755-08870i.png",
       "name": {
         "zh": "储液器1",
         "en": "R-003 High-Pressure Receiver",
@@ -150,7 +151,7 @@
     {
       "id": "r-004",
       "active": true,
-      "image": "/images/products/receivers/img-1775113117102-spzakf.png",
+      "image": "/images/app/products/receivers/img-1775113117102-spzakf.png",
       "name": {
         "zh": "储液器2",
         "en": "R-004 Compact Receiver",
@@ -199,7 +200,7 @@
     {
       "id": "r-005",
       "active": false,
-      "image": "/images/products/receivers/r-005.jpg",
+      "image": "/images/app/products/receivers/r-005.jpg",
       "name": {
         "zh": "R-005 智能储液器",
         "en": "R-005 Smart Receiver",
@@ -248,7 +249,7 @@
     {
       "id": "r-006",
       "active": false,
-      "image": "/images/products/receivers/r-006.jpg",
+      "image": "/images/app/products/receivers/r-006.jpg",
       "name": {
         "zh": "R-006 环保型储液器",
         "en": "R-006 Eco-friendly Receiver",
@@ -299,7 +300,7 @@
     {
       "id": "gls-001",
       "active": false,
-      "image": "/images/products/gas-liquid-separators/gls-001.jpg",
+      "image": "/images/app/products/gas-liquid-separators/gls-001.jpg",
       "name": {
         "zh": "GLS-001 高效气液分离器",
         "en": "GLS-001 High-Efficiency Gas-Liquid Separator",
@@ -344,7 +345,7 @@
     {
       "id": "gls-002",
       "active": false,
-      "image": "/images/products/gas-liquid-separators/gls-002.jpg",
+      "image": "/images/app/products/gas-liquid-separators/gls-002.jpg",
       "name": {
         "zh": "GLS-002 紧凑型分离器",
         "en": "GLS-002 Compact Separator",
@@ -389,7 +390,7 @@
     {
       "id": "gls-003",
       "active": false,
-      "image": "/images/products/gas-liquid-separators/gls-003.jpg",
+      "image": "/images/app/products/gas-liquid-separators/gls-003.jpg",
       "name": {
         "zh": "GLS-003 重型工业分离器",
         "en": "GLS-003 Heavy-Duty Industrial Separator",
@@ -434,7 +435,7 @@
     {
       "id": "gls-004",
       "active": false,
-      "image": "/images/products/gas-liquid-separators/gls-004.jpg",
+      "image": "/images/app/products/gas-liquid-separators/gls-004.jpg",
       "name": {
         "zh": "GLS-004 智能分离器",
         "en": "GLS-004 Smart Separator",

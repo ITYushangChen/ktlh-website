@@ -15,41 +15,11 @@ const Footer = () => {
 
   const socialMedia = [
     {
-      nameKey: 'wechat',
-      name: t('footer.social.wechat'),
-      icon: (
-        <img
-          src="/images/wechat-logo-svgrepo-com.svg"
-          alt=""
-          className="h-6 w-6 object-contain opacity-70 group-hover:opacity-100 transition-opacity"
-          width={24}
-          height={24}
-          aria-hidden
-        />
-      ),
-      qrCode: '/images/qr-wechat.png',
-    },
-    {
-      nameKey: 'xiaohongshu',
-      name: t('footer.social.xiaohongshu'),
-      icon: (
-        <img
-          src="/images/xiaohongshu-vector-logo-seeklogo/xiaohongshu-seeklogo.svg"
-          alt=""
-          className="h-6 w-6 object-contain opacity-70 group-hover:opacity-100 transition-opacity"
-          width={24}
-          height={24}
-          aria-hidden
-        />
-      ),
-      qrCode: '/images/qr-xiaohongshu.png',
-    },
-    {
       nameKey: 'instagram',
       name: t('footer.social.instagram'),
       icon: (
         <img
-          src="/images/500px-Instagram_logo_2022.svg.png"
+          src="/images/app/500px-Instagram_logo_2022.svg.png"
           alt=""
           className="h-6 w-6 object-contain opacity-70 group-hover:opacity-100 transition-opacity"
           width={24}
@@ -57,7 +27,7 @@ const Footer = () => {
           aria-hidden
         />
       ),
-      qrCode: '/images/qr-instagram.png',
+      qrCode: '/images/qr/instagram.png',
       href: process.env.REACT_APP_INSTAGRAM_URL || 'https://www.instagram.com/',
     },
     {
@@ -65,7 +35,7 @@ const Footer = () => {
       name: t('footer.social.facebook'),
       icon: (
         <img
-          src="/images/500px-2023_Facebook_icon.svg.png"
+          src="/images/app/500px-2023_Facebook_icon.svg.png"
           alt=""
           className="h-6 w-6 object-contain opacity-70 group-hover:opacity-100 transition-opacity"
           width={24}
@@ -73,8 +43,40 @@ const Footer = () => {
           aria-hidden
         />
       ),
-      qrCode: '/images/qr-facebook.png',
+      qrCode: '/images/qr/facebook.png',
       href: process.env.REACT_APP_FACEBOOK_URL || 'https://www.facebook.com/',
+    },
+    {
+      nameKey: 'tiktok',
+      name: t('footer.social.tiktok'),
+      icon: (
+        <img
+          src="/images/app/tiktok-svgrepo-com.svg"
+          alt=""
+          className="h-6 w-6 object-contain opacity-70 group-hover:opacity-100 transition-opacity"
+          width={24}
+          height={24}
+          aria-hidden
+        />
+      ),
+      qrCode: '/images/qr/tiktok.png',
+      href: process.env.REACT_APP_TIKTOK_URL || 'https://www.tiktok.com/',
+    },
+    {
+      nameKey: 'whatsapp',
+      name: t('footer.social.whatsapp'),
+      icon: (
+        <img
+          src="/images/app/whatsapp-svgrepo-com.svg"
+          alt=""
+          className="h-6 w-6 object-contain opacity-70 group-hover:opacity-100 transition-opacity"
+          width={24}
+          height={24}
+          aria-hidden
+        />
+      ),
+      qrCode: '/images/qr/whatsapp.png',
+      href: process.env.REACT_APP_WHATSAPP_URL || 'https://wa.me/',
     },
   ];
 
@@ -100,7 +102,7 @@ const Footer = () => {
             aria-label={t('footer.companyName')}
           >
             <img
-              src="/images/logo.png"
+              src="/images/app/logo.png"
               alt=""
               className="h-9 w-auto"
               width={120}
@@ -131,10 +133,11 @@ const Footer = () => {
         {/* 下排：联系与版权 | 社交 */}
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 py-8 lg:py-10">
           <div className="space-y-3 max-w-3xl text-xs sm:text-sm text-gray-500 leading-relaxed">
-            <p>
-              {t('footer.sections.contact.address')}　{t('footer.sections.contact.phone')}　
-              {t('footer.sections.contact.email')}
-            </p>
+            <div className="space-y-1.5">
+              <p>{t('footer.sections.contact.address')}</p>
+              <p>{t('footer.sections.contact.phone')}</p>
+              <p>{t('footer.sections.contact.email')}</p>
+            </div>
             <p className="text-gray-400 text-[11px] sm:text-xs leading-relaxed">
               © {currentYear} {t('footer.companyLegalName')} {t('footer.copyright')}
               {hasIcp && (

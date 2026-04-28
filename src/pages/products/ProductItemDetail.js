@@ -1,7 +1,9 @@
-import { useMemo } from 'react';
+import { lazy, Suspense, useMemo } from 'react';
 import { Link, Navigate, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useProductDetails } from '../../hooks/useProductDetails';
+
+const ProductGlbViewer = lazy(() => import('../../components/products/ProductGlbViewer'));
 
 const CATEGORY_PATH_CONFIG = {
   receivers: {
@@ -88,6 +90,18 @@ const ProductItemDetail = () => {
               alt={gl(product.name)}
               className="w-full h-auto max-h-[min(70vh,520px)] object-contain rounded-xl border border-gray-100 bg-white p-4 shadow-sm"
             />
+            {product.viewer3dGlb && (
+              <Suspense
+                fallback={
+                  <div
+                    className="mt-6 w-full animate-pulse rounded-xl border border-gray-100 bg-slate-100/90 aspect-[4/3] max-h-[min(52vh,420px)] shadow-sm"
+                    aria-hidden
+                  />
+                }
+              >
+                <ProductGlbViewer glbUrl={product.viewer3dGlb} />
+              </Suspense>
+            )}
           </div>
           <div className="flex-1 min-w-0">
             <h1 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">{gl(product.name)}</h1>

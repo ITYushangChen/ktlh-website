@@ -17,6 +17,7 @@ function emptyItem(categoryId) {
     id: `${prefix.toLowerCase()}-${Date.now()}`,
     active: true,
     image: '',
+    viewer3dGlb: '',
     name: { zh: '', en: '', ja: '' },
     description: { zh: '', en: '', ja: '' },
     specifications: {},
@@ -339,12 +340,31 @@ function EditItemForm({
             label="产品图片路径"
             value={item.image}
             onChange={(v) => sf('image', v)}
-            placeholder="/images/products/receivers/r-001.jpg"
+            placeholder="/images/app/products/receivers/r-001.jpg"
             subdir={`products/${categoryId}`}
           />
           {item.image && (
             <img src={item.image} alt="预览" className="mt-2 w-32 h-24 object-cover rounded bg-gray-100 border"
               onError={(e) => { e.target.style.display = 'none'; }} />
+          )}
+        </div>
+
+        {/* 3D Model */}
+        <div>
+          <AdminImageField
+            label="三维模型（GLB）路径"
+            value={item.viewer3dGlb || ''}
+            onChange={(v) => sf('viewer3dGlb', v)}
+            placeholder="/images/products_3d/example.glb"
+            subdir="products_3d"
+            repoBaseDir="public/images"
+            publicBaseDir="/images"
+            accept=".glb,model/gltf-binary,application/octet-stream"
+            fileTypeLabel="GLB"
+            uploadButtonLabel="上传GLB"
+          />
+          {item.viewer3dGlb && (
+            <p className="mt-2 text-xs text-gray-500 break-all">当前模型：{item.viewer3dGlb}</p>
           )}
         </div>
 

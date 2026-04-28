@@ -5,6 +5,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const FEATURE_CAROUSEL_MS = 5500;
 
+/** Hero 底缘与「我们的优势」顶缘统一为 gray-950，避免与 bg-gray-900 产生可见接缝 */
+const HOME_SEAM = '#030712';
+
 const TypeCursor = () => (
   <motion.span
     className="inline-block w-[2px] sm:w-[3px] h-[0.92em] align-baseline ml-1 rounded-sm bg-cyan-100 shadow-[0_0_14px_rgba(165,243,252,0.95)]"
@@ -282,7 +285,16 @@ const Home = () => {
         </motion.div>
 
         <motion.div
-          className="absolute bottom-0 left-0 right-0 h-[min(32vh,220px)] bg-gradient-to-t from-gray-950 via-[#063239]/90 to-transparent z-[5] pointer-events-none"
+          className="absolute bottom-0 left-0 right-0 z-[5] pointer-events-none h-[min(42vh,300px)]"
+          style={{
+            background: `linear-gradient(to top,
+              ${HOME_SEAM} 0%,
+              rgba(3, 7, 18, 0.94) 16%,
+              rgba(10, 48, 54, 0.62) 40%,
+              rgba(8, 108, 123, 0.18) 66%,
+              rgba(8, 108, 123, 0.05) 84%,
+              transparent 100%)`,
+          }}
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.55, duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
@@ -292,19 +304,29 @@ const Home = () => {
       {/* 我们的优势：4 屏轮播（文案与配图见 home.features.items） */}
       <section
         id="home-features"
-        className="relative min-h-screen w-full overflow-hidden bg-gray-950"
+        className="relative -mt-px min-h-screen w-full overflow-hidden pt-px"
+        style={{ backgroundColor: HOME_SEAM }}
         aria-labelledby="features-heading"
       >
-        <div className="absolute inset-0 bg-gray-900" aria-hidden />
-        {/* 顶部与 Hero 同色系衔接，避免整屏图突然出现 */}
+        <div className="absolute inset-0" style={{ backgroundColor: HOME_SEAM }} aria-hidden />
+        {/* 顶缘与 Hero 底缘同色（HOME_SEAM），多段渐变让大图缓慢显现 */}
         <div
-          className="absolute inset-x-0 top-0 z-[2] h-40 md:h-48 bg-gradient-to-b from-[#032a30] from-0% via-[#032a30]/65 via-45% to-transparent pointer-events-none"
+          className="absolute inset-x-0 top-0 z-[2] h-56 md:h-72 pointer-events-none"
+          style={{
+            background: `linear-gradient(to bottom,
+              ${HOME_SEAM} 0%,
+              rgba(3, 7, 18, 0.92) 12%,
+              rgba(12, 52, 58, 0.5) 36%,
+              rgba(8, 108, 123, 0.15) 58%,
+              rgba(8, 108, 123, 0.04) 78%,
+              transparent 100%)`,
+          }}
           aria-hidden
         />
 
         {advantageSlides.length > 0 &&
           advantageSlides.map((f, i) => {
-            const src = f.image || '/images/factory.jpg';
+            const src = f.image || '/images/app/factory.jpg';
             return (
               <motion.div
                 key={`${src}-${i}`}
@@ -323,7 +345,7 @@ const Home = () => {
           })}
 
         <div
-          className="absolute inset-0 z-[1] bg-gradient-to-b from-black/45 via-black/40 to-black/55 pointer-events-none"
+          className="absolute inset-0 z-[1] bg-gradient-to-b from-black/58 from-0% via-black/42 via-35% to-black/55 pointer-events-none"
           aria-hidden
         />
 

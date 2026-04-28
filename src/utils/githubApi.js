@@ -104,7 +104,7 @@ function isShaMissingError(status, errBody) {
 }
 
 /**
- * 上传图片（或任意二进制）到仓库。返回对外访问路径，如 /images/products/foo.jpg
+ * 上传图片（或任意二进制）到仓库。返回对外访问路径，如 /images/app/products/foo.jpg
  */
 export async function uploadBinaryToGitHub({
   token,

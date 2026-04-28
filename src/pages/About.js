@@ -126,7 +126,7 @@ const About = () => {
               <div className="flex flex-col md:flex-row md:items-start gap-8 md:gap-10">
                 <figure className="shrink-0 mx-auto md:mx-0 w-full max-w-[280px] sm:max-w-[300px] md:max-w-[min(38vw,300px)] lg:max-w-[320px]">
                   <img
-                    src="/images/chairman.png"
+                    src="/images/app/chairman.png"
                     alt={t('about.founder.imageAlt')}
                     className="w-full h-auto rounded-xl shadow-md border border-gray-100/90 object-contain bg-white/40"
                     loading="lazy"

@@ -271,7 +271,7 @@ export default function AdminPartnersMap() {
           <p className="text-sm text-gray-600 leading-relaxed">
             数据保存在仓库 <code className="text-xs bg-gray-100 px-1 rounded">public/content/partners-map.json</code>
             。枢纽默认为青岛胶州（可改经纬度）；其余节点填写纬度 <code>lat</code>、经度 <code>lng</code>（WGS84）。
-            图片填相对路径如 <code>/images/partners-map/xxx.png</code>，或使用下方上传。
+            图片填相对路径如 <code>/images/app/partners-map/xxx.png</code>，或使用下方上传。
           </p>
           <p className="text-sm text-gray-500 mt-2">
             可从 Excel 导出为 CSV 再转 JSON，或把整份 JSON 粘贴到下方「导入」区域。部署后「关于我们」页自动读取。
@@ -347,7 +347,7 @@ export default function AdminPartnersMap() {
                 label="枢纽图片（可选）"
                 value={mapData.hub.image || ''}
                 onChange={(v) => setHubField('image', v)}
-                placeholder="/images/partners-map/hub.png"
+                placeholder="/images/app/partners-map/hub.png"
                 subdir="partners-map"
               />
             </div>
@@ -455,7 +455,7 @@ export default function AdminPartnersMap() {
                       label="图片（可选）"
                       value={node.image || ''}
                       onChange={(v) => setNode(index, { image: v })}
-                      placeholder="/images/partners-map/xxx.png"
+                      placeholder="/images/app/partners-map/xxx.png"
                       subdir="partners-map"
                     />
                   </div>

@@ -35,22 +35,22 @@
         {
           "title": "現代的工場",
           "description": "敷地面積5.1万㎡、建築面積4.3万㎡、先進的な生産設備を備えています。",
-          "image": "/images/厂房/DJI_0176(1).jpg"
+          "image": "/images/app/厂房/DJI_0176(1).jpg"
         },
         {
           "title": "認証・資格",
           "description": "各種認証・表彰を完備し、信頼の裏付けを有しています。",
-          "image": "/images/证书.png"
+          "image": "/images/app/证书.png"
         },
         {
           "title": "プロ生産ライン",
           "description": "全自動化ライン、年産：容器320万台、銅管部品5000トン、ダンピングブロック2000トン。",
-          "image": "/images/设备/_NOP8697.JPG"
+          "image": "/images/app/设备/_NOP8697.JPG"
         },
         {
           "title": "専門カスタマイズ",
           "description": "業界トップクラスの人材を擁し、ゼロからの設計・金型開発から量産まで一貫して対応できる体制を有しています。",
-          "image": "/images/技术/_NOP8602.JPG"
+          "image": "/images/app/技术/_NOP8602.JPG"
         }
       ]
     },
@@ -61,22 +61,22 @@
         {
           "title": "現代的工場",
           "description": "敷地面積5.1万㎡、建築面積4.3万㎡、先進的な生産設備を備えています。",
-          "image": "/images/厂房/DJI_0176(1).jpg"
+          "image": "/images/app/厂房/DJI_0176(1).jpg"
         },
         {
           "title": "認証・資格",
           "description": "各種認証・表彰を完備し、信頼の裏付けを有しています。",
-          "image": "/images/证书.png"
+          "image": "/images/app/证书.png"
         },
         {
           "title": "プロ生産ライン",
           "description": "全自動化ライン、年産：容器320万台、銅管部品5000トン、ダンピングブロック2000トン。",
-          "image": "/images/设备/_NOP8697.JPG"
+          "image": "/images/app/设备/_NOP8697.JPG"
         },
         {
           "title": "専門カスタマイズ",
           "description": "業界トップクラスの人材を擁し、ゼロからの設計・金型開発から量産まで一貫して対応できる体制を有しています。",
-          "image": "/images/技术/_NOP8602.JPG"
+          "image": "/images/app/技术/_NOP8602.JPG"
         }
       ]
     },
@@ -103,19 +103,19 @@
         {
           "title": "容器製品",
           "description": "冷凍システム用レシーバーやガス・液分離器など各種容器を製造しています。",
-          "image": "/images/containers.jpg",
+          "image": "/images/app/containers.jpg",
           "link": "/products/containers"
         },
         {
           "title": "配管部品",
           "description": "各種銅管部品やダンピングブロックなど配管システム部品を生産しています。",
-          "image": "/images/pipes.jpg",
+          "image": "/images/app/pipes.jpg",
           "link": "/products/pipes"
         },
         {
           "title": "熱交換器製品",
           "description": "多様な熱交換器製品で様々な用途に対応。",
-          "image": "/images/heat_exchangers.jpg",
+          "image": "/images/app/heat_exchangers.jpg",
           "link": "/products/heat-exchangers"
         }
       ]
@@ -152,7 +152,7 @@
       "phoneTitle": "電話番号",
       "phoneContent": "0532-87909886",
       "emailTitle": "メール",
-      "emailContent": "sales_ktlh@outlook.com"
+      "emailContent": "sales@kaituolonghai.com"
     },
     "companyInfoTitle": "会社情報",
     "companyInfo": {
@@ -350,6 +350,11 @@
     "learnMore": "詳細を見る",
     "clickToView": "詳しく見る",
     "loadingProduct": "読み込み中…",
+    "viewer3dTitle": "3D モデル — ドラッグで回転",
+    "viewer3dAria": "回転できる 3D プレビュー（GLB）",
+    "viewer3dLoading": "3D モデルを読み込み中…",
+    "viewer3dError": "3D を読み込めませんでした。上の製品写真は問題なく表示されています。",
+    "viewer3dTip": "画面上に近づいたら読み込み開始 • ドラッグで回転・ホイールでズーム",
     "productNotFound": "該当する製品が見つからないか、掲載を終了しています。",
     "contactForCustom": "詳細はお問い合わせください",
     "needCustomSolution": "カスタムソリューションが必要ですか？",
@@ -587,7 +592,7 @@
         "title": "お問い合わせ",
         "address": "住所：青島市膠州上合示範区湘江路21号",
         "phone": "電話：0532-87909886",
-        "email": "メール：sales_ktlh@outlook.com",
+        "email": "メール：sales@kaituolonghai.com",
         "socialTitle": "ソーシャルメディア"
       }
     },
@@ -596,6 +601,8 @@
       "xiaohongshu": "小紅書",
       "instagram": "Instagram",
       "facebook": "Facebook",
+      "tiktok": "TikTok",
+      "whatsapp": "WhatsApp",
       "qrSuffix": "QRコード"
     },
     "copyright": "無断転載を禁じます。",
