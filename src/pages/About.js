@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import WorldPartnersMap from '../components/WorldPartnersMap';
+import Seo from '../components/Seo';
 
 function certTitleForLang(titleObj, lang) {
   if (!titleObj || typeof titleObj !== 'object') return '';
@@ -61,6 +62,11 @@ const About = () => {
 
   return (
     <div className="pt-16">
+      <Seo
+        title={t('seo.about.title')}
+        description={t('seo.about.description')}
+        path="/about"
+      />
       {/* Hero Section */}
       <section className="bg-gray-50 py-20">
         <div className="container mx-auto px-4">

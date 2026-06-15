@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useProductDetails } from '../../hooks/useProductDetails';
 import ProductDetailCard from '../../components/ProductDetailCard';
+import ProductCategorySeo from '../../components/ProductCategorySeo';
 
 const GasLiquidSeparators = () => {
   const { t } = useTranslation();
@@ -10,6 +11,7 @@ const GasLiquidSeparators = () => {
 
   return (
     <div className="py-8 pb-16 bg-white">
+      <ProductCategorySeo categoryId="gas-liquid-separators" path="/products/gas-liquid-separators" />
       <section className="bg-white py-8">
         <div className="container mx-auto px-4">
           <nav className="text-sm mb-8">

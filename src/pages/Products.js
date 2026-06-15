@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { PRODUCT_CARD_FRAME } from '../constants/productUi';
+import Seo from '../components/Seo';
 
 const Products = () => {
   const { t, i18n } = useTranslation();
@@ -21,6 +22,11 @@ const Products = () => {
 
   return (
     <div className="py-8 pb-16 bg-white">
+      <Seo
+        title={t('seo.products.title')}
+        description={t('seo.products.description')}
+        path="/products"
+      />
       <section className="bg-white py-8 min-h-[50vh]">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
+import Seo from '../components/Seo';
 
 const FEATURE_CAROUSEL_MS = 5500;
 
@@ -97,6 +98,11 @@ const Home = () => {
 
   return (
     <div className="min-h-screen">
+      <Seo
+        title={t('seo.home.title')}
+        description={t('seo.home.description')}
+        path="/"
+      />
       {/* Hero：背景动画 + 打字机文案 */}
       <section className="relative h-screen min-h-screen flex items-center justify-center overflow-hidden bg-[#032a30]">
         <motion.div

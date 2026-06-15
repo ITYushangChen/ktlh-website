@@ -4,6 +4,7 @@ import { useAdminAuth } from '../../hooks/useAdminAuth';
 import { fetchFileFromGitHub, commitFileToGitHub } from '../../utils/githubApi';
 import { translateProductContent } from '../../utils/deepseekApi';
 import AdminImageField from '../../components/admin/AdminImageField';
+import AdminSeo from '../../components/AdminSeo';
 
 const FILE_PATH = 'public/content/products.json';
 
@@ -175,6 +176,7 @@ export default function AdminProducts() {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <AdminSeo />
       {/* Top nav */}
       <header className="bg-[#086c7b] text-white px-6 py-4 flex items-center justify-between shadow">
         <div className="flex items-center gap-4">

@@ -3,6 +3,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { useAdminAuth } from '../../hooks/useAdminAuth';
 import { fetchFileFromGitHub, commitFileToGitHub } from '../../utils/githubApi';
 import AdminImageField from '../../components/admin/AdminImageField';
+import AdminSeo from '../../components/AdminSeo';
 import { translateCertificationTitle } from '../../utils/deepseekApi';
 
 const FILE_PATH = 'public/content/certifications.json';
@@ -170,6 +171,7 @@ export default function AdminCertifications() {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <AdminSeo />
       <header className="bg-[#086c7b] text-white px-6 py-4 flex items-center justify-between shadow">
         <div className="flex items-center gap-4">
           <span className="font-bold text-lg tracking-wide">KTLH 后台管理</span>

@@ -617,5 +617,63 @@
     "imageUploading": "Uploading…",
     "imagePickImage": "Please choose an image file",
     "imageNeedLogin": "Please log in to admin first"
+  },
+  "seo": {
+    "siteName": "Qingdao Kaituo Longhai Intelligent Control Co., Ltd.",
+    "defaultDescription": "Qingdao Kaituo Longhai — professional manufacturer of refrigeration system components including receivers, gas-liquid separators, heat exchangers, and copper fittings for global customers.",
+    "home": {
+      "title": "Home",
+      "description": "Qingdao Kaituo Longhai Intelligent Control Co., Ltd. — 20 years of expertise in refrigeration components, serving global enterprises with quality receivers, separators, and heat exchangers."
+    },
+    "about": {
+      "title": "About Us",
+      "description": "Learn about Kaituo Longhai's history, production capacity, global strategic partners, and certifications."
+    },
+    "products": {
+      "title": "Products",
+      "description": "Kaituo Longhai product range: receivers, gas-liquid separators, oil separators, damping blocks, shell-and-tube heat exchangers, copper tubes, and plate heat exchangers."
+    },
+    "contact": {
+      "title": "Contact Us",
+      "description": "Contact Qingdao Kaituo Longhai for refrigeration component inquiries, custom solutions, and quotations."
+    },
+    "terms": {
+      "title": "Terms of Use",
+      "description": "Terms of use and site statement for Qingdao Kaituo Longhai Intelligent Control Co., Ltd."
+    },
+    "privacy": {
+      "title": "Privacy Policy",
+      "description": "Privacy policy and data protection information for the Kaituo Longhai corporate website."
+    },
+    "categories": {
+      "receivers": {
+        "title": "Receivers",
+        "description": "Professional refrigeration receivers with efficient storage, pressure-resistant design, and multiple specifications."
+      },
+      "gas-liquid-separators": {
+        "title": "Gas-Liquid Separators",
+        "description": "High-efficiency gas-liquid separators for improved refrigeration system performance, low pressure drop, and easy maintenance."
+      },
+      "oil-separators": {
+        "title": "Oil Separators",
+        "description": "Professional oil separators to protect compressors and extend service life with energy-saving design."
+      },
+      "damping-blocks": {
+        "title": "Damping Blocks",
+        "description": "Refrigeration damping blocks for vibration reduction, easy installation, and stable performance."
+      },
+      "shell-tube-heat-exchangers": {
+        "title": "Shell-and-Tube Heat Exchangers",
+        "description": "Shell-and-tube heat exchangers with robust construction and high thermal efficiency for industrial applications."
+      },
+      "copper-tube-series": {
+        "title": "Copper Tube Series",
+        "description": "Copper tube fittings and accessories with precision manufacturing and a wide range of specifications."
+      },
+      "plate-heat-exchangers": {
+        "title": "Plate Heat Exchangers",
+        "description": "Compact plate heat exchangers with excellent heat transfer performance for diverse industrial uses."
+      }
+    }
   }
 }

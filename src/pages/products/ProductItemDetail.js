@@ -2,6 +2,8 @@ import { lazy, Suspense, useMemo } from 'react';
 import { Link, Navigate, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useProductDetails } from '../../hooks/useProductDetails';
+import Seo from '../../components/Seo';
+import { truncateDescription } from '../../constants/seo';
 
 const ProductGlbViewer = lazy(() => import('../../components/products/ProductGlbViewer'));
 
@@ -67,9 +69,19 @@ const ProductItemDetail = () => {
   }
 
   const specEntries = Object.entries(product.specifications || {});
+  const productName = gl(product.name);
+  const productDescription = truncateDescription(gl(product.description));
+  const detailPath = `/products/${categoryPath}/${productId}`;
 
   return (
     <div className="py-8 pb-16 bg-white">
+      <Seo
+        title={`${productName} | ${t(config.navKey)}`}
+        description={productDescription}
+        path={detailPath}
+        image={product.image}
+        type="product"
+      />
       <div className="container mx-auto px-4 max-w-5xl">
         <nav className="text-sm mb-8">
           <Link to="/products" className="text-[#086c7b] hover:underline">

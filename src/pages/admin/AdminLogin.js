@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAdminAuth } from '../../hooks/useAdminAuth';
+import AdminSeo from '../../components/AdminSeo';
 
 const ADMIN_PASSWORD = process.env.REACT_APP_ADMIN_PASSWORD || 'ktlh2024admin';
 
@@ -48,6 +49,7 @@ export default function AdminLogin() {
 
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center">
+      <AdminSeo />
       <div className="bg-white rounded-xl shadow-lg p-10 w-full max-w-md">
         <div className="text-center mb-8">
           <div className="text-3xl font-bold text-[#086c7b] mb-1">KTLH</div>

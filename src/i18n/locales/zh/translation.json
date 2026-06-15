@@ -617,5 +617,63 @@
     "imageUploading": "上传中…",
     "imagePickImage": "请选择图片文件",
     "imageNeedLogin": "请先登录后台"
+  },
+  "seo": {
+    "siteName": "青岛开拓隆海智控有限公司",
+    "defaultDescription": "青岛开拓隆海智控有限公司——专业制冷系统元件制造商，产品涵盖储液器、气液分离器、油分离器、换热器、铜管配件等，服务全球客户。",
+    "home": {
+      "title": "首页",
+      "description": "青岛开拓隆海智控有限公司，二十年专注制冷系统元件制造，为全球企业提供储液器、气液分离器、换热器等优质产品。"
+    },
+    "about": {
+      "title": "关于我们",
+      "description": "了解青岛开拓隆海智控有限公司的发展历程、生产能力、全球战略合作伙伴与企业资质认证。"
+    },
+    "products": {
+      "title": "产品中心",
+      "description": "开拓隆海产品中心：储液器、气液分离器、油分离器、阻尼块、壳管式换热器、铜管系列、板式换热器等制冷系统配件。"
+    },
+    "contact": {
+      "title": "联系我们",
+      "description": "联系青岛开拓隆海智控有限公司，获取制冷配件产品咨询、定制方案与报价。"
+    },
+    "terms": {
+      "title": "使用条款",
+      "description": "青岛开拓隆海智控有限公司网站使用条款与声明。"
+    },
+    "privacy": {
+      "title": "隐私政策",
+      "description": "青岛开拓隆海智控有限公司网站隐私政策与用户数据保护说明。"
+    },
+    "categories": {
+      "receivers": {
+        "title": "储液器",
+        "description": "专业生产制冷系统储液器，高效储液、耐压设计、多规格可选，质量可靠。"
+      },
+      "gas-liquid-separators": {
+        "title": "气液分离器",
+        "description": "高效气液分离器，提升制冷系统运行效率，低压降、结构紧凑、维护简便。"
+      },
+      "oil-separators": {
+        "title": "油分离器",
+        "description": "专业油分离器，保护压缩机、延长使用寿命，高效油分、节能环保。"
+      },
+      "damping-blocks": {
+        "title": "阻尼块",
+        "description": "制冷系统阻尼块产品，减震降噪、安装便捷、性能稳定。"
+      },
+      "shell-tube-heat-exchangers": {
+        "title": "壳管式换热器",
+        "description": "壳管式换热器，高效换热、结构坚固，适用于各类制冷与工业换热场景。"
+      },
+      "copper-tube-series": {
+        "title": "铜管系列",
+        "description": "铜管配件系列产品，精密加工、规格齐全，满足制冷管道系统需求。"
+      },
+      "plate-heat-exchangers": {
+        "title": "板式换热器",
+        "description": "板式换热器产品，紧凑高效、换热性能优异，适用于多种工业应用。"
+      }
+    }
   }
 } 

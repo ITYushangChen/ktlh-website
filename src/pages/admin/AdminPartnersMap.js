@@ -3,6 +3,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { useAdminAuth } from '../../hooks/useAdminAuth';
 import { fetchFileFromGitHub, commitFileToGitHub } from '../../utils/githubApi';
 import AdminImageField from '../../components/admin/AdminImageField';
+import AdminSeo from '../../components/AdminSeo';
 
 const FILE_PATH = 'public/content/partners-map.json';
 
@@ -234,6 +235,7 @@ export default function AdminPartnersMap() {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <AdminSeo />
       <header className="bg-[#086c7b] text-white px-6 py-4 flex flex-wrap items-center justify-between gap-3 shadow">
         <div className="flex items-center gap-4">
           <span className="font-bold text-lg">KTLH 后台</span>

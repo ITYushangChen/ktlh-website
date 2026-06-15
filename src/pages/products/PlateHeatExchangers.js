@@ -1,12 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import ProductCategorySeo from '../../components/ProductCategorySeo';
 
 const PlateHeatExchangers = () => {
   const { t } = useTranslation();
 
   return (
     <div className="py-8 pb-16 bg-white">
+      <ProductCategorySeo categoryId="plate-heat-exchangers" path="/products/plate-heat-exchangers" />
       <section className="bg-white py-8">
         <div className="container mx-auto px-4">
           <nav className="text-sm mb-8">

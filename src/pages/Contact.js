@@ -1,6 +1,7 @@
 import React, { useMemo, useRef, useState } from 'react';
 import emailjs from 'emailjs-com';
 import { useTranslation } from 'react-i18next';
+import Seo from '../components/Seo';
 
 /** 与文案中的公司地址一致；也可用 REACT_APP_GOOGLE_MAPS_QUERY 覆盖 */
 const DEFAULT_MAP_QUERY = '青岛市胶州上合示范区湘江路21号';
@@ -116,6 +117,11 @@ const Contact = () => {
 
   return (
     <div className="py-16">
+      <Seo
+        title={t('seo.contact.title')}
+        description={t('seo.contact.description')}
+        path="/contact"
+      />
       {/* Hero Section */}
       <section className="bg-gray-50 py-20">
         <div className="container mx-auto px-4">
