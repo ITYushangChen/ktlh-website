@@ -4,112 +4,196 @@
       "id": "m-2002",
       "active": true,
       "year": "2002",
-      "phase": {
-        "zh": "创立",
-        "en": "ORIGIN",
-        "ja": "創業"
-      },
+      "phase": { "zh": "创立", "en": "ORIGIN", "ja": "創業" },
+      "position": "above",
       "events": [
         {
           "id": "e-2002-1",
-          "image": "/images/app/factory.jpg",
+          "image": "",
           "description": {
-            "zh": "青岛开拓隆海智控有限公司正式成立，专注制冷系统元件制造。",
-            "en": "Kaituo Longhai was founded in Qingdao, focusing on refrigeration system components.",
-            "ja": "青島開拓隆海智控有限公司が設立、冷凍システム部品の製造に着手。"
-          }
-        }
-      ]
-    },
-    {
-      "id": "m-2010",
-      "active": true,
-      "year": "2010–14",
-      "phase": {
-        "zh": "成长",
-        "en": "GROWTH",
-        "ja": "成長"
-      },
-      "events": [
-        {
-          "id": "e-2010-1",
-          "image": "/images/app/厂房/DJI_0176(1).jpg",
-          "description": {
-            "zh": "产能持续扩张，储液器、铜管件等核心产品线逐步完善。",
-            "en": "Production capacity expanded; core lines including receivers and copper fittings matured.",
-            "ja": "生産能力を拡大し、レシーバー・銅管部品などの主力製品を強化。"
-          }
-        }
-      ]
-    },
-    {
-      "id": "m-2016",
-      "active": true,
-      "year": "2014–16",
-      "phase": {
-        "zh": "突破",
-        "en": "BREAKTHROUGH",
-        "ja": "飛躍"
-      },
-      "events": [
-        {
-          "id": "e-2016-1",
-          "image": "/images/app/设备/_NOP8697.JPG",
-          "description": {
-            "zh": "研发中心获青岛市市级企业技术中心认定，产学研合作深入推进。",
-            "en": "R&D center recognized as a Qingdao municipal enterprise technology center.",
-            "ja": "研究開発センターが青島市企業技術センターに認定。"
+            "zh": "2002年3月29日，公司成立",
+            "en": "March 29, 2002 — company founded",
+            "ja": "2002年3月29日、会社設立"
           }
         },
         {
-          "id": "e-2016-2",
-          "image": "/images/app/技术/_NOP8602.JPG",
+          "id": "e-2002-2",
+          "image": "",
           "description": {
-            "zh": "与山东大学、山东科技大学建立校企合作研发平台。",
-            "en": "Established university–industry R&D platforms with Shandong University partners.",
-            "ja": "山东大学・山東科技大学との産学連携プラットフォームを設立。"
+            "zh": "年销售：200万元",
+            "en": "Annual sales: ¥2 million",
+            "ja": "年間売上：200万元"
+          }
+        },
+        {
+          "id": "e-2002-3",
+          "image": "",
+          "description": {
+            "zh": "客户群：三菱重工海尔、Haier",
+            "en": "Customers: Mitsubishi Heavy Industries Haier, Haier",
+            "ja": "主要顧客：三菱重工ハイアール、Haier"
+          }
+        },
+        {
+          "id": "e-2002-4",
+          "image": "",
+          "description": {
+            "zh": "产品类别：容器、配管等",
+            "en": "Products: receivers, piping, and more",
+            "ja": "製品：容器、配管など"
           }
         }
       ]
     },
     {
-      "id": "m-2021",
+      "id": "m-2007",
       "active": true,
-      "year": "2021",
-      "phase": {
-        "zh": "绽放",
-        "en": "BLOOM",
-        "ja": "開花"
-      },
+      "year": "2007",
+      "phase": { "zh": "拓展", "en": "EXPAND", "ja": "拡大" },
+      "position": "below",
       "events": [
         {
-          "id": "e-2021-1",
-          "image": "/images/app/厂房/_NOP8628.JPG",
+          "id": "e-2007-1",
+          "image": "",
           "description": {
-            "zh": "胶州上合示范区新厂区建成投产，占地 5.1 万㎡，建筑面积 4.3 万㎡。",
-            "en": "New Jiaozhou SCODA plant commissioned: 51,000 m² site, 43,000 m² built area.",
-            "ja": "膠州上合デモ区の新工場が竣工、敷地5.1万㎡、建築面積4.3万㎡。"
+            "zh": "年销售：1000万元",
+            "en": "Annual sales: ¥10 million",
+            "ja": "年間売上：1000万元"
+          }
+        },
+        {
+          "id": "e-2007-2",
+          "image": "",
+          "description": {
+            "zh": "开发国际市场：泰国、日本",
+            "en": "Entered international markets: Thailand, Japan",
+            "ja": "海外市場展開：タイ、日本"
           }
         }
       ]
     },
     {
-      "id": "m-2024",
+      "id": "m-2012",
       "active": true,
-      "year": "2024–26",
-      "phase": {
-        "zh": "里程碑",
-        "en": "MILESTONE",
-        "ja": "マイルストーン"
-      },
+      "year": "2012",
+      "phase": { "zh": "跃升", "en": "LEAP", "ja": "躍進" },
+      "position": "above",
       "events": [
         {
-          "id": "e-2024-1",
-          "image": "/images/app/world-map-partners.png",
+          "id": "e-2012-1",
+          "image": "",
           "description": {
-            "zh": "产品远销日本、印度、墨西哥、泰国、韩国等国家，全球战略合作持续深化。",
-            "en": "Products exported worldwide; strategic partnerships strengthened across key markets.",
-            "ja": "日本・インド・メキシコ・タイ・韓国などへ輸出拡大、戦略提携を深化。"
+            "zh": "年销售：1亿元",
+            "en": "Annual sales: ¥100 million",
+            "ja": "年間売上：1億元"
+          }
+        },
+        {
+          "id": "e-2012-2",
+          "image": "",
+          "description": {
+            "zh": "客户群体：三菱电机、三菱重工、日立等",
+            "en": "Customers: Mitsubishi Electric, Mitsubishi Heavy Industries, Hitachi, and more",
+            "ja": "主要顧客：三菱電機、三菱重工、日立など"
+          }
+        },
+        {
+          "id": "e-2012-3",
+          "image": "",
+          "description": {
+            "zh": "2008年，在城阳河套社区，2.5万㎡自建基地，启动运营",
+            "en": "2008: 25,000 m² self-built base in Chengyang Hetao began operations",
+            "ja": "2008年、城陽河套に2.5万㎡の自社基地を建設・稼働開始"
+          }
+        }
+      ]
+    },
+    {
+      "id": "m-2017",
+      "active": true,
+      "year": "2017",
+      "phase": { "zh": "多元", "en": "DIVERSIFY", "ja": "多様化" },
+      "position": "below",
+      "events": [
+        {
+          "id": "e-2017-1",
+          "image": "",
+          "description": {
+            "zh": "年销售：1.5亿元",
+            "en": "Annual sales: ¥150 million",
+            "ja": "年間売上：1.5億元"
+          }
+        },
+        {
+          "id": "e-2017-2",
+          "image": "",
+          "description": {
+            "zh": "新增品类：换热器、配管、阻尼、金属软管等",
+            "en": "New lines: heat exchangers, piping, dampers, metal hoses, and more",
+            "ja": "新製品：熱交換器、配管、ダンパー、金属ホースなど"
+          }
+        }
+      ]
+    },
+    {
+      "id": "m-2022",
+      "active": true,
+      "year": "2022",
+      "phase": { "zh": "跨越", "en": "SCALE", "ja": "飛躍" },
+      "position": "above",
+      "events": [
+        {
+          "id": "e-2022-1",
+          "image": "",
+          "description": {
+            "zh": "年销售：2.5亿元",
+            "en": "Annual sales: ¥250 million",
+            "ja": "年間売上：2.5億元"
+          }
+        },
+        {
+          "id": "e-2022-2",
+          "image": "",
+          "description": {
+            "zh": "全球认证：获取14项",
+            "en": "Global certifications: 14 obtained",
+            "ja": "グローバル認証：14項目取得"
+          }
+        },
+        {
+          "id": "e-2022-3",
+          "image": "",
+          "description": {
+            "zh": "2021年，胶州自建5.5万㎡生产基地，启动运营",
+            "en": "2021: 55,000 m² Jiaozhou production base commissioned",
+            "ja": "2021年、膠州に5.5万㎡の生産基地を建設・稼働開始"
+          }
+        },
+        {
+          "id": "e-2022-4",
+          "image": "",
+          "description": {
+            "zh": "新增品类：黄铜钠子、不锈钢容器等",
+            "en": "New lines: brass fittings, stainless steel vessels, and more",
+            "ja": "新製品：黄銅ナット、ステンレス容器など"
+          }
+        }
+      ]
+    },
+    {
+      "id": "m-2025",
+      "active": true,
+      "year": "2025",
+      "phase": { "zh": "展望", "en": "VISION", "ja": "展望" },
+      "position": "below",
+      "events": [
+        {
+          "id": "e-2025-1",
+          "image": "",
+          "description": {
+            "zh": "管理结构优化、海外市场布局、智能工厂升级",
+            "en": "Management optimization, overseas expansion, smart factory upgrades",
+            "ja": "管理体制の最適化、海外市場展開、スマート工場の高度化"
           }
         }
       ]

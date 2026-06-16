@@ -27,6 +27,7 @@ function emptyMilestone() {
     active: true,
     year: '',
     phase: { zh: '', en: '', ja: '' },
+    position: '',
     events: [],
   };
 }
@@ -59,6 +60,7 @@ function normalizeMilestone(row) {
     active: row.active !== false,
     year: row.year || '',
     phase,
+    position: row.position === 'above' || row.position === 'below' ? row.position : '',
     events,
   };
 }
@@ -408,6 +410,20 @@ export default function AdminCompanyHistory() {
                     placeholder="如 BREAKTHROUGH、突破"
                     className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm"
                   />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-500 mb-2">文案位置</label>
+                  <select
+                    value={editingItem.position || ''}
+                    onChange={(e) =>
+                      setEditingItem((p) => ({ ...p, position: e.target.value }))
+                    }
+                    className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm bg-white"
+                  >
+                    <option value="">自动交替（上/下）</option>
+                    <option value="above">时间轴上方</option>
+                    <option value="below">时间轴下方</option>
+                  </select>
                 </div>
               </div>
 
