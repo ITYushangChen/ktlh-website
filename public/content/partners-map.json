@@ -243,8 +243,8 @@
     },
     {
       "id": "swy",
-      "lat": 118.35,
-      "lng": 31.33,
+      "lat": 31.33,
+      "lng": 118.35,
       "connectToHub": true,
       "title": {
         "zh": "博世",
