@@ -194,7 +194,7 @@
       "id": "foshan_midea",
       "lat": 23.02,
       "lng": 113.12,
-      "connectToHub": false,
+      "connectToHub": true,
       "title": {
         "zh": "美的",
         "en": "Midea",
