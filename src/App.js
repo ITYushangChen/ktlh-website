@@ -18,6 +18,7 @@ const OilSeparators = lazy(() => import('./pages/products/OilSeparators'));
 const DampingBlocks = lazy(() => import('./pages/products/DampingBlocks'));
 const ShellTubeHeatExchangers = lazy(() => import('./pages/products/ShellTubeHeatExchangers'));
 const CopperTubeSeries = lazy(() => import('./pages/products/CopperTubeSeries'));
+const SteelPipes = lazy(() => import('./pages/products/SteelPipes'));
 const PlateHeatExchangers = lazy(() => import('./pages/products/PlateHeatExchangers'));
 const ProductItemDetail = lazy(() => import('./pages/products/ProductItemDetail'));
 const AdminLogin = lazy(() => import('./pages/admin/AdminLogin'));
@@ -59,6 +60,7 @@ function App() {
           <Route path="/products/damping-blocks" element={<LazyPage page={DampingBlocks} />} />
           <Route path="/products/shell-tube-heat-exchangers" element={<LazyPage page={ShellTubeHeatExchangers} />} />
           <Route path="/products/copper-tube-series" element={<LazyPage page={CopperTubeSeries} />} />
+          <Route path="/products/steel-pipes" element={<LazyPage page={SteelPipes} />} />
           <Route path="/products/plate-heat-exchangers" element={<LazyPage page={PlateHeatExchangers} />} />
           <Route path="/products/:categoryPath/:productId" element={<LazyPage page={ProductItemDetail} />} />
           <Route path="/careers" element={<Navigate to="/" replace />} />

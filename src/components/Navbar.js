@@ -2,32 +2,24 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import LanguageSwitcher from './LanguageSwitcher';
+import { buildProductGroups, glField } from '../utils/productsCatalog';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
-  const [productSubItems, setProductSubItems] = useState([]);
+  const [productGroups, setProductGroups] = useState([]);
   const dropdownRef = useRef(null);
   const location = useLocation();
   const { t, i18n } = useTranslation();
 
   useEffect(() => {
     fetch(`/content/products.json?t=${Date.now()}`)
-      .then(res => res.json())
-      .then(data => {
-        const active = (data.categories || []).filter(c => c.active !== false);
-        setProductSubItems(active.map(c => ({
-          path: c.link,
-          titleObj: c.title,
-        })));
-      })
-      .catch(() => setProductSubItems([]));
-  }, []);
+      .then((res) => res.json())
+      .then((data) => setProductGroups(buildProductGroups(data, i18n.language)))
+      .catch(() => setProductGroups([]));
+  }, [i18n.language]);
 
-  const gl = (field) => {
-    if (!field || typeof field === 'string') return field || '';
-    return field[i18n.language] || field.zh || '';
-  };
+  const gl = (field) => glField(field, i18n.language);
 
   const navItems = [
     { path: '/', label: t('nav.home') },
@@ -35,9 +27,16 @@ const Navbar = () => {
     {
       path: '/products',
       label: t('nav.products'),
-      subItems: productSubItems.map(s => ({ path: s.path, label: gl(s.titleObj) })),
+      subGroups: productGroups.map((group) => ({
+        id: group.id,
+        title: gl(group.title),
+        items: group.categories.map((c) => ({
+          path: c.link,
+          label: gl(c.title),
+        })),
+      })),
     },
-    { path: '/contact', label: t('nav.contact') }
+    { path: '/contact', label: t('nav.contact') },
   ];
 
   useEffect(() => {
@@ -87,7 +86,7 @@ const Navbar = () => {
           <div className="hidden md:flex items-center space-x-5">
             {navItems.map((item, index) => (
               <div key={index} className="relative">
-                {item.subItems ? (
+                {item.subGroups ? (
                   <div 
                     className="relative"
                     onMouseEnter={() => handleMouseEnter(index)}
@@ -119,30 +118,37 @@ const Navbar = () => {
                       </svg>
                     </Link>
                     <div
-                      className={`absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 transition-all duration-200 ${
+                      className={`absolute left-0 mt-2 w-56 bg-white rounded-md shadow-lg py-2 z-50 transition-all duration-200 ${
                         activeDropdown === index
                           ? 'opacity-100 transform translate-y-0 visible'
                           : 'opacity-0 transform -translate-y-2 invisible'
                       }`}
                     >
-                      {item.subItems.map((subItem, subIndex) => {
-                        const subCurrent = location.pathname === subItem.path;
-                        return (
-                          <Link
-                            key={subIndex}
-                            to={subItem.path}
-                            className={`block px-4 py-2 text-sm transition-colors duration-200 ${
-                              subCurrent
-                                ? 'font-semibold text-[#086c7b] bg-[#086c7b]/8'
-                                : 'text-gray-700 hover:bg-gray-100 hover:text-[#086c7b]'
-                            }`}
-                            aria-current={subCurrent ? 'page' : undefined}
-                            onClick={() => setActiveDropdown(null)}
-                          >
-                            {subItem.label}
-                          </Link>
-                        );
-                      })}
+                      {item.subGroups.map((group) => (
+                        <div key={group.id} className="py-1">
+                          <div className="px-4 py-1.5 text-xs font-semibold text-gray-500">
+                            {group.title}
+                          </div>
+                          {group.items.map((subItem) => {
+                            const subCurrent = location.pathname === subItem.path;
+                            return (
+                              <Link
+                                key={subItem.path}
+                                to={subItem.path}
+                                className={`block px-4 py-2 text-sm transition-colors duration-200 ${
+                                  subCurrent
+                                    ? 'font-semibold text-[#086c7b] bg-[#086c7b]/8'
+                                    : 'text-gray-700 hover:bg-gray-100 hover:text-[#086c7b]'
+                                }`}
+                                aria-current={subCurrent ? 'page' : undefined}
+                                onClick={() => setActiveDropdown(null)}
+                              >
+                                {subItem.label}
+                              </Link>
+                            );
+                          })}
+                        </div>
+                      ))}
                     </div>
                   </div>
                 ) : (
@@ -204,7 +210,7 @@ const Navbar = () => {
           <div className="px-2 pt-2 pb-3 space-y-1 border-t border-gray-100">
             {navItems.map((item, index) => (
               <div key={index}>
-                {item.subItems ? (
+                {item.subGroups ? (
                   <div>
                     <div className="flex items-stretch rounded-md overflow-hidden border border-transparent">
                       <Link
@@ -251,27 +257,32 @@ const Navbar = () => {
                         activeDropdown === index ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0 overflow-hidden'
                       }`}
                     >
-                      {item.subItems.map((subItem, subIndex) => {
-                        const subCurrent = location.pathname === subItem.path;
-                        return (
-                          <Link
-                            key={subIndex}
-                            to={subItem.path}
-                            className={`block px-3 py-2 rounded-md transition-colors ${
-                              subCurrent
-                                ? 'font-semibold text-[#086c7b] bg-[#086c7b]/10'
-                                : 'text-gray-700 hover:text-[#086c7b] hover:bg-gray-50'
-                            }`}
-                            aria-current={subCurrent ? 'page' : undefined}
-                            onClick={() => {
-                              setIsOpen(false);
-                              setActiveDropdown(null);
-                            }}
-                          >
-                            {subItem.label}
-                          </Link>
-                        );
-                      })}
+                      {item.subGroups.map((group) => (
+                        <div key={group.id} className="pt-1">
+                          <div className="px-3 py-1 text-xs font-semibold text-gray-500">{group.title}</div>
+                          {group.items.map((subItem) => {
+                            const subCurrent = location.pathname === subItem.path;
+                            return (
+                              <Link
+                                key={subItem.path}
+                                to={subItem.path}
+                                className={`block px-3 py-2 rounded-md transition-colors ${
+                                  subCurrent
+                                    ? 'font-semibold text-[#086c7b] bg-[#086c7b]/10'
+                                    : 'text-gray-700 hover:text-[#086c7b] hover:bg-gray-50'
+                                }`}
+                                aria-current={subCurrent ? 'page' : undefined}
+                                onClick={() => {
+                                  setIsOpen(false);
+                                  setActiveDropdown(null);
+                                }}
+                              >
+                                {subItem.label}
+                              </Link>
+                            );
+                          })}
+                        </div>
+                      ))}
                     </div>
                   </div>
                 ) : (

@@ -9,7 +9,8 @@
       "oil_separators": "オイルセパレーター",
       "damping_blocks": "ダンピングブロック",
       "shell_tube_heat_exchangers": "シェル＆チューブ熱交換器",
-      "copper_tube_series": "銅管シリーズ",
+      "copper_tube_series": "銅管",
+      "steel_pipes": "鋼管",
       "plate_heat_exchangers": "プレート式熱交換器"
     },
     "careers": "採用情報",
@@ -667,8 +668,12 @@
         "description": "堅牢な構造と高い熱交換効率のシェル＆チューブ熱交換器。"
       },
       "copper-tube-series": {
-        "title": "銅管シリーズ",
-        "description": "精密加工の銅管部品シリーズ。豊富な規格で冷凍配管ニーズに対応。"
+        "title": "銅管",
+        "description": "精密加工の銅管製品。豊富な規格で冷凍配管ニーズに対応。"
+      },
+      "steel-pipes": {
+        "title": "鋼管",
+        "description": "冷凍配管向け鋼管製品。高品質鋼材と信頼の耐圧性能。"
       },
       "plate-heat-exchangers": {
         "title": "プレート式熱交換器",

@@ -1,4 +1,42 @@
 {
+  "groups": [
+    {
+      "id": "pressure-vessels",
+      "categoryIds": ["receivers", "gas-liquid-separators", "oil-separators"],
+      "title": {
+        "zh": "压力容器",
+        "en": "Pressure Vessels",
+        "ja": "圧力容器"
+      }
+    },
+    {
+      "id": "piping-components",
+      "categoryIds": ["copper-tube-series", "steel-pipes"],
+      "title": {
+        "zh": "管路件",
+        "en": "Piping Components",
+        "ja": "配管部品"
+      }
+    },
+    {
+      "id": "heat-exchangers",
+      "categoryIds": ["shell-tube-heat-exchangers", "plate-heat-exchangers"],
+      "title": {
+        "zh": "换热器",
+        "en": "Heat Exchangers",
+        "ja": "熱交換器"
+      }
+    },
+    {
+      "id": "damping-blocks",
+      "categoryIds": ["damping-blocks"],
+      "title": {
+        "zh": "阻尼块",
+        "en": "Damping Blocks",
+        "ja": "ダンピングブロック"
+      }
+    }
+  ],
   "categories": [
     {
       "id": "receivers",
@@ -186,9 +224,9 @@
       "image": "/images/app/products/img-1775110838961-kvlukf.png",
       "link": "/products/copper-tube-series",
       "title": {
-        "zh": "铜管系列",
-        "en": "Copper Tube Series",
-        "ja": "銅管シリーズ"
+        "zh": "铜管",
+        "en": "Copper Tube",
+        "ja": "銅管"
       },
       "description": {
         "zh": "优质铜材制造，提供各类规格的铜管产品",
@@ -213,6 +251,42 @@
           "精密加工",
           "豊富な規格",
           "優れた熱伝導"
+        ]
+      }
+    },
+    {
+      "id": "steel-pipes",
+      "active": true,
+      "image": "/images/app/pipes.jpg",
+      "link": "/products/steel-pipes",
+      "title": {
+        "zh": "钢管",
+        "en": "Steel Pipe",
+        "ja": "鋼管"
+      },
+      "description": {
+        "zh": "优质钢材制造，提供各类规格的钢管产品",
+        "en": "High-quality steel pipe products in various specifications for refrigeration piping systems.",
+        "ja": "高品質鋼管製品を各種規格で提供。"
+      },
+      "features": {
+        "zh": [
+          "优质钢材",
+          "精密加工",
+          "规格齐全",
+          "耐压可靠"
+        ],
+        "en": [
+          "Premium steel",
+          "Precision processing",
+          "Full range specs",
+          "Reliable pressure rating"
+        ],
+        "ja": [
+          "高品質鋼材",
+          "精密加工",
+          "豊富な規格",
+          "信頼の耐圧性"
         ]
       }
     },

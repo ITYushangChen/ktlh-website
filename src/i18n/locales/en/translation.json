@@ -9,7 +9,8 @@
       "oil_separators": "Oil Separators",
       "damping_blocks": "Damping Blocks",
       "shell_tube_heat_exchangers": "Shell-and-Tube Heat Exchangers",
-      "copper_tube_series": "Copper Tube Series",
+      "copper_tube_series": "Copper Tube",
+      "steel_pipes": "Steel Pipe",
       "plate_heat_exchangers": "Plate Heat Exchangers"
     },
     "careers": "Careers",
@@ -667,8 +668,12 @@
         "description": "Shell-and-tube heat exchangers with robust construction and high thermal efficiency for industrial applications."
       },
       "copper-tube-series": {
-        "title": "Copper Tube Series",
-        "description": "Copper tube fittings and accessories with precision manufacturing and a wide range of specifications."
+        "title": "Copper Tube",
+        "description": "Copper tube products with precision manufacturing and a wide range of specifications."
+      },
+      "steel-pipes": {
+        "title": "Steel Pipe",
+        "description": "Steel pipe products for refrigeration piping systems with reliable pressure ratings."
       },
       "plate-heat-exchangers": {
         "title": "Plate Heat Exchangers",

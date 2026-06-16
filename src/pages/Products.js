@@ -1,25 +1,21 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { PRODUCT_CARD_FRAME } from '../constants/productUi';
 import Seo from '../components/Seo';
-import OptimizedImage from '../components/OptimizedImage';
+import { ProductCategoryCard } from '../components/ProductCategoryCard';
+import { buildProductGroups, glField } from '../utils/productsCatalog';
 
 const Products = () => {
   const { t, i18n } = useTranslation();
-  const [categories, setCategories] = useState([]);
+  const [groups, setGroups] = useState([]);
 
   useEffect(() => {
     fetch(`/content/products.json?t=${Date.now()}`)
       .then((res) => res.json())
-      .then((data) => setCategories((data.categories || []).filter((c) => c.active !== false)))
-      .catch(() => setCategories([]));
-  }, []);
+      .then((data) => setGroups(buildProductGroups(data, i18n.language)))
+      .catch(() => setGroups([]));
+  }, [i18n.language]);
 
-  const gl = (field) => {
-    if (!field || typeof field === 'string') return field || '';
-    return field[i18n.language] || field.zh || '';
-  };
+  const gl = (field) => glField(field, i18n.language);
 
   return (
     <div className="py-8 pb-16 bg-white">
@@ -29,36 +25,28 @@ const Products = () => {
         path="/products"
       />
       <section className="bg-white py-8 min-h-[50vh]">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {categories.map((category) => (
-              <div key={category.id} className={`${PRODUCT_CARD_FRAME} bg-white`}>
-                <div className="relative overflow-hidden bg-white">
-                  <OptimizedImage
-                    src={category.image}
-                    alt={gl(category.title)}
-                    loading="lazy"
-                    className="block w-full"
-                    imgClassName="w-full h-52 object-contain p-4"
-                  />
-                </div>
-                <div className="p-6 flex flex-col flex-1">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-3">{gl(category.title)}</h3>
-                  <div className="h-0.5 w-full mb-4 shrink-0 bg-[#086c7b]" aria-hidden />
-                  <div className="flex-1 min-h-0" aria-hidden />
-                  <Link
-                    to={category.link}
-                    className="inline-flex items-center text-sm font-medium mt-auto text-[#086c7b] hover:text-[#065a66] transition-colors"
+        <div className="container mx-auto px-4 max-w-6xl space-y-14 md:space-y-16">
+          {groups.map((group, index) => (
+            <div key={group.id}>
+              <div className="mb-8 md:mb-10">
+                <div className="flex items-center gap-3 mb-2">
+                  <span
+                    className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#086c7b] text-sm font-semibold text-white"
+                    aria-hidden
                   >
-                    {t('products.clickToView')}
-                    <span className="ml-0.5" aria-hidden>
-                      &gt;
-                    </span>
-                  </Link>
+                    {index + 1}
+                  </span>
+                  <h2 className="text-2xl md:text-3xl font-bold text-gray-900">{gl(group.title)}</h2>
                 </div>
+                <div className="h-0.5 w-16 bg-[#086c7b]/80 ml-11" aria-hidden />
               </div>
-            ))}
-          </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {group.categories.map((category) => (
+                  <ProductCategoryCard key={category.id} category={category} gl={gl} t={t} />
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       </section>
     </div>

@@ -9,7 +9,8 @@
       "oil_separators": "油分离器",
       "damping_blocks": "阻尼块",
       "shell_tube_heat_exchangers": "壳管式换热器",
-      "copper_tube_series": "铜管系列",
+      "copper_tube_series": "铜管",
+      "steel_pipes": "钢管",
       "plate_heat_exchangers": "板式换热器"
     },
     "careers": "招贤纳士",
@@ -667,8 +668,12 @@
         "description": "壳管式换热器，高效换热、结构坚固，适用于各类制冷与工业换热场景。"
       },
       "copper-tube-series": {
-        "title": "铜管系列",
-        "description": "铜管配件系列产品，精密加工、规格齐全，满足制冷管道系统需求。"
+        "title": "铜管",
+        "description": "铜管产品，精密加工、规格齐全，满足制冷管道系统需求。"
+      },
+      "steel-pipes": {
+        "title": "钢管",
+        "description": "钢管产品，优质钢材、耐压可靠，适用于制冷管路系统。"
       },
       "plate-heat-exchangers": {
         "title": "板式换热器",

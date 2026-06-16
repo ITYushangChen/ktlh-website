@@ -18,6 +18,7 @@ const CATEGORY_PATH_BY_ID = {
   'damping-blocks': 'damping-blocks',
   'shell-tube-heat-exchangers': 'shell-tube-heat-exchangers',
   'copper-tube-series': 'copper-tube-series',
+  'steel-pipes': 'steel-pipes',
   'plate-heat-exchangers': 'plate-heat-exchangers',
 };
 
