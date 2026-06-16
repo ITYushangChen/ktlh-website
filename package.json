@@ -33,7 +33,8 @@
   },
   "scripts": {
     "start": "craco start",
-    "prebuild": "node scripts/generate-sitemap.mjs",
+    "prestart": "node scripts/copy-3d-assets.mjs",
+    "prebuild": "node scripts/generate-sitemap.mjs && node scripts/copy-3d-assets.mjs",
     "optimize-images": "node scripts/optimize-images.mjs",
     "build": "craco build",
     "test": "craco test",
