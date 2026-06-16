@@ -257,6 +257,23 @@
         "ja": "蕪湖"
       },
       "image": ""
+    },
+    {
+      "id": "node-1781600958025",
+      "lat": 31.2304,
+      "lng": 121.4737,
+      "connectToHub": true,
+      "title": {
+        "zh": "三菱电机",
+        "en": "Mitsubishi Electric",
+        "ja": ""
+      },
+      "subtitle": {
+        "zh": "上海",
+        "en": "Shanghai",
+        "ja": ""
+      },
+      "image": ""
     }
   ]
 }
