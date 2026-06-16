@@ -6,7 +6,6 @@ import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 import { LazyPage } from './components/LazyPage';
 import Home from './pages/Home';
-import './i18n';
 
 const About = lazy(() => import('./pages/About'));
 const Products = lazy(() => import('./pages/Products'));
