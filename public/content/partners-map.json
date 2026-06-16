@@ -145,8 +145,8 @@
       "lng": 120.3,
       "connectToHub": true,
       "title": {
-        "zh": "富士通",
-        "en": "Fujitsu",
+        "zh": "将军通用",
+        "en": "General",
         "ja": "富士通"
       },
       "subtitle": {
@@ -194,7 +194,7 @@
       "id": "foshan_midea",
       "lat": 23.02,
       "lng": 113.12,
-      "connectToHub": true,
+      "connectToHub": false,
       "title": {
         "zh": "美的",
         "en": "Midea",
