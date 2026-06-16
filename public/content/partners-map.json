@@ -205,7 +205,7 @@
         "en": "Foshan / South China",
         "ja": "仏山・華南"
       },
-      "image": ""
+      "image": "/images/app/partners-map/img-1781600319670-p7qhqe.png"
     },
     {
       "id": "Sonyo Cold Chain",
@@ -238,6 +238,23 @@
         "zh": "合肥",
         "en": "Hefei",
         "ja": "Hefei"
+      },
+      "image": ""
+    },
+    {
+      "id": "swy",
+      "lat": 118.35,
+      "lng": 31.33,
+      "connectToHub": true,
+      "title": {
+        "zh": "博世",
+        "en": "Bosch",
+        "ja": "ボッシュ"
+      },
+      "subtitle": {
+        "zh": "芜湖",
+        "en": "Wuhu",
+        "ja": "蕪湖"
       },
       "image": ""
     }
