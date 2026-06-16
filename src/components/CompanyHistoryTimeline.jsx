@@ -4,8 +4,13 @@ import { motion } from 'framer-motion';
 import OptimizedImage from './OptimizedImage';
 import { glField } from '../utils/productsCatalog';
 
-const ARROW_COLORS = ['#5b9bd5', '#e8a54b', '#94a3b8', '#d4a843', '#5b9bd5'];
-const YEAR_RED = '#c41e3a';
+/** 与 tailwind.config.js / Logo 主色一致 */
+const BRAND = {
+  primary: '#086c7b',
+  light: '#0a8a9d',
+  dark: '#065562',
+};
+const ARROW_COLORS = [BRAND.primary, BRAND.light, '#5ba8b5', BRAND.light, BRAND.dark];
 
 const stagger = {
   hidden: {},
@@ -74,11 +79,11 @@ function ContentCard({ events, gl, position, delay }) {
         position === 'above' ? 'mb-1' : 'mt-1'
       }`}
     >
-      <ul className="space-y-1.5 text-[11px] sm:text-xs leading-relaxed text-slate-700 text-left px-1">
+      <ul className="space-y-1.5 text-[11px] sm:text-xs leading-relaxed text-gray-700 text-left px-1">
         {items.map((event) => (
           <li key={event.id} className="flex gap-2 items-start">
             {event.image ? (
-              <div className="shrink-0 w-8 h-8 rounded-md overflow-hidden bg-white shadow-sm">
+              <div className="shrink-0 w-8 h-8 rounded-md overflow-hidden bg-white shadow-sm ring-1 ring-primary/10">
                 <OptimizedImage
                   src={event.image}
                   alt=""
@@ -88,7 +93,7 @@ function ContentCard({ events, gl, position, delay }) {
               </div>
             ) : (
               <span
-                className="shrink-0 mt-1.5 w-1.5 h-1.5 rounded-full bg-slate-400/80"
+                className="shrink-0 mt-1.5 w-1.5 h-1.5 rounded-full bg-primary/55"
                 aria-hidden
               />
             )}
@@ -111,7 +116,7 @@ function YearBubble({ year, size, index, delay, isActive, onClick }) {
       onClick={onClick}
       whileHover={{ scale: 1.06 }}
       whileTap={{ scale: 0.97 }}
-      className="relative z-10 rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-[#086c7b] focus-visible:ring-offset-2"
+      className="relative z-10 rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
       style={{
         width: size,
         height: size,
@@ -130,7 +135,7 @@ function YearBubble({ year, size, index, delay, isActive, onClick }) {
       <span
         className="absolute inset-0 flex items-center justify-center font-bold tabular-nums select-none"
         style={{
-          color: YEAR_RED,
+          color: BRAND.primary,
           fontSize: size < 64 ? '0.95rem' : size < 76 ? '1.1rem' : '1.35rem',
         }}
       >
@@ -145,13 +150,13 @@ function Connector({ position }) {
     <div className="flex flex-col items-center shrink-0" aria-hidden>
       {position === 'above' ? (
         <>
-          <span className="w-2 h-2 rounded-full bg-slate-300/80 mb-0.5" />
-          <span className="w-px h-4 bg-slate-300/90" />
+          <span className="w-2 h-2 rounded-full bg-primary/45 mb-0.5" />
+          <span className="w-px h-4 bg-primary/25" />
         </>
       ) : (
         <>
-          <span className="w-px h-4 bg-slate-300/90" />
-          <span className="w-2 h-2 rounded-full bg-slate-300/80 mt-0.5" />
+          <span className="w-px h-4 bg-primary/25" />
+          <span className="w-2 h-2 rounded-full bg-primary/45 mt-0.5" />
         </>
       )}
     </div>
@@ -163,24 +168,20 @@ function DesktopTimeline({ milestones, gl, selectedId, setSelectedId }) {
 
   return (
     <div
-      className="relative rounded-3xl overflow-hidden shadow-inner border border-white/60"
+      className="relative rounded-3xl overflow-hidden shadow-inner border border-primary/10"
       style={{
         background:
-          'linear-gradient(105deg, #e3f2f7 0%, #eef1f8 42%, #e8eaf6 78%, #e4f0f5 100%)',
+          'linear-gradient(105deg, #e8f4f6 0%, #eef6f7 42%, #e4f1f3 78%, #e6f3f5 100%)',
       }}
     >
-      <div className="absolute inset-0 opacity-30 pointer-events-none" aria-hidden>
-        <div
-          className="absolute -top-20 -right-20 w-64 h-64 rounded-full blur-3xl bg-[#086c7b]/20"
-        />
-        <div
-          className="absolute -bottom-16 -left-16 w-56 h-56 rounded-full blur-3xl bg-indigo-200/50"
-        />
+      <div className="absolute inset-0 opacity-35 pointer-events-none" aria-hidden>
+        <div className="absolute -top-20 -right-20 w-64 h-64 rounded-full blur-3xl bg-primary/20" />
+        <div className="absolute -bottom-16 -left-16 w-56 h-56 rounded-full blur-3xl bg-primary-light/25" />
       </div>
 
       <div className="relative px-4 sm:px-8 py-10 lg:py-12">
         <motion.div
-          className="absolute left-10 right-10 lg:left-14 lg:right-14 top-1/2 h-0 border-t-2 border-dashed border-slate-400/45 -translate-y-1/2 pointer-events-none"
+          className="absolute left-10 right-10 lg:left-14 lg:right-14 top-1/2 h-0 border-t-2 border-dashed border-primary/30 -translate-y-1/2 pointer-events-none"
           initial={{ scaleX: 0, opacity: 0 }}
           animate={{ scaleX: 1, opacity: 1 }}
           transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
@@ -250,9 +251,9 @@ function DesktopTimeline({ milestones, gl, selectedId, setSelectedId }) {
 function MobileTimeline({ milestones, gl, selectedId, setSelectedId }) {
   return (
     <motion.div
-      className="rounded-2xl overflow-hidden border border-slate-100 shadow-sm"
+      className="rounded-2xl overflow-hidden border border-primary/10 shadow-sm"
       style={{
-        background: 'linear-gradient(180deg, #e8f4f8 0%, #f4f6fb 100%)',
+        background: 'linear-gradient(180deg, #e8f4f6 0%, #f0f7f8 100%)',
       }}
       variants={stagger}
       initial="hidden"
@@ -270,7 +271,7 @@ function MobileTimeline({ milestones, gl, selectedId, setSelectedId }) {
                   type="button"
                   onClick={() => setSelectedId(milestone.id)}
                   whileTap={{ scale: 0.95 }}
-                  className="relative z-10 rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-[#086c7b]"
+                  className="relative z-10 rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                   style={{ width: Math.min(size, 72), height: Math.min(size, 72) }}
                   aria-expanded={isActive}
                 >
@@ -283,13 +284,13 @@ function MobileTimeline({ milestones, gl, selectedId, setSelectedId }) {
                     }}
                   />
                   <span
-                    className="absolute inset-0 flex items-center justify-center font-bold text-[#c41e3a] text-sm"
+                    className="absolute inset-0 flex items-center justify-center font-bold text-primary text-sm"
                   >
                     {milestone.year}
                   </span>
                 </motion.button>
                 {index < milestones.length - 1 && (
-                  <div className="w-0.5 flex-1 min-h-[1.5rem] my-1 bg-gradient-to-b from-slate-300/80 to-slate-200/40" />
+                  <div className="w-0.5 flex-1 min-h-[1.5rem] my-1 bg-gradient-to-b from-primary/35 to-primary/10" />
                 )}
               </div>
 
@@ -297,13 +298,13 @@ function MobileTimeline({ milestones, gl, selectedId, setSelectedId }) {
                 <motion.div
                   layout
                   className={`rounded-xl p-3 transition-colors ${
-                    isActive ? 'bg-white shadow-md ring-1 ring-[#086c7b]/10' : 'bg-white/60'
+                    isActive ? 'bg-white shadow-md ring-1 ring-primary/15' : 'bg-white/60'
                   }`}
                 >
-                  <ul className="space-y-2 text-sm text-slate-700 leading-relaxed">
+                  <ul className="space-y-2 text-sm text-gray-700 leading-relaxed">
                     {(milestone.events || []).map((event) => (
                       <li key={event.id} className="flex gap-2 items-start">
-                        <span className="shrink-0 mt-1.5 w-1.5 h-1.5 rounded-full bg-slate-400" />
+                        <span className="shrink-0 mt-1.5 w-1.5 h-1.5 rounded-full bg-primary/55" />
                         <span>{gl(event.description)}</span>
                       </li>
                     ))}
