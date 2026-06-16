@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import LanguageSwitcher from './LanguageSwitcher';
+import ProductsMegaMenu from './ProductsMegaMenu';
 import { buildProductGroups, glField } from '../utils/productsCatalog';
 
 const Navbar = () => {
@@ -73,9 +74,12 @@ const Navbar = () => {
   const navLinkBase =
     'px-2 py-1.5 rounded-md text-sm transition-colors duration-300';
 
+  const productsNavIndex = navItems.findIndex((item) => item.subGroups);
+  const productsMenuOpen = activeDropdown === productsNavIndex;
+
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm shadow-md">
-      <div className="max-w-6xl mx-auto px-4">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm shadow-md" ref={dropdownRef}>
+      <div className="max-w-6xl mx-auto px-4 relative">
         <div className="flex justify-between items-center h-14">
           {/* Logo */}
           <Link to="/" className="flex items-center shrink-0">
@@ -87,7 +91,7 @@ const Navbar = () => {
             {navItems.map((item, index) => (
               <div key={index} className="relative">
                 {item.subGroups ? (
-                  <div 
+                  <div
                     className="relative"
                     onMouseEnter={() => handleMouseEnter(index)}
                     onMouseLeave={handleMouseLeave}
@@ -98,11 +102,12 @@ const Navbar = () => {
                         isNavActive(item.path) ? navActiveClass : navInactiveClass
                       } transition-colors duration-300`}
                       aria-current={isNavActive(item.path) ? 'page' : undefined}
+                      aria-expanded={productsMenuOpen}
                     >
                       <span>{item.label}</span>
                       <svg
                         className={`w-4 h-4 shrink-0 transform transition-transform duration-200 pointer-events-none ${
-                          activeDropdown === index ? 'rotate-180' : ''
+                          productsMenuOpen ? 'rotate-180' : ''
                         }`}
                         fill="none"
                         stroke="currentColor"
@@ -118,37 +123,17 @@ const Navbar = () => {
                       </svg>
                     </Link>
                     <div
-                      className={`absolute left-0 mt-2 w-56 bg-white rounded-md shadow-lg py-2 z-50 transition-all duration-200 ${
-                        activeDropdown === index
-                          ? 'opacity-100 transform translate-y-0 visible'
-                          : 'opacity-0 transform -translate-y-2 invisible'
+                      className={`absolute left-1/2 -translate-x-1/2 top-full pt-1 w-[min(calc(100vw-2rem),72rem)] z-50 ${
+                        productsMenuOpen ? 'visible' : 'invisible pointer-events-none'
                       }`}
                     >
-                      {item.subGroups.map((group) => (
-                        <div key={group.id} className="py-1">
-                          <div className="px-4 py-1.5 text-xs font-semibold text-gray-500">
-                            {group.title}
-                          </div>
-                          {group.items.map((subItem) => {
-                            const subCurrent = location.pathname === subItem.path;
-                            return (
-                              <Link
-                                key={subItem.path}
-                                to={subItem.path}
-                                className={`block px-4 py-2 text-sm transition-colors duration-200 ${
-                                  subCurrent
-                                    ? 'font-semibold text-[#086c7b] bg-[#086c7b]/8'
-                                    : 'text-gray-700 hover:bg-gray-100 hover:text-[#086c7b]'
-                                }`}
-                                aria-current={subCurrent ? 'page' : undefined}
-                                onClick={() => setActiveDropdown(null)}
-                              >
-                                {subItem.label}
-                              </Link>
-                            );
-                          })}
-                        </div>
-                      ))}
+                      <ProductsMegaMenu
+                        groups={productGroups}
+                        lang={i18n.language}
+                        isOpen={productsMenuOpen}
+                        onClose={() => setActiveDropdown(null)}
+                        currentPath={location.pathname}
+                      />
                     </div>
                   </div>
                 ) : (
