@@ -338,7 +338,7 @@ function brandGroupKey(node) {
 
 export default function WorldPartnersMap() {
   const { i18n, t } = useTranslation();
-  const lang = i18n.language || 'zh';
+  const lang = i18n.language || 'en';
   const [data, setData] = useState(DEFAULT_DATA);
   const [highlightedNodeIds, setHighlightedNodeIds] = useState(null);
   const coarsePointer = useCoarsePointer();

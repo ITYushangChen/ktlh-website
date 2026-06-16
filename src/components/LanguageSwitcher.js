@@ -2,8 +2,8 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 const LANGS = [
-  { code: 'zh', label: 'CN' },
   { code: 'en', label: 'EN' },
+  { code: 'zh', label: 'CN' },
   { code: 'ja', label: 'JP' },
 ];
 
@@ -15,7 +15,7 @@ const isActiveLang = (current, code) => {
 
 const LanguageSwitcher = () => {
   const { i18n } = useTranslation();
-  const resolved = i18n.resolvedLanguage || i18n.language || 'zh';
+  const resolved = i18n.resolvedLanguage || i18n.language || 'en';
 
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);

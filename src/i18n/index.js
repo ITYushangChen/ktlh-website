@@ -11,16 +11,16 @@ import legalEN from './locales/en/legal.json';
 import legalJA from './locales/ja/legal.json';
 
 const resources = {
-  zh: {
-    translation: {
-      ...translationZH,
-      legal: legalZH,
-    },
-  },
   en: {
     translation: {
       ...translationEN,
       legal: legalEN,
+    },
+  },
+  zh: {
+    translation: {
+      ...translationZH,
+      legal: legalZH,
     },
   },
   ja: {
@@ -36,13 +36,14 @@ i18n
   .use(initReactI18next)
   .init({
     resources,
-    fallbackLng: 'zh',
+    lng: 'en',
+    fallbackLng: 'en',
     debug: process.env.NODE_ENV === 'development',
     interpolation: {
       escapeValue: false
     },
     detection: {
-      order: ['localStorage', 'navigator'],
+      order: ['localStorage', 'htmlTag'],
       caches: ['localStorage']
     }
   });

@@ -1,14 +1,17 @@
 import { Link } from 'react-router-dom';
 import { PRODUCT_CARD_FRAME } from '../constants/productUi';
+import OptimizedImage from './OptimizedImage';
 
 /** 与产品中心列表卡片一致：图、名称、主色分割线、「点击查看」→ 子产品详情 */
 const ProductDetailCard = ({ product, gl, t, listPath }) => (
   <div className={`${PRODUCT_CARD_FRAME} bg-white`}>
     <div className="relative overflow-hidden bg-white">
-      <img
+      <OptimizedImage
         src={product.image}
         alt={gl(product.name)}
-        className="w-full h-52 object-contain p-4"
+        loading="lazy"
+        className="block w-full"
+        imgClassName="w-full h-52 object-contain p-4"
       />
     </div>
     <div className="p-6 flex flex-col flex-1">

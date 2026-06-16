@@ -1,8 +1,11 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { lazy, Suspense, useCallback, useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
-import WorldPartnersMap from '../components/WorldPartnersMap';
 import Seo from '../components/Seo';
+import OptimizedImage from '../components/OptimizedImage';
+import { useInView } from '../hooks/useInView';
+
+const WorldPartnersMap = lazy(() => import('../components/WorldPartnersMap'));
 
 function certTitleForLang(titleObj, lang) {
   if (!titleObj || typeof titleObj !== 'object') return '';
@@ -16,6 +19,7 @@ const About = () => {
   const certScrollRef = useRef(null);
   const [canCertPrev, setCanCertPrev] = useState(false);
   const [canCertNext, setCanCertNext] = useState(false);
+  const [partnersMapRef, partnersMapInView] = useInView({ rootMargin: '120px' });
   const founderParagraphsRaw = t('about.founder.paragraphs', { returnObjects: true });
   const founderParagraphs = Array.isArray(founderParagraphsRaw) ? founderParagraphsRaw : [];
 
@@ -108,9 +112,25 @@ const About = () => {
           </h2>
         </div>
 
-        <div className="relative left-1/2 w-screen -translate-x-1/2 flex justify-center items-center py-6 min-h-[min(72vh,736px)]">
+        <div
+          ref={partnersMapRef}
+          className="relative left-1/2 w-screen -translate-x-1/2 flex justify-center items-center py-6 min-h-[min(72vh,736px)]"
+        >
           <div className="w-[72vw] h-[72vh] min-h-[384px] min-w-[240px] max-w-[1536px] max-h-[960px]">
-            <WorldPartnersMap />
+            {partnersMapInView ? (
+              <Suspense
+                fallback={
+                  <div
+                    className="h-full w-full min-h-[384px] animate-pulse rounded-xl bg-gray-100"
+                    aria-hidden
+                  />
+                }
+              >
+                <WorldPartnersMap />
+              </Suspense>
+            ) : (
+              <div className="h-full w-full min-h-[384px] rounded-xl bg-gray-50" aria-hidden />
+            )}
           </div>
         </div>
       </section>
@@ -131,12 +151,12 @@ const About = () => {
             >
               <div className="flex flex-col md:flex-row md:items-start gap-8 md:gap-10">
                 <figure className="shrink-0 mx-auto md:mx-0 w-full max-w-[280px] sm:max-w-[300px] md:max-w-[min(38vw,300px)] lg:max-w-[320px]">
-                  <img
+                  <OptimizedImage
                     src="/images/app/chairman.png"
                     alt={t('about.founder.imageAlt')}
-                    className="w-full h-auto rounded-xl shadow-md border border-gray-100/90 object-contain bg-white/40"
                     loading="lazy"
-                    decoding="async"
+                    className="block w-full"
+                    imgClassName="w-full h-auto rounded-xl shadow-md border border-gray-100/90 object-contain bg-white/40"
                   />
                 </figure>
                 <div className="flex-1 min-w-0">
@@ -196,7 +216,7 @@ const About = () => {
               >
                 <div className="flex gap-6" style={{ minWidth: 'max-content' }}>
                 {certItems.map((item, index) => {
-                  const label = certTitleForLang(item.title, i18n.language || 'zh');
+                  const label = certTitleForLang(item.title, i18n.language || 'en');
                   return (
                     <motion.article
                       key={`${item.image}-${index}`}
@@ -213,11 +233,12 @@ const About = () => {
                         className="block focus:outline-none focus-visible:ring-2 focus-visible:ring-[#086c7b] focus-visible:ring-offset-2 rounded-t-xl"
                       >
                         <div className="aspect-[3/4] bg-gray-50 flex items-center justify-center p-3 min-h-[200px]">
-                          <img
+                          <OptimizedImage
                             src={item.image}
                             alt={label}
-                            className="max-h-full max-w-full w-auto object-contain"
                             loading="lazy"
+                            className="block max-h-full max-w-full"
+                            imgClassName="max-h-full max-w-full w-auto object-contain"
                           />
                         </div>
                       </a>

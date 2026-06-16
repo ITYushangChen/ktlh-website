@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useMemo, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
 import Seo from '../components/Seo';
+import OptimizedImage from '../components/OptimizedImage';
+import { useInView } from '../hooks/useInView';
 
 const FEATURE_CAROUSEL_MS = 5500;
 
@@ -36,6 +38,16 @@ const Home = () => {
   const products = getTranslationArray('home.products.items');
 
   const [featureIndex, setFeatureIndex] = useState(0);
+  const [featuresRef, featuresInView] = useInView({ rootMargin: '300px' });
+
+  const featureSlidesToLoad = useMemo(() => {
+    if (!featuresInView || advantageSlides.length === 0) return new Set();
+    const indices = new Set([featureIndex]);
+    if (advantageSlides.length > 1) {
+      indices.add((featureIndex + 1) % advantageSlides.length);
+    }
+    return indices;
+  }, [featuresInView, featureIndex, advantageSlides.length]);
 
   useEffect(() => {
     if (advantageSlides.length === 0) return;
@@ -309,6 +321,7 @@ const Home = () => {
 
       {/* 我们的优势：4 屏轮播（文案与配图见 home.features.items） */}
       <section
+        ref={featuresRef}
         id="home-features"
         className="relative -mt-px min-h-screen w-full overflow-hidden pt-px"
         style={{ backgroundColor: HOME_SEAM }}
@@ -333,19 +346,27 @@ const Home = () => {
         {advantageSlides.length > 0 &&
           advantageSlides.map((f, i) => {
             const src = f.image || '/images/app/factory.jpg';
+            const shouldLoad = featureSlidesToLoad.has(i);
+            const isActive = i === featureIndex;
             return (
               <motion.div
                 key={`${src}-${i}`}
                 className="absolute inset-0 z-0 pointer-events-none"
                 initial={false}
-                animate={{ opacity: i === featureIndex ? 1 : 0 }}
+                animate={{ opacity: isActive ? 1 : 0 }}
                 transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
               >
-                <div
-                  className="absolute inset-0 bg-cover bg-center"
-                  style={{ backgroundImage: `url('${src}')` }}
-                  aria-hidden
-                />
+                {shouldLoad ? (
+                  <OptimizedImage
+                    src={src}
+                    alt=""
+                    aria-hidden
+                    loading={isActive && i === 0 ? 'eager' : 'lazy'}
+                    fetchPriority={isActive && i === 0 ? 'high' : undefined}
+                    className="absolute inset-0 block h-full w-full"
+                    imgClassName="h-full w-full object-cover"
+                  />
+                ) : null}
               </motion.div>
             );
           })}
@@ -457,12 +478,12 @@ const Home = () => {
                   className="group bg-white rounded-lg shadow-lg overflow-hidden motion-safe:transition-transform motion-safe:duration-300 motion-safe:ease-out motion-safe:hover:-translate-y-1"
                 >
                   <div className="relative h-48 overflow-hidden">
-                    <img
+                    <OptimizedImage
                       src={product.image}
                       alt={product.title}
                       loading="lazy"
-                      decoding="async"
-                      className="h-full w-full object-cover motion-safe:transition-transform motion-safe:duration-300 motion-safe:ease-out motion-safe:group-hover:scale-[1.04] transform-gpu"
+                      className="block h-full w-full"
+                      imgClassName="h-full w-full object-cover motion-safe:transition-transform motion-safe:duration-300 motion-safe:ease-out motion-safe:group-hover:scale-[1.04] transform-gpu"
                     />
                     <div
                       className="pointer-events-none absolute inset-0 bg-[#086c7b] opacity-0 motion-safe:transition-opacity motion-safe:duration-300 motion-safe:group-hover:opacity-20"

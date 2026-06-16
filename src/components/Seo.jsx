@@ -28,7 +28,7 @@ export default function Seo({
   const fullTitle = includeSiteName && title ? `${title} | ${siteName}` : title || siteName;
   const canonical = absoluteUrl(path);
   const ogImage = image ? absoluteUrl(image) : DEFAULT_OG_IMAGE;
-  const locale = LOCALE_MAP[i18n.language] || LOCALE_MAP.zh;
+  const locale = LOCALE_MAP[i18n.language] || LOCALE_MAP.en;
 
   return (
     <Helmet>

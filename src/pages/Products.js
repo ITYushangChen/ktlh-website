@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { PRODUCT_CARD_FRAME } from '../constants/productUi';
 import Seo from '../components/Seo';
+import OptimizedImage from '../components/OptimizedImage';
 
 const Products = () => {
   const { t, i18n } = useTranslation();
@@ -33,10 +34,12 @@ const Products = () => {
             {categories.map((category) => (
               <div key={category.id} className={`${PRODUCT_CARD_FRAME} bg-white`}>
                 <div className="relative overflow-hidden bg-white">
-                  <img
+                  <OptimizedImage
                     src={category.image}
                     alt={gl(category.title)}
-                    className="w-full h-52 object-contain p-4"
+                    loading="lazy"
+                    className="block w-full"
+                    imgClassName="w-full h-52 object-contain p-4"
                   />
                 </div>
                 <div className="p-6 flex flex-col flex-1">

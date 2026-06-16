@@ -3,6 +3,7 @@ import { Link, Navigate, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useProductDetails } from '../../hooks/useProductDetails';
 import Seo from '../../components/Seo';
+import OptimizedImage from '../../components/OptimizedImage';
 import { truncateDescription } from '../../constants/seo';
 
 const ProductGlbViewer = lazy(() => import('../../components/products/ProductGlbViewer'));
@@ -97,10 +98,13 @@ const ProductItemDetail = () => {
 
         <div className="flex flex-col lg:flex-row gap-10 lg:gap-12 items-start">
           <div className="w-full lg:w-[min(100%,380px)] shrink-0 mx-auto lg:mx-0">
-            <img
+            <OptimizedImage
               src={product.image}
               alt={gl(product.name)}
-              className="w-full h-auto max-h-[min(70vh,520px)] object-contain rounded-xl border border-gray-100 bg-white p-4 shadow-sm"
+              loading="eager"
+              fetchPriority="high"
+              className="block w-full"
+              imgClassName="w-full h-auto max-h-[min(70vh,520px)] object-contain rounded-xl border border-gray-100 bg-white p-4 shadow-sm"
             />
             {product.viewer3dGlb && (
               <Suspense

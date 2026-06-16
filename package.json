@@ -34,6 +34,7 @@
   "scripts": {
     "start": "craco start",
     "prebuild": "node scripts/generate-sitemap.mjs",
+    "optimize-images": "node scripts/optimize-images.mjs",
     "build": "craco build",
     "test": "craco test",
     "eject": "react-scripts eject"
