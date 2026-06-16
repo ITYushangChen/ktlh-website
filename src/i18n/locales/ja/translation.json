@@ -192,6 +192,9 @@
     "certificationsTitle": "認証・資格",
     "certificationsSubtitle": "品質・技術・コンプライアンスへの取り組みを示す認証です。証書のスキャン画像はリポジトリ内で随時差し替えできます。",
     "certificationsEmpty": "認証資料を準備中です。しばらくしてからご覧ください。",
+    "historyTitle": "会社の歩み",
+    "historySubtitle": "設立以来、冷凍システム部品に専念し、技術で成長し品質で信頼を築いてきました。",
+    "historyEmpty": "会社沿革のコンテンツを準備中です。しばらくしてからご覧ください。",
     "certificationsPrev": "前の認証へ",
     "certificationsNext": "次の認証へ",
     "partners": {

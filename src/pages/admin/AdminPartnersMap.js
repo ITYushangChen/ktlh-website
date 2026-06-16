@@ -242,6 +242,9 @@ export default function AdminPartnersMap() {
           <span className="text-blue-200 text-sm">/ 战略伙伴地图（经纬度）</span>
         </div>
         <div className="flex items-center gap-3 flex-wrap justify-end">
+          <Link to="/admin/company-history" className="text-sm text-blue-200 hover:text-white">
+            公司历程
+          </Link>
           <Link to="/admin/certifications" className="text-sm text-blue-200 hover:text-white">
             资质认证
           </Link>

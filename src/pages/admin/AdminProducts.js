@@ -185,6 +185,12 @@ export default function AdminProducts() {
         </div>
         <div className="flex items-center gap-3 flex-wrap justify-end">
           <Link
+            to="/admin/company-history"
+            className="text-sm text-blue-200 hover:text-white transition-colors"
+          >
+            公司历程
+          </Link>
+          <Link
             to="/admin/certifications"
             className="text-sm text-blue-200 hover:text-white transition-colors"
           >

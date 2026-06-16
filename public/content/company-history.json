@@ -1,0 +1,118 @@
+{
+  "milestones": [
+    {
+      "id": "m-2002",
+      "active": true,
+      "year": "2002",
+      "phase": {
+        "zh": "创立",
+        "en": "ORIGIN",
+        "ja": "創業"
+      },
+      "events": [
+        {
+          "id": "e-2002-1",
+          "image": "/images/app/factory.jpg",
+          "description": {
+            "zh": "青岛开拓隆海智控有限公司正式成立，专注制冷系统元件制造。",
+            "en": "Kaituo Longhai was founded in Qingdao, focusing on refrigeration system components.",
+            "ja": "青島開拓隆海智控有限公司が設立、冷凍システム部品の製造に着手。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "m-2010",
+      "active": true,
+      "year": "2010–14",
+      "phase": {
+        "zh": "成长",
+        "en": "GROWTH",
+        "ja": "成長"
+      },
+      "events": [
+        {
+          "id": "e-2010-1",
+          "image": "/images/app/厂房/DJI_0176(1).jpg",
+          "description": {
+            "zh": "产能持续扩张，储液器、铜管件等核心产品线逐步完善。",
+            "en": "Production capacity expanded; core lines including receivers and copper fittings matured.",
+            "ja": "生産能力を拡大し、レシーバー・銅管部品などの主力製品を強化。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "m-2016",
+      "active": true,
+      "year": "2014–16",
+      "phase": {
+        "zh": "突破",
+        "en": "BREAKTHROUGH",
+        "ja": "飛躍"
+      },
+      "events": [
+        {
+          "id": "e-2016-1",
+          "image": "/images/app/设备/_NOP8697.JPG",
+          "description": {
+            "zh": "研发中心获青岛市市级企业技术中心认定，产学研合作深入推进。",
+            "en": "R&D center recognized as a Qingdao municipal enterprise technology center.",
+            "ja": "研究開発センターが青島市企業技術センターに認定。"
+          }
+        },
+        {
+          "id": "e-2016-2",
+          "image": "/images/app/技术/_NOP8602.JPG",
+          "description": {
+            "zh": "与山东大学、山东科技大学建立校企合作研发平台。",
+            "en": "Established university–industry R&D platforms with Shandong University partners.",
+            "ja": "山东大学・山東科技大学との産学連携プラットフォームを設立。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "m-2021",
+      "active": true,
+      "year": "2021",
+      "phase": {
+        "zh": "绽放",
+        "en": "BLOOM",
+        "ja": "開花"
+      },
+      "events": [
+        {
+          "id": "e-2021-1",
+          "image": "/images/app/厂房/_NOP8628.JPG",
+          "description": {
+            "zh": "胶州上合示范区新厂区建成投产，占地 5.1 万㎡，建筑面积 4.3 万㎡。",
+            "en": "New Jiaozhou SCODA plant commissioned: 51,000 m² site, 43,000 m² built area.",
+            "ja": "膠州上合デモ区の新工場が竣工、敷地5.1万㎡、建築面積4.3万㎡。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "m-2024",
+      "active": true,
+      "year": "2024–26",
+      "phase": {
+        "zh": "里程碑",
+        "en": "MILESTONE",
+        "ja": "マイルストーン"
+      },
+      "events": [
+        {
+          "id": "e-2024-1",
+          "image": "/images/app/world-map-partners.png",
+          "description": {
+            "zh": "产品远销日本、印度、墨西哥、泰国、韩国等国家，全球战略合作持续深化。",
+            "en": "Products exported worldwide; strategic partnerships strengthened across key markets.",
+            "ja": "日本・インド・メキシコ・タイ・韓国などへ輸出拡大、戦略提携を深化。"
+          }
+        }
+      ]
+    }
+  ]
+}

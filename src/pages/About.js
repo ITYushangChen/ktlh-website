@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import Seo from '../components/Seo';
 import OptimizedImage from '../components/OptimizedImage';
 import { useInView } from '../hooks/useInView';
+import CompanyHistoryTimeline from '../components/CompanyHistoryTimeline';
 
 const WorldPartnersMap = lazy(() => import('../components/WorldPartnersMap'));
 
@@ -101,6 +102,17 @@ const About = () => {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Company History Timeline */}
+      <section className="py-16 bg-gray-50/80">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto mb-10 text-center">
+            <h2 className="text-3xl font-bold mb-3">{t('about.historyTitle')}</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">{t('about.historySubtitle')}</p>
+          </div>
+          <CompanyHistoryTimeline />
         </div>
       </section>
 

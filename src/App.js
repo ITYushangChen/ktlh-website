@@ -26,6 +26,7 @@ const AdminProducts = lazy(() => import('./pages/admin/AdminProducts'));
 const AdminProductDetails = lazy(() => import('./pages/admin/AdminProductDetails'));
 const AdminCertifications = lazy(() => import('./pages/admin/AdminCertifications'));
 const AdminPartnersMap = lazy(() => import('./pages/admin/AdminPartnersMap'));
+const AdminCompanyHistory = lazy(() => import('./pages/admin/AdminCompanyHistory'));
 
 function PublicLayout() {
   return (
@@ -74,6 +75,7 @@ function App() {
         <Route path="/admin/product-details/:categoryId" element={<LazyPage page={AdminProductDetails} />} />
         <Route path="/admin/certifications" element={<LazyPage page={AdminCertifications} />} />
         <Route path="/admin/partners-map" element={<LazyPage page={AdminPartnersMap} />} />
+        <Route path="/admin/company-history" element={<LazyPage page={AdminCompanyHistory} />} />
         <Route path="/admin" element={<LazyPage page={AdminLogin} />} />
       </Routes>
     </Router>
