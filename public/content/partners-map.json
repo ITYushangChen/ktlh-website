@@ -60,9 +60,9 @@
       "lng": -46.63,
       "connectToHub": true,
       "title": {
-        "zh": "日立",
-        "en": "Hitachi",
-        "ja": "日立"
+        "zh": "博世",
+        "en": "Bosch",
+        "ja": "博世"
       },
       "subtitle": {
         "zh": "巴西",
@@ -77,8 +77,8 @@
       "lng": -3.7,
       "connectToHub": true,
       "title": {
-        "zh": "日立",
-        "en": "Hitachi",
+        "zh": "博世",
+        "en": "Bosch",
         "ja": "日立"
       },
       "subtitle": {
