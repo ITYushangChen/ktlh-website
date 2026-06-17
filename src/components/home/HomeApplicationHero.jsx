@@ -139,30 +139,9 @@ export default function HomeApplicationHero() {
         <div className="absolute bottom-0 left-0 w-64 h-64 rounded-full bg-primary-light/20 blur-3xl" />
       </div>
 
-      <div className="container mx-auto px-4 pt-10 pb-6 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="flex flex-wrap items-end gap-3 sm:gap-4 mb-6 lg:mb-8"
-        >
-          <div>
-            <h1 className="text-3xl sm:text-4xl font-bold text-primary-dark tracking-tight">
-              {t('home.applicationHero.sectionTitle')}
-            </h1>
-            <p className="text-sm text-slate-500 font-medium tracking-widest mt-1 uppercase">
-              {t('home.applicationHero.sectionSubtitle')}
-            </p>
-          </div>
-          <span className="rounded-full bg-slate-200/80 text-slate-600 text-xs sm:text-sm px-4 py-1.5 font-medium">
-            {t('home.applicationHero.tag')}
-          </span>
-        </motion.div>
-      </div>
-
       <div
         ref={containerRef}
-        className="relative flex-1 container mx-auto px-4 pb-8 lg:pb-12 z-10 min-h-0"
+        className="relative flex-1 container mx-auto px-4 pt-8 sm:pt-10 pb-8 lg:pb-12 z-10 min-h-0"
       >
         <svg
           className="absolute inset-0 w-full h-full pointer-events-none z-0"
