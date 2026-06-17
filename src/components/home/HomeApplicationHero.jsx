@@ -212,33 +212,6 @@ export default function HomeApplicationHero() {
             <span aria-hidden="true">{typedSubtitle}</span>
             {!heroTypingDone && typedSubtitle.length > 0 && <TypeCursor />}
           </p>
-          <motion.div
-            className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mt-6 sm:mt-8"
-            initial={{ opacity: 0, y: 20, filter: 'blur(8px)' }}
-            animate={
-              heroTypingDone
-                ? { opacity: 1, y: 0, filter: 'blur(0px)' }
-                : { opacity: 0, y: 20, filter: 'blur(8px)' }
-            }
-            transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }}>
-              <Link
-                to="/products"
-                className="inline-flex items-center justify-center px-6 sm:px-8 py-2.5 sm:py-3 rounded-md text-sm sm:text-base font-medium text-white bg-primary hover:bg-primary-dark shadow-md shadow-primary/25 transition-colors"
-              >
-                {t('home.hero.cta.primary')}
-              </Link>
-            </motion.div>
-            <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }}>
-              <Link
-                to="/contact"
-                className="inline-flex items-center justify-center px-6 sm:px-8 py-2.5 sm:py-3 rounded-md text-sm sm:text-base font-medium border-2 border-primary/40 text-primary-dark bg-white/80 hover:bg-white transition-colors"
-              >
-                {t('home.hero.cta.secondary')}
-              </Link>
-            </motion.div>
-          </motion.div>
         </div>
       </div>
 
@@ -276,7 +249,7 @@ export default function HomeApplicationHero() {
 
           {/* 中心 Hub */}
           <motion.div
-            className="order-1 lg:order-2 flex justify-center py-4 lg:py-0"
+            className="order-1 lg:order-2 flex flex-col items-center py-4 lg:py-0"
             initial={{ opacity: 0, scale: 0.85 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ type: 'spring', stiffness: 280, damping: 22, delay: 0.05 }}
@@ -303,6 +276,33 @@ export default function HomeApplicationHero() {
                 {t('home.applicationHero.hubSubtitle')}
               </p>
             </div>
+            <motion.div
+              className="flex flex-row flex-wrap items-center justify-center gap-3 mt-4 sm:mt-5"
+              initial={{ opacity: 0, y: 16, filter: 'blur(6px)' }}
+              animate={
+                heroTypingDone
+                  ? { opacity: 1, y: 0, filter: 'blur(0px)' }
+                  : { opacity: 0, y: 16, filter: 'blur(6px)' }
+              }
+              transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }}>
+                <Link
+                  to="/products"
+                  className="inline-flex items-center justify-center px-6 sm:px-8 py-2.5 sm:py-3 rounded-md text-sm sm:text-base font-medium text-white bg-primary hover:bg-primary-dark shadow-md shadow-primary/20 transition-colors"
+                >
+                  {t('home.hero.cta.primary')}
+                </Link>
+              </motion.div>
+              <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }}>
+                <Link
+                  to="/contact"
+                  className="inline-flex items-center justify-center px-6 sm:px-8 py-2.5 sm:py-3 rounded-md text-sm sm:text-base font-medium border border-slate-300/90 text-primary-dark bg-white hover:bg-slate-50 transition-colors shadow-sm"
+                >
+                  {t('home.hero.cta.secondary')}
+                </Link>
+              </motion.div>
+            </motion.div>
           </motion.div>
 
           {/* 右侧产品圆 grid */}
