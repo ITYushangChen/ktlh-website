@@ -8,6 +8,62 @@ import { glField } from '../../utils/productsCatalog';
 
 const HOME_SEAM = '#030712';
 
+const TypeCursor = () => (
+  <motion.span
+    className="inline-block w-[2px] sm:w-[3px] h-[0.92em] align-baseline ml-1 rounded-sm bg-primary shadow-[0_0_12px_rgba(8,108,123,0.45)]"
+    animate={{ opacity: [1, 0.2, 1] }}
+    transition={{ duration: 0.8, repeat: Infinity, ease: 'easeInOut' }}
+    aria-hidden
+  />
+);
+
+function useHeroTyping(heroTitle, heroSubtitle) {
+  const [typedTitle, setTypedTitle] = useState('');
+  const [typedSubtitle, setTypedSubtitle] = useState('');
+  const [heroTypingDone, setHeroTypingDone] = useState(false);
+
+  useEffect(() => {
+    setTypedTitle('');
+    setTypedSubtitle('');
+    setHeroTypingDone(false);
+    let cancelled = false;
+    const timers = [];
+    const wait = (ms) =>
+      new Promise((resolve) => {
+        timers.push(
+          setTimeout(() => {
+            if (!cancelled) resolve();
+          }, ms),
+        );
+      });
+
+    const run = async () => {
+      await wait(320);
+      const titleSpeed = /[\u3000-\u9fff\u3040-\u30ff\uac00-\ud7af]/.test(heroTitle) ? 52 : 38;
+      for (let i = 1; i <= heroTitle.length; i++) {
+        if (cancelled) return;
+        setTypedTitle(heroTitle.slice(0, i));
+        if (i < heroTitle.length) await wait(titleSpeed);
+      }
+      await wait(320);
+      const subSpeed = /[\u3000-\u9fff\u3040-\u30ff\uac00-\ud7af]/.test(heroSubtitle) ? 32 : 22;
+      for (let i = 1; i <= heroSubtitle.length; i++) {
+        if (cancelled) return;
+        setTypedSubtitle(heroSubtitle.slice(0, i));
+        if (i < heroSubtitle.length) await wait(subSpeed);
+      }
+      if (!cancelled) setHeroTypingDone(true);
+    };
+    run();
+    return () => {
+      cancelled = true;
+      timers.forEach((id) => clearTimeout(id));
+    };
+  }, [heroTitle, heroSubtitle]);
+
+  return { typedTitle, typedSubtitle, heroTypingDone };
+}
+
 function useElementLines(containerRef, hubRef, nodeElementsRef, leftCardRef, enabled) {
   const [lines, setLines] = useState([]);
 
@@ -93,6 +149,10 @@ export default function HomeApplicationHero() {
   const { t, i18n } = useTranslation();
   const lang = i18n.language || 'en';
 
+  const heroTitle = t('home.hero.title');
+  const heroSubtitle = t('home.hero.subtitle');
+  const { typedTitle, typedSubtitle, heroTypingDone } = useHeroTyping(heroTitle, heroSubtitle);
+
   const [categories, setCategories] = useState([]);
   const [activeId, setActiveId] = useState(null);
 
@@ -139,9 +199,52 @@ export default function HomeApplicationHero() {
         <div className="absolute bottom-0 left-0 w-64 h-64 rounded-full bg-primary-light/20 blur-3xl" />
       </div>
 
+      {/* 公司名 + 介绍（打字机动画） */}
+      <div className="relative z-20 container mx-auto px-4 pt-8 sm:pt-10 pb-4 sm:pb-6">
+        <div className="max-w-4xl mx-auto text-center">
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-primary-dark mb-3 sm:mb-4 min-h-[2.5em] sm:min-h-[2em] leading-tight tracking-tight">
+            <span className="sr-only">{heroTitle}</span>
+            <span className="inline" aria-hidden="true">{typedTitle}</span>
+            {!heroTypingDone && typedSubtitle.length === 0 && <TypeCursor />}
+          </h1>
+          <p className="text-base sm:text-lg lg:text-xl text-slate-600 min-h-[3rem] sm:min-h-[3.5rem] leading-relaxed max-w-3xl mx-auto">
+            <span className="sr-only">{heroSubtitle}</span>
+            <span aria-hidden="true">{typedSubtitle}</span>
+            {!heroTypingDone && typedSubtitle.length > 0 && <TypeCursor />}
+          </p>
+          <motion.div
+            className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mt-6 sm:mt-8"
+            initial={{ opacity: 0, y: 20, filter: 'blur(8px)' }}
+            animate={
+              heroTypingDone
+                ? { opacity: 1, y: 0, filter: 'blur(0px)' }
+                : { opacity: 0, y: 20, filter: 'blur(8px)' }
+            }
+            transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }}>
+              <Link
+                to="/products"
+                className="inline-flex items-center justify-center px-6 sm:px-8 py-2.5 sm:py-3 rounded-md text-sm sm:text-base font-medium text-white bg-primary hover:bg-primary-dark shadow-md shadow-primary/25 transition-colors"
+              >
+                {t('home.hero.cta.primary')}
+              </Link>
+            </motion.div>
+            <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }}>
+              <Link
+                to="/contact"
+                className="inline-flex items-center justify-center px-6 sm:px-8 py-2.5 sm:py-3 rounded-md text-sm sm:text-base font-medium border-2 border-primary/40 text-primary-dark bg-white/80 hover:bg-white transition-colors"
+              >
+                {t('home.hero.cta.secondary')}
+              </Link>
+            </motion.div>
+          </motion.div>
+        </div>
+      </div>
+
       <div
         ref={containerRef}
-        className="relative flex-1 container mx-auto px-4 pt-8 sm:pt-10 pb-8 lg:pb-12 z-10 min-h-0"
+        className="relative flex-1 container mx-auto px-4 pb-8 lg:pb-12 z-10 min-h-0"
       >
         <svg
           className="absolute inset-0 w-full h-full pointer-events-none z-0"
@@ -199,20 +302,6 @@ export default function HomeApplicationHero() {
               <p className="text-white/85 text-xs sm:text-sm mt-1 px-3 tracking-wide">
                 {t('home.applicationHero.hubSubtitle')}
               </p>
-              <div className="mt-4 flex flex-wrap justify-center gap-2 px-3">
-                <Link
-                  to="/products"
-                  className="text-xs sm:text-sm px-3 py-1.5 rounded-md bg-white text-primary font-medium hover:bg-cyan-50 transition-colors"
-                >
-                  {t('home.hero.cta.primary')}
-                </Link>
-                <Link
-                  to="/contact"
-                  className="text-xs sm:text-sm px-3 py-1.5 rounded-md border border-white/70 text-white hover:bg-white/10 transition-colors"
-                >
-                  {t('home.hero.cta.secondary')}
-                </Link>
-              </div>
             </div>
           </motion.div>
 
