@@ -238,7 +238,7 @@ export default function HomeApplicationHero() {
 
       <div
         ref={containerRef}
-        className="relative flex-1 container mx-auto px-4 pb-10 lg:pb-14 z-10 min-h-0"
+        className="relative flex-1 container mx-auto px-4 pb-12 sm:pb-16 lg:pb-20 z-10 min-h-0"
       >
         <svg
           className="absolute inset-0 w-full h-full pointer-events-none z-0"
@@ -328,7 +328,7 @@ export default function HomeApplicationHero() {
 
           {/* 右侧产品圆 grid */}
           <motion.div
-            className="order-3 grid grid-cols-2 sm:grid-cols-4 gap-x-3 sm:gap-x-4 gap-y-5 sm:gap-y-6 justify-items-center w-full max-w-md sm:max-w-lg lg:max-w-none mx-auto lg:mx-0 pb-2"
+            className="order-3 grid grid-cols-2 sm:grid-cols-4 gap-x-4 sm:gap-x-5 gap-y-6 sm:gap-y-7 justify-items-center w-full max-w-lg sm:max-w-xl lg:max-w-none mx-auto lg:mx-0 pb-6 sm:pb-8"
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.55, delay: 0.15 }}
@@ -340,7 +340,7 @@ export default function HomeApplicationHero() {
                 <Link
                   key={cat.id}
                   to={cat.link || `/products/${cat.id}`}
-                  className="group flex flex-col items-center text-center w-[5.5rem] sm:w-28 min-w-0"
+                  className="group flex flex-col items-center text-center w-[6.25rem] sm:w-[7.75rem] min-w-0"
                   onMouseEnter={() => setActiveId(cat.id)}
                   onMouseLeave={() => setActiveId(null)}
                   onFocus={() => setActiveId(cat.id)}
@@ -352,14 +352,14 @@ export default function HomeApplicationHero() {
                     }}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.97 }}
-                    className={`relative w-20 h-20 sm:w-[5.5rem] sm:h-[5.5rem] rounded-full bg-white shadow-md overflow-hidden ring-2 transition-all duration-300 flex items-center justify-center ${
+                    className={`relative w-[4.75rem] h-[4.75rem] sm:w-20 sm:h-20 rounded-full bg-white shadow-md overflow-hidden ring-2 transition-all duration-300 flex items-center justify-center shrink-0 ${
                       isActive ? 'ring-primary shadow-lg shadow-primary/20' : 'ring-white/90'
                     }`}
                   >
                     <CategoryCircleImage src={cat.image} loading={i < 4 ? 'eager' : 'lazy'} />
                   </motion.div>
                   <span
-                    className={`mt-2 w-full text-[10px] sm:text-[11px] font-semibold leading-snug px-0.5 transition-colors ${
+                    className={`mt-2 w-full text-[10px] sm:text-xs font-semibold leading-snug px-0.5 whitespace-normal break-words transition-colors ${
                       isActive ? 'text-primary' : 'text-slate-700'
                     }`}
                   >
@@ -403,9 +403,9 @@ export default function HomeApplicationHero() {
 
       {/* 过渡到深色「我们的优势」区块 */}
       <div
-        className="absolute bottom-0 left-0 right-0 z-[5] pointer-events-none h-32 sm:h-40"
+        className="absolute bottom-0 left-0 right-0 z-[5] pointer-events-none h-24 sm:h-28"
         style={{
-          background: `linear-gradient(to top, ${HOME_SEAM} 0%, rgba(3,7,18,0.85) 35%, transparent 100%)`,
+          background: `linear-gradient(to top, ${HOME_SEAM} 0%, rgba(3,7,18,0.6) 28%, transparent 100%)`,
         }}
         aria-hidden
       />
