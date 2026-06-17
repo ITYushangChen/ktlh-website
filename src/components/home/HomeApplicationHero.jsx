@@ -145,6 +145,27 @@ function HubLinkPath({ x1, y1, x2, y2, delay }) {
   );
 }
 
+const FALLBACK_PRODUCT_IMG = '/images/app/logo.png';
+
+function CategoryCircleImage({ src, loading }) {
+  const [imgSrc, setImgSrc] = useState(src || FALLBACK_PRODUCT_IMG);
+
+  useEffect(() => {
+    setImgSrc(src || FALLBACK_PRODUCT_IMG);
+  }, [src]);
+
+  return (
+    <OptimizedImage
+      src={imgSrc}
+      alt=""
+      loading={loading}
+      className="block w-full h-full"
+      imgClassName="w-full h-full object-contain object-center p-2 sm:p-2.5"
+      onError={() => setImgSrc(FALLBACK_PRODUCT_IMG)}
+    />
+  );
+}
+
 export default function HomeApplicationHero() {
   const { t, i18n } = useTranslation();
   const lang = i18n.language || 'en';
@@ -188,7 +209,7 @@ export default function HomeApplicationHero() {
 
   return (
     <section
-      className="relative min-h-screen flex flex-col overflow-hidden"
+      className="relative min-h-screen flex flex-col overflow-x-hidden"
       style={{
         background:
           'linear-gradient(105deg, #e8f4f8 0%, #eef4fb 38%, #eceef8 72%, #e6f2f6 100%)',
@@ -217,7 +238,7 @@ export default function HomeApplicationHero() {
 
       <div
         ref={containerRef}
-        className="relative flex-1 container mx-auto px-4 pb-8 lg:pb-12 z-10 min-h-0"
+        className="relative flex-1 container mx-auto px-4 pb-10 lg:pb-14 z-10 min-h-0"
       >
         <svg
           className="absolute inset-0 w-full h-full pointer-events-none z-0"
@@ -235,7 +256,7 @@ export default function HomeApplicationHero() {
           ))}
         </svg>
 
-        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-[minmax(0,1.1fr)_auto_minmax(0,1fr)] gap-6 lg:gap-4 items-center">
+        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_auto_minmax(280px,1.25fr)] gap-8 lg:gap-6 xl:gap-8 items-center">
           {/* 左侧示意图 */}
           <motion.div
             ref={leftCardRef}
@@ -307,7 +328,7 @@ export default function HomeApplicationHero() {
 
           {/* 右侧产品圆 grid */}
           <motion.div
-            className="order-3 grid grid-cols-4 sm:grid-cols-4 gap-x-2 gap-y-4 sm:gap-3"
+            className="order-3 grid grid-cols-2 sm:grid-cols-4 gap-x-3 sm:gap-x-4 gap-y-5 sm:gap-y-6 justify-items-center w-full max-w-md sm:max-w-lg lg:max-w-none mx-auto lg:mx-0 pb-2"
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.55, delay: 0.15 }}
@@ -319,32 +340,26 @@ export default function HomeApplicationHero() {
                 <Link
                   key={cat.id}
                   to={cat.link || `/products/${cat.id}`}
-                  ref={(el) => {
-                    nodeElementsRef.current[i] = el;
-                  }}
-                  className="group flex flex-col items-center text-center"
+                  className="group flex flex-col items-center text-center w-[5.5rem] sm:w-28 min-w-0"
                   onMouseEnter={() => setActiveId(cat.id)}
                   onMouseLeave={() => setActiveId(null)}
                   onFocus={() => setActiveId(cat.id)}
                   onBlur={() => setActiveId(null)}
                 >
                   <motion.div
-                    whileHover={{ scale: 1.06 }}
+                    ref={(el) => {
+                      nodeElementsRef.current[i] = el;
+                    }}
+                    whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.97 }}
-                    className={`relative w-[4.5rem] h-[4.5rem] sm:w-20 sm:h-20 rounded-full bg-white shadow-md overflow-hidden ring-2 transition-all duration-300 ${
-                      isActive ? 'ring-primary shadow-lg shadow-primary/20' : 'ring-white/80'
+                    className={`relative w-20 h-20 sm:w-[5.5rem] sm:h-[5.5rem] rounded-full bg-white shadow-md overflow-hidden ring-2 transition-all duration-300 flex items-center justify-center ${
+                      isActive ? 'ring-primary shadow-lg shadow-primary/20' : 'ring-white/90'
                     }`}
                   >
-                    <OptimizedImage
-                      src={cat.image || '/images/app/logo.png'}
-                      alt={title}
-                      loading={i < 4 ? 'eager' : 'lazy'}
-                      className="block w-full h-full"
-                      imgClassName="w-full h-full object-cover"
-                    />
+                    <CategoryCircleImage src={cat.image} loading={i < 4 ? 'eager' : 'lazy'} />
                   </motion.div>
                   <span
-                    className={`mt-1.5 text-[10px] sm:text-xs font-semibold leading-tight line-clamp-2 transition-colors ${
+                    className={`mt-2 w-full text-[10px] sm:text-[11px] font-semibold leading-snug px-0.5 transition-colors ${
                       isActive ? 'text-primary' : 'text-slate-700'
                     }`}
                   >
