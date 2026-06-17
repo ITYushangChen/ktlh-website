@@ -27,6 +27,58 @@
       },
       "scrollHint": "下にスクロールして詳しく"
     },
+    "applicationHero": {
+      "sectionTitle": "製品応用",
+      "sectionSubtitle": "COMPANY PROFILE",
+      "tag": "生産応用",
+      "hubTitle": "ワンストップ調達",
+      "hubSubtitle": "One-stop Procurement",
+      "diagramAria": "冷凍システム製品応用図",
+      "diagramCallouts": [
+        {
+          "title": "3Dファン",
+          "description": "低騒音・大風量",
+          "anchorX": 32,
+          "anchorY": 38,
+          "side": "left"
+        },
+        {
+          "title": "DCファン",
+          "description": "省エネ駆動",
+          "anchorX": 32,
+          "anchorY": 52,
+          "side": "left"
+        },
+        {
+          "title": "オイルセパレーター",
+          "description": "コンプレッサーを保護",
+          "anchorX": 28,
+          "anchorY": 58,
+          "side": "left"
+        },
+        {
+          "title": "コンプレッサー",
+          "description": "システムの中核",
+          "anchorX": 28,
+          "anchorY": 54,
+          "side": "right"
+        },
+        {
+          "title": "ガス・液分離器",
+          "description": "安全な高効率分離",
+          "anchorX": 72,
+          "anchorY": 48,
+          "side": "right"
+        },
+        {
+          "title": "親水アルミ箔",
+          "description": "熱交換・排水性能向上",
+          "anchorX": 72,
+          "anchorY": 62,
+          "side": "right"
+        }
+      ]
+    },
     "features": {
       "title": "当社の強み",
       "subtitle": "冷凍システム部品に二十年の実績。専門性と現代的な製造基盤を兼ね備え、世界中のお客様にお届けします。",

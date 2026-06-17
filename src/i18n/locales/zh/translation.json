@@ -27,6 +27,58 @@
       },
       "scrollHint": "向下滑动了解更多"
     },
+    "applicationHero": {
+      "sectionTitle": "产品应用",
+      "sectionSubtitle": "COMPANY PROFILE",
+      "tag": "生产应用",
+      "hubTitle": "一站式采购",
+      "hubSubtitle": "One-stop Procurement",
+      "diagramAria": "制冷系统产品应用示意图",
+      "diagramCallouts": [
+        {
+          "title": "3D风扇",
+          "description": "低噪大风量，提升换热效率",
+          "anchorX": 32,
+          "anchorY": 38,
+          "side": "left"
+        },
+        {
+          "title": "直流风扇",
+          "description": "节能驱动，稳定可靠",
+          "anchorX": 32,
+          "anchorY": 52,
+          "side": "left"
+        },
+        {
+          "title": "油分离器",
+          "description": "保护压缩机，延长系统寿命",
+          "anchorX": 28,
+          "anchorY": 58,
+          "side": "left"
+        },
+        {
+          "title": "压缩机",
+          "description": "系统核心动力部件",
+          "anchorX": 28,
+          "anchorY": 54,
+          "side": "right"
+        },
+        {
+          "title": "气液分离器",
+          "description": "高效分离，保障运行安全",
+          "anchorX": 72,
+          "anchorY": 48,
+          "side": "right"
+        },
+        {
+          "title": "亲水铝箔",
+          "description": "提升蒸发器换热与排水性能",
+          "anchorX": 72,
+          "anchorY": 62,
+          "side": "right"
+        }
+      ]
+    },
     "features": {
       "title": "我们的优势",
       "subtitle": "二十年专注制冷系统元件制造，融合专业竞争力与现代化企业实力，服务全球客户",
