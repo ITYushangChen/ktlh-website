@@ -38,43 +38,49 @@
         {
           "title": "3D Fan",
           "description": "Low noise, high airflow",
-          "anchorX": 28,
-          "anchorY": 48,
+          "anchorX": 27,
+          "anchorY": 36,
+          "labelY": 29,
           "side": "left"
         },
         {
           "title": "DC Fan",
           "description": "Energy-efficient drive",
-          "anchorX": 24,
-          "anchorY": 56,
+          "anchorX": 27,
+          "anchorY": 51,
+          "labelY": 46,
           "side": "left"
-        },
-        {
-          "title": "Oil Separator",
-          "description": "Protects the compressor",
-          "anchorX": 22,
-          "anchorY": 64,
-          "side": "left"
-        },
-        {
-          "title": "Compressor",
-          "description": "Core system component",
-          "anchorX": 35,
-          "anchorY": 60,
-          "side": "left"
-        },
-        {
-          "title": "Gas-Liquid Separator",
-          "description": "Safe efficient separation",
-          "anchorX": 63,
-          "anchorY": 38,
-          "side": "right"
         },
         {
           "title": "Hydrophilic Foil",
           "description": "Better heat exchange & drainage",
-          "anchorX": 71,
-          "anchorY": 28,
+          "anchorX": 44,
+          "anchorY": 37,
+          "labelY": 22,
+          "side": "right"
+        },
+        {
+          "title": "Gas-Liquid Separator",
+          "description": "Safe efficient separation",
+          "anchorX": 60,
+          "anchorY": 43,
+          "labelY": 38,
+          "side": "right"
+        },
+        {
+          "title": "Oil Separator",
+          "description": "Protects the compressor",
+          "anchorX": 66,
+          "anchorY": 60,
+          "labelY": 54,
+          "side": "right"
+        },
+        {
+          "title": "Compressor",
+          "description": "Core system component",
+          "anchorX": 76,
+          "anchorY": 67,
+          "labelY": 68,
           "side": "right"
         }
       ]
