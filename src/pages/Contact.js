@@ -1,10 +1,7 @@
 import React, { useMemo, useRef, useState } from 'react';
-import emailjs from 'emailjs-com';
 import { useTranslation } from 'react-i18next';
 import Seo from '../components/Seo';
-
-/** 与文案中的公司地址一致；也可用 REACT_APP_GOOGLE_MAPS_QUERY 覆盖 */
-const DEFAULT_MAP_QUERY = '青岛市胶州上合示范区湘江路21号';
+import { contactFormErrorMessage, submitContactForm } from '../utils/contactForm';
 
 /** 默认 Google 嵌入图（胶州上合示范区湘江路）；可用 REACT_APP_GOOGLE_MAPS_EMBED_SRC 覆盖 */
 const DEFAULT_GOOGLE_EMBED_SRC =
@@ -19,7 +16,6 @@ const Contact = () => {
   const formRef = useRef();
   const [sending, setSending] = useState(false);
 
-  const mapPlaceQuery = (process.env.REACT_APP_GOOGLE_MAPS_QUERY || DEFAULT_MAP_QUERY).trim();
   const mapEmbedSrc = useMemo(() => {
     const custom = process.env.REACT_APP_GOOGLE_MAPS_EMBED_SRC?.trim();
     if (custom) return custom;
@@ -32,56 +28,48 @@ const Contact = () => {
     return DEFAULT_GOOGLE_MAP_OPEN_URL;
   }, []);
 
-  const mapAppleUrl = useMemo(() => {
-    const q = encodeURIComponent(mapPlaceQuery);
-    return `https://maps.apple.com/?q=${q}`;
-  }, [mapPlaceQuery]);
-
-  const defaultMapTab =
-    (process.env.REACT_APP_CONTACT_DEFAULT_MAP || 'google').toLowerCase() === 'apple'
-      ? 'apple'
-      : 'google';
-  const [mapTab, setMapTab] = useState(defaultMapTab);
-
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setSending(true);
     setError('');
     setSuccess(false);
 
-    // 1. 用Formspree提交表单
     const formData = new FormData(formRef.current);
-    fetch('https://formspree.io/f/xjkrwloz', {
-      method: 'POST',
-      body: formData,
-      headers: { Accept: 'application/json' }
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        // 2. 用EmailJS自动回复
-        emailjs.send(
-          'service_ugav5f1',
-          'template_7nh0wql',
-          {
-            email: formData.get('email'),
-            name: formData.get('name'),
-            title: formData.get('subject'),
-            message: formData.get('message')
-          },
-          'iRWJfHVzqfCoNK1s-'
-        );
-        setSending(false);
-        setSuccess(true);
-        formRef.current.reset();
-      })
-      .catch((err) => {
-        setSending(false);
-        setError('发送失败，请稍后再试');
-        // console.error('Formspree error:', err);
-      });
+    const name = String(formData.get('name') || '').trim();
+    const email = String(formData.get('email') || '').trim();
+    const subject = String(formData.get('subject') || '').trim();
+    const message = String(formData.get('message') || '').trim();
+    const gotcha = String(formData.get('_gotcha') || '').trim();
+
+    if (gotcha) {
+      setSuccess(true);
+      formRef.current?.reset();
+      setSending(false);
+      return;
+    }
+
+    try {
+      const { ok, data } = await submitContactForm({ name, email, subject, message });
+
+      if (!ok) {
+        throw new Error(contactFormErrorMessage(data, t('contact.form.error')));
+      }
+
+      setSuccess(true);
+      formRef.current?.reset();
+    } catch (err) {
+      const fallback = t('contact.form.error');
+      if (err instanceof TypeError && /fetch/i.test(err.message)) {
+        setError(fallback);
+      } else {
+        setError(err instanceof Error && err.message ? err.message : fallback);
+      }
+    } finally {
+      setSending(false);
+    }
   };
 
   const contactInfo = [
@@ -144,6 +132,14 @@ const Contact = () => {
                 onSubmit={handleSubmit}
                 className="space-y-6"
               >
+                <input
+                  type="text"
+                  name="_gotcha"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  className="absolute opacity-0 pointer-events-none h-0 w-0"
+                  aria-hidden="true"
+                />
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">{t('contact.form.name')}</label>
                   <input
@@ -196,7 +192,7 @@ const Contact = () => {
                   {sending ? t('contact.form.sending') : t('contact.form.send')}
                 </button>
                 {success && <p className="text-green-600 mt-2">{t('contact.form.success')}</p>}
-                {error && <p className="text-red-600 mt-2">{t('contact.form.error')}</p>}
+                {error && <p className="text-red-600 mt-2">{error}</p>}
               </form>
             </div>
 
@@ -243,77 +239,30 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* Map Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">{t('contact.locationTitle')}</h2>
-          <div className="max-w-4xl mx-auto">
-            <div className="bg-white p-4 rounded-lg shadow-md">
-              <p className="text-center text-sm text-gray-500 mb-4">{t('contact.mapsChooseHint')}</p>
-              <div className="flex justify-center gap-2 mb-4 flex-wrap">
-                <button
-                  type="button"
-                  onClick={() => setMapTab('apple')}
-                  className={`px-5 py-2.5 rounded-lg text-sm font-medium transition-colors ${
-                    mapTab === 'apple'
-                      ? 'bg-[#086c7b] text-white shadow'
-                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                  }`}
-                >
-                  {t('contact.mapTabApple')}
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setMapTab('google')}
-                  className={`px-5 py-2.5 rounded-lg text-sm font-medium transition-colors ${
-                    mapTab === 'google'
-                      ? 'bg-[#086c7b] text-white shadow'
-                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                  }`}
-                >
-                  {t('contact.mapTabGoogle')}
-                </button>
-              </div>
-
-              {mapTab === 'apple' ? (
-                <div className="rounded-lg border border-gray-200 bg-gray-50 min-h-[24rem] flex flex-col items-center justify-center px-6 py-10 text-center">
-                  <p className="text-gray-800 font-medium text-lg mb-2">{mapPlaceQuery}</p>
-                  <p className="text-sm text-gray-500 mb-6 max-w-md">{t('contact.appleMapsPanelHint')}</p>
-                  <a
-                    href={mapAppleUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center px-8 py-3 rounded-lg bg-[#086c7b] text-white font-medium hover:bg-[#065a67] transition-colors"
-                  >
-                    {t('contact.openInAppleMaps')}
-                  </a>
-                </div>
-              ) : (
-                <>
-                  <div className="overflow-hidden rounded-lg bg-gray-100">
-                    <iframe
-                      title={t('contact.mapTabGoogle')}
-                      src={mapEmbedSrc}
-                      className="w-full h-[450px] max-h-[min(450px,70vh)] border-0"
-                      loading="lazy"
-                      referrerPolicy="no-referrer-when-downgrade"
-                      allowFullScreen
-                    />
-                  </div>
-                  <p className="text-center mt-4 text-sm text-gray-600">
-                    <a
-                      href={mapOpenUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-[#086c7b] hover:text-[#065a67] font-medium underline-offset-2 hover:underline"
-                    >
-                      {t('contact.openInGoogleMaps')}
-                    </a>
-                  </p>
-                </>
-              )}
-            </div>
-          </div>
+      {/* Map Section — Google Maps 全宽嵌入 */}
+      <section className="bg-gray-50">
+        <div className="container mx-auto px-4 pt-12 pb-6">
+          <h2 className="text-3xl font-bold text-center">{t('contact.locationTitle')}</h2>
+        </div>
+        <div className="w-full">
+          <iframe
+            title={t('contact.mapTabGoogle')}
+            src={mapEmbedSrc}
+            className="block w-full h-[min(85vh,820px)] border-0"
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            allowFullScreen
+          />
+        </div>
+        <div className="container mx-auto px-4 py-4 text-center">
+          <a
+            href={mapOpenUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm text-[#086c7b] hover:text-[#065a67] font-medium underline-offset-2 hover:underline"
+          >
+            {t('contact.openInGoogleMaps')}
+          </a>
         </div>
       </section>
     </div>

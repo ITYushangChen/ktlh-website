@@ -6,6 +6,11 @@ module.exports = {
         target: 'http://localhost:3099',
         changeOrigin: true,
       },
+      '/api/contact': {
+        target: 'https://formspree.io',
+        changeOrigin: true,
+        pathRewrite: { '^/api/contact': '/f/xjkrwloz' },
+      },
     },
   },
   webpack: {
