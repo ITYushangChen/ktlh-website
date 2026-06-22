@@ -1,10 +1,78 @@
-import { geoEqualEarth } from 'd3-geo';
+import { geoEqualEarth, geoContains } from 'd3-geo';
 
 /** 与 WorldPartnersMap 中 ComposableMap 一致，供像素空间碰撞计算 */
 export const PARTNERS_MAP_SIZE = { width: 1000, height: 520 };
 
 /** 与 1000px 宽设计稿对应的基准 scale（ComposableMap 同步） */
 export const PARTNERS_MAP_BASE_SCALE = 246;
+
+/** world-atlas countries-110m 中的国家名 */
+export const PARTNER_COUNTRY_ATLAS_NAMES = {
+  US: 'United States of America',
+  Mexico: 'Mexico',
+  Brazil: 'Brazil',
+  Spain: 'Spain',
+  Thailand: 'Thailand',
+  SouthKorea: 'South Korea',
+  Japan: 'Japan',
+  China: 'China',
+  India: 'India',
+};
+
+/** subtitle 文案 → atlas 国家名（低精度地图沿海点可能落在国界外） */
+function countryNameFromNodeSubtitle(node) {
+  const sub = node.subtitle;
+  if (!sub || typeof sub !== 'object') return null;
+  const blob = [sub.zh, sub.en, sub.ja].filter(Boolean).join('|').toLowerCase();
+
+  if (/美国|united states|^us$|米国/.test(blob)) return PARTNER_COUNTRY_ATLAS_NAMES.US;
+  if (/墨西哥|mexico|メキシコ/.test(blob)) return PARTNER_COUNTRY_ATLAS_NAMES.Mexico;
+  if (/巴西|brazil|ブラジル/.test(blob)) return PARTNER_COUNTRY_ATLAS_NAMES.Brazil;
+  if (/西班牙|spain|スペイン/.test(blob)) return PARTNER_COUNTRY_ATLAS_NAMES.Spain;
+  if (/泰国|thailand/.test(blob)) return PARTNER_COUNTRY_ATLAS_NAMES.Thailand;
+  if (/韩国|south korea|韓国/.test(blob)) return PARTNER_COUNTRY_ATLAS_NAMES.SouthKorea;
+  if (/日本|japan/.test(blob)) return PARTNER_COUNTRY_ATLAS_NAMES.Japan;
+  if (/印度|india/.test(blob)) return PARTNER_COUNTRY_ATLAS_NAMES.India;
+  if (
+    /中国|china|青島|青岛|大连|大連|上海|广州|広州|合肥|芜湖|蕪湖|无锡|無錫|长沙|長沙|佛山|华南|華南|dalian|wuxi|guangzhou|shanghai|qingdao|changsha|foshan|wuhu|hefei/.test(
+      blob,
+    )
+  ) {
+    return PARTNER_COUNTRY_ATLAS_NAMES.China;
+  }
+  return null;
+}
+
+/**
+ * 从合作伙伴节点坐标与文案收集需标红的国家（world-atlas 国家名）
+ * @param {Array} nodes partners-map.json nodes
+ * @param {Array} countryFeatures topojson feature 列表
+ * @param {string[]} extraNames 额外标红国家（如文案提及但无坐标）
+ */
+export function collectPartnerCountryNames(nodes, countryFeatures, extraNames = []) {
+  const names = new Set(extraNames.filter(Boolean));
+
+  for (const node of nodes) {
+    if (node.connectToHub === false) continue;
+
+    if (node.countryName) {
+      names.add(node.countryName);
+      continue;
+    }
+
+    const lng = Number(node.lng);
+    const lat = Number(node.lat);
+    const hit = countryFeatures.find((geo) => geoContains(geo, [lng, lat]));
+    if (hit?.properties?.name) {
+      names.add(hit.properties.name);
+    } else {
+      const fromSubtitle = countryNameFromNodeSubtitle(node);
+      if (fromSubtitle) names.add(fromSubtitle);
+    }
+  }
+
+  return names;
+}
 
 export function createPartnersMapProjection(
   width = PARTNERS_MAP_SIZE.width,
@@ -111,6 +179,145 @@ function pushLabelFromPin(labelRect, pinRect, o) {
     const sign = lcy < pcy ? -1 : 1;
     o.dy += (d.oy + 0.5) * sign;
   }
+}
+
+/** 高亮 tooltip（与 WorldPartnersMap foreignObject 一致） */
+export const HIGHLIGHT_LABEL_BOX = { w: 204, h: 72, y: -88 };
+
+function highlightLabelRectScreen(projection, lng, lat, dx, dy) {
+  const p = projection([Number(lng), Number(lat)]);
+  if (!p) return null;
+  const [px, py] = p;
+  const d = HIGHLIGHT_LABEL_BOX;
+  const left = px + (-d.w / 2 + dx);
+  const top = py + (d.y + dy);
+  return rectInflate(
+    { left, top, right: left + d.w, bottom: top + d.h },
+    COLLIDE_PAD,
+  );
+}
+
+/** 屏幕像素距离内视为同一簇，扇形排开初始偏移 */
+function buildClusterFanOffsets(nodes, projection, screenClusterR = 52) {
+  const offsets = new Map();
+  if (!nodes.length) return offsets;
+
+  const positions = nodes.map((n) => {
+    const p = projection([Number(n.lng), Number(n.lat)]);
+    return { node: n, px: p?.[0] ?? 0, py: p?.[1] ?? 0 };
+  });
+
+  const clusters = [];
+  const used = new Set();
+  for (const item of positions) {
+    if (used.has(item.node.id)) continue;
+    const cluster = [item];
+    used.add(item.node.id);
+    for (const other of positions) {
+      if (used.has(other.node.id)) continue;
+      if (Math.hypot(item.px - other.px, item.py - other.py) <= screenClusterR) {
+        cluster.push(other);
+        used.add(other.node.id);
+      }
+    }
+    clusters.push(cluster);
+  }
+
+  for (const cluster of clusters) {
+    if (cluster.length === 1) {
+      offsets.set(cluster[0].node.id, { dx: 0, dy: 0 });
+      continue;
+    }
+    const cx = cluster.reduce((s, c) => s + c.px, 0) / cluster.length;
+    const cy = cluster.reduce((s, c) => s + c.py, 0) / cluster.length;
+    const sorted = [...cluster].sort(
+      (a, b) => Math.atan2(a.py - cy, a.px - cx) - Math.atan2(b.py - cy, b.px - cx),
+    );
+    sorted.forEach((item, i) => {
+      const total = sorted.length;
+      const angle = (2 * Math.PI * i) / total - Math.PI / 2;
+      const ring = Math.floor(i / 8);
+      const r = 120 + ring * 64;
+      offsets.set(item.node.id, {
+        dx: Math.cos(angle) * r,
+        dy: Math.sin(angle) * r - 18,
+      });
+    });
+  }
+
+  for (const n of nodes) {
+    if (n.labelDx == null && n.labelDy == null) continue;
+    const cur = offsets.get(n.id) || { dx: 0, dy: 0 };
+    offsets.set(n.id, {
+      dx: n.labelDx != null ? Number(n.labelDx) : cur.dx,
+      dy: n.labelDy != null ? Number(n.labelDy) : cur.dy,
+    });
+  }
+
+  return offsets;
+}
+
+/**
+ * 高亮标签自动排版：密集节点扇形展开 + 像素空间碰撞分离
+ * @returns {Map<string, { dx: number, dy: number }>}
+ */
+export function resolveHighlightLabelOffsets(nodes, projection) {
+  if (!nodes.length) return new Map();
+
+  const offsets = new Map();
+  const baseOffsets = buildClusterFanOffsets(nodes, projection);
+  for (const n of nodes) {
+    offsets.set(n.id, { ...(baseOffsets.get(n.id) || { dx: 0, dy: 0 }) });
+  }
+
+  const items = nodes.map((n) => ({ id: n.id, lng: n.lng, lat: n.lat }));
+
+  for (let iter = 0; iter < 96; iter += 1) {
+    let changed = false;
+    for (let i = 0; i < items.length; i += 1) {
+      const oi = offsets.get(items[i].id);
+      const li = highlightLabelRectScreen(
+        projection,
+        items[i].lng,
+        items[i].lat,
+        oi.dx,
+        oi.dy,
+      );
+      const pi = pinRectScreen(projection, items[i].lng, items[i].lat);
+      if (li && pi && rectsOverlap(li, pi)) {
+        pushLabelFromPin(li, pi, oi);
+        changed = true;
+      }
+    }
+    for (let i = 0; i < items.length; i += 1) {
+      for (let j = i + 1; j < items.length; j += 1) {
+        const ai = items[i];
+        const aj = items[j];
+        const oi = offsets.get(ai.id);
+        const oj = offsets.get(aj.id);
+        const li = highlightLabelRectScreen(projection, ai.lng, ai.lat, oi.dx, oi.dy);
+        const lj = highlightLabelRectScreen(projection, aj.lng, aj.lat, oj.dx, oj.dy);
+        const pi = pinRectScreen(projection, ai.lng, ai.lat);
+        const pj = pinRectScreen(projection, aj.lng, aj.lat);
+        if (!li || !lj) continue;
+        if (rectsOverlap(li, lj)) {
+          pushTwoLabels(li, lj, oi, oj);
+          changed = true;
+        }
+        if (pi && rectsOverlap(li, pj)) {
+          pushLabelFromPin(li, pj, oi);
+          changed = true;
+        }
+        if (pj && rectsOverlap(lj, pi)) {
+          pushLabelFromPin(lj, pi, oj);
+          changed = true;
+        }
+      }
+    }
+    if (!changed) break;
+  }
+
+  return offsets;
 }
 
 /**

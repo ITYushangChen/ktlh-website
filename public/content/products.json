@@ -4930,7 +4930,7 @@
     {
       "id": "steel-pipes",
       "active": true,
-      "image": "/images/app/pipes.jpg",
+      "image": "/images/app/products/steel-pipes.png",
       "link": "/products/steel-pipes",
       "title": {
         "zh": "钢管",

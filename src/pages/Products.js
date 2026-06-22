@@ -26,6 +26,10 @@ const Products = () => {
       />
       <section className="bg-white py-8 min-h-[50vh]">
         <div className="container mx-auto px-4 max-w-6xl space-y-14 md:space-y-16">
+          <div className="text-center mb-4 md:mb-6">
+            <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">{t('products.title')}</h1>
+            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">{t('products.subtitle')}</p>
+          </div>
           {groups.map((group, index) => (
             <div key={group.id}>
               <div className="mb-8 md:mb-10">

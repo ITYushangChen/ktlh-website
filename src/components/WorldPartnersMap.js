@@ -10,11 +10,16 @@ import {
   useMapContext,
 } from 'react-simple-maps';
 import worldAtlas from 'world-atlas/countries-110m.json';
+import { feature } from 'topojson-client';
 import {
   pickLocalized,
   quadBezierBetween,
   PARTNERS_MAP_SIZE,
   PARTNERS_MAP_BASE_SCALE,
+  collectPartnerCountryNames,
+  createPartnersMapProjection,
+  resolveHighlightLabelOffsets,
+  HIGHLIGHT_LABEL_BOX,
 } from '../utils/partnersMapGeo';
 
 const DEFAULT_DATA = {
@@ -156,11 +161,48 @@ function HubActiveLinksOnly({ hubLng, hubLat, nodes, highlightedNodeIds }) {
   );
 }
 
-/** 品牌主色：连线等 */
+/** 品牌主色：连线 */
 const HUB_BRAND = '#086c7b';
-/** 枢纽（开拓隆海）图钉：与合作伙伴同为红色系，尺寸更大 */
-const HUB_PIN_RED = '#e11d48';
-const HUB_PIN_RED_ACTIVE = '#be123c';
+
+/** 战略合作伙伴所在国家：浅蓝单色（略深） */
+const PARTNER_COUNTRY_FILL = '#c2e0eb';
+const PARTNER_COUNTRY_STROKE = '#7ab5c6';
+const PARTNER_COUNTRY_FILL_ACTIVE = '#6aadc0';
+const PARTNER_COUNTRY_STROKE_ACTIVE = '#086c7b';
+
+/** 图钉 */
+const PIN_FILL = '#5aadc0';
+const PIN_FILL_ACTIVE = '#086c7b';
+const DEFAULT_COUNTRY_FILL = '#e4e4e7';
+const DEFAULT_COUNTRY_STROKE = '#d4d4d8';
+
+function geographyCountryStyle(countryName, partnerCountries, activeCountries) {
+  const isPartner = partnerCountries.has(countryName);
+  const isActive = activeCountries.has(countryName);
+
+  if (isPartner && isActive) {
+    return {
+      fill: PARTNER_COUNTRY_FILL_ACTIVE,
+      stroke: PARTNER_COUNTRY_STROKE_ACTIVE,
+      strokeWidth: 0.7,
+      outline: 'none',
+    };
+  }
+  if (isPartner) {
+    return {
+      fill: PARTNER_COUNTRY_FILL,
+      stroke: PARTNER_COUNTRY_STROKE,
+      strokeWidth: 0.45,
+      outline: 'none',
+    };
+  }
+  return {
+    fill: DEFAULT_COUNTRY_FILL,
+    stroke: DEFAULT_COUNTRY_STROKE,
+    strokeWidth: 0.35,
+    outline: 'none',
+  };
+}
 
 /** 优先 JSON 的 address 多语言，否则用 subtitle（地区/说明） */
 function addressLineFromPoint(point, lang) {
@@ -179,6 +221,7 @@ function MapPinOnly({
   lang,
   onHighlightChange,
   connectNodeIds,
+  labelOffset = { dx: 0, dy: 0 },
 }) {
   const id = point.id;
   const title = pickLocalized(point.title, lang);
@@ -201,13 +244,7 @@ function MapPinOnly({
     if (!coarsePointer) onHighlightChange(null);
   }, [coarsePointer, onHighlightChange]);
 
-  const pinFill = isHub
-    ? highlighted
-      ? HUB_PIN_RED_ACTIVE
-      : HUB_PIN_RED
-    : highlighted
-      ? '#1d4ed8'
-      : '#e11d48';
+  const pinFill = highlighted ? PIN_FILL_ACTIVE : PIN_FILL;
 
   const pinSize = isHub ? 34 : 26;
   const pinTx = -pinSize / 2;
@@ -291,28 +328,34 @@ function MapPinOnly({
           </motion.g>
         </g>
         {highlighted && !isHub ? (
-          <foreignObject
-            x={-102}
-            y={-88}
-            width={204}
-            height={72}
-            style={{ overflow: 'visible', pointerEvents: 'auto' }}
+          <motion.g
+            initial={false}
+            animate={{ x: labelOffset.dx, y: labelOffset.dy }}
+            transition={{ type: 'spring', stiffness: 420, damping: 28 }}
           >
-            <div
-              xmlns="http://www.w3.org/1999/xhtml"
-              className="rounded-none border border-gray-200 bg-white px-2.5 py-1.5 text-center shadow-lg"
-              onMouseEnter={onEnter}
-              onClick={(e) => {
-                e.stopPropagation();
-                onMarkerClick(e);
-              }}
+            <foreignObject
+              x={-HIGHLIGHT_LABEL_BOX.w / 2}
+              y={HIGHLIGHT_LABEL_BOX.y}
+              width={HIGHLIGHT_LABEL_BOX.w}
+              height={HIGHLIGHT_LABEL_BOX.h}
+              style={{ overflow: 'visible', pointerEvents: 'auto' }}
             >
-              <div className="text-[13px] font-semibold leading-tight text-gray-900">{title}</div>
-              {addressLine ? (
-                <div className="mt-0.5 text-[11px] leading-snug text-gray-600">{addressLine}</div>
-              ) : null}
-            </div>
-          </foreignObject>
+              <div
+                xmlns="http://www.w3.org/1999/xhtml"
+                className="rounded-none border border-gray-200 bg-white px-2.5 py-1.5 text-center shadow-lg"
+                onMouseEnter={onEnter}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  onMarkerClick(e);
+                }}
+              >
+                <div className="text-[13px] font-semibold leading-tight text-gray-900">{title}</div>
+                {addressLine ? (
+                  <div className="mt-0.5 text-[11px] leading-snug text-gray-600">{addressLine}</div>
+                ) : null}
+              </div>
+            </foreignObject>
+          </motion.g>
         ) : null}
         <circle
           cx={0}
@@ -343,6 +386,10 @@ export default function WorldPartnersMap() {
   const [highlightedNodeIds, setHighlightedNodeIds] = useState(null);
   const coarsePointer = useCoarsePointer();
   const containerRef = useRef(null);
+  const countryFeatures = useMemo(
+    () => feature(worldAtlas, worldAtlas.objects.countries).features,
+    [],
+  );
   const [dims, setDims] = useState({
     width: PARTNERS_MAP_SIZE.width,
     height: PARTNERS_MAP_SIZE.height,
@@ -356,6 +403,7 @@ export default function WorldPartnersMap() {
           setData({
             hub: { ...DEFAULT_DATA.hub, ...json.hub },
             nodes: json.nodes,
+            highlightCountries: json.highlightCountries || [],
           });
         }
       })
@@ -412,6 +460,24 @@ export default function WorldPartnersMap() {
     [data.nodes],
   );
 
+  const partnerCountryNames = useMemo(
+    () =>
+      collectPartnerCountryNames(
+        data.nodes,
+        countryFeatures,
+        data.highlightCountries || [],
+      ),
+    [data.nodes, countryFeatures, data.highlightCountries],
+  );
+
+  const activePartnerCountryNames = useMemo(() => {
+    if (!highlightedNodeIds || highlightedNodeIds.size === 0) return new Set();
+    const activeNodes = data.nodes.filter(
+      (n) => n.connectToHub !== false && highlightedNodeIds.has(n.id),
+    );
+    return collectPartnerCountryNames(activeNodes, countryFeatures);
+  }, [data.nodes, countryFeatures, highlightedNodeIds]);
+
   const hubAllHighlighted =
     connectNodeIds.length > 0 &&
     highlightedNodeIds != null &&
@@ -433,6 +499,12 @@ export default function WorldPartnersMap() {
       ),
     [data.nodes, highlightedNodeIds],
   );
+
+  const highlightLabelOffsets = useMemo(() => {
+    if (!hiNodes.length) return new Map();
+    const projection = createPartnersMapProjection(dims.width, dims.height);
+    return resolveHighlightLabelOffsets(hiNodes, projection);
+  }, [hiNodes, dims.width, dims.height]);
 
   const isGroupActive = useCallback(
     (group) =>
@@ -530,30 +602,26 @@ export default function WorldPartnersMap() {
 
           <Geographies geography={worldAtlas}>
             {({ geographies }) =>
-              geographies.map((geo) => (
-                <Geography
-                  key={geo.rsmKey}
-                  geography={geo}
-                  className="pointer-events-none"
-                  style={{
-                    default: {
-                      fill: '#e4e4e7',
-                      stroke: '#d4d4d8',
-                      strokeWidth: 0.35,
-                      outline: 'none',
-                    },
-                    hover: {
-                      fill: '#e4e4e7',
-                      stroke: '#d4d4d8',
-                      outline: 'none',
-                    },
-                    pressed: {
-                      fill: '#e4e4e7',
-                      outline: 'none',
-                    },
-                  }}
-                />
-              ))
+              geographies.map((geo) => {
+                const countryName = geo.properties?.name;
+                const geoStyle = geographyCountryStyle(
+                  countryName,
+                  partnerCountryNames,
+                  activePartnerCountryNames,
+                );
+                return (
+                  <Geography
+                    key={geo.rsmKey}
+                    geography={geo}
+                    className="pointer-events-none"
+                    style={{
+                      default: geoStyle,
+                      hover: geoStyle,
+                      pressed: geoStyle,
+                    }}
+                  />
+                );
+              })
             }
           </Geographies>
 
@@ -596,7 +664,13 @@ export default function WorldPartnersMap() {
             highlightedNodeIds={highlightedNodeIds}
           />
 
-          {hiNodes.map((node) => (
+          {[...hiNodes]
+            .sort((a, b) => {
+              const da = highlightLabelOffsets.get(a.id)?.dy ?? 0;
+              const db = highlightLabelOffsets.get(b.id)?.dy ?? 0;
+              return da - db;
+            })
+            .map((node) => (
             <MapPinOnly
               key={node.id}
               point={node}
@@ -605,6 +679,7 @@ export default function WorldPartnersMap() {
               coarsePointer={coarsePointer}
               lang={lang}
               onHighlightChange={setHighlightFromMarker}
+              labelOffset={highlightLabelOffsets.get(node.id) || { dx: 0, dy: 0 }}
             />
           ))}
 

@@ -2,10 +2,12 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAdminAuth } from '../../hooks/useAdminAuth';
 import { fetchFileFromGitHub, commitFileToGitHub } from '../../utils/githubApi';
+import { saveContentLocally } from '../../utils/localContentApi';
 import AdminImageField from '../../components/admin/AdminImageField';
 import AdminSeo from '../../components/AdminSeo';
 
 const FILE_PATH = 'public/content/partners-map.json';
+const LOCAL_CONTENT_PATH = 'content/partners-map.json';
 
 const LANGS = [
   { key: 'zh', label: '中文' },
@@ -46,6 +48,18 @@ function deepClone(obj) {
   return JSON.parse(JSON.stringify(obj));
 }
 
+function buildMapPayload(mapData) {
+  const payload = {
+    viewBox: mapData.viewBox || DEFAULT_MAP.viewBox,
+    hub: mapData.hub,
+    nodes: mapData.nodes,
+  };
+  if (Array.isArray(mapData.highlightCountries) && mapData.highlightCountries.length > 0) {
+    payload.highlightCountries = mapData.highlightCountries;
+  }
+  return payload;
+}
+
 export default function AdminPartnersMap() {
   const navigate = useNavigate();
   const { auth, logout, isLoggedIn } = useAdminAuth();
@@ -84,6 +98,7 @@ export default function AdminPartnersMap() {
           viewBox: content.viewBox || DEFAULT_MAP.viewBox,
           hub: { ...DEFAULT_MAP.hub, ...content.hub },
           nodes: content.nodes,
+          highlightCountries: content.highlightCountries,
         });
         setFileSha(sha);
       } else {
@@ -99,6 +114,7 @@ export default function AdminPartnersMap() {
             viewBox: j.viewBox || DEFAULT_MAP.viewBox,
             hub: { ...DEFAULT_MAP.hub, ...j.hub },
             nodes: j.nodes || [],
+            highlightCountries: j.highlightCountries,
           });
           setFileSha(null);
           showToast('仓库中尚无该文件，已加载站点默认 JSON。首次保存将创建 public/content/partners-map.json', 'success');
@@ -121,14 +137,10 @@ export default function AdminPartnersMap() {
     if (isLoggedIn) loadData();
   }, [isLoggedIn, loadData]);
 
-  const handleSave = async () => {
+  const handleSaveToGitHub = async () => {
     setSaving(true);
     try {
-      const payload = {
-        viewBox: mapData.viewBox || DEFAULT_MAP.viewBox,
-        hub: mapData.hub,
-        nodes: mapData.nodes,
-      };
+      const payload = buildMapPayload(mapData);
       const result = await commitFileToGitHub({
         token: auth.githubToken,
         owner: auth.owner,
@@ -140,9 +152,31 @@ export default function AdminPartnersMap() {
         message: `更新战略伙伴地图数据 [${new Date().toLocaleString('zh-CN')}]`,
       });
       setFileSha(result.content.sha);
-      showToast('已保存到 GitHub！前台「关于我们」将读取 partners-map.json。');
+
+      if (process.env.NODE_ENV === 'development') {
+        try {
+          await saveContentLocally(LOCAL_CONTENT_PATH, payload);
+          showToast('已保存到 GitHub 和本地文件！刷新「关于我们」即可预览。');
+        } catch (localErr) {
+          showToast(`已保存到 GitHub，但本地写入失败：${localErr.message}`, 'error');
+        }
+      } else {
+        showToast('已保存到 GitHub！前台「关于我们」将读取 partners-map.json。');
+      }
     } catch (err) {
       showToast('保存失败：' + err.message, 'error');
+    } finally {
+      setSaving(false);
+    }
+  };
+
+  const handleSaveLocal = async () => {
+    setSaving(true);
+    try {
+      await saveContentLocally(LOCAL_CONTENT_PATH, buildMapPayload(mapData));
+      showToast('已保存到本地！请刷新「关于我们」页查看（无需 push GitHub）。');
+    } catch (err) {
+      showToast('本地保存失败：' + err.message, 'error');
     } finally {
       setSaving(false);
     }
@@ -207,6 +241,7 @@ export default function AdminPartnersMap() {
         viewBox: j.viewBox || DEFAULT_MAP.viewBox,
         hub: { ...DEFAULT_MAP.hub, ...j.hub },
         nodes: j.nodes,
+        highlightCountries: j.highlightCountries,
       });
       showToast('已从 JSON 导入（尚未保存到 GitHub）');
       setJsonImport('');
@@ -216,15 +251,7 @@ export default function AdminPartnersMap() {
   };
 
   const exportJson = () => {
-    const text = JSON.stringify(
-      {
-        viewBox: mapData.viewBox,
-        hub: mapData.hub,
-        nodes: mapData.nodes,
-      },
-      null,
-      2
-    );
+    const text = JSON.stringify(buildMapPayload(mapData), null, 2);
     navigator.clipboard.writeText(text).then(
       () => showToast('已复制到剪贴板，可粘贴到 Excel/记事本'),
       () => showToast('复制失败', 'error')
@@ -281,6 +308,13 @@ export default function AdminPartnersMap() {
           <p className="text-sm text-gray-500 mt-2">
             可从 Excel 导出为 CSV 再转 JSON，或把整份 JSON 粘贴到下方「导入」区域。部署后「关于我们」页自动读取。
           </p>
+          {process.env.NODE_ENV === 'development' && (
+            <p className="text-sm text-gray-500 mt-2 bg-yellow-50 border border-yellow-200 rounded-lg px-3 py-2">
+              本地开发请使用 <strong className="text-gray-700">npm start</strong>（会启动 dev-content-api）。
+              修改后点 <strong className="text-gray-700">「保存到本地」</strong> 写入{' '}
+              <code className="text-xs bg-gray-100 px-1 rounded">public/content/partners-map.json</code>，刷新前台即可预览。
+            </p>
+          )}
         </div>
 
         {loading ? (
@@ -498,11 +532,21 @@ export default function AdminPartnersMap() {
               </div>
             </div>
 
-            <div className="flex justify-end">
+            <div className="flex justify-end gap-3 flex-wrap">
+              {process.env.NODE_ENV === 'development' && (
+                <button
+                  type="button"
+                  disabled={saving || loading}
+                  onClick={handleSaveLocal}
+                  className="px-6 py-3 rounded-xl bg-slate-700 text-white font-medium hover:bg-slate-800 disabled:opacity-50"
+                >
+                  {saving ? '保存中…' : '保存到本地'}
+                </button>
+              )}
               <button
                 type="button"
-                disabled={saving}
-                onClick={handleSave}
+                disabled={saving || loading}
+                onClick={handleSaveToGitHub}
                 className="px-8 py-3 rounded-xl bg-[#086c7b] text-white font-medium hover:bg-[#065a66] disabled:opacity-50"
               >
                 {saving ? '保存中…' : '保存到 GitHub'}
