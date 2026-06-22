@@ -1,5 +1,5 @@
 /**
- * 根据 products.json / product-details.json 生成 public/sitemap.xml
+ * 根据 products.json 生成 public/sitemap.xml
  * 用法: node scripts/generate-sitemap.mjs
  */
 import { readFileSync, writeFileSync } from 'node:fs';
@@ -37,21 +37,12 @@ function readJson(relPath) {
 
 function collectPaths() {
   const paths = new Set(STATIC_PATHS);
-
   const products = readJson('content/products.json');
+
   for (const cat of products.categories || []) {
     if (cat.active === false) continue;
-    const link = cat.link || (cat.id ? `/products/${CATEGORY_PATH_BY_ID[cat.id] || cat.id}` : null);
-    if (link) paths.add(link);
-  }
-
-  const details = readJson('content/product-details.json');
-  for (const [categoryId, items] of Object.entries(details)) {
-    const categoryPath = CATEGORY_PATH_BY_ID[categoryId] || categoryId;
-    for (const item of items || []) {
-      if (item.active === false || !item.id) continue;
-      paths.add(`/products/${categoryPath}/${item.id}`);
-    }
+    const segment = CATEGORY_PATH_BY_ID[cat.id] || cat.id;
+    paths.add(`/products/${segment}`);
   }
 
   return [...paths].sort();
@@ -62,7 +53,7 @@ function toSitemapXml(paths) {
   const urls = paths
     .map((path) => {
       const loc = `${SITE_URL}${path === '/' ? '' : path}`;
-      const priority = path === '/' ? '1.0' : path.startsWith('/products/') && path.split('/').length > 3 ? '0.7' : '0.8';
+      const priority = path === '/' ? '1.0' : path.startsWith('/products/') ? '0.8' : '0.8';
       return `  <url>\n    <loc>${loc}</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>${priority}</priority>\n  </url>`;
     })
     .join('\n');

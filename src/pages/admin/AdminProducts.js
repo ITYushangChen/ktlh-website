@@ -3,10 +3,14 @@ import { useNavigate, Link } from 'react-router-dom';
 import { useAdminAuth } from '../../hooks/useAdminAuth';
 import { fetchFileFromGitHub, commitFileToGitHub } from '../../utils/githubApi';
 import { translateProductContent } from '../../utils/deepseekApi';
+import { saveContentLocally } from '../../utils/localContentApi';
 import AdminImageField from '../../components/admin/AdminImageField';
+import AdminSpecTableEditor from '../../components/admin/AdminSpecTableEditor';
 import AdminSeo from '../../components/AdminSeo';
+import { categoryPathFromId } from '../../constants/productCategoryConfig';
 
 const FILE_PATH = 'public/content/products.json';
+const LOCAL_CONTENT_PATH = 'content/products.json';
 
 const LANGS = [
   { key: 'zh', label: '中文' },
@@ -16,13 +20,17 @@ const LANGS = [
 
 function emptyProduct() {
   return {
-    id: `prod-${Date.now()}`,
+    id: `category-${Date.now()}`,
     active: true,
-    image: '/images/app/products/',
+    image: '',
+    detailImage: '',
     link: '/products/',
+    viewer3dGlb: '',
     title: { zh: '', en: '', ja: '' },
     description: { zh: '', en: '', ja: '' },
     features: { zh: [''], en: [''], ja: [''] },
+    specifications: {},
+    specTable: null,
   };
 }
 
@@ -34,6 +42,7 @@ export default function AdminProducts() {
   const navigate = useNavigate();
   const { auth, logout, isLoggedIn } = useAdminAuth();
 
+  const [groups, setGroups] = useState([]);
   const [categories, setCategories] = useState([]);
   const [fileSha, setFileSha] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -59,7 +68,26 @@ export default function AdminProducts() {
         branch: auth.branch,
         path: FILE_PATH,
       });
-      setCategories(content.categories || []);
+
+      let loadedFromLocal = false;
+      if (process.env.NODE_ENV === 'development') {
+        try {
+          const res = await fetch(`/content/products.json?t=${Date.now()}`);
+          if (res.ok) {
+            const local = await res.json();
+            setGroups(local.groups || []);
+            setCategories(local.categories || []);
+            loadedFromLocal = true;
+          }
+        } catch {
+          /* 使用 GitHub 数据 */
+        }
+      }
+
+      if (!loadedFromLocal) {
+        setGroups(content.groups || []);
+        setCategories(content.categories || []);
+      }
       setFileSha(sha);
     } catch (err) {
       showToast('加载失败：' + err.message, 'error');
@@ -80,20 +108,43 @@ export default function AdminProducts() {
   const handleSaveToGitHub = async () => {
     setSaving(true);
     try {
+      const payload = { groups, categories };
       const result = await commitFileToGitHub({
         token: auth.githubToken,
         owner: auth.owner,
         repo: auth.repo,
         branch: auth.branch,
         path: FILE_PATH,
-        content: { categories },
+        content: payload,
         sha: fileSha,
         message: `更新产品信息 [${new Date().toLocaleString('zh-CN')}]`,
       });
       setFileSha(result.content.sha);
-      showToast('已保存到 GitHub！Vercel 将在 1-2 分钟内重新部署。');
+
+      if (process.env.NODE_ENV === 'development') {
+        try {
+          await saveContentLocally(LOCAL_CONTENT_PATH, payload);
+          showToast('已保存到 GitHub 和本地文件！刷新前台即可预览。');
+        } catch (localErr) {
+          showToast(`已保存到 GitHub，但本地写入失败：${localErr.message}`, 'error');
+        }
+      } else {
+        showToast('已保存到 GitHub！Vercel 将在 1-2 分钟内重新部署。');
+      }
     } catch (err) {
       showToast('保存失败：' + err.message, 'error');
+    } finally {
+      setSaving(false);
+    }
+  };
+
+  const handleSaveLocal = async () => {
+    setSaving(true);
+    try {
+      await saveContentLocally(LOCAL_CONTENT_PATH, { groups, categories });
+      showToast('已保存到本地！请刷新产品页查看（无需 push GitHub）。');
+    } catch (err) {
+      showToast('本地保存失败：' + err.message, 'error');
     } finally {
       setSaving(false);
     }
@@ -130,6 +181,8 @@ export default function AdminProducts() {
     LANGS.forEach(({ key }) => {
       cleaned.features[key] = cleaned.features[key].filter(s => s.trim());
     });
+    const pathSegment = categoryPathFromId(cleaned.id) || cleaned.id;
+    cleaned.link = `/products/${pathSegment}`;
     if (editingIndex === null) {
       updated.push(cleaned);
     } else {
@@ -169,6 +222,43 @@ export default function AdminProducts() {
     setEditingProduct(prev => {
       const arr = prev.features[lang].filter((_, i) => i !== index);
       return { ...prev, features: { ...prev.features, [lang]: arr.length ? arr : [''] } };
+    });
+  };
+
+  const setSpecField = (key, value) => {
+    setEditingProduct((prev) => ({
+      ...prev,
+      specifications: { ...prev.specifications, [key]: value },
+    }));
+  };
+
+  const setSpecLangField = (key, lang, value) => {
+    setEditingProduct((prev) => {
+      const cur = prev.specifications?.[key];
+      if (typeof cur === 'object' && cur !== null && !Array.isArray(cur)) {
+        return {
+          ...prev,
+          specifications: { ...prev.specifications, [key]: { ...cur, [lang]: value } },
+        };
+      }
+      return { ...prev, specifications: { ...prev.specifications, [key]: value } };
+    });
+  };
+
+  const addSpecField = () => {
+    const key = window.prompt('规格参数英文 key（如 capacity, pressure）：');
+    if (!key?.trim()) return;
+    setEditingProduct((prev) => ({
+      ...prev,
+      specifications: { ...prev.specifications, [key.trim()]: '' },
+    }));
+  };
+
+  const removeSpecField = (key) => {
+    setEditingProduct((prev) => {
+      const s = { ...prev.specifications };
+      delete s[key];
+      return { ...prev, specifications: s };
     });
   };
 
@@ -232,13 +322,22 @@ export default function AdminProducts() {
           <>
             <div className="flex items-center justify-between mb-6">
               <h1 className="text-2xl font-bold text-gray-800">产品管理</h1>
-              <div className="flex gap-3">
+              <div className="flex gap-3 flex-wrap">
                 <button
                   onClick={handleNewProduct}
                   className="bg-[#086c7b] hover:bg-[#065a67] text-white px-5 py-2 rounded-lg font-medium transition-colors flex items-center gap-2"
                 >
                   <span>+</span> 添加产品
                 </button>
+                {process.env.NODE_ENV === 'development' && (
+                  <button
+                    onClick={handleSaveLocal}
+                    disabled={saving || loading}
+                    className="bg-slate-700 hover:bg-slate-800 disabled:bg-gray-300 text-white px-5 py-2 rounded-lg font-medium transition-colors"
+                  >
+                    {saving ? '保存中...' : '保存到本地'}
+                  </button>
+                )}
                 <button
                   onClick={handleSaveToGitHub}
                   disabled={saving || loading}
@@ -258,7 +357,10 @@ export default function AdminProducts() {
             </div>
 
             <p className="text-sm text-gray-500 mb-6 bg-yellow-50 border border-yellow-200 rounded-lg px-4 py-3">
-              管理产品中心的分类卡片信息（标题、描述、特点、图片路径）。修改后点"保存到 GitHub"提交。
+              管理产品品类：列表与详情共用一份数据。编辑后点「确认修改」回到列表，再点
+              <strong className="text-gray-700">「保存到本地」</strong>（localhost 预览）或
+              <strong className="text-gray-700">「保存到 GitHub」</strong>（上线）。
+              参数表需有数据行才会在前台显示。
             </p>
 
             {loading ? (
@@ -316,17 +418,11 @@ export default function AdminProducts() {
                         >
                           {prod.active ? '隐藏' : '显示'}
                         </button>
-                        <Link
-                          to={`/admin/product-details/${prod.id}`}
-                          className="text-xs px-3 py-1.5 rounded-lg border border-purple-300 text-purple-600 hover:bg-purple-50 transition-colors"
-                        >
-                          子产品
-                        </Link>
                         <button
                           onClick={() => handleEdit(index)}
                           className="text-xs px-3 py-1.5 rounded-lg border border-blue-300 text-blue-600 hover:bg-blue-50 transition-colors"
                         >
-                          编辑
+                          编辑详情
                         </button>
                         <button
                           onClick={() => handleDelete(index)}
@@ -352,6 +448,11 @@ export default function AdminProducts() {
             setFeatureItem={setFeatureItem}
             addFeatureItem={addFeatureItem}
             removeFeatureItem={removeFeatureItem}
+            setSpecField={setSpecField}
+            setSpecLangField={setSpecLangField}
+            addSpecField={addSpecField}
+            removeSpecField={removeSpecField}
+            setSpecTable={(specTable) => setEditingProduct((p) => ({ ...p, specTable }))}
             onConfirm={handleConfirmEdit}
             onCancel={() => setView('list')}
             onFillTranslation={(result) => {
@@ -379,6 +480,11 @@ function EditProductForm({
   setFeatureItem,
   addFeatureItem,
   removeFeatureItem,
+  setSpecField,
+  setSpecLangField,
+  addSpecField,
+  removeSpecField,
+  setSpecTable,
   onConfirm,
   onCancel,
   onFillTranslation,
@@ -387,6 +493,9 @@ function EditProductForm({
   const [translateError, setTranslateError] = useState('');
 
   if (!product) return null;
+
+  const specEntries = Object.entries(product.specifications || {});
+  const publicPath = `/products/${categoryPathFromId(product.id) || product.id}`;
 
   const handleTranslate = async () => {
     const zhData = {
@@ -471,34 +580,55 @@ function EditProductForm({
           </div>
         </div>
 
-        {/* Shared fields */}
+        {/* 图片与详情页路径 */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
             <AdminImageField
-              label="图片路径"
+              label="列表卡片图片"
               value={product.image}
               onChange={(v) => setField('image', v)}
               placeholder="/images/app/products/xxx.jpg"
               subdir="products"
             />
-            <p className="text-xs text-gray-400 mt-1">可手动填写路径，或点「上传图片」从本机选择文件并提交到仓库 public/images/app/products/</p>
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">详情页链接</label>
-            <input
-              type="text"
-              value={product.link}
-              onChange={e => setField('link', e.target.value)}
-              className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#086c7b]"
-              placeholder="/products/receivers"
+            <AdminImageField
+              label="详情页大图（可选，不填则用列表图）"
+              value={product.detailImage || ''}
+              onChange={(v) => setField('detailImage', v)}
+              placeholder="/images/app/products/xxx.jpg"
+              subdir="products"
             />
           </div>
+        </div>
+
+        <div>
+          <AdminImageField
+            label="三维模型（GLB）路径"
+            value={product.viewer3dGlb || ''}
+            onChange={(v) => setField('viewer3dGlb', v)}
+            placeholder="/images/products_3d/example.glb"
+            subdir="products_3d"
+            repoBaseDir="public/images"
+            publicBaseDir="/images"
+            accept=".glb,model/gltf-binary,application/octet-stream"
+            fileTypeLabel="GLB"
+            uploadButtonLabel="上传GLB"
+          />
+        </div>
+
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-1">前台详情页链接</label>
+          <p className="text-sm text-gray-600 bg-gray-50 border border-gray-200 rounded-lg px-4 py-2 font-mono">
+            {publicPath}
+          </p>
+          <p className="text-xs text-gray-400 mt-1">根据品类 ID 自动生成，保存后生效</p>
         </div>
 
         {/* Preview */}
         {product.image && (
           <div>
-            <label className="block text-sm font-medium text-gray-500 mb-2">图片预览</label>
+            <label className="block text-sm font-medium text-gray-500 mb-2">列表图预览</label>
             <img
               src={product.image}
               alt="预览"
@@ -568,6 +698,49 @@ function EditProductForm({
             + 添加特点
           </button>
         </div>
+
+        {/* Specifications */}
+        <div className="border-t pt-5">
+          <div className="flex items-center justify-between mb-3">
+            <label className="block text-sm font-medium text-gray-700">规格参数（键值列表）</label>
+            <button type="button" onClick={addSpecField} className="text-sm text-[#086c7b] hover:text-[#065a67] font-medium">
+              + 添加参数
+            </button>
+          </div>
+          <div className="space-y-3">
+            {specEntries.map(([key, value]) => {
+              const isMultiLang = typeof value === 'object' && value !== null && !Array.isArray(value);
+              return (
+                <div key={key} className="flex gap-2 items-center">
+                  <span className="text-sm text-gray-500 w-24 shrink-0 font-mono">{key}</span>
+                  {isMultiLang ? (
+                    <input
+                      type="text"
+                      value={value[activeLang] || ''}
+                      onChange={(e) => setSpecLangField(key, activeLang, e.target.value)}
+                      className="flex-1 border border-gray-300 rounded-lg px-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#086c7b]"
+                    />
+                  ) : (
+                    <input
+                      type="text"
+                      value={value || ''}
+                      onChange={(e) => setSpecField(key, e.target.value)}
+                      className="flex-1 border border-gray-300 rounded-lg px-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#086c7b]"
+                    />
+                  )}
+                  <button type="button" onClick={() => removeSpecField(key)} className="text-red-400 hover:text-red-600 text-lg p-1">×</button>
+                </div>
+              );
+            })}
+            {specEntries.length === 0 && <p className="text-sm text-gray-400">暂无键值参数</p>}
+          </div>
+        </div>
+
+        <AdminSpecTableEditor
+          specTable={product.specTable}
+          activeLang={activeLang}
+          onChange={setSpecTable}
+        />
 
         {/* Active toggle */}
         <div className="border-t pt-5 flex items-center gap-3">

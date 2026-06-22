@@ -78,3 +78,12 @@ export function buildProductGroups(data, lang = 'zh') {
 export function flattenActiveCategories(data) {
   return (data?.categories || []).filter((c) => c.active !== false);
 }
+
+/** 品类前台详情页路径 */
+export function getCategoryLink(category) {
+  if (!category?.id) return '/products';
+  if (category.link && !category.link.match(/\/products\/[^/]+\/[^/]+/)) {
+    return category.link;
+  }
+  return `/products/${CATEGORY_PATH_BY_ID[category.id] || category.id}`;
+}

@@ -1,9 +1,11 @@
 import { Link } from 'react-router-dom';
 import { PRODUCT_CARD_FRAME } from '../constants/productUi';
+import { getCategoryLink } from '../utils/productsCatalog';
 import OptimizedImage from './OptimizedImage';
 
-/** 产品中心子分类卡片 */
+/** 产品中心品类卡片 */
 export function ProductCategoryCard({ category, gl, t }) {
+  const href = getCategoryLink(category);
   return (
     <div className={`${PRODUCT_CARD_FRAME} bg-white`}>
       <div className="relative overflow-hidden bg-white">
@@ -20,7 +22,7 @@ export function ProductCategoryCard({ category, gl, t }) {
         <div className="h-0.5 w-full mb-4 shrink-0 bg-[#086c7b]" aria-hidden />
         <div className="flex-1 min-h-0" aria-hidden />
         <Link
-          to={category.link}
+          to={href}
           className="inline-flex items-center text-sm font-medium mt-auto text-[#086c7b] hover:text-[#065a66] transition-colors"
         >
           {t('products.clickToView')}

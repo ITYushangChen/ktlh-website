@@ -32,7 +32,8 @@
     "tailwindcss": "^3.4.1"
   },
   "scripts": {
-    "start": "craco start",
+    "start": "node scripts/start-dev.mjs",
+    "start:app-only": "craco start",
     "prestart": "node scripts/copy-3d-assets.mjs",
     "prebuild": "node scripts/generate-sitemap.mjs && node scripts/copy-3d-assets.mjs",
     "optimize-images": "node scripts/optimize-images.mjs",

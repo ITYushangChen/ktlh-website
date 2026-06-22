@@ -1,5 +1,13 @@
 /** CRA — exclude node_modules from source-map-loader (avoids ENOENT / bad maps on deps). */
 module.exports = {
+  devServer: {
+    proxy: {
+      '/api/dev': {
+        target: 'http://localhost:3099',
+        changeOrigin: true,
+      },
+    },
+  },
   webpack: {
     configure: (webpackConfig) => {
       // CRA's source-map-loader walks node_modules and often fails (ENOENT / bad map paths)

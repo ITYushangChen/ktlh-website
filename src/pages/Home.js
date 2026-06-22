@@ -9,7 +9,7 @@ import { useInView } from '../hooks/useInView';
 
 const FEATURE_CAROUSEL_MS = 5500;
 
-/** 「我们的优势」区块底色，与 Hero 底缘过渡一致 */
+/** 「我们的优势」区块底色 */
 const HOME_SEAM = '#030712';
 
 const Home = () => {
@@ -73,20 +73,6 @@ const Home = () => {
         aria-labelledby="features-heading"
       >
         <div className="absolute inset-0" style={{ backgroundColor: HOME_SEAM }} aria-hidden />
-        {/* 顶缘与 Hero 底缘同色（HOME_SEAM），多段渐变让大图缓慢显现 */}
-        <div
-          className="absolute inset-x-0 top-0 z-[2] h-56 md:h-72 pointer-events-none"
-          style={{
-            background: `linear-gradient(to bottom,
-              ${HOME_SEAM} 0%,
-              rgba(3, 7, 18, 0.92) 12%,
-              rgba(12, 52, 58, 0.5) 36%,
-              rgba(8, 108, 123, 0.15) 58%,
-              rgba(8, 108, 123, 0.04) 78%,
-              transparent 100%)`,
-          }}
-          aria-hidden
-        />
 
         {advantageSlides.length > 0 &&
           advantageSlides.map((f, i) => {

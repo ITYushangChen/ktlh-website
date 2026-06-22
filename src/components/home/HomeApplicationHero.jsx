@@ -4,9 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import OptimizedImage from '../OptimizedImage';
 import HvacApplicationDiagram from './HvacApplicationDiagram';
-import { glField } from '../../utils/productsCatalog';
-
-const HOME_SEAM = '#030712';
+import { glField, getCategoryLink } from '../../utils/productsCatalog';
 
 const TypeCursor = () => (
   <motion.span
@@ -123,7 +121,7 @@ function useElementLines(containerRef, hubRef, nodeElementsRef, leftCardRef, ena
       ro.disconnect();
       window.removeEventListener('resize', measure);
     };
-  }, [measure, enabled, nodeElementsRef]);
+  }, [measure, enabled, nodeElementsRef, containerRef]);
 
   return lines;
 }
@@ -160,7 +158,7 @@ function CategoryCircleImage({ src, loading }) {
       alt=""
       loading={loading}
       className="block w-full h-full"
-      imgClassName="w-full h-full object-contain object-center p-2 sm:p-2.5"
+      imgClassName="w-full h-full object-contain object-center p-1.5 sm:p-2"
       onError={() => setImgSrc(FALLBACK_PRODUCT_IMG)}
     />
   );
@@ -256,11 +254,11 @@ export default function HomeApplicationHero() {
           ))}
         </svg>
 
-        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_auto_minmax(280px,1.25fr)] gap-8 lg:gap-6 xl:gap-8 items-center">
+        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-[minmax(0,1.1fr)_auto_minmax(380px,1.65fr)] gap-8 lg:gap-10 xl:gap-14 items-center max-w-[1480px] mx-auto">
           {/* 左侧示意图 */}
           <motion.div
             ref={leftCardRef}
-            className="order-2 lg:order-1"
+            className="order-2 lg:order-1 w-full max-w-md lg:max-w-none mx-auto lg:mx-0"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.55, delay: 0.1 }}
@@ -277,23 +275,23 @@ export default function HomeApplicationHero() {
           >
             <div
               ref={hubRef}
-              className="relative flex flex-col items-center justify-center text-center rounded-full w-[min(88vw,200px)] h-[min(88vw,200px)] sm:w-[200px] sm:h-[200px] lg:w-[220px] lg:h-[220px]"
+              className="relative flex flex-col items-center justify-center text-center rounded-full w-[min(92vw,240px)] h-[min(92vw,240px)] sm:w-[240px] sm:h-[240px] lg:w-[260px] lg:h-[260px]"
               style={{
                 background: 'linear-gradient(145deg, #0a8a9d 0%, #086c7b 45%, #065562 100%)',
                 boxShadow:
-                  '0 0 0 6px rgba(8,108,123,0.12), 0 0 0 14px rgba(8,108,123,0.06), 0 20px 50px rgba(8,108,123,0.35)',
+                  '0 0 0 8px rgba(8,108,123,0.12), 0 0 0 16px rgba(8,108,123,0.06), 0 24px 56px rgba(8,108,123,0.35)',
               }}
             >
               <OptimizedImage
                 src="/images/app/logo.png"
                 alt=""
-                className="w-12 h-12 sm:w-14 sm:h-14 mb-2 opacity-95"
+                className="w-14 h-14 sm:w-16 sm:h-16 mb-2 opacity-95"
                 imgClassName="w-full h-full object-contain brightness-0 invert"
               />
-              <p className="text-white font-bold text-xl sm:text-2xl leading-tight px-4">
+              <p className="text-white font-bold text-2xl sm:text-[1.65rem] lg:text-3xl leading-tight px-4">
                 {t('home.applicationHero.hubTitle')}
               </p>
-              <p className="text-white/85 text-xs sm:text-sm mt-1 px-3 tracking-wide">
+              <p className="text-white/85 text-sm sm:text-base mt-1.5 px-4 tracking-wide leading-snug">
                 {t('home.applicationHero.hubSubtitle')}
               </p>
             </div>
@@ -328,7 +326,7 @@ export default function HomeApplicationHero() {
 
           {/* 右侧产品圆 grid */}
           <motion.div
-            className="order-3 grid grid-cols-2 sm:grid-cols-4 gap-x-4 sm:gap-x-5 gap-y-6 sm:gap-y-7 justify-items-center w-full max-w-lg sm:max-w-xl lg:max-w-none mx-auto lg:mx-0 pb-6 sm:pb-8"
+            className="order-3 grid grid-cols-2 sm:grid-cols-4 gap-x-8 sm:gap-x-10 lg:gap-x-12 xl:gap-x-14 gap-y-9 sm:gap-y-10 lg:gap-y-12 justify-items-center w-full max-w-2xl sm:max-w-3xl lg:max-w-none mx-auto lg:mx-0 pb-6 sm:pb-8"
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.55, delay: 0.15 }}
@@ -339,8 +337,8 @@ export default function HomeApplicationHero() {
               return (
                 <Link
                   key={cat.id}
-                  to={cat.link || `/products/${cat.id}`}
-                  className="group flex flex-col items-center text-center w-[6.25rem] sm:w-[7.75rem] min-w-0"
+                  to={getCategoryLink(cat)}
+                  className="group flex flex-col items-center text-center w-[7.5rem] sm:w-[9.5rem] lg:w-[10.5rem] min-w-0"
                   onMouseEnter={() => setActiveId(cat.id)}
                   onMouseLeave={() => setActiveId(null)}
                   onFocus={() => setActiveId(cat.id)}
@@ -352,14 +350,14 @@ export default function HomeApplicationHero() {
                     }}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.97 }}
-                    className={`relative w-[4.75rem] h-[4.75rem] sm:w-20 sm:h-20 rounded-full bg-white shadow-md overflow-hidden ring-2 transition-all duration-300 flex items-center justify-center shrink-0 ${
+                    className={`relative w-[5.5rem] h-[5.5rem] sm:w-24 sm:h-24 lg:w-28 lg:h-28 rounded-full bg-white shadow-md overflow-hidden ring-2 transition-all duration-300 flex items-center justify-center shrink-0 ${
                       isActive ? 'ring-primary shadow-lg shadow-primary/20' : 'ring-white/90'
                     }`}
                   >
                     <CategoryCircleImage src={cat.image} loading={i < 4 ? 'eager' : 'lazy'} />
                   </motion.div>
                   <span
-                    className={`mt-2 w-full text-[10px] sm:text-xs font-semibold leading-snug px-0.5 whitespace-normal break-words transition-colors ${
+                    className={`mt-2.5 w-full text-xs sm:text-sm font-semibold leading-snug px-0.5 whitespace-normal break-words transition-colors ${
                       isActive ? 'text-primary' : 'text-slate-700'
                     }`}
                   >
@@ -374,7 +372,7 @@ export default function HomeApplicationHero() {
 
       {/* 向下滑动 */}
       <motion.div
-        className="relative z-10 flex justify-center pb-6"
+        className="relative z-20 flex justify-center pb-4 sm:pb-5"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.8 }}
@@ -384,12 +382,12 @@ export default function HomeApplicationHero() {
           onClick={() =>
             document.getElementById('home-features')?.scrollIntoView({ behavior: 'smooth' })
           }
-          className="flex flex-col items-center gap-1 text-slate-500 hover:text-primary text-xs tracking-widest transition-colors"
+          className="flex flex-col items-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 rounded-full bg-white/92 shadow-md shadow-slate-900/10 ring-1 ring-slate-200/80 text-primary-dark hover:text-primary hover:bg-white text-sm sm:text-base font-semibold tracking-wide transition-colors"
           aria-label={t('home.hero.scrollHint')}
         >
           {t('home.hero.scrollHint')}
           <motion.svg
-            className="w-5 h-5"
+            className="w-6 h-6 text-primary"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -400,15 +398,6 @@ export default function HomeApplicationHero() {
           </motion.svg>
         </button>
       </motion.div>
-
-      {/* 过渡到深色「我们的优势」区块 */}
-      <div
-        className="absolute bottom-0 left-0 right-0 z-[5] pointer-events-none h-24 sm:h-28"
-        style={{
-          background: `linear-gradient(to top, ${HOME_SEAM} 0%, rgba(3,7,18,0.6) 28%, transparent 100%)`,
-        }}
-        aria-hidden
-      />
     </section>
   );
 }

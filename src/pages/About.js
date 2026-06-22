@@ -1,4 +1,5 @@
 import React, { lazy, Suspense, useCallback, useEffect, useRef, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import Seo from '../components/Seo';
@@ -16,13 +17,12 @@ function certTitleForLang(titleObj, lang) {
 
 const About = () => {
   const { t, i18n } = useTranslation();
+  const location = useLocation();
   const [certItems, setCertItems] = useState([]);
   const certScrollRef = useRef(null);
   const [canCertPrev, setCanCertPrev] = useState(false);
   const [canCertNext, setCanCertNext] = useState(false);
   const [partnersMapRef, partnersMapInView] = useInView({ rootMargin: '120px' });
-  const founderParagraphsRaw = t('about.founder.paragraphs', { returnObjects: true });
-  const founderParagraphs = Array.isArray(founderParagraphsRaw) ? founderParagraphsRaw : [];
 
   const updateCertScrollArrows = useCallback(() => {
     const el = certScrollRef.current;
@@ -56,6 +56,17 @@ const About = () => {
     };
   }, [updateCertScrollArrows, certItems.length]);
 
+  useEffect(() => {
+    const hash = location.hash?.replace(/^#/, '');
+    if (!hash) return undefined;
+    const scrollToSection = () => {
+      const el = document.getElementById(hash);
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    };
+    const timer = window.setTimeout(scrollToSection, 80);
+    return () => window.clearTimeout(timer);
+  }, [location.pathname, location.hash]);
+
   const scrollCertByOne = (dir) => {
     const el = certScrollRef.current;
     if (!el || certItems.length < 2) return;
@@ -82,7 +93,7 @@ const About = () => {
       </section>
 
       {/* Company Overview */}
-      <section className="py-16">
+      <section id="overview" className="py-16 scroll-mt-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold mb-8">
@@ -106,7 +117,7 @@ const About = () => {
       </section>
 
       {/* Company History Timeline */}
-      <section className="py-16 bg-white">
+      <section id="history" className="py-16 bg-white scroll-mt-20">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto mb-10 text-center">
             <h2 className="text-3xl font-bold mb-3">{t('about.historyTitle')}</h2>
@@ -117,7 +128,7 @@ const About = () => {
       </section>
 
       {/* Business Partners */}
-      <section className="py-16">
+      <section id="partners" className="py-16 scroll-mt-20">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-8">
             {t('about.partners.title')}
@@ -147,48 +158,8 @@ const About = () => {
         </div>
       </section>
 
-      {/* 创始人致辞 */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-10 md:mb-12 text-gray-900">
-            {t('about.founderTitle')}
-          </h2>
-          <div className="max-w-5xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-80px' }}
-              transition={{ duration: 0.45 }}
-              className="bg-gray-50 p-6 sm:p-8 md:p-10 rounded-xl shadow-md border border-gray-100"
-            >
-              <div className="flex flex-col md:flex-row md:items-start gap-8 md:gap-10">
-                <figure className="shrink-0 mx-auto md:mx-0 w-full max-w-[280px] sm:max-w-[300px] md:max-w-[min(38vw,300px)] lg:max-w-[320px]">
-                  <OptimizedImage
-                    src="/images/app/chairman.png"
-                    alt={t('about.founder.imageAlt')}
-                    loading="lazy"
-                    className="block w-full"
-                    imgClassName="w-full h-auto rounded-xl shadow-md border border-gray-100/90 object-contain bg-white/40"
-                  />
-                </figure>
-                <div className="flex-1 min-w-0">
-                  <p className="text-gray-900 font-medium text-lg mb-6 md:mb-8">
-                    {t('about.founder.salutation')}
-                  </p>
-                  <div className="space-y-6 text-gray-800 leading-relaxed text-[15px] md:text-base text-justify">
-                    {founderParagraphs.map((para, i) => (
-                      <p key={i}>{para}</p>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
       {/* 资质认证 */}
-      <section className="py-16 bg-gray-50 border-y border-gray-100">
+      <section id="certifications" className="py-16 bg-gray-50 border-y border-gray-100 scroll-mt-20">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-900">
             {t('about.certificationsTitle')}

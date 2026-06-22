@@ -12,7 +12,7 @@ export default function HvacApplicationDiagram() {
 
   return (
     <div
-      className="relative w-full rounded-2xl bg-[#fcfbf5] shadow-lg shadow-primary/5 ring-1 ring-slate-200/70 overflow-hidden"
+      className="relative w-full rounded-2xl bg-[#fcfbf5] shadow-lg shadow-primary/5 ring-1 ring-slate-200/70 overflow-hidden lg:scale-[1.05] lg:origin-center xl:scale-[1.08]"
       style={{ aspectRatio: `${VB_W} / ${VB_H}` }}
     >
       <img

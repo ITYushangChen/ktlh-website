@@ -3,6 +3,8 @@ import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import LanguageSwitcher from './LanguageSwitcher';
 import ProductsMegaMenu from './ProductsMegaMenu';
+import AboutNavDropdown from './AboutNavDropdown';
+import { ABOUT_NAV_SECTIONS } from '../constants/aboutNavSections';
 import { buildProductGroups, glField } from '../utils/productsCatalog';
 
 const Navbar = () => {
@@ -24,7 +26,15 @@ const Navbar = () => {
 
   const navItems = [
     { path: '/', label: t('nav.home') },
-    { path: '/about', label: t('nav.about') },
+    {
+      path: '/about',
+      label: t('nav.about'),
+      subItems: ABOUT_NAV_SECTIONS.map((section) => ({
+        id: section.id,
+        path: `/about#${section.id}`,
+        label: t(section.labelKey),
+      })),
+    },
     {
       path: '/products',
       label: t('nav.products'),
@@ -75,7 +85,10 @@ const Navbar = () => {
     'px-2 py-1.5 rounded-md text-sm transition-colors duration-300';
 
   const productsNavIndex = navItems.findIndex((item) => item.subGroups);
+  const aboutNavIndex = navItems.findIndex((item) => item.subItems);
   const productsMenuOpen = activeDropdown === productsNavIndex;
+  const aboutMenuOpen = activeDropdown === aboutNavIndex;
+  const currentHash = location.hash?.replace(/^#/, '') || '';
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm shadow-md" ref={dropdownRef}>
@@ -133,6 +146,51 @@ const Navbar = () => {
                         isOpen={productsMenuOpen}
                         onClose={() => setActiveDropdown(null)}
                         currentPath={location.pathname}
+                      />
+                    </div>
+                  </div>
+                ) : item.subItems ? (
+                  <div
+                    className="relative"
+                    onMouseEnter={() => handleMouseEnter(index)}
+                    onMouseLeave={handleMouseLeave}
+                  >
+                    <Link
+                      to={item.path}
+                      className={`inline-flex items-center space-x-1 ${navLinkBase} ${
+                        isNavActive(item.path) ? navActiveClass : navInactiveClass
+                      } transition-colors duration-300`}
+                      aria-current={isNavActive(item.path) ? 'page' : undefined}
+                      aria-expanded={aboutMenuOpen}
+                    >
+                      <span>{item.label}</span>
+                      <svg
+                        className={`w-4 h-4 shrink-0 transform transition-transform duration-200 pointer-events-none ${
+                          aboutMenuOpen ? 'rotate-180' : ''
+                        }`}
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        aria-hidden
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M19 9l-7 7-7-7"
+                        />
+                      </svg>
+                    </Link>
+                    <div
+                      className={`absolute left-1/2 -translate-x-1/2 top-full pt-1 z-50 ${
+                        aboutMenuOpen ? 'visible' : 'invisible pointer-events-none'
+                      }`}
+                    >
+                      <AboutNavDropdown
+                        isOpen={aboutMenuOpen}
+                        onClose={() => setActiveDropdown(null)}
+                        currentPath={location.pathname}
+                        currentHash={currentHash}
                       />
                     </div>
                   </div>
@@ -268,6 +326,76 @@ const Navbar = () => {
                           })}
                         </div>
                       ))}
+                    </div>
+                  </div>
+                ) : item.subItems ? (
+                  <div>
+                    <div className="flex items-stretch rounded-md overflow-hidden border border-transparent">
+                      <Link
+                        to={item.path}
+                        className={`flex-1 min-w-0 px-3 py-2 text-left transition-colors ${
+                          isNavActive(item.path)
+                            ? `${navActiveClass}`
+                            : 'text-gray-700 hover:text-[#086c7b] hover:bg-gray-50'
+                        }`}
+                        aria-current={isNavActive(item.path) ? 'page' : undefined}
+                        onClick={() => setIsOpen(false)}
+                      >
+                        {item.label}
+                      </Link>
+                      <button
+                        type="button"
+                        onClick={() => toggleDropdown(index)}
+                        className={`shrink-0 px-3 py-2 border-l border-gray-100 text-gray-500 hover:text-[#086c7b] hover:bg-gray-50 transition-colors ${
+                          isNavActive(item.path) ? 'bg-[#086c7b]/5' : ''
+                        }`}
+                        aria-expanded={activeDropdown === index}
+                        aria-label={t('nav.expandSubmenu')}
+                      >
+                        <svg
+                          className={`w-4 h-4 transform transition-transform duration-200 ${
+                            activeDropdown === index ? 'rotate-180' : ''
+                          }`}
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                          aria-hidden
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M19 9l-7 7-7-7"
+                          />
+                        </svg>
+                      </button>
+                    </div>
+                    <div
+                      className={`pl-4 space-y-1 transition-all duration-200 ${
+                        activeDropdown === index ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0 overflow-hidden'
+                      }`}
+                    >
+                      {item.subItems.map((subItem) => {
+                        const subCurrent =
+                          location.pathname === '/about' && currentHash === subItem.id;
+                        return (
+                          <Link
+                            key={subItem.id}
+                            to={subItem.path}
+                            className={`block px-3 py-2 rounded-md transition-colors ${
+                              subCurrent
+                                ? 'font-semibold text-[#086c7b] bg-[#086c7b]/10'
+                                : 'text-gray-700 hover:text-[#086c7b] hover:bg-gray-50'
+                            }`}
+                            onClick={() => {
+                              setIsOpen(false);
+                              setActiveDropdown(null);
+                            }}
+                          >
+                            {subItem.label}
+                          </Link>
+                        );
+                      })}
                     </div>
                   </div>
                 ) : (
