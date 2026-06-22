@@ -325,6 +325,23 @@
         "ja": "青島"
       },
       "image": ""
+    },
+    {
+      "id": "node-1782110098595",
+      "lat": 23.2147,
+      "lng": 72.3289,
+      "connectToHub": true,
+      "title": {
+        "zh": "博世",
+        "en": "Bosch",
+        "ja": "博世"
+      },
+      "subtitle": {
+        "zh": "印度",
+        "en": "India",
+        "ja": "ブラジル"
+      },
+      "image": ""
     }
   ]
 }
