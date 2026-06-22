@@ -308,6 +308,23 @@
         "ja": "長沙"
       },
       "image": ""
+    },
+    {
+      "id": "node-1782097023874",
+      "lat": 32,
+      "lng": 118,
+      "connectToHub": true,
+      "title": {
+        "zh": "三菱重工",
+        "en": "Mitsubishi Heavy Industries",
+        "ja": "三菱重工"
+      },
+      "subtitle": {
+        "zh": "青岛",
+        "en": "Qingdao",
+        "ja": "青島"
+      },
+      "image": ""
     }
   ]
 }
