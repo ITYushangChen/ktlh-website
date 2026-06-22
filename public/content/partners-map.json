@@ -274,6 +274,40 @@
         "ja": ""
       },
       "image": ""
+    },
+    {
+      "id": "node-1782095981168",
+      "lat": 32,
+      "lng": 118,
+      "connectToHub": true,
+      "title": {
+        "zh": "海信",
+        "en": "Hisense",
+        "ja": "ハイセンス"
+      },
+      "subtitle": {
+        "zh": "青岛",
+        "en": "Qingdao",
+        "ja": "青島"
+      },
+      "image": ""
+    },
+    {
+      "id": "node-1782096064454",
+      "lat": 27,
+      "lng": 112,
+      "connectToHub": true,
+      "title": {
+        "zh": "海信",
+        "en": "Hisense",
+        "ja": "ハイセンス"
+      },
+      "subtitle": {
+        "zh": "长沙",
+        "en": "Changsha",
+        "ja": "長沙"
+      },
+      "image": ""
     }
   ]
 }
