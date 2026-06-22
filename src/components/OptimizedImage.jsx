@@ -12,11 +12,24 @@ const OptimizedImage = ({
   loading = 'lazy',
   fetchPriority,
   decoding = 'async',
+  onError,
   ...imgProps
 }) => {
   if (!src) return null;
 
   const webpSrc = getWebpSrc(src);
+
+  const handleError = (e) => {
+    const picture = e.currentTarget.closest('picture');
+    if (picture) {
+      picture.querySelectorAll('source').forEach((source) => source.remove());
+      if (e.currentTarget.src !== src) {
+        e.currentTarget.src = src;
+        return;
+      }
+    }
+    onError?.(e);
+  };
 
   return (
     <picture className={className}>
@@ -28,6 +41,7 @@ const OptimizedImage = ({
         decoding={decoding}
         {...(fetchPriority ? { fetchPriority } : {})}
         className={imgClassName || className}
+        onError={handleError}
         {...imgProps}
       />
     </picture>

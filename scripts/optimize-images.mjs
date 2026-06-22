@@ -14,6 +14,8 @@ const MAX_DIMENSION = 1920;
 const MIN_BYTES = 200 * 1024;
 const WEBP_QUALITY = 82;
 const RASTER_EXT = new Set(['.jpg', '.jpeg', '.png', '.JPG', '.JPEG', '.PNG']);
+/** 始终生成 WebP 的目录（证书等小图也需要伴生 WebP） */
+const ALWAYS_WEBP_DIRS = ['certifications'];
 
 function walk(dir) {
   const files = [];
@@ -34,7 +36,9 @@ function optimizeRaster(filePath) {
   if (!RASTER_EXT.has(ext)) return null;
 
   const before = statSync(filePath).size;
-  if (before < MIN_BYTES) return null;
+  const relFromImages = file.replace(imagesRoot, '').replace(/\\/g, '/');
+  const forceWebp = ALWAYS_WEBP_DIRS.some((dir) => relFromImages.includes(`/${dir}/`));
+  if (before < MIN_BYTES && !forceWebp) return null;
 
   const tmp = `${filePath}.opt${ext.toLowerCase() === '.png' ? '.png' : '.jpg'}`;
 
