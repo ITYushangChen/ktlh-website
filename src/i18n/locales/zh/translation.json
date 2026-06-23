@@ -401,7 +401,7 @@
   },
   "products": {
     "title": "产品中心",
-    "subtitle": "专业生产制冷系统核心元件，为全球客户提供优质产品和解决方案",
+    "subtitle": "专业生产制冷系统核心元件，为全球客户提供优质产品和解决方案，所有产品均可定制。",
     "backToProducts": "产品中心",
     "productOverview": "产品概述",
     "starProducts": "明星产品",
@@ -409,6 +409,8 @@
     "technicalAdvantages": "技术优势",
     "productFeatures": "产品特点",
     "specifications": "技术参数",
+    "specRangeSummary": "参数范围概览",
+    "specRangeModelCount": "涵盖 {{count}} 个型号",
     "specTableTitle": "技术参数表",
     "learnMore": "了解详情",
     "clickToView": "点击查看",

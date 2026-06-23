@@ -266,6 +266,94 @@ export function repairCorruptedSpecTableHeaders(specTable) {
   };
 }
 
+const SKIP_RANGE_COLUMN_RE = /材料|material|型号|产品名|产品型号|product\s*name|model|型式|製品名/i;
+
+/**
+ * 解析规格表单元格中的可比较数值（支持小数、分数 5/8、带整数分数 1-1/8）
+ * @returns {{ value: number, display: string } | null}
+ */
+export function parseSpecNumericValue(text) {
+  const t = String(text ?? '').trim();
+  if (!t || t === '/' || t === '—' || t === '-') return null;
+
+  if (/^[\d.]+$/.test(t)) {
+    const value = Number(t);
+    return Number.isFinite(value) ? { value, display: t } : null;
+  }
+
+  if (/^\d+\/\d+$/.test(t)) {
+    const [n, d] = t.split('/').map(Number);
+    if (!d) return null;
+    return { value: n / d, display: t };
+  }
+
+  if (/^\d+-\d+\/\d+$/.test(t)) {
+    const [whole, frac] = t.split('-');
+    const [n, d] = frac.split('/').map(Number);
+    if (!d) return null;
+    return { value: Number(whole) + n / d, display: t };
+  }
+
+  return null;
+}
+
+function pickRangeDisplay(entries, targetValue) {
+  const hit = entries.find((e) => e.value === targetValue);
+  if (hit) return hit.display;
+  const rounded = entries.find((e) => Math.abs(e.value - targetValue) < 1e-9);
+  return rounded?.display ?? String(targetValue);
+}
+
+/** 格式化单列 min–max 展示文本 */
+export function formatSpecRangeDisplay(minValue, maxValue, minDisplay, maxDisplay, unit = '') {
+  const range =
+    minValue === maxValue ? minDisplay : `${minDisplay}–${maxDisplay}`;
+  const u = String(unit ?? '').trim();
+  return u ? `${range} ${u}` : range;
+}
+
+/**
+ * 从 specTable 各列归纳数值参数区间（跳过型号列、材料列等非数值列）
+ * @returns {Array<{ label: object, unit: string, rangeText: string, valueCount: number }>}
+ */
+export function computeSpecColumnRanges(table) {
+  const normalized = normalizeSpecTable(table);
+  if (!normalized?.rows?.length) return [];
+
+  const ranges = [];
+
+  for (let colIdx = 1; colIdx < normalized.columns.length; colIdx += 1) {
+    const col = normalized.columns[colIdx];
+    const labelBlob = [col.zh, col.en, col.ja].filter(Boolean).join(' ');
+    if (SKIP_RANGE_COLUMN_RE.test(labelBlob)) continue;
+
+    const parsed = [];
+    for (const row of normalized.rows) {
+      const cell = row.cells[colIdx];
+      const raw = cell?.zh?.trim() || cell?.en?.trim() || cell?.ja?.trim();
+      const entry = parseSpecNumericValue(raw);
+      if (entry) parsed.push(entry);
+    }
+
+    if (parsed.length === 0) continue;
+
+    const values = parsed.map((p) => p.value);
+    const minValue = Math.min(...values);
+    const maxValue = Math.max(...values);
+    const minDisplay = pickRangeDisplay(parsed, minValue);
+    const maxDisplay = pickRangeDisplay(parsed, maxValue);
+
+    ranges.push({
+      label: { zh: col.zh || '', en: col.en || '', ja: col.ja || '' },
+      unit: col.unit || '',
+      rangeText: formatSpecRangeDisplay(minValue, maxValue, minDisplay, maxDisplay, col.unit),
+      valueCount: parsed.length,
+    });
+  }
+
+  return ranges;
+}
+
 /** 以 zh 为准同步 specTable 的 en / ja（列名、数据行） */
 export function syncSpecTableI18nFromZh(specTable) {
   if (!specTable) return specTable;

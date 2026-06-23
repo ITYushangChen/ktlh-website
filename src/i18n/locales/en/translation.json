@@ -401,7 +401,7 @@
   },
   "products": {
     "title": "Product Center",
-    "subtitle": "Specialized in manufacturing core components for refrigeration systems, providing quality products and solutions for global clients.",
+    "subtitle": "Specialized in manufacturing core components for refrigeration systems, providing quality products and solutions for global clients. All products can be customized.",
     "backToProducts": "Product Center",
     "productOverview": "Product Overview",
     "starProducts": "Star Products",
@@ -409,6 +409,8 @@
     "technicalAdvantages": "Technical Advantages",
     "productFeatures": "Product Features",
     "specifications": "Specifications",
+    "specRangeSummary": "Parameter Range Overview",
+    "specRangeModelCount": "Covering {{count}} models",
     "specTableTitle": "Specification Table",
     "learnMore": "Learn More",
     "clickToView": "View details",

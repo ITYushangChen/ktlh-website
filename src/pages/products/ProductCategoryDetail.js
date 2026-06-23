@@ -5,6 +5,7 @@ import { useProductCategory } from '../../hooks/useProductCategory';
 import Seo from '../../components/Seo';
 import OptimizedImage from '../../components/OptimizedImage';
 import ProductSpecTable from '../../components/products/ProductSpecTable';
+import ProductSpecRangeSummary from '../../components/products/ProductSpecRangeSummary';
 import ProductCategorySeo from '../../components/ProductCategorySeo';
 import { truncateDescription } from '../../constants/seo';
 import { PRODUCT_CATEGORY_DETAIL_CONFIG } from '../../constants/productCategoryConfig';
@@ -144,6 +145,7 @@ export default function ProductCategoryDetail() {
           </div>
         </div>
 
+        <ProductSpecRangeSummary table={category.specTable} gl={gl} className="mt-10" />
         <ProductSpecTable table={category.specTable} gl={gl} />
       </div>
     </div>

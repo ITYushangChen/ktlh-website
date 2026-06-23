@@ -401,7 +401,7 @@
   },
   "products": {
     "title": "製品情報",
-    "subtitle": "冷凍システムのコア部品を専門的に製造し、世界中のお客様に高品質な製品とソリューションを提供します。",
+    "subtitle": "冷凍システムのコア部品を専門的に製造し、世界中のお客様に高品質な製品とソリューションを提供します。全製品のカスタマイズに対応しています。",
     "backToProducts": "製品一覧に戻る",
     "productOverview": "製品概要",
     "starProducts": "主力製品",
@@ -409,6 +409,8 @@
     "technicalAdvantages": "技術的優位性",
     "productFeatures": "製品特徴",
     "specifications": "技術仕様",
+    "specRangeSummary": "パラメータ範囲概要",
+    "specRangeModelCount": "{{count}} モデルをカバー",
     "specTableTitle": "技術仕様表",
     "learnMore": "詳細を見る",
     "clickToView": "詳しく見る",
