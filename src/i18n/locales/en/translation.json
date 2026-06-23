@@ -619,7 +619,9 @@
     },
     "plateHeatExchangers": {
       "title": "Plate Heat Exchanger Series",
-      "subtitle": "Compact and energy-saving, ideal for all types of refrigeration systems."
+      "subtitle": "Compact and energy-saving, ideal for all types of refrigeration systems.",
+      "specDiagramAlt": "Plate heat exchanger dimension diagram (labels A–F and ports F1–F4)",
+      "specDiagramCaption": "Dimension diagram"
     }
   },
   "footer": {

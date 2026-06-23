@@ -619,7 +619,9 @@
     },
     "plateHeatExchangers": {
       "title": "プレート式熱交換器シリーズ",
-      "subtitle": "コンパクトで省エネ、各種冷凍システムに最適な熱交換器。"
+      "subtitle": "コンパクトで省エネ、各種冷凍システムに最適な熱交換器。",
+      "specDiagramAlt": "プレート式熱交換器の外形寸法図（A–F 寸法および F1–F4 ポート）",
+      "specDiagramCaption": "外形寸法図"
     }
   },
   "footer": {

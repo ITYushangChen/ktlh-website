@@ -619,7 +619,9 @@
     },
     "plateHeatExchangers": {
       "title": "板式换热器系列",
-      "subtitle": "紧凑型换热设备，高效节能的理想选择，广泛应用于各类制冷系统"
+      "subtitle": "紧凑型换热设备，高效节能的理想选择，广泛应用于各类制冷系统",
+      "specDiagramAlt": "板式换热器外形尺寸示意图（标注 A–F 尺寸及 F1–F4 接口）",
+      "specDiagramCaption": "外形尺寸示意图"
     }
   },
   "footer": {
