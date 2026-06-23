@@ -58,6 +58,7 @@ export default function ProductCategoryDetail() {
   }
 
   const specEntries = Object.entries(category.specifications || {});
+  const specCopyKey = config.specLabelPrefix.replace('.specLabels', '');
   const title = gl(category.title);
   const description = truncateDescription(gl(category.description));
   const detailPath = `/products/${categoryPath}`;
@@ -145,7 +146,27 @@ export default function ProductCategoryDetail() {
           </div>
         </div>
 
-        <ProductSpecRangeSummary table={category.specTable} gl={gl} className="mt-10" />
+        {category.specDiagram ? (
+          <div className="mt-10 flex flex-col lg:flex-row gap-8 lg:gap-10 items-start">
+            <figure className="w-full lg:w-[min(100%,440px)] shrink-0 mx-auto lg:mx-0">
+              <OptimizedImage
+                src={category.specDiagram}
+                alt={t(`${specCopyKey}.specDiagramAlt`, { defaultValue: t('products.specDiagramAlt') })}
+                loading="lazy"
+                className="block w-full"
+                imgClassName="w-full h-auto rounded-xl border border-gray-100 bg-white p-3 shadow-sm"
+              />
+              <figcaption className="mt-2 text-center text-sm text-gray-500">
+                {t(`${specCopyKey}.specDiagramCaption`, { defaultValue: t('products.specDiagramCaption') })}
+              </figcaption>
+            </figure>
+            <div className="flex-1 min-w-0 w-full">
+              <ProductSpecRangeSummary table={category.specTable} gl={gl} />
+            </div>
+          </div>
+        ) : (
+          <ProductSpecRangeSummary table={category.specTable} gl={gl} className="mt-10" />
+        )}
         <ProductSpecTable table={category.specTable} gl={gl} />
       </div>
     </div>

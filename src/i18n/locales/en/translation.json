@@ -411,6 +411,8 @@
     "specifications": "Specifications",
     "specRangeSummary": "Parameter Range Overview",
     "specRangeModelCount": "Covering {{count}} models",
+    "specDiagramAlt": "Product dimension diagram",
+    "specDiagramCaption": "Dimension diagram",
     "specTableTitle": "Specification Table",
     "learnMore": "Learn More",
     "clickToView": "View details",
@@ -607,7 +609,9 @@
     },
     "shellTubeHeatExchangers": {
       "title": "Shell-and-Tube Heat Exchanger Series",
-      "subtitle": "Efficient heat transfer equipment widely used in various refrigeration systems, providing excellent performance."
+      "subtitle": "Efficient heat transfer equipment widely used in various refrigeration systems, providing excellent performance.",
+      "specDiagramAlt": "Shell & tube heat exchanger dimension diagram (labels A–G)",
+      "specDiagramCaption": "Dimension diagram"
     },
     "copperTubeSeries": {
       "title": "Copper Tube Series",

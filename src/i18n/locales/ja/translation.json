@@ -411,6 +411,8 @@
     "specifications": "技術仕様",
     "specRangeSummary": "パラメータ範囲概要",
     "specRangeModelCount": "{{count}} モデルをカバー",
+    "specDiagramAlt": "製品外形寸法図",
+    "specDiagramCaption": "外形寸法図",
     "specTableTitle": "技術仕様表",
     "learnMore": "詳細を見る",
     "clickToView": "詳しく見る",
@@ -607,7 +609,9 @@
     },
     "shellTubeHeatExchangers": {
       "title": "シェル＆チューブ熱交換器シリーズ",
-      "subtitle": "優れた熱交換性能で、各種冷凍システムに広く利用。"
+      "subtitle": "優れた熱交換性能で、各種冷凍システムに広く利用。",
+      "specDiagramAlt": "シェル＆チューブ熱交換器の外形寸法図（A–G 寸法）",
+      "specDiagramCaption": "外形寸法図"
     },
     "copperTubeSeries": {
       "title": "銅管シリーズ",

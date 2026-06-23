@@ -411,6 +411,8 @@
     "specifications": "技术参数",
     "specRangeSummary": "参数范围概览",
     "specRangeModelCount": "涵盖 {{count}} 个型号",
+    "specDiagramAlt": "产品外形尺寸示意图",
+    "specDiagramCaption": "外形尺寸示意图",
     "specTableTitle": "技术参数表",
     "learnMore": "了解详情",
     "clickToView": "点击查看",
@@ -607,7 +609,9 @@
     },
     "shellTubeHeatExchangers": {
       "title": "壳管式换热器系列",
-      "subtitle": "高效传热设备，广泛应用于各类制冷系统，提供卓越的换热性能"
+      "subtitle": "高效传热设备，广泛应用于各类制冷系统，提供卓越的换热性能",
+      "specDiagramAlt": "壳管式换热器外形尺寸示意图（标注 A–G 尺寸）",
+      "specDiagramCaption": "外形尺寸示意图"
     },
     "copperTubeSeries": {
       "title": "铜管系列",
