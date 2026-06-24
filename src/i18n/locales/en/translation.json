@@ -21,6 +21,7 @@
     "hero": {
       "title": "Qingdao Kaituo Longhai Intelligent Control Co., Ltd.",
       "subtitle": "A professional manufacturer of refrigeration system components, providing quality products to enterprises worldwide.",
+      "brandAliases": "Kaituo Longhai · kaituolonghai · 开拓隆海",
       "cta": {
         "primary": "View Products",
         "secondary": "Contact Us"
@@ -627,6 +628,7 @@
   "footer": {
     "companyName": "Kaituo Longhai",
     "companyLegalName": "Qingdao Kaituo Longhai Intelligent Control Co., Ltd.",
+    "brandAliases": "Kaituo Longhai · kaituolonghai · 开拓隆海",
     "companyDesc": "Providing quality products to global leading refrigeration brands.",
     "topNav": {
       "contact": "Contact",
@@ -691,10 +693,10 @@
   },
   "seo": {
     "siteName": "Qingdao Kaituo Longhai Intelligent Control Co., Ltd.",
-    "defaultDescription": "Qingdao Kaituo Longhai — professional manufacturer of refrigeration system components including receivers, gas-liquid separators, heat exchangers, and copper fittings for global customers.",
+    "defaultDescription": "Qingdao Kaituo Longhai (kaituolonghai) — professional manufacturer of refrigeration system components including receivers, gas-liquid separators, heat exchangers, and copper fittings for global customers.",
     "home": {
       "title": "Home",
-      "description": "Qingdao Kaituo Longhai Intelligent Control Co., Ltd. — 20 years of expertise in refrigeration components, serving global enterprises with quality receivers, separators, and heat exchangers."
+      "description": "Qingdao Kaituo Longhai Intelligent Control Co., Ltd. (kaituolonghai) — 20 years of expertise in refrigeration components, serving global enterprises with quality receivers, separators, and heat exchangers."
     },
     "about": {
       "title": "About Us",

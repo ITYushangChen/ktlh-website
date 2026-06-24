@@ -137,6 +137,7 @@ const Footer = () => {
               <p>{t('footer.sections.contact.address')}</p>
               <p>{t('footer.sections.contact.phone')}</p>
               <p>{t('footer.sections.contact.email')}</p>
+              <p className="text-gray-400">{t('footer.brandAliases')}</p>
             </div>
             <p className="text-gray-400 text-[11px] sm:text-xs leading-relaxed">
               © {currentYear} {t('footer.companyLegalName')} {t('footer.copyright')}

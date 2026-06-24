@@ -21,6 +21,7 @@
     "hero": {
       "title": "青岛开拓隆海智控有限公司",
       "subtitle": "专业制冷系统元件制造商，为全球企业提供优质产品",
+      "brandAliases": "Kaituo Longhai · kaituolonghai · 开拓隆海",
       "cta": {
         "primary": "了解产品",
         "secondary": "联系我们"
@@ -627,6 +628,7 @@
   "footer": {
     "companyName": "开拓隆海",
     "companyLegalName": "青岛开拓隆海智控有限公司",
+    "brandAliases": "Kaituo Longhai · kaituolonghai · 开拓隆海",
     "companyDesc": "为全球知名制冷企业提供优质产品",
     "topNav": {
       "contact": "联系方式",
@@ -691,10 +693,10 @@
   },
   "seo": {
     "siteName": "青岛开拓隆海智控有限公司",
-    "defaultDescription": "青岛开拓隆海智控有限公司——专业制冷系统元件制造商，产品涵盖储液器、气液分离器、油分离器、换热器、铜管配件等，服务全球客户。",
+    "defaultDescription": "青岛开拓隆海智控有限公司（Kaituo Longhai / kaituolonghai）——专业制冷系统元件制造商，产品涵盖储液器、气液分离器、油分离器、换热器、铜管配件等，服务全球客户。",
     "home": {
       "title": "首页",
-      "description": "青岛开拓隆海智控有限公司，二十年专注制冷系统元件制造，为全球企业提供储液器、气液分离器、换热器等优质产品。"
+      "description": "青岛开拓隆海智控有限公司（Kaituo Longhai，kaituolonghai）——二十年专注制冷系统元件制造，为全球企业提供储液器、气液分离器、换热器等优质产品。"
     },
     "about": {
       "title": "关于我们",

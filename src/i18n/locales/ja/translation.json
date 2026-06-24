@@ -21,6 +21,7 @@
     "hero": {
       "title": "青島開拓隆海智控有限公司",
       "subtitle": "冷凍システム部品の専門メーカーとして、世界中の企業に高品質な製品を提供しています。",
+      "brandAliases": "Kaituo Longhai · kaituolonghai · 開拓隆海",
       "cta": {
         "primary": "製品を知る",
         "secondary": "お問い合わせ"
@@ -627,6 +628,7 @@
   "footer": {
     "companyName": "開拓隆海",
     "companyLegalName": "青島開拓隆海智控有限公司",
+    "brandAliases": "Kaituo Longhai · kaituolonghai · 開拓隆海",
     "companyDesc": "世界的な冷凍メーカーに高品質な製品を提供しています。",
     "topNav": {
       "contact": "お問い合わせ",
@@ -691,10 +693,10 @@
   },
   "seo": {
     "siteName": "青島開拓隆海智控有限公司",
-    "defaultDescription": "青島開拓隆海智控有限公司——冷凍システム部品の専門メーカー。レシーバー、ガス・液分離器、熱交換器、銅管部品などを世界のお客様に提供します。",
+    "defaultDescription": "青島開拓隆海智控有限公司（Kaituo Longhai / kaituolonghai）——冷凍システム部品の専門メーカー。レシーバー、ガス・液分離器、熱交換器、銅管部品などを世界のお客様に提供します。",
     "home": {
       "title": "ホーム",
-      "description": "青島開拓隆海智控有限公司は、20年以上にわたり冷凍システム部品の製造に専念し、世界中の企業に高品質な製品を提供しています。"
+      "description": "青島開拓隆海智控有限公司（Kaituo Longhai、kaituolonghai）——20年以上にわたり冷凍システム部品の製造に専念し、世界中の企業に高品質な製品を提供しています。"
     },
     "about": {
       "title": "会社概要",

@@ -6,6 +6,7 @@ import Seo from '../components/Seo';
 import OptimizedImage from '../components/OptimizedImage';
 import HomeApplicationHero from '../components/home/HomeApplicationHero';
 import { useInView } from '../hooks/useInView';
+import { BRAND_KEYWORDS } from '../constants/organization';
 
 const FEATURE_CAROUSEL_MS = 5500;
 
@@ -61,6 +62,7 @@ const Home = () => {
         title={t('seo.home.title')}
         description={t('seo.home.description')}
         path="/"
+        keywords={BRAND_KEYWORDS}
       />
       <HomeApplicationHero />
 

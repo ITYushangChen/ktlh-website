@@ -11,6 +11,7 @@ import { absoluteUrl, DEFAULT_OG_IMAGE, LOCALE_MAP, SITE_URL } from '../constant
  * @param {string} [props.type] - og:type，默认 website
  * @param {boolean} [props.noindex] - 是否禁止收录
  * @param {boolean} [props.includeSiteName=true] - title 后自动拼接站点名
+ * @param {string} [props.keywords] - meta keywords（品牌词等）
  */
 export default function Seo({
   title,
@@ -20,6 +21,7 @@ export default function Seo({
   type = 'website',
   noindex = false,
   includeSiteName = true,
+  keywords,
 }) {
   const { i18n, t } = useTranslation();
   const siteName = t('seo.siteName');
@@ -35,6 +37,7 @@ export default function Seo({
       <html lang={i18n.language} />
       <title>{fullTitle}</title>
       <meta name="description" content={resolvedDescription} />
+      {keywords ? <meta name="keywords" content={keywords} /> : null}
       <link rel="canonical" href={canonical} />
 
       <meta property="og:site_name" content={siteName} />

@@ -231,6 +231,9 @@ export default function HomeApplicationHero() {
             <span aria-hidden="true">{typedSubtitle}</span>
             {!heroTypingDone && typedSubtitle.length > 0 && <TypeCursor />}
           </p>
+          <p className="mt-2 text-xs sm:text-sm text-slate-500 tracking-wide">
+            {t('home.hero.brandAliases')}
+          </p>
         </div>
       </div>
 

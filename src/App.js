@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Outlet, Navigate, useParams } f
 import { useTranslation } from 'react-i18next';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import OrganizationJsonLd from './components/OrganizationJsonLd';
 import ScrollToTop from './components/ScrollToTop';
 import { LazyPage } from './components/LazyPage';
 import Home from './pages/Home';
@@ -27,6 +28,7 @@ function LegacyProductDetailRedirect() {
 function PublicLayout() {
   return (
     <div className="min-h-screen flex flex-col">
+      <OrganizationJsonLd />
       <Navbar />
       <main className="flex-grow pt-14">
         <Outlet />
