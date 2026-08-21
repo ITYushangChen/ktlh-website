@@ -424,6 +424,7 @@
     "viewer3dError": "暂时无法加载 3D 预览，上方示意图仍可正常浏览。",
     "viewer3dTip": "此区域接近可视区域后开始加载 • 拖拽旋转视角 · 滚轮或双指缩放",
     "productNotFound": "未找到该产品或已下架",
+    "backToTop": "回到顶部",
     "contactForCustom": "联系我们了解更多",
     "needCustomSolution": "需要定制化解决方案？",
     "needProfessionalSolution": "需要专业解决方案？",
@@ -629,12 +630,13 @@
     "companyName": "开拓隆海",
     "companyLegalName": "青岛开拓隆海智控有限公司",
     "brandAliases": "Kaituo Longhai · kaituolonghai · 开拓隆海",
-    "companyDesc": "为全球知名制冷企业提供优质产品",
+    "companyDesc": "为全球领先制冷品牌提供优质产品",
     "topNav": {
       "contact": "联系方式",
       "siteStatement": "网站声明",
       "privacy": "隐私政策"
     },
+    "quickLinks": "快速导航",
     "icpRecord": "",
     "publicSecurityRecord": "",
     "sections": {
@@ -679,6 +681,7 @@
       "qrSuffix": "二维码"
     },
     "copyright": "版权所有",
+    "floatingMessage": "给我们留言",
     "bottomLinks": {
       "privacy": "隐私政策",
       "terms": "使用条款"

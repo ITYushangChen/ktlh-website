@@ -104,118 +104,50 @@ const Contact = () => {
   ];
 
   return (
-    <div className="py-16">
+    <div className="contact-page-in pt-0 pb-16 md:pt-16 md:pb-24">
       <Seo
         title={t('seo.contact.title')}
         description={t('seo.contact.description')}
         path="/contact"
       />
       {/* Hero Section */}
-      <section className="bg-gray-50 py-20">
+      <section className="pt-[10px] md:pt-10 pb-4 md:pb-20">
         <div className="container mx-auto px-4">
-          <h1 className="text-4xl font-bold text-center mb-6">{t('contact.title')}</h1>
-          <p className="text-xl text-gray-600 text-center max-w-3xl mx-auto">
+          <h1 className="contact-title-in text-3xl md:text-6xl font-bold text-center mb-2 md:mb-6 text-[#123a63]">
+            {t('contact.title')}
+          </h1>
+          <p className="contact-title-in text-base md:text-xl text-gray-500 text-center max-w-3xl mx-auto">
             {t('contact.subtitle')}
           </p>
         </div>
       </section>
 
-      {/* Contact Form and Info */}
-      <section className="py-16">
+      {/* 左右分栏：左联系方式 / 右可输入表单 */}
+      <section className="pb-20">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
-            {/* Contact Form */}
-            <div className="bg-white p-8 rounded-lg shadow-md">
-              <h2 className="text-2xl font-bold mb-6">{t('contact.formTitle')}</h2>
-              <form
-                ref={formRef}
-                onSubmit={handleSubmit}
-                className="space-y-6"
-              >
-                <input
-                  type="text"
-                  name="_gotcha"
-                  tabIndex={-1}
-                  autoComplete="off"
-                  className="absolute opacity-0 pointer-events-none h-0 w-0"
-                  aria-hidden="true"
-                />
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">{t('contact.form.name')}</label>
-                  <input
-                    type="text"
-                    name="name"
-                    id="name"
-                    required
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-[#086c7b] focus:border-[#086c7b]"
-                    placeholder={t('contact.form.namePlaceholder')}
-                  />
-                </div>
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">{t('contact.form.email')}</label>
-                  <input
-                    type="email"
-                    name="email"
-                    id="email"
-                    required
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-[#086c7b] focus:border-[#086c7b]"
-                    placeholder={t('contact.form.emailPlaceholder')}
-                  />
-                </div>
-                <div>
-                  <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">{t('contact.form.subject')}</label>
-                  <input
-                    type="text"
-                    name="subject"
-                    id="subject"
-                    required
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-[#086c7b] focus:border-[#086c7b]"
-                    placeholder={t('contact.form.subjectPlaceholder')}
-                  />
-                </div>
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">{t('contact.form.message')}</label>
-                  <textarea
-                    name="message"
-                    id="message"
-                    required
-                    rows="4"
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-[#086c7b] focus:border-[#086c7b]"
-                    placeholder={t('contact.form.messagePlaceholder')}
-                  ></textarea>
-                </div>
-                <button
-                  type="submit"
-                  className="w-full bg-[#086c7b] text-white px-6 py-3 rounded-md hover:bg-[#065a67] transition-colors duration-300"
-                  disabled={sending}
-                >
-                  {sending ? t('contact.form.sending') : t('contact.form.send')}
-                </button>
-                {success && <p className="text-green-600 mt-2">{t('contact.form.success')}</p>}
-                {error && <p className="text-red-600 mt-2">{error}</p>}
-              </form>
-            </div>
-
-            {/* Contact Information */}
-            <div className="space-y-8">
-              <div className="bg-white p-8 rounded-lg shadow-md">
-                <h2 className="text-2xl font-bold mb-6">{t('contact.infoTitle')}</h2>
-                <div className="space-y-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16 lg:gap-24 max-w-7xl mx-auto">
+            {/* 左侧：联系方式 */}
+            <div className="contact-left-in space-y-12 order-2 lg:order-1">
+              <div className="bg-white p-10 md:p-12 rounded-3xl shadow-lg border border-gray-100">
+                <h2 className="text-3xl font-bold mb-8 text-[#123a63]">{t('contact.infoTitle')}</h2>
+                <div className="space-y-8">
                   {contactInfo.map((info, index) => (
-                    <div key={index} className="flex items-start">
-                      <div className="text-[#086c7b] mr-4">{info.icon}</div>
+                    <div key={index} className="flex items-start gap-5">
+                      <div className="w-12 h-12 shrink-0 rounded-full bg-[#086c7b]/10 text-[#086c7b] flex items-center justify-center">
+                        {info.icon}
+                      </div>
                       <div>
-                        <h3 className="font-semibold mb-1">{info.title}</h3>
-                        <p className="text-gray-600">{info.content}</p>
+                        <h3 className="font-semibold text-lg mb-1">{info.title}</h3>
+                        <p className="text-gray-600 leading-relaxed">{info.content}</p>
                       </div>
                     </div>
                   ))}
                 </div>
               </div>
 
-              <div className="bg-white p-8 rounded-lg shadow-md">
-                <h2 className="text-2xl font-bold mb-6">{t('contact.companyInfoTitle')}</h2>
-                <div className="space-y-4">
+              <div className="bg-white p-10 md:p-12 rounded-3xl shadow-lg border border-gray-100">
+                <h2 className="text-3xl font-bold mb-8 text-[#123a63]">{t('contact.companyInfoTitle')}</h2>
+                <div className="space-y-6">
                   <div>
                     <h3 className="font-semibold mb-2">{t('contact.companyInfo.nameTitle')}</h3>
                     <p className="text-gray-600">{t('contact.companyInfo.name')}</p>
@@ -235,6 +167,84 @@ const Contact = () => {
                 </div>
               </div>
             </div>
+
+            {/* 右侧：可输入表单 */}
+            <div className="contact-right-in bg-white p-5 md:p-12 rounded-3xl shadow-lg border border-gray-100 order-1 lg:order-2">
+              <h2 className="text-2xl md:text-3xl font-bold mb-4 md:mb-8 text-[#123a63]">{t('contact.formTitle')}</h2>
+              <form
+                ref={formRef}
+                onSubmit={handleSubmit}
+                className="space-y-4 md:space-y-7"
+              >
+                <input
+                  type="text"
+                  name="_gotcha"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  className="absolute opacity-0 pointer-events-none h-0 w-0"
+                  aria-hidden="true"
+                />
+                <div>
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">{t('contact.form.name')}</label>
+                  <input
+                    type="text"
+                    name="name"
+                    id="name"
+                    required
+                    className="w-full px-4 py-3 md:py-3.5 border border-gray-300 rounded-xl focus:ring-[#086c7b] focus:border-[#086c7b]"
+                    placeholder={t('contact.form.namePlaceholder')}
+                  />
+                </div>
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">{t('contact.form.email')}</label>
+                  <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    required
+                    className="w-full px-4 py-3 md:py-3.5 border border-gray-300 rounded-xl focus:ring-[#086c7b] focus:border-[#086c7b]"
+                    placeholder={t('contact.form.emailPlaceholder')}
+                  />
+                </div>
+                <div>
+                  <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">{t('contact.form.subject')}</label>
+                  <input
+                    type="text"
+                    name="subject"
+                    id="subject"
+                    required
+                    className="w-full px-4 py-3 md:py-3.5 border border-gray-300 rounded-xl focus:ring-[#086c7b] focus:border-[#086c7b]"
+                    placeholder={t('contact.form.subjectPlaceholder')}
+                  />
+                </div>
+                <div>
+                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">{t('contact.form.message')}</label>
+                  <textarea
+                    name="message"
+                    id="message"
+                    required
+                    rows="4"
+                    className="w-full px-4 py-3 md:py-3.5 border border-gray-300 rounded-xl focus:ring-[#086c7b] focus:border-[#086c7b]"
+                    placeholder={t('contact.form.messagePlaceholder')}
+                  ></textarea>
+                </div>
+                <button
+                  type="submit"
+                  disabled={sending}
+                  className="group relative w-full overflow-hidden rounded-full bg-[#086c7b] px-8 py-3.5 md:py-4 text-white text-base md:text-lg font-semibold transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#086c7b] focus-visible:ring-offset-2"
+                >
+                  <span
+                    aria-hidden
+                    className="absolute inset-y-0 left-0 w-0 bg-gradient-to-r from-[#123a63] to-[#081c34] transition-all duration-500 group-hover:w-full"
+                  />
+                  <span className="relative z-10">
+                    {sending ? t('contact.form.sending') : t('contact.form.send')}
+                  </span>
+                </button>
+                {success && <p className="text-green-600 mt-2">{t('contact.form.success')}</p>}
+                {error && <p className="text-red-600 mt-2">{error}</p>}
+              </form>
+            </div>
           </div>
         </div>
       </section>
@@ -248,7 +258,7 @@ const Contact = () => {
           <iframe
             title={t('contact.mapTabGoogle')}
             src={mapEmbedSrc}
-            className="block w-full h-[min(85vh,820px)] border-0"
+            className="block w-full max-w-full h-[320px] md:h-[min(85vh,820px)] border-0"
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
             allowFullScreen

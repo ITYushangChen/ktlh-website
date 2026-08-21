@@ -87,3 +87,26 @@ export function getCategoryLink(category) {
   }
   return `/products/${CATEGORY_PATH_BY_ID[category.id] || category.id}`;
 }
+
+let productsJsonPromise = null;
+
+/**
+ * 会话级缓存的 products.json 加载器（单例、防抖）：
+ * 同一会话内只请求一次，后续所有页面复用同一份数据，
+ * 避免每次进入首页/产品页时重复拉取导致圆球、连线等元素再次出现而破坏首屏定格视图。
+ */
+export function fetchProductsJson() {
+  if (!productsJsonPromise) {
+    const url = `/content/products.json?t=${Date.now()}`;
+    productsJsonPromise = fetch(url)
+      .then((res) => {
+        if (!res.ok) throw new Error(`products.json request failed (${res.status})`);
+        return res.json();
+      })
+      .catch((err) => {
+        productsJsonPromise = null; // 失败后允许下一次调用重试
+        throw err;
+      });
+  }
+  return productsJsonPromise;
+}

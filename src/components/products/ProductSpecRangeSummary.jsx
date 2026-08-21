@@ -24,8 +24,9 @@ export default function ProductSpecRangeSummary({ table, gl, variant = 'full', c
   const isCompact = variant === 'compact';
 
   return (
+    // 仅手机版将"参数范围概览"模块缩小到原尺寸的 0.8 倍，桌面版保持原样
     <section
-      className={`rounded-xl border border-[#086c7b]/15 bg-gradient-to-br from-[#086c7b]/5 to-white ${
+      className={`rounded-xl border border-[#086c7b]/15 bg-gradient-to-br from-[#086c7b]/5 to-white transition-transform duration-500 hover:scale-[1.08] [zoom:0.8] md:[zoom:1] ${
         isCompact ? 'p-5' : 'p-6 md:p-8'
       } ${className}`}
       aria-labelledby="spec-range-summary-heading"
@@ -33,12 +34,18 @@ export default function ProductSpecRangeSummary({ table, gl, variant = 'full', c
       <div className={isCompact ? 'mb-4' : 'mb-5 md:mb-6'}>
         <h2
           id="spec-range-summary-heading"
-          className={`font-semibold text-gray-900 ${isCompact ? 'text-base' : 'text-lg md:text-xl'}`}
+          className={`font-semibold text-gray-900 ${
+            isCompact ? 'text-base' : 'text-lg md:text-xl'
+          }`}
         >
           {t('products.specRangeSummary')}
         </h2>
         {modelCount > 0 && (
-          <p className={`text-gray-600 mt-1 ${isCompact ? 'text-xs' : 'text-sm md:text-base'}`}>
+          <p
+            className={`text-gray-600 mt-1 ${
+              isCompact ? 'text-xs' : 'text-sm md:text-base'
+            }`}
+          >
             {t('products.specRangeModelCount', { count: modelCount })}
           </p>
         )}
@@ -60,10 +67,16 @@ export default function ProductSpecRangeSummary({ table, gl, variant = 'full', c
                 : 'rounded-lg bg-white/80 px-4 py-3 shadow-sm ring-1 ring-slate-100'
             }
           >
-            <dt className={`text-gray-600 ${isCompact ? 'text-sm' : 'text-sm md:text-[15px]'}`}>
+            <dt
+              className={`text-gray-600 ${
+                isCompact ? 'text-sm' : 'text-sm md:text-[15px]'
+              }`}
+            >
               {gl(item.label)}
               {item.unit && !item.rangeText.includes(item.unit) ? (
-                <span className="text-gray-400 ml-1">({item.unit})</span>
+                <span className="text-gray-400 ml-1">
+                  ({item.unit})
+                </span>
               ) : null}
             </dt>
             <dd

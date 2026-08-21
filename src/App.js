@@ -1,8 +1,18 @@
 import React, { lazy, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, Outlet, Navigate, useParams } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Outlet,
+  Navigate,
+  useLocation,
+  useParams,
+} from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import FloatingContactButton from './components/FloatingContactButton';
+import BackToTopButton from './components/BackToTopButton';
 import OrganizationJsonLd from './components/OrganizationJsonLd';
 import ScrollToTop from './components/ScrollToTop';
 import { LazyPage } from './components/LazyPage';
@@ -26,14 +36,18 @@ function LegacyProductDetailRedirect() {
 }
 
 function PublicLayout() {
+  const location = useLocation();
   return (
     <div className="min-h-screen flex flex-col">
       <OrganizationJsonLd />
       <Navbar />
-      <main className="flex-grow pt-14">
+      {/* 按路径重建路由内容：切换页面时彻底卸载旧页面，避免懒加载竞态导致旧页面布局残留 */}
+      <main key={location.pathname} className="flex-grow pt-14">
         <Outlet />
       </main>
       <Footer />
+      <FloatingContactButton />
+      <BackToTopButton />
     </div>
   );
 }

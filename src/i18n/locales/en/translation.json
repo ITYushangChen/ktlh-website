@@ -424,6 +424,7 @@
     "viewer3dError": "3D preview could not be loaded. The product image above still shows correctly.",
     "viewer3dTip": "Loads when this section enters the viewport • drag to orbit · scroll / pinch to zoom",
     "productNotFound": "This product could not be found or is no longer available.",
+    "backToTop": "Back to top",
     "contactForCustom": "Contact us for more information",
     "needCustomSolution": "Need a customized solution?",
     "needProfessionalSolution": "Need a professional solution?",
@@ -635,6 +636,7 @@
       "siteStatement": "Site Notice",
       "privacy": "Privacy Policy"
     },
+    "quickLinks": "Quick Links",
     "icpRecord": "",
     "publicSecurityRecord": "",
     "sections": {
@@ -679,6 +681,7 @@
       "qrSuffix": "QR Code"
     },
     "copyright": "All rights reserved.",
+    "floatingMessage": "Leave us a message",
     "bottomLinks": {
       "privacy": "Privacy Policy",
       "terms": "Terms of Use"

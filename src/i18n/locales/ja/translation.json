@@ -424,6 +424,7 @@
     "viewer3dError": "3D を読み込めませんでした。上の製品写真は問題なく表示されています。",
     "viewer3dTip": "画面上に近づいたら読み込み開始 • ドラッグで回転・ホイールでズーム",
     "productNotFound": "該当する製品が見つからないか、掲載を終了しています。",
+    "backToTop": "トップへ戻る",
     "contactForCustom": "詳細はお問い合わせください",
     "needCustomSolution": "カスタムソリューションが必要ですか？",
     "needProfessionalSolution": "専門的なソリューションが必要ですか？",
@@ -629,12 +630,13 @@
     "companyName": "開拓隆海",
     "companyLegalName": "青島開拓隆海智控有限公司",
     "brandAliases": "Kaituo Longhai · kaituolonghai · 開拓隆海",
-    "companyDesc": "世界的な冷凍メーカーに高品質な製品を提供しています。",
+    "companyDesc": "世界的なトップ冷凍ブランドに高品質な製品を提供しています。",
     "topNav": {
       "contact": "お問い合わせ",
       "siteStatement": "サイト声明",
       "privacy": "プライバシーポリシー"
     },
+    "quickLinks": "クイックリンク",
     "icpRecord": "",
     "publicSecurityRecord": "",
     "sections": {
@@ -679,6 +681,7 @@
       "qrSuffix": "QRコード"
     },
     "copyright": "無断転載を禁じます。",
+    "floatingMessage": "メッセージを送る",
     "bottomLinks": {
       "privacy": "プライバシーポリシー",
       "terms": "利用規約"

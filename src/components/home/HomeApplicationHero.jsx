@@ -8,7 +8,7 @@ import { glField, getCategoryLink } from '../../utils/productsCatalog';
 
 const TypeCursor = () => (
   <motion.span
-    className="inline-block w-[2px] sm:w-[3px] h-[0.92em] align-baseline ml-1 rounded-sm bg-primary shadow-[0_0_12px_rgba(8,108,123,0.45)]"
+    className="hidden md:inline-block w-[2px] sm:w-[3px] h-[0.92em] align-baseline ml-1 rounded-sm bg-primary shadow-[0_0_12px_rgba(8,108,123,0.45)]"
     animate={{ opacity: [1, 0.2, 1] }}
     transition={{ duration: 0.8, repeat: Infinity, ease: 'easeInOut' }}
     aria-hidden
@@ -172,6 +172,13 @@ export default function HomeApplicationHero() {
   const heroSubtitle = t('home.hero.subtitle');
   const { typedTitle, typedSubtitle, heroTypingDone } = useHeroTyping(heroTitle, heroSubtitle);
 
+  // 手机版：用「我们的优势」轮播图第一张照片替代大圆球
+  const featureSlides = t('home.features.items', { returnObjects: true });
+  const firstFeatureImage =
+    Array.isArray(featureSlides) && featureSlides[0]?.image
+      ? featureSlides[0].image
+      : '/images/app/factory.jpg';
+
   const [categories, setCategories] = useState([]);
   const [activeId, setActiveId] = useState(null);
 
@@ -223,12 +230,14 @@ export default function HomeApplicationHero() {
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-primary-dark mb-3 sm:mb-4 min-h-[2.5em] sm:min-h-[2em] leading-tight tracking-tight">
             <span className="sr-only">{heroTitle}</span>
-            <span className="inline" aria-hidden="true">{typedTitle}</span>
+            <span className="hidden md:inline" aria-hidden="true">{typedTitle}</span>
+            <span className="md:hidden" aria-hidden="true">{heroTitle}</span>
             {!heroTypingDone && typedSubtitle.length === 0 && <TypeCursor />}
           </h1>
           <p className="text-base sm:text-lg lg:text-xl text-slate-600 min-h-[3rem] sm:min-h-[3.5rem] leading-relaxed max-w-3xl mx-auto">
             <span className="sr-only">{heroSubtitle}</span>
-            <span aria-hidden="true">{typedSubtitle}</span>
+            <span className="hidden md:inline" aria-hidden="true">{typedSubtitle}</span>
+            <span className="md:hidden" aria-hidden="true">{heroSubtitle}</span>
             {!heroTypingDone && typedSubtitle.length > 0 && <TypeCursor />}
           </p>
           <p className="mt-2 text-xs sm:text-sm text-slate-500 tracking-wide">
@@ -242,7 +251,7 @@ export default function HomeApplicationHero() {
         className="relative flex-1 container mx-auto px-4 pb-12 sm:pb-16 lg:pb-20 z-10 min-h-0"
       >
         <svg
-          className="absolute inset-0 w-full h-full pointer-events-none z-0"
+          className="hidden md:block absolute inset-0 w-full h-full pointer-events-none z-0"
           aria-hidden
         >
           {lines.map((line, i) => (
@@ -261,7 +270,7 @@ export default function HomeApplicationHero() {
           {/* 左侧示意图 */}
           <motion.div
             ref={leftCardRef}
-            className="order-2 lg:order-1 w-full max-w-md lg:max-w-none mx-auto lg:mx-0"
+            className="hidden md:block order-3 lg:order-1 w-full max-w-md lg:max-w-none mx-auto lg:mx-0"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.55, delay: 0.1 }}
@@ -276,6 +285,21 @@ export default function HomeApplicationHero() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ type: 'spring', stiffness: 280, damping: 22, delay: 0.05 }}
           >
+            {/* 手机版：大圆球位置放轮播图第一张照片（与手机屏幕同宽） */}
+            <div className="md:hidden relative left-1/2 w-screen -translate-x-1/2 overflow-hidden">
+              <OptimizedImage
+                src={firstFeatureImage}
+                alt=""
+                aria-hidden
+                loading="eager"
+                fetchPriority="high"
+                className="block w-full"
+                imgClassName="w-full aspect-video object-cover"
+              />
+            </div>
+
+            {/* 桌面版：Hub 大圆球 + 行动按钮 */}
+            <div className="hidden md:flex flex-col items-center">
             <div
               ref={hubRef}
               className="relative flex flex-col items-center justify-center text-center rounded-full w-[min(92vw,240px)] h-[min(92vw,240px)] sm:w-[240px] sm:h-[240px] lg:w-[260px] lg:h-[260px]"
@@ -325,11 +349,12 @@ export default function HomeApplicationHero() {
                 </Link>
               </motion.div>
             </motion.div>
+            </div>
           </motion.div>
 
           {/* 右侧产品圆 grid */}
           <motion.div
-            className="order-3 grid grid-cols-2 sm:grid-cols-4 gap-x-8 sm:gap-x-10 lg:gap-x-12 xl:gap-x-14 gap-y-9 sm:gap-y-10 lg:gap-y-12 justify-items-center w-full max-w-2xl sm:max-w-3xl lg:max-w-none mx-auto lg:mx-0 pb-6 sm:pb-8"
+            className="order-2 lg:order-3 grid grid-cols-2 md:grid-cols-4 gap-x-8 sm:gap-x-10 lg:gap-x-12 xl:gap-x-14 gap-y-9 sm:gap-y-10 lg:gap-y-12 justify-items-center w-full max-w-2xl sm:max-w-3xl lg:max-w-none mx-auto lg:mx-0 pb-6 sm:pb-8"
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.55, delay: 0.15 }}
@@ -341,7 +366,7 @@ export default function HomeApplicationHero() {
                 <Link
                   key={cat.id}
                   to={getCategoryLink(cat)}
-                  className="group flex flex-col items-center text-center w-[7.5rem] sm:w-[9.5rem] lg:w-[10.5rem] min-w-0"
+                  className="group flex flex-col items-center text-center w-full md:w-[9.5rem] lg:w-[10.5rem] min-w-0"
                   onMouseEnter={() => setActiveId(cat.id)}
                   onMouseLeave={() => setActiveId(null)}
                   onFocus={() => setActiveId(cat.id)}
@@ -353,14 +378,14 @@ export default function HomeApplicationHero() {
                     }}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.97 }}
-                    className={`relative w-[5.5rem] h-[5.5rem] sm:w-24 sm:h-24 lg:w-28 lg:h-28 rounded-full bg-white shadow-md overflow-hidden ring-2 transition-all duration-300 flex items-center justify-center shrink-0 ${
+                    className={`relative w-full aspect-square md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-none md:rounded-full bg-white shadow-md overflow-hidden ring-2 transition-all duration-300 flex items-center justify-center shrink-0 ${
                       isActive ? 'ring-primary shadow-lg shadow-primary/20' : 'ring-white/90'
                     }`}
                   >
                     <CategoryCircleImage src={cat.image} loading={i < 4 ? 'eager' : 'lazy'} />
                   </motion.div>
                   <span
-                    className={`mt-2.5 w-full text-xs sm:text-sm font-semibold leading-snug px-0.5 whitespace-normal break-words transition-colors ${
+                    className={`mt-2.5 w-full text-sm md:text-xs lg:text-sm font-semibold leading-snug px-0.5 whitespace-normal break-words transition-colors ${
                       isActive ? 'text-primary' : 'text-slate-700'
                     }`}
                   >
@@ -375,7 +400,7 @@ export default function HomeApplicationHero() {
 
       {/* 向下滑动 */}
       <motion.div
-        className="relative z-20 flex justify-center pb-4 sm:pb-5"
+        className="hidden md:flex relative z-20 justify-center pb-4 sm:pb-5"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.8 }}

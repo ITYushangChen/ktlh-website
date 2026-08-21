@@ -16,6 +16,9 @@ import {
   quadBezierBetween,
   PARTNERS_MAP_SIZE,
   PARTNERS_MAP_BASE_SCALE,
+  LABEL_BOX,
+  buildLabelOffsetMap,
+  resolveLabelCollisionOffsets,
   collectPartnerCountryNames,
   createPartnersMapProjection,
   resolveHighlightLabelOffsets,
@@ -150,7 +153,7 @@ function HubActiveLinksOnly({ hubLng, hubLat, nodes, highlightedNodeIds }) {
               strokeWidth: 4.1,
             }}
             transition={{
-              pathLength: { duration: 0.62, ease: LINE_DRAW_EASE },
+              pathLength: { duration: 1.0, ease: LINE_DRAW_EASE },
               strokeWidth: { ...LINE_SPRING, delay: 0.04 },
               opacity: { duration: 0.2 },
             }}
@@ -158,6 +161,127 @@ function HubActiveLinksOnly({ hubLng, hubLat, nodes, highlightedNodeIds }) {
         );
       })}
     </g>
+  );
+}
+
+function HubRevealLinks({ hubLng, hubLat, nodes, newestId, drawDuration = 1.4, staticMap = false }) {
+  const { projection } = useMapContext();
+  const pHub = projection([Number(hubLng), Number(hubLat)]);
+  if (!pHub) return null;
+
+  return (
+    <g className="pointer-events-none">
+      {nodes.map((node) => {
+        const pTo = projection([Number(node.lng), Number(node.lat)]);
+        if (!pTo) return null;
+        const d = quadBezierBetween(
+          pHub[0],
+          pHub[1],
+          pTo[0],
+          pTo[1],
+          LINK_BEND_FACTOR,
+          LINK_MAX_BEND_PX,
+        );
+        const isNew = node.id === newestId;
+        if (staticMap) {
+          return (
+            <path
+              key={`link-reveal-${node.id}`}
+              d={d}
+              fill="none"
+              stroke={HUB_BRAND}
+              strokeWidth={2.4}
+              strokeLinecap="round"
+              filter="url(#worldPartnerArcShadow)"
+              opacity={1}
+            />
+          );
+        }
+        return (
+          <motion.path
+            key={`link-reveal-${node.id}`}
+            d={d}
+            fill="none"
+            stroke={HUB_BRAND}
+            strokeWidth={2.4}
+            strokeLinecap="round"
+            filter="url(#worldPartnerArcShadow)"
+            initial={isNew ? { pathLength: 0, opacity: 0.35 } : false}
+            animate={{ pathLength: 1, opacity: 1 }}
+            transition={{
+              pathLength: { duration: isNew ? drawDuration : 0.4, ease: LINE_DRAW_EASE },
+              opacity: { duration: isNew ? 0.8 : 0.2 },
+            }}
+          />
+        );
+      })}
+    </g>
+  );
+}
+
+/** 连线出现时同步显示的地名标签（与最开始的紧凑标签样式一致） */
+function RevealLocationLabel({ point, lang, isHub = false, offset = { dx: 0, dy: 0 }, staticMap = false }) {
+  const { projection } = useMapContext();
+  const p = projection([Number(point.lng), Number(point.lat)]);
+  if (!p) return null;
+  const [px, py] = p;
+  const box = isHub ? LABEL_BOX.hub : LABEL_BOX.node;
+  const title = pickLocalized(point.title, lang);
+  const place = pickLocalized(point.subtitle, lang);
+
+  if (staticMap) {
+    return (
+      <g
+        transform={`translate(${px + offset.dx}, ${py + offset.dy})`}
+        className="pointer-events-none"
+      >
+        <foreignObject
+          x={-box.w / 2}
+          y={box.y}
+          width={box.w}
+          height={box.h}
+          style={{ overflow: 'visible' }}
+        >
+          <div
+            xmlns="http://www.w3.org/1999/xhtml"
+            className="rounded border border-[#086c7b]/30 bg-white/95 px-1.5 py-1 text-center shadow-sm"
+          >
+            <div className="text-[10px] font-semibold leading-tight text-[#123a63] truncate">
+              {title}
+            </div>
+            <div className="text-[9px] leading-tight text-gray-600 truncate">{place}</div>
+          </div>
+        </foreignObject>
+      </g>
+    );
+  }
+
+  return (
+    <motion.g
+      transform={`translate(${px + offset.dx}, ${py + offset.dy})`}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5, ease: 'easeOut' }}
+      className="pointer-events-none"
+    >
+      <foreignObject
+        x={-box.w / 2}
+        y={box.y}
+        width={box.w}
+        height={box.h}
+        style={{ overflow: 'visible' }}
+      >
+        <div
+          xmlns="http://www.w3.org/1999/xhtml"
+          className="rounded border border-[#086c7b]/30 bg-white/95 px-1.5 py-1 text-center shadow-sm"
+        >
+          <div className="text-[10px] font-semibold leading-tight text-[#123a63] truncate">
+            {title}
+          </div>
+          <div className="text-[9px] leading-tight text-gray-600 truncate">{place}</div>
+        </div>
+      </foreignObject>
+    </motion.g>
   );
 }
 
@@ -173,6 +297,9 @@ const PARTNER_COUNTRY_STROKE_ACTIVE = '#086c7b';
 /** 图钉 */
 const PIN_FILL = '#5aadc0';
 const PIN_FILL_ACTIVE = '#086c7b';
+/** 开拓隆海枢纽图钉：红色 */
+const HUB_PIN_FILL = '#dc2626';
+const HUB_PIN_FILL_ACTIVE = '#b91c1c';
 const DEFAULT_COUNTRY_FILL = '#e4e4e7';
 const DEFAULT_COUNTRY_STROKE = '#d4d4d8';
 
@@ -244,7 +371,13 @@ function MapPinOnly({
     if (!coarsePointer) onHighlightChange(null);
   }, [coarsePointer, onHighlightChange]);
 
-  const pinFill = highlighted ? PIN_FILL_ACTIVE : PIN_FILL;
+  const pinFill = isHub
+    ? highlighted
+      ? HUB_PIN_FILL_ACTIVE
+      : HUB_PIN_FILL
+    : highlighted
+      ? PIN_FILL_ACTIVE
+      : PIN_FILL;
 
   const pinSize = isHub ? 34 : 26;
   const pinTx = -pinSize / 2;
@@ -277,7 +410,7 @@ function MapPinOnly({
   const onMarkerLeaveGroup = useCallback(
     (e) => {
       const rt = e.relatedTarget;
-      if (rt && e.currentTarget.contains(rt)) return;
+      if (rt instanceof Node && e.currentTarget.contains(rt)) return;
       onLeave();
     },
     [onLeave],
@@ -296,7 +429,10 @@ function MapPinOnly({
           else onHighlightChange(new Set([id]));
         }}
         onBlur={(e) => {
-          if (!e.currentTarget.ownerSVGElement?.contains(e.relatedTarget)) {
+          if (
+            !e.relatedTarget ||
+            !e.currentTarget.ownerSVGElement?.contains(e.relatedTarget)
+          ) {
             onHighlightChange(null);
           }
         }}
@@ -379,11 +515,11 @@ function brandGroupKey(node) {
   return node.id;
 }
 
-export default function WorldPartnersMap() {
+export default function WorldPartnersMap({ progress = 0, onConnectNodesChange, staticMap = false }) {
   const { i18n, t } = useTranslation();
   const lang = i18n.language || 'en';
   const [data, setData] = useState(DEFAULT_DATA);
-  const [highlightedNodeIds, setHighlightedNodeIds] = useState(null);
+  const [userHighlightedNodeIds, setUserHighlightedNodeIds] = useState(null);
   const coarsePointer = useCoarsePointer();
   const containerRef = useRef(null);
   const countryFeatures = useMemo(
@@ -411,8 +547,12 @@ export default function WorldPartnersMap() {
   }, []);
 
   useEffect(() => {
+    onConnectNodesChange?.(data.nodes.filter((n) => n.connectToHub !== false).length);
+  }, [data, onConnectNodesChange]);
+
+  useEffect(() => {
     const onKey = (e) => {
-      if (e.key === 'Escape') setHighlightedNodeIds(null);
+      if (e.key === 'Escape') setUserHighlightedNodeIds(null);
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
@@ -435,6 +575,29 @@ export default function WorldPartnersMap() {
 
   const hubLng = Number(data.hub.lng);
   const hubLat = Number(data.hub.lat);
+
+  /** 连接总部枢纽的节点列表 */
+  const connectNodes = useMemo(
+    () => data.nodes.filter((n) => n.connectToHub !== false),
+    [data.nodes],
+  );
+
+  // 随滚动进度，每步显示一条连线（从 0 开始，最后一步全部显示）
+  const scrollRevealedIds = useMemo(() => {
+    const n = connectNodes.length;
+    const count = Math.max(0, Math.min(n, Math.floor(progress * n + 1e-6)));
+    return new Set(connectNodes.slice(0, count).map((node) => node.id));
+  }, [connectNodes, progress]);
+
+  const revealedNodes = useMemo(
+    () => connectNodes.filter((node) => scrollRevealedIds.has(node.id)),
+    [connectNodes, scrollRevealedIds],
+  );
+  const newestRevealedId =
+    revealedNodes.length > 0 ? revealedNodes[revealedNodes.length - 1].id : null;
+
+  // 国家高亮用于按顺序显示，用户悬停/点击时则以交互为准
+  const highlightForCountries = userHighlightedNodeIds ?? scrollRevealedIds;
 
   const projectionScale =
     PARTNERS_MAP_BASE_SCALE * (dims.width / PARTNERS_MAP_SIZE.width);
@@ -471,33 +634,38 @@ export default function WorldPartnersMap() {
   );
 
   const activePartnerCountryNames = useMemo(() => {
-    if (!highlightedNodeIds || highlightedNodeIds.size === 0) return new Set();
+    if (!highlightForCountries || highlightForCountries.size === 0) return new Set();
     const activeNodes = data.nodes.filter(
-      (n) => n.connectToHub !== false && highlightedNodeIds.has(n.id),
+      (n) => n.connectToHub !== false && highlightForCountries.has(n.id),
     );
     return collectPartnerCountryNames(activeNodes, countryFeatures);
-  }, [data.nodes, countryFeatures, highlightedNodeIds]);
+  }, [data.nodes, countryFeatures, highlightForCountries]);
 
   const hubAllHighlighted =
     connectNodeIds.length > 0 &&
-    highlightedNodeIds != null &&
-    connectNodeIds.every((id) => highlightedNodeIds.has(id)) &&
-    highlightedNodeIds.size === connectNodeIds.length;
+    userHighlightedNodeIds != null &&
+    connectNodeIds.every((id) => userHighlightedNodeIds.has(id)) &&
+    userHighlightedNodeIds.size === connectNodeIds.length;
 
   const lowNodes = useMemo(
     () =>
       data.nodes.filter(
-        (n) => n.connectToHub !== false && !(highlightedNodeIds && highlightedNodeIds.has(n.id)),
+        (n) =>
+          n.connectToHub !== false &&
+          !(userHighlightedNodeIds && userHighlightedNodeIds.has(n.id)),
       ),
-    [data.nodes, highlightedNodeIds],
+    [data.nodes, userHighlightedNodeIds],
   );
 
   const hiNodes = useMemo(
     () =>
       data.nodes.filter(
-        (n) => n.connectToHub !== false && highlightedNodeIds && highlightedNodeIds.has(n.id),
+        (n) =>
+          n.connectToHub !== false &&
+          userHighlightedNodeIds &&
+          userHighlightedNodeIds.has(n.id),
       ),
-    [data.nodes, highlightedNodeIds],
+    [data.nodes, userHighlightedNodeIds],
   );
 
   const highlightLabelOffsets = useMemo(() => {
@@ -506,17 +674,31 @@ export default function WorldPartnersMap() {
     return resolveHighlightLabelOffsets(hiNodes, projection);
   }, [hiNodes, dims.width, dims.height]);
 
+  // 滚动揭示阶段：为已显示连线的节点生成紧凑地名标签（复用最开始的标签排布逻辑）
+  const revealLabelOffsets = useMemo(() => {
+    if (userHighlightedNodeIds != null) return new Map();
+    if (revealedNodes.length === 0 && data.hub.id) return new Map();
+    const projection = createPartnersMapProjection(dims.width, dims.height);
+    const base = buildLabelOffsetMap(data.hub, revealedNodes);
+    return resolveLabelCollisionOffsets({
+      hub: data.hub,
+      nodes: revealedNodes,
+      baseOffsets: base,
+      projection,
+    });
+  }, [data.hub, revealedNodes, dims.width, dims.height, userHighlightedNodeIds]);
+
   const isGroupActive = useCallback(
     (group) =>
-      highlightedNodeIds &&
-      group.nodeIds.length === highlightedNodeIds.size &&
-      group.nodeIds.every((id) => highlightedNodeIds.has(id)),
-    [highlightedNodeIds],
+      userHighlightedNodeIds &&
+      group.nodeIds.length === userHighlightedNodeIds.size &&
+      group.nodeIds.every((id) => userHighlightedNodeIds.has(id)),
+    [userHighlightedNodeIds],
   );
 
   const onBrandEnter = useCallback(
     (group) => {
-      if (!coarsePointer) setHighlightedNodeIds(new Set(group.nodeIds));
+      if (!coarsePointer) setUserHighlightedNodeIds(new Set(group.nodeIds));
     },
     [coarsePointer],
   );
@@ -525,7 +707,7 @@ export default function WorldPartnersMap() {
     (e, group) => {
       if (!coarsePointer) return;
       e.stopPropagation();
-      setHighlightedNodeIds((prev) => {
+      setUserHighlightedNodeIds((prev) => {
         if (
           prev &&
           group.nodeIds.length === prev.size &&
@@ -540,17 +722,17 @@ export default function WorldPartnersMap() {
   );
 
   const setHighlightFromMarker = useCallback((next) => {
-    setHighlightedNodeIds(next);
+    setUserHighlightedNodeIds(next);
   }, []);
 
   return (
     <div ref={containerRef} className="h-full w-full min-h-0 bg-transparent relative">
       <motion.div
         className="relative h-full w-full overflow-hidden bg-transparent"
-        initial={{ opacity: 0, y: 12 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial={staticMap ? false : { opacity: 0, y: 12 }}
+        whileInView={staticMap ? undefined : { opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-80px' }}
-        transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+        transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
       >
         <ComposableMap
           projection="geoEqualEarth"
@@ -561,7 +743,7 @@ export default function WorldPartnersMap() {
           width={dims.width}
           height={dims.height}
           className="h-full w-full block select-none bg-transparent [&_.rsm-svg]:h-full [&_.rsm-svg]:w-full [&_.rsm-svg]:max-h-none [&_.rsm-svg]:overflow-visible [&_.rsm-svg]:bg-transparent"
-          onClick={() => setHighlightedNodeIds(null)}
+          onClick={() => setUserHighlightedNodeIds(null)}
         >
           <defs>
             <linearGradient id="partnerLineActive" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -625,12 +807,30 @@ export default function WorldPartnersMap() {
             }
           </Geographies>
 
-          <HubQuadBezierLinks
-            hubLng={hubLng}
-            hubLat={hubLat}
-            nodes={data.nodes}
-            highlightedNodeIds={highlightedNodeIds}
-          />
+          {userHighlightedNodeIds == null ? (
+            <HubRevealLinks
+              hubLng={hubLng}
+              hubLat={hubLat}
+              nodes={revealedNodes}
+              newestId={newestRevealedId}
+              staticMap={staticMap}
+            />
+          ) : (
+            <>
+              <HubQuadBezierLinks
+                hubLng={hubLng}
+                hubLat={hubLat}
+                nodes={data.nodes}
+                highlightedNodeIds={userHighlightedNodeIds}
+              />
+              <HubActiveLinksOnly
+                hubLng={hubLng}
+                hubLat={hubLat}
+                nodes={data.nodes}
+                highlightedNodeIds={userHighlightedNodeIds}
+              />
+            </>
+          )}
 
           {lowNodes.map((node) => (
             <MapPinOnly
@@ -656,13 +856,6 @@ export default function WorldPartnersMap() {
               connectNodeIds={connectNodeIds}
             />
           ) : null}
-
-          <HubActiveLinksOnly
-            hubLng={hubLng}
-            hubLat={hubLat}
-            nodes={data.nodes}
-            highlightedNodeIds={highlightedNodeIds}
-          />
 
           {[...hiNodes]
             .sort((a, b) => {
@@ -695,6 +888,27 @@ export default function WorldPartnersMap() {
               connectNodeIds={connectNodeIds}
             />
           ) : null}
+
+          {userHighlightedNodeIds == null && !staticMap && (
+            <g className="pointer-events-none">
+              <RevealLocationLabel
+                point={data.hub}
+                isHub
+                lang={lang}
+                offset={revealLabelOffsets.get(data.hub.id) || { dx: 0, dy: 0 }}
+                staticMap={staticMap}
+              />
+              {revealedNodes.map((node) => (
+                <RevealLocationLabel
+                  key={`reveal-label-${node.id}`}
+                  point={node}
+                  lang={lang}
+                  offset={revealLabelOffsets.get(node.id) || { dx: 0, dy: 0 }}
+                  staticMap={staticMap}
+                />
+              ))}
+            </g>
+          )}
         </ComposableMap>
 
         <div
@@ -704,7 +918,7 @@ export default function WorldPartnersMap() {
           <div
             className="pointer-events-auto flex w-full max-w-[min(96%,920px)] flex-nowrap items-center gap-2 overflow-x-auto overflow-y-hidden overscroll-x-contain [-ms-overflow-style:none] [scrollbar-width:thin] [scrollbar-color:rgba(8,108,123,0.35)_transparent] snap-x snap-mandatory sm:flex-wrap sm:justify-center sm:overflow-x-visible sm:overflow-y-visible sm:snap-none [&::-webkit-scrollbar]:h-1.5 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-[#086c7b]/30"
             onMouseLeave={() => {
-              if (!coarsePointer) setHighlightedNodeIds(null);
+              if (!coarsePointer) setUserHighlightedNodeIds(null);
             }}
           >
             {brandGroups.map((group) => {
@@ -724,8 +938,13 @@ export default function WorldPartnersMap() {
                   onMouseEnter={() => onBrandEnter(group)}
                   onFocus={() => onBrandEnter(group)}
                   onBlur={(e) => {
-                    if (e.currentTarget.parentElement?.contains(e.relatedTarget)) return;
-                    if (!coarsePointer) setHighlightedNodeIds(null);
+                    if (
+                      e.relatedTarget &&
+                      e.currentTarget.parentElement?.contains(e.relatedTarget)
+                    ) {
+                      return;
+                    }
+                    if (!coarsePointer) setUserHighlightedNodeIds(null);
                   }}
                   onClick={(e) => onBrandClick(e, group)}
                 >

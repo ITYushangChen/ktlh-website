@@ -5,6 +5,8 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    /* 预留滚动条空间，锁定页面切换 overflow 时不会引起布局闪动 */
+    scrollbar-gutter: stable;
   }
   
   body {
@@ -86,6 +88,85 @@ html[lang^="ja"] li {
 
 .hero-shimmer-once {
   animation: hero-shimmer-sweep 2.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* 联系页整体淡入 + 上移 */
+@keyframes contact-fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 联系页区块从下方升起 */
+@keyframes contact-block-rise {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.contact-page-in {
+  animation: contact-fade-up 0.35s ease-out both;
+}
+
+.contact-title-in {
+  animation: contact-block-rise 0.3s ease-out 0.2s both;
+}
+
+.contact-left-in {
+  animation: contact-block-rise 0.3s ease-out 0.3s both;
+}
+
+.contact-right-in {
+  animation: contact-block-rise 0.3s ease-out 0.38s both;
+}
+
+/* 关于页整体淡入 + 上移（与联系页一致） */
+.about-page-in {
+  animation: contact-fade-up 0.35s ease-out both;
+}
+
+/* 关于页标题从下方升起（与联系页标题一致） */
+.about-title-in {
+  animation: contact-block-rise 0.3s ease-out 0.2s both;
+}
+
+/* 产品页整体淡入 + 上移（与联系页一致） */
+.products-page-in {
+  animation: contact-fade-up 0.35s ease-out both;
+}
+
+/* 产品中心标题淡入上浮（与联系页标题一致） */
+.products-title-in {
+  animation: contact-block-rise 0.3s ease-out 0.2s both;
+}
+
+/* 产品中心副标题紧随其后上浮 */
+.products-subtitle-in {
+  animation: contact-block-rise 0.3s ease-out 0.28s both;
+}
+
+/* 关于页概览区块：标题之后依次浮现（与联系页左右栏一致） */
+.about-overview-in {
+  animation: contact-block-rise 0.3s ease-out 0.3s both;
+}
+
+.about-overview-in-2 {
+  animation: contact-block-rise 0.3s ease-out 0.38s both;
+}
+
+/* 产品页第一个分组：标题之后浮现 */
+.products-group-in {
+  animation: contact-block-rise 0.3s ease-out 0.35s both;
 }
 
 @layer components {
