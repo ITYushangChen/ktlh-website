@@ -1,4 +1,21 @@
 {
+  "redirects": [
+    {
+      "source": "/index.php",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/index.php/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/:path(.*).php",
+      "destination": "/",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     { "source": "/((?!api/).*)", "destination": "/index.html" }
   ],

@@ -37,6 +37,10 @@ export default function Seo({
       <html lang={i18n.language} />
       <title>{fullTitle}</title>
       <meta name="description" content={resolvedDescription} />
+      <meta
+        name="robots"
+        content={noindex ? 'noindex, nofollow' : 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1'}
+      />
       {keywords ? <meta name="keywords" content={keywords} /> : null}
       <link rel="canonical" href={canonical} />
 
@@ -52,8 +56,6 @@ export default function Seo({
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={resolvedDescription} />
       <meta name="twitter:image" content={ogImage} />
-
-      {noindex ? <meta name="robots" content="noindex, nofollow" /> : null}
     </Helmet>
   );
 }

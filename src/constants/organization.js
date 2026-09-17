@@ -1,9 +1,9 @@
 import { DEFAULT_OG_IMAGE, SITE_URL } from './seo';
 
-export const ORGANIZATION_LEGAL_NAME = 'Qingdao Kaituo Longhai Intelligent Control Co., Ltd.';
+export const ORGANIZATION_LEGAL_NAME = 'Qingdao KaituoLonghai Intelligent Control Co., Ltd.';
 
 export const ORGANIZATION_ALTERNATE_NAMES = [
-  'Kaituo Longhai',
+  'KaituoLonghai',
   'kaituolonghai',
   '开拓隆海',
   '青岛开拓隆海智控有限公司',
@@ -21,7 +21,7 @@ export const ORGANIZATION_CONTACT = {
 };
 
 export const BRAND_KEYWORDS =
-  'Kaituo Longhai, kaituolonghai, 开拓隆海, KTLH, refrigeration components, heat exchangers';
+  'KaituoLonghai, kaituolonghai, 开拓隆海, KTLH, refrigeration components, heat exchangers';
 
 /** 社交媒体等官方外链，用于 Organization sameAs */
 export function getOrganizationSameAs() {
@@ -75,7 +75,7 @@ export function buildWebSiteJsonLd() {
     '@id': `${SITE_URL}/#website`,
     url: SITE_URL,
     name: ORGANIZATION_LEGAL_NAME,
-    alternateName: ['kaituolonghai', 'Kaituo Longhai', '开拓隆海'],
+    alternateName: ['kaituolonghai', 'KaituoLonghai', '开拓隆海'],
     publisher: { '@id': `${SITE_URL}/#organization` },
     inLanguage: ['zh-CN', 'en', 'ja'],
   };

@@ -12,6 +12,16 @@ const Footer = () => {
     { to: '/terms', labelKey: 'footer.topNav.siteStatement' },
     { to: '/privacy', labelKey: 'footer.topNav.privacy' },
   ];
+  const productLinks = [
+    { to: '/products/receivers', labelKey: 'nav.products_sub.receivers' },
+    { to: '/products/gas-liquid-separators', labelKey: 'nav.products_sub.gas_liquid_separators' },
+    { to: '/products/oil-separators', labelKey: 'nav.products_sub.oil_separators' },
+    { to: '/products/damping-blocks', labelKey: 'nav.products_sub.damping_blocks' },
+    { to: '/products/shell-tube-heat-exchangers', labelKey: 'nav.products_sub.shell_tube_heat_exchangers' },
+    { to: '/products/copper-tube-series', labelKey: 'nav.products_sub.copper_tube_series' },
+    { to: '/products/steel-pipes', labelKey: 'nav.products_sub.steel_pipes' },
+    { to: '/products/plate-heat-exchangers', labelKey: 'nav.products_sub.plate_heat_exchangers' },
+  ];
 
   const socialMedia = [
     {
@@ -132,12 +142,22 @@ const Footer = () => {
 
         {/* 下排：联系与版权 | 社交 */}
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 py-8 lg:py-10">
-          <div className="space-y-3 max-w-3xl text-xs sm:text-sm text-gray-500 leading-relaxed">
+          <div className="space-y-4 max-w-4xl text-xs sm:text-sm text-gray-500 leading-relaxed">
             <div className="space-y-1.5">
               <p>{t('footer.sections.contact.address')}</p>
               <p>{t('footer.sections.contact.phone')}</p>
               <p>{t('footer.sections.contact.email')}</p>
               <p className="text-gray-400">{t('footer.brandAliases')}</p>
+            </div>
+            <div className="pt-1">
+              <p className="text-gray-500 font-medium mb-1.5">{t('footer.sections.products.title')}</p>
+              <nav className="flex flex-wrap gap-x-3 gap-y-1.5" aria-label={t('footer.sections.products.title')}>
+                {productLinks.map((item) => (
+                  <Link key={item.to} to={item.to} className="text-gray-500 hover:text-[#086c7b] transition-colors">
+                    {t(item.labelKey)}
+                  </Link>
+                ))}
+              </nav>
             </div>
             <p className="text-gray-400 text-[11px] sm:text-xs leading-relaxed">
               © {currentYear} {t('footer.companyLegalName')} {t('footer.copyright')}

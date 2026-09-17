@@ -27,7 +27,7 @@ const DEFAULT_DATA = {
     id: 'qingdao_hub',
     lat: 36.15,
     lng: 120.05,
-    title: { zh: '开拓隆海', en: 'Kaituo Longhai', ja: '開拓隆海' },
+    title: { zh: '开拓隆海', en: 'KaituoLonghai', ja: '開拓隆海' },
     subtitle: { zh: '青岛胶州', en: 'Jiaozhou, Qingdao', ja: '青島膠州' },
     image: '',
   },
